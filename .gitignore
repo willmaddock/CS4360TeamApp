@@ -1,0 +1,42 @@
+# Android specific files
+*.iml
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local configuration files
+local.properties
+
+# IDE specific files
+.idea/
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+
+# System files
+.DS_Store
+
+# Firebase configuration files
+google-services.json
+firebase-config.json
+
+# API keys and other sensitive files
+config/*.json
+
+# Gradle cache and logs
+.gradle/
+*.log
+
+# Miscellaneous
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
+*.orig
+*.old

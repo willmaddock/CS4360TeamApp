@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Role Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/role_prompt"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/roleSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/roles" />
+
+        <!-- Survey Priorities (Checkboxes) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/priorities_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <CheckBox
+            android:id="@+id/checkboxRealTimeUpdates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/real_time_updates" />
+
+        <CheckBox
+            android:id="@+id/checkboxAccurateNavigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accurate_navigation" />
+
+        <CheckBox
+            android:id="@+id/checkboxNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notifications" />
+
+        <CheckBox
+            android:id="@+id/checkboxEventIntegration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/event_integration" />
+
+        <CheckBox
+            android:id="@+id/checkboxReservationSystem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reservation_system" />
+
+        <CheckBox
+            android:id="@+id/checkboxUserReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_reviews" />
+
+        <CheckBox
+            android:id="@+id/checkboxPaymentOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_options" />
+
+        <CheckBox
+            android:id="@+id/checkboxParkingLotFeatures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/parking_lot_features" />
+
+        <!-- Importance of Real-time Updates -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/real_time_updates_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/realTimeUpdatesImportanceSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/importance_levels" />
+
+        <!-- Reservation Value -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reserve_parking_value_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/reserveParkingValueSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/value_levels" />
+
+        <!-- Event Integration Importance -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/event_integration_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/eventIntegrationImportanceSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/importance_levels" />
+
+        <!-- User Reviews Importance -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_reviews_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/userReviewsImportanceSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/importance_levels" />
+
+        <!-- Find Car Feature Interest -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_car_feature_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/findCarFeatureInterestSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/interest_levels" />
+
+        <!-- App Usability -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_usability_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/appUsabilitySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/usability_levels" />
+
+        <!-- Customer Support Importance -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_support_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <Spinner
+            android:id="@+id/customerSupportImportanceSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/importance_levels" />
+
+        <!-- Optional Feedback -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/biggest_concern_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/biggestConcernEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/biggest_concern_hint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/additional_features_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/additionalFeaturesEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/additional_features_hint" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/other_comments_prompt"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/otherCommentsEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/other_comments_hint" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmitSurvey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_survey_button"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>

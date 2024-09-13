@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Array of roles for the survey -->
+    <array name="roles">
+        <item>Student</item>
+        <item>Faculty</item>
+        <item>Staff</item>
+        <item>Visitor</item>
+    </array>
+
+    <!-- Array of importance levels for various features -->
+    <array name="importance_levels">
+        <item>Not Important</item>
+        <item>Somewhat Important</item>
+        <item>Important</item>
+        <item>Very Important</item>
+        <item>Extremely Important</item>
+    </array>
+
+    <!-- Array of usability levels for the app -->
+    <array name="usability_levels">
+        <item>Poor</item>
+        <item>Fair</item>
+        <item>Good</item>
+        <item>Very Good</item>
+        <item>Excellent</item>
+    </array>
+
+    <!-- Array of value levels for reservation value -->
+    <array name="value_levels">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Very High</item>
+    </array>
+
+    <!-- Array of interest levels for different features -->
+    <array name="interest_levels">
+        <item>Not Interested</item>
+        <item>Somewhat Interested</item>
+        <item>Interested</item>
+        <item>Very Interested</item>
+        <item>Extremely Interested</item>
+    </array>
+</resources>

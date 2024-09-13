@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Strings for different UI components -->
+    <string name="app_name">Parking Lot App</string>
+    <string name="survey_title">Parking Lot Survey</string>
+    <string name="submit_survey_button">Submit Survey</string>
+
+    <!-- Text for survey questions -->
+    <string name="role_prompt">Your Role</string>
+    <string name="priorities_prompt">What are your top priorities for a Parking Lot Mobile App?</string>
+    <string name="real_time_updates_prompt">How important is it for the app to provide real-time updates on parking availability?</string>
+    <string name="reserve_parking_value_prompt">How important is the reservation value?</string>
+    <string name="event_integration_prompt">How important is event integration?</string>
+    <string name="user_reviews_prompt">How important are user reviews?</string>
+    <string name="find_car_feature_prompt">How interested are you in a feature to find your parked car?</string>
+    <string name="app_usability_prompt">How would you rate the usability of the app?</string>
+    <string name="customer_support_prompt">How important is customer support to you?</string>
+    <string name="biggest_concern_prompt">What is your biggest concern regarding the app?</string>
+    <string name="additional_features_prompt">Are there any additional features you’d like to see?</string>
+    <string name="other_comments_prompt">Any other comments or suggestions?</string>
+
+    <!-- Checkboxes labels -->
+    <string name="real_time_updates">Real-time parking availability updates</string>
+    <string name="accurate_navigation">Accurate navigation to parking spots</string>
+    <string name="notifications">Notifications about lot status (e.g., full, empty)</string>
+    <string name="event_integration">Integration with campus events</string>
+    <string name="reservation_system">Reservation system for parking spots</string>
+    <string name="user_reviews">User reviews and ratings of parking lots</string>
+    <string name="payment_options">Payment options for parking fees</string>
+    <string name="parking_lot_features">Detailed information on parking lot features (e.g., security, amenities)</string>
+
+    <!-- More feature options -->
+    <string name="availability_updates">Real-time availability and occupancy updates</string>
+    <string name="turn_by_turn_navigation">Turn-by-turn navigation to parking spots</string>
+    <string name="alerts">Alerts and notifications for parking lot status changes</string>
+    <string name="reserve_pay">Ability to reserve and pay for parking spots</string>
+    <string name="user_generated_reviews">User-generated reviews and ratings for parking lots</string>
+    <string name="safety_amenities">Information on parking lot safety and amenities</string>
+    <string name="event_schedules">Integration with campus event schedules</string>
+    <string name="find_parked_car">A feature to help locate your parked car</string>
+
+    <!-- Ensure these strings are defined -->
+    <string name="submit_a_review">Submit a Review</string>
+    <string name="write_your_review">Write Your Review</string>
+    <string name="user_comment">Your Comment</string>
+    <string name="submit_review">Submit Review</string>
+    <string name="launch_survey">Take the Survey</string>
+
+    <!-- Map-related strings -->
+    <string name="maps_title">Map</string>
+    <string name="open_map">Open Map</string>
+
+    <!-- Placeholder for API Key -->
+    <!-- Note: API Key should be stored securely, not in strings.xml -->
+    <string name="average_rating_0_0">Average Rating: 0.0</string>
+    <string name="total_reviews_0">Total Reviews: 0</string>
+
+    <!-- Default text for review comments -->
+    <string name="review_comment">No comment provided</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_maps2">MapsActivity2</string>
+    <string name="CS4360App">CS4360App</string>
+
+    <!-- Added missing strings -->
+    <string name="biggest_concern_hint">What is your biggest concern?</string>
+    <string name="additional_features_hint">Additional features you’d like to see:</string>
+    <string name="other_comments_hint">Other comments:</string>
+    <string name="submit">Submit</string>
+    <!-- Placeholder for API Key (Ensure this is never exposed in public repositories) -->
+    <string name="google_maps_key">@string/google_maps_key_placeholder</string>
+
+    <!-- Placeholder for API Key (Ensure this is never exposed in public repositories) -->
+    <string name="google_maps_key_placeholder">YOUR_API_KEY_HERE</string>
+</resources>
