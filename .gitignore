@@ -8,7 +8,6 @@ captures/
 
 # Local configuration files
 local.properties
-gradle.properties
 
 # IDE specific files
 .idea/

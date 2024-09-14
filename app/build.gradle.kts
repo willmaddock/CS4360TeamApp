@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cs4360app"
-        minSdk = 21
+        minSdk = 25 // Updated to 25 to match the library requirements
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -25,6 +25,15 @@ android {
         buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("/Users/williammaddock/Desktop/CS4360/new_keystore.jks")  // Update to the path of your new keystore
+            storePassword = "Rnb105bm!"  // Update with your keystore password
+            keyAlias = "newkeyalias"  // Update with your key alias
+            keyPassword = "Rnb105bm!"  // Update with your key password
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -33,6 +42,7 @@ android {
                 "proguard-rules.pro"
             )
             buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
+            signingConfig = signingConfigs.getByName("release")
         }
         debug {
             buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
@@ -87,6 +97,7 @@ dependencies {
     // RecyclerView and Activity dependencies
     implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation("androidx.activity:activity:1.6.1")
+    implementation(libs.androidx.compose.material)
 
     // Testing dependencies
     testImplementation("junit:junit:4.13.2")

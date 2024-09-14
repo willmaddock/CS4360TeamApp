@@ -29,16 +29,31 @@
 
         <Button
             android:id="@+id/zoom_in_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Zoom In" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="Zoom In"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical" />
 
         <Button
             android:id="@+id/zoom_out_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:text="Zoom Out"
-            android:layout_marginStart="8dp" />
+            android:textSize="12sp"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical" />
+
+        <ToggleButton
+            android:id="@+id/cost_filter_toggle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:textOn="Cost Filter: ON"
+            android:textOff="Cost Filter: OFF"
+            android:textSize="12sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

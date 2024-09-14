@@ -66,9 +66,10 @@
     <string name="additional_features_hint">Additional features you’d like to see:</string>
     <string name="other_comments_hint">Other comments:</string>
     <string name="submit">Submit</string>
-    <!-- Placeholder for API Key (Ensure this is never exposed in public repositories) -->
-    <string name="google_maps_key">@string/google_maps_key_placeholder</string>
 
     <!-- Placeholder for API Key (Ensure this is never exposed in public repositories) -->
+
+
+    <string name="google_maps_key">@string/google_maps_key_placeholder</string>
     <string name="google_maps_key_placeholder">YOUR_API_KEY_HERE</string>
 </resources>

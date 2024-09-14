@@ -4,10 +4,14 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CompoundButton
+import android.widget.Switch
 import android.widget.Toast
+import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.wear.compose.material.ToggleButton
 import com.example.cs4360app.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -27,6 +31,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val LOCATION_REQUEST_CODE = 1000
 
     private val GARAGE_LOCATION = LatLng(39.7392, -104.9903) // Coordinates for 7th Street Garage
+    private var costFilterEnabled = false
+    private var maxCost = -1.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,20 +52,39 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             zoomOut()
         }
 
+        // Set up cost filter toggle button
+        val costFilterToggle = findViewById<ToggleButton>(R.id.cost_filter_toggle)
+        costFilterToggle.setOnCheckedChangeListener { _, isChecked ->
+            costFilterEnabled = isChecked
+            if (costFilterEnabled) {
+                applyCostFilter(maxCost)
+            } else {
+                showAllParkingLots()
+            }
+        }
+
         checkLocationPermission()
+
+        // Retrieve max cost from intent if provided
+        maxCost = intent.getDoubleExtra("maxCost", -1.0)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
         // Enable the 'My Location' button if the permission is granted
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.isMyLocationEnabled = true
         }
 
         // Set the map's default location to 7th Street Garage
         mMap.addMarker(MarkerOptions().position(GARAGE_LOCATION).title("7th Street Garage"))
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GARAGE_LOCATION, currentZoomLevel))
+
+        // Apply the cost filter if it was enabled previously
+        if (costFilterEnabled && maxCost != -1.0) {
+            applyCostFilter(maxCost)
+        }
     }
 
     private fun zoomIn() {
@@ -81,9 +106,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_REQUEST_CODE)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_REQUEST_CODE)
         }
     }
 
@@ -104,13 +129,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                             Manifest.permission.ACCESS_COARSE_LOCATION
                         ) != PackageManager.PERMISSION_GRANTED
                     ) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
                         return
                     }
                     mMap.isMyLocationEnabled = true
@@ -120,5 +138,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun applyCostFilter(maxCost: Double) {
+        // Implement filtering logic based on maxCost
+        // Example placeholder function
+        Toast.makeText(this, "Applying cost filter with max cost: $$maxCost", Toast.LENGTH_SHORT).show()
+        // Update map markers based on filtered parking lots
+    }
+
+    private fun showAllParkingLots() {
+        // Implement logic to show all parking lots without any filter
+        Toast.makeText(this, "Showing all parking lots", Toast.LENGTH_SHORT).show()
+        // Update map markers to show all parking lots
     }
 }
