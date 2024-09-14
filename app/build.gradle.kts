@@ -27,10 +27,10 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("/Users/williammaddock/Desktop/CS4360/new_keystore.jks")  // Update to the path of your new keystore
-            storePassword = "Rnb105bm!"  // Update with your keystore password
+            storeFile = file("/Users/Your_Local/Desktop/CS4360/new_keystore.jks")  // Update to the path of your new keystore
+            storePassword = "password"  // Update with your keystore password
             keyAlias = "newkeyalias"  // Update with your key alias
-            keyPassword = "Rnb105bm!"  // Update with your key password
+            keyPassword = "password"  // Update with your key password
         }
     }
 
