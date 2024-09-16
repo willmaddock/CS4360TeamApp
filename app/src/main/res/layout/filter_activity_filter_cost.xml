@@ -23,11 +23,49 @@
         android:max="100"
         android:progress="0" />
 
+    <!-- ToggleButton for enabling/disabling cost filter -->
+    <ToggleButton
+        android:id="@+id/cost_filter_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Cost Filter"
+        android:layout_marginTop="16dp" />
+
     <!-- RecyclerView for displaying the filtered parking lots (if applicable) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/parkingLotRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" /> <!-- Make visible if displaying parking lots -->
+
+    <!-- Buttons for zooming in and out on the map -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/zoom_in_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Zoom In" />
+
+        <Button
+            android:id="@+id/zoom_out_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Zoom Out" />
+    </LinearLayout>
+
+    <!-- Map Fragment to display Google Maps -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>

@@ -5,7 +5,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SurveyActivity">
+    tools:context=".activities.SubmitReviewActivity">
+
+    <!-- Spinner for selecting a parking lot -->
+    <Spinner
+        android:id="@+id/parkingLotSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- TextView for parking lot details -->
+    <TextView
+        android:id="@+id/parkingLotDetailsTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/parking_lot_details"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/parkingLotSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Spinner for category selection -->
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/parkingLotDetailsTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- TextView for category options -->
+    <TextView
+        android:id="@+id/categoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rate_specific_aspects"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/categorySpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
 
     <!-- Rating bar for stars -->
     <RatingBar
@@ -14,7 +66,7 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="1.0"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoryLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
@@ -54,14 +106,26 @@
         android:id="@+id/commentEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Write your review here"
+        android:hint="@string/write_your_review_here"
+        android:inputType="textMultiLine"
         app:layout_constraintTop_toBottomOf="@id/reviewCountTextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/submitReviewButton"
+        app:layout_constraintBottom_toTopOf="@id/uploadImageButton"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
+
+    <!-- Button to upload an image -->
+    <Button
+        android:id="@+id/uploadImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_photo"
+        app:layout_constraintTop_toBottomOf="@id/commentEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
 
     <!-- Button to submit review -->
     <Button
@@ -69,7 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit Review"
-        app:layout_constraintTop_toBottomOf="@id/commentEditText"
+        app:layout_constraintTop_toBottomOf="@id/uploadImageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
@@ -86,5 +150,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.5"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

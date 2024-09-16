@@ -67,9 +67,13 @@
     <string name="other_comments_hint">Other comments:</string>
     <string name="submit">Submit</string>
 
+    <!-- Strings for Submit Review Activity -->
+    <string name="parking_lot_details">Parking Lot Details</string>
+    <string name="rate_specific_aspects">Rate Specific Aspects</string>
+    <string name="write_your_review_here">Write your review here</string>
+    <string name="upload_photo">Upload Photo</string>
+
     <!-- Placeholder for API Key (Ensure this is never exposed in public repositories) -->
-
-
     <string name="google_maps_key">@string/google_maps_key_placeholder</string>
     <string name="google_maps_key_placeholder">YOUR_API_KEY_HERE</string>
 </resources>

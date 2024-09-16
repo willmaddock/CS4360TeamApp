@@ -9,6 +9,7 @@ enum class MSUDCampusLocation {
     NINTH_AND_WALNUT
 }
 
+// Data class for parking lots
 data class ParkingLot(
     val id: String,
     val name: String,
