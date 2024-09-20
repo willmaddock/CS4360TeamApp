@@ -102,13 +102,6 @@
         android:layout_marginEnd="16dp"/>
 
     <!-- EditText for user comment -->
-
-    <!-- Button to upload an image -->
-
-    <!-- Button to submit review -->
-
-    <!-- ProgressBar for loading state -->
-
     <EditText
         android:id="@+id/commentEditText"
         android:layout_width="0dp"
@@ -118,34 +111,33 @@
         android:layout_marginEnd="16dp"
         android:hint="@string/write_your_review_here"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@id/uploadImageButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/reviewCountTextView" />
 
+    <!-- Button to upload an image -->
     <Button
         android:id="@+id/uploadImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="16dp"
         android:text="@string/upload_photo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/commentEditText" />
 
+    <!-- Button to submit review -->
     <Button
         android:id="@+id/submitReviewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Submit Review"
+        android:layout_marginTop="16dp"
+        android:text="@string/submit_review"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/uploadImageButton" />
 
+    <!-- ProgressBar for loading state -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -157,4 +149,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.5"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,14 +22,16 @@ local.properties
 .DS_Store
 
 # Firebase configuration files
-
 firebase-config.json
 
 # API keys and other sensitive files
 config/*.json
+auth_config_single_account.json  # MSAL config file, make sure not to expose sensitive info
+app/google-services.json
+app/google_maps_api.xml
+app/src/main/res/values/secrets.xml  # Ignore secrets.xml for security
 
 # Gradle cache and logs
-.gradle/
 *.log
 
 # Miscellaneous
@@ -40,3 +42,11 @@ config/*.json
 *.swn
 *.orig
 *.old
+
+# APK and build outputs
+*.apk
+*.ap_
+
+# Ignore key files for security
+/keys/
+app/src/main/res/values/secrets.xml

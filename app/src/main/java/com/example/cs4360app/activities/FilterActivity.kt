@@ -75,13 +75,16 @@ class FilterActivity : AppCompatActivity() {
             isMsudParkingLot = false
         )
 
+        // Update SeekBar and display the cost in $0.50 increments
         seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                selectedCostText?.text = "Max Cost: $$progress"
+                // Convert the progress value to a cost with $0.50 increments
+                val maxCost = progress * 0.5
+                selectedCostText?.text = "Max Cost: $$maxCost"
 
                 // Pass the filter data (max cost) to MapsActivity
                 val intent = Intent(this@FilterActivity, MapsActivity::class.java)
-                intent.putExtra("maxCost", progress.toDouble())
+                intent.putExtra("maxCost", maxCost)
                 startActivity(intent)
             }
 
