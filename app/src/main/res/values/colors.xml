@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FFA500</color> <!-- Example color definition -->
     <color name="colorAccent">#FF4081</color> <!-- Example color -->
+    <color name="blue">#3b5998</color>
 </resources>

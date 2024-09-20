@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/strings.xml -->
 <resources>
     <!-- Application Name -->
     <string name="app_name">Parking Lot App</string>
 
     <!-- Login -->
     <string name="login">Login</string>
-    <string name="register">Register</string> <!-- Added Register string -->
+    <string name="register">Register</string>
     <string name="email_hint">Enter your email</string>
     <string name="password_hint">Enter your password</string>
 
@@ -71,7 +71,7 @@
     <string name="title_activity_maps2">MapsActivity2</string>
     <string name="CS4360App">CS4360App</string>
 
-    <!-- Added missing strings -->
+    <!-- Additional strings -->
     <string name="biggest_concern_hint">What is your biggest concern?</string>
     <string name="additional_features_hint">Additional features you’d like to see:</string>
     <string name="other_comments_hint">Other comments:</string>
@@ -82,8 +82,6 @@
     <string name="write_your_review_here">Write your review here...</string>
     <string name="upload_photo">Upload Photo</string>
 
-    <!-- Placeholder for API Key (Ensure this is never exposed in public repositories) -->
-    <string name="google_maps_key">@string/google_maps_key_placeholder</string>
-    <string name="google_maps_key_placeholder">YOUR_API_KEY_HERE</string>
-    <string name="default_web_client_id">YOUR_API_KEY_HERE</string>
+    <!-- Facebook App ID -->
+    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
 </resources>

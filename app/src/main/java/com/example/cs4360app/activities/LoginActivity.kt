@@ -18,15 +18,25 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
+import com.facebook.FacebookSdk
+import com.google.firebase.auth.FacebookAuthProvider
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var callbackManager: CallbackManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FacebookSdk.sdkInitialize(applicationContext) // Initialize Facebook SDK
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -40,6 +50,25 @@ class LoginActivity : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        // Initialize Facebook Login
+        callbackManager = CallbackManager.Factory.create()
+        binding.facebookLoginButton.setOnClickListener {
+            LoginManager.getInstance().logInWithReadPermissions(this, listOf("email", "public_profile"))
+            LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                override fun onSuccess(result: LoginResult) {
+                    handleFacebookAccessToken(result.accessToken)
+                }
+
+                override fun onCancel() {
+                    Toast.makeText(this@LoginActivity, "Facebook login canceled", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onError(error: FacebookException) {
+                    Toast.makeText(this@LoginActivity, "Facebook login failed: ${error.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
 
         binding.btnLogin.setOnClickListener {
             val email = binding.emailEditText.text.toString()
@@ -61,7 +90,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            // Intent to navigate to the registration activity
             startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
@@ -87,6 +115,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        callbackManager.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -116,6 +145,21 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Log.w("LoginActivity", "Google authentication failed", task.exception)
                     Toast.makeText(this, "Google authentication failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun handleFacebookAccessToken(token: AccessToken) {
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d("LoginActivity", "Facebook authentication successful")
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                } else {
+                    Log.w("LoginActivity", "Facebook authentication failed", task.exception)
+                    Toast.makeText(this, "Facebook authentication failed", Toast.LENGTH_SHORT).show()
                 }
             }
     }

@@ -42,17 +42,21 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
         viewBinding = true
         compose = true
         buildConfig = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -78,6 +82,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx:21.1.0")
     implementation("com.google.firebase:firebase-firestore-ktx:24.4.0")
     implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
+    implementation("com.facebook.android:facebook-android-sdk:12.3.0") // Use the latest version
 
     // Google Maps and Places APIs
     implementation("com.google.android.gms:play-services-maps:18.1.0")
