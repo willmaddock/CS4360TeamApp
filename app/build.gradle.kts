@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cs4360app"
-        minSdk = 25 // Updated to 25 to match the library requirements
+        minSdk = 25
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -25,15 +25,6 @@ android {
         buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
     }
 
-    signingConfigs {
-        create("release") {
-            storeFile = file("/Users/Your_Local/Desktop/CS4360/new_keystore.jks")  // Update to the path of your new keystore
-            storePassword = "password"  // Update with your keystore password
-            keyAlias = "newkeyalias"  // Update with your key alias
-            keyPassword = "password"  // Update with your key password
-        }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -41,11 +32,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
-            signingConfig = signingConfigs.getByName("release")
         }
         debug {
-            buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
+            // Debug-specific configurations can go here
         }
     }
 
@@ -88,17 +77,19 @@ dependencies {
     // Firebase dependencies
     implementation("com.google.firebase:firebase-analytics-ktx:21.1.0")
     implementation("com.google.firebase:firebase-firestore-ktx:24.4.0")
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
 
     // Google Maps and Places APIs
     implementation("com.google.android.gms:play-services-maps:18.1.0")
-    implementation("com.google.android.gms:play-services-maps:18.0.2")
     implementation("com.google.android.libraries.places:places:2.7.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
 
     // RecyclerView and Activity dependencies
     implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation("androidx.activity:activity:1.6.1")
-    implementation(libs.androidx.compose.material)
+
+    // Google Sign-In
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
 
     // Testing dependencies
     testImplementation("junit:junit:4.13.2")

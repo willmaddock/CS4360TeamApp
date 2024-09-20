@@ -22,7 +22,7 @@ local.properties
 .DS_Store
 
 # Firebase configuration files
-google-services.json
+
 firebase-config.json
 
 # API keys and other sensitive files
