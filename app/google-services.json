@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "15397752623",
+    "project_id": "cs4360app",
+    "storage_bucket": "cs4360app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15397752623:android:41623022d6a7fa56ed9bda",
+        "android_client_info": {
+          "package_name": "com.example.cs4360app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15397752623-cnkiajgl6l8mqaqeank7am8c4fpu3s37.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cs4360app",
+            "certificate_hash": "a4a5d09599d8e26555a6760b2a7e82f8228496ac"
+          }
+        },
+        {
+          "client_id": "15397752623-6bulkiva04tugfdh96u2vrcsvhrji0gv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCPrA5-Fan_LPmWcUk9KzY8gX--ucjEfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15397752623-6bulkiva04tugfdh96u2vrcsvhrji0gv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

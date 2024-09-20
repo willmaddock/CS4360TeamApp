@@ -42,4 +42,7 @@
         <item>Very Interested</item>
         <item>Extremely Interested</item>
     </array>
+    <string-array name="email_providers">val emailProviders = listOf("gmail.com", "yahoo.com",
+        "hotmail.com")
+    </string-array>
 </resources>

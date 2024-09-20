@@ -1,5 +1,6 @@
 package com.example.cs4360app.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -21,8 +22,9 @@ class ReviewAdapter(private val reviews: List<Review>) : RecyclerView.Adapter<Re
 
     class ReviewViewHolder(private val binding: ItemReviewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(review: Review) {
+            Log.d("ReviewAdapter", "Binding review: Rating=${review.rating}, Comment=${review.comment}")
             binding.ratingBar.rating = review.rating
-            binding.reviewCommentTextView.text = review.comment  // Updated reference
+            binding.reviewCommentTextView.text = review.comment
         }
     }
 }

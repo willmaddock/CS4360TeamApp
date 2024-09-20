@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Strings for different UI components -->
+    <!-- Application Name -->
     <string name="app_name">Parking Lot App</string>
+
+    <!-- Login -->
+    <string name="login">Login</string>
+    <string name="register">Register</string> <!-- Added Register string -->
+    <string name="email_hint">Enter your email</string>
+    <string name="password_hint">Enter your password</string>
+
+    <!-- Buttons and Actions -->
+    <string name="open_map">Open Map</string>
+    <string name="submit">Submit</string>
+
+    <!-- Survey and Review -->
     <string name="survey_title">Parking Lot Survey</string>
     <string name="submit_survey_button">Submit Survey</string>
 
@@ -48,10 +60,8 @@
 
     <!-- Map-related strings -->
     <string name="maps_title">Map</string>
-    <string name="open_map">Open Map</string>
 
     <!-- Placeholder for API Key -->
-    <!-- Note: API Key should be stored securely, not in strings.xml -->
     <string name="average_rating_0_0">Average Rating: 0.0</string>
     <string name="total_reviews_0">Total Reviews: 0</string>
 
@@ -65,11 +75,15 @@
     <string name="biggest_concern_hint">What is your biggest concern?</string>
     <string name="additional_features_hint">Additional features you’d like to see:</string>
     <string name="other_comments_hint">Other comments:</string>
-    <string name="submit">Submit</string>
+
+    <!-- Additional missing strings -->
+    <string name="parking_lot_details">Parking Lot Details</string>
+    <string name="rate_specific_aspects">Rate Specific Aspects</string>
+    <string name="write_your_review_here">Write your review here...</string>
+    <string name="upload_photo">Upload Photo</string>
 
     <!-- Placeholder for API Key (Ensure this is never exposed in public repositories) -->
-
-
     <string name="google_maps_key">@string/google_maps_key_placeholder</string>
     <string name="google_maps_key_placeholder">YOUR_API_KEY_HERE</string>
+    <string name="default_web_client_id">YOUR_API_KEY_HERE</string>
 </resources>

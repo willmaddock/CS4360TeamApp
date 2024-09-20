@@ -1,9 +1,8 @@
-package com.example.cs4360app.adapters
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cs4360app.R
 import com.example.cs4360app.models.ParkingLot
@@ -39,7 +38,28 @@ class ParkingLotAdapter(private var parkingLots: List<ParkingLot>) : RecyclerVie
 
     // Updates the data set for the adapter and refreshes the RecyclerView
     fun updateData(newParkingLots: List<ParkingLot>) {
+        val diffCallback = ParkingLotDiffCallback(parkingLots, newParkingLots)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
         this.parkingLots = newParkingLots
-        notifyDataSetChanged() // Notify the adapter that the data has changed
+        diffResult.dispatchUpdatesTo(this)
+    }
+}
+
+// DiffUtil.Callback implementation to calculate the difference between old and new list
+class ParkingLotDiffCallback(
+    private val oldList: List<ParkingLot>,
+    private val newList: List<ParkingLot>
+) : DiffUtil.Callback() {
+
+    override fun getOldListSize(): Int = oldList.size
+
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition].id == newList[newItemPosition].id // Assuming each parking lot has a unique ID
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition] == newList[newItemPosition]
     }
 }
