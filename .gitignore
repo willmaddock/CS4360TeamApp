@@ -49,3 +49,4 @@ app/src/main/res/values/secrets.xml  # Ignore secrets.xml for security
 
 # Ignore key files for security
 /keys/
+app/src/main/res/values/secrets.xml
