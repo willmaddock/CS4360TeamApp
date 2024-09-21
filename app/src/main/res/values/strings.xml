@@ -1,7 +1,6 @@
-<!-- res/values/strings.xml -->
 <resources>
     <!-- Application Name -->
-    <string name="app_name">Parking Lot App</string>
+    <string name="app_name">Auraria Mobile Parking</string>
 
     <!-- Login -->
     <string name="login">Login</string>
