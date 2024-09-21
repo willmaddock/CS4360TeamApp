@@ -81,9 +81,6 @@
     <string name="write_your_review_here">Write your review here...</string>
     <string name="upload_photo">Upload Photo</string>
 
-    <!-- Facebook App ID -->
-    <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
-
     <!-- Petition Title -->
     <string name="petition_title">Submit Petition</string> <!-- Added petition title -->
 </resources>
