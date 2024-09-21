@@ -1,8 +1,8 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("com.google.gms.google-services")
-    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
+    id("com.google.gms.google-services") // For Firebase services
+    alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin) // For managing API keys securely
 }
 
 android {
@@ -21,7 +21,7 @@ android {
             useSupportLibrary = true
         }
 
-        // Include the API key from gradle.properties
+        // Include the API key from gradle.properties for Google Maps
         buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
     }
 
@@ -48,9 +48,9 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
-        compose = true
-        buildConfig = true
+        viewBinding = true // Enable ViewBinding
+        compose = true     // Enable Jetpack Compose
+        buildConfig = true // Enable BuildConfig
     }
 
     composeOptions {
@@ -59,12 +59,13 @@ android {
 
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/{AL2.0,LGPL2.1}" // Exclude unnecessary resources
         }
     }
 }
 
 dependencies {
+    // Core Android dependencies
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.9.0")
@@ -82,7 +83,9 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx:21.1.0")
     implementation("com.google.firebase:firebase-firestore-ktx:24.4.0")
     implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
-    implementation("com.facebook.android:facebook-android-sdk:12.3.0") // Use the latest version
+
+    // Facebook SDK (for social login or sharing)
+    implementation("com.facebook.android:facebook-android-sdk:12.3.0")
 
     // Google Maps and Places APIs
     implementation("com.google.android.gms:play-services-maps:18.1.0")
@@ -101,3 +104,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+
+// Apply the Google services Gradle plugin
+apply(plugin = "com.google.gms.google-services")

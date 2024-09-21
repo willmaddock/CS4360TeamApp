@@ -7,13 +7,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cs4360app.activities.LoginActivity
-import com.example.cs4360app.activities.MapsActivity
-import com.example.cs4360app.activities.SurveyActivity
-import com.example.cs4360app.activities.SubmitReviewActivity
+import com.example.cs4360app.activities.*
 import com.example.cs4360app.adapters.ReviewAdapter
 import com.example.cs4360app.databinding.ActivityMainBinding
 import com.example.cs4360app.models.Review
+import com.example.cs4360app.models.Petition
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
-    // Define constants at the top for easy adjustments
     companion object {
         private const val MAX_COST = 10.0 // Example value
         private const val TAG = "MainActivity"
@@ -39,44 +36,56 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        // Set up the RecyclerView for displaying reviews
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Fetch reviews and display them
+        // Fetch reviews from Firestore and display them in the RecyclerView
         fetchReviews()
 
-        // Set click listeners
+        // Set up button click listeners
         setupClickListeners()
 
-        // Update UI based on authentication state
+        // Update UI based on the current authentication state
         updateUI()
     }
 
     private fun setupClickListeners() {
+        // Handle the "Submit Review" button click
         binding.btnSubmitReview.setOnClickListener {
             Log.d(TAG, "Submit Review Button Clicked")
             startActivity(Intent(this, SubmitReviewActivity::class.java))
         }
 
+        // Handle the "Survey" button click
         binding.buttonSurvey.setOnClickListener {
             Log.d(TAG, "Survey Button Clicked")
             startActivity(Intent(this, SurveyActivity::class.java))
         }
 
+        // Handle the "Map" button click
         binding.mapButton.setOnClickListener {
             Log.d(TAG, "Map Button Clicked")
             val intent = Intent(this, MapsActivity::class.java)
-            intent.putExtra("maxCost", MAX_COST)
+            intent.putExtra("maxCost", MAX_COST) // Example: Pass a maximum cost parameter
             startActivity(intent)
         }
 
+        // Handle the "Login" button click
         binding.loginButton.setOnClickListener {
             Log.d(TAG, "Login Button Clicked")
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
+        // Handle the "Logout" button click
         binding.logoutButton.setOnClickListener {
             Log.d(TAG, "Logout Button Clicked")
             logoutUser()
+        }
+
+        // Handle the "Submit Petition" button click
+        binding.buttonPetition.setOnClickListener {
+            Log.d(TAG, "Submit Petition Button Clicked")
+            startActivity(Intent(this, PetitionActivity::class.java))
         }
     }
 
@@ -102,17 +111,17 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            binding.loginButton.visibility = View.GONE // Hide login button
-            binding.logoutButton.visibility = View.VISIBLE // Show logout button
+            binding.loginButton.visibility = View.GONE
+            binding.logoutButton.visibility = View.VISIBLE
         } else {
-            binding.loginButton.visibility = View.VISIBLE // Show login button
-            binding.logoutButton.visibility = View.GONE // Hide logout button
+            binding.loginButton.visibility = View.VISIBLE
+            binding.logoutButton.visibility = View.GONE
         }
     }
 
     private fun logoutUser() {
         auth.signOut()
-        updateUI() // Update UI after logout
+        updateUI()
         Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
     }
 }

@@ -67,5 +67,11 @@
             android:exported="false"
             android:label="@string/submit_review"
             android:theme="@style/Theme.CS4360App" />
+
+        <activity
+            android:name=".activities.PetitionActivity"
+            android:exported="true"
+            android:label="@string/petition_title"
+            android:theme="@style/Theme.CS4360App" />
     </application>
 </manifest>

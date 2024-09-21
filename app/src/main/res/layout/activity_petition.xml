@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_petition"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/petitionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Petition"
+        android:textSize="24sp"
+        android:padding="8dp" />
+
+    <EditText
+        android:id="@+id/petitionDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Describe your issue"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:padding="8dp" />
+
+    <EditText
+        android:id="@+id/gracePeriodSuggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Suggest a grace period (optional)"
+        android:inputType="text"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/submitPetitionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Petition"
+        android:padding="8dp" />
+</LinearLayout>
