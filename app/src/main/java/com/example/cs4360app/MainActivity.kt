@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cs4360app.activities.LoginActivity
 import com.example.cs4360app.activities.MapsActivity
+import com.example.cs4360app.activities.SelectParkingLot
 import com.example.cs4360app.activities.SurveyActivity
 import com.example.cs4360app.activities.SubmitReviewActivity
 import com.example.cs4360app.adapters.ReviewAdapter
@@ -77,6 +78,10 @@ class MainActivity : AppCompatActivity() {
         binding.logoutButton.setOnClickListener {
             Log.d(TAG, "Logout Button Clicked")
             logoutUser()
+        }
+        binding.paymentButton.setOnClickListener {
+            Log.d(TAG, "Payment Button Clicked")
+            startActivity(Intent(this, SelectParkingLot::class.java))
         }
     }
 
