@@ -7,10 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cs4360app.activities.LoginActivity
-import com.example.cs4360app.activities.MapsActivity
-import com.example.cs4360app.activities.SurveyActivity
-import com.example.cs4360app.activities.SubmitReviewActivity
+import com.example.cs4360app.activities.*
 import com.example.cs4360app.adapters.ReviewAdapter
 import com.example.cs4360app.databinding.ActivityMainBinding
 import com.example.cs4360app.models.Review
@@ -24,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
-    // Define constants at the top for easy adjustments
     companion object {
         private const val MAX_COST = 10.0 // Example value
         private const val TAG = "MainActivity"
@@ -40,14 +36,8 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(this)
-
-        // Fetch reviews and display them
         fetchReviews()
-
-        // Set click listeners
         setupClickListeners()
-
-        // Update UI based on authentication state
         updateUI()
     }
 
@@ -78,6 +68,17 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "Logout Button Clicked")
             logoutUser()
         }
+
+        // Handle the "Submit Petition" button click
+        binding.buttonPetition.setOnClickListener {
+            Log.d(TAG, "Submit Petition Button Clicked")
+            startActivity(Intent(this, PetitionActivity::class.java)) // Update to correct activity
+        }
+
+        binding.paymentButton.setOnClickListener {
+            Log.d(TAG, "Payment Button Clicked")
+            startActivity(Intent(this, SelectParkingLot::class.java))
+        }
     }
 
     private fun fetchReviews() {
@@ -104,15 +105,17 @@ class MainActivity : AppCompatActivity() {
         if (currentUser != null) {
             binding.loginButton.visibility = View.GONE // Hide login button
             binding.logoutButton.visibility = View.VISIBLE // Show logout button
+            binding.buttonPetition.visibility = View.VISIBLE // Show submit petition button
         } else {
             binding.loginButton.visibility = View.VISIBLE // Show login button
             binding.logoutButton.visibility = View.GONE // Hide logout button
+            binding.buttonPetition.visibility = View.GONE // Hide submit petition button
         }
     }
 
     private fun logoutUser() {
         auth.signOut()
-        updateUI() // Update UI after logout
+        updateUI()
         Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
     }
 }

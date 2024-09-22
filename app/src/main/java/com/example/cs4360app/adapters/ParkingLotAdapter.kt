@@ -1,3 +1,6 @@
+package com.example.cs4360app.adapters
+
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -5,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cs4360app.R
+import com.example.cs4360app.activities.PayParkingLot
 import com.example.cs4360app.models.ParkingLot
 
 class ParkingLotAdapter(private var parkingLots: List<ParkingLot>) : RecyclerView.Adapter<ParkingLotAdapter.ParkingLotViewHolder>() {
@@ -19,6 +23,14 @@ class ParkingLotAdapter(private var parkingLots: List<ParkingLot>) : RecyclerVie
             lotNameTextView.text = parkingLot.name
             lotCostTextView.text = "Cost: $${parkingLot.cost}"
             lotRatingTextView.text = "Rating: ${parkingLot.rating}"
+
+            // Setting an onClickListener for each ParkingLot item
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, PayParkingLot::class.java)
+                // Pass any necessary data about the ParkingLot
+                intent.putExtra("parkingLotId", parkingLot.id)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 
