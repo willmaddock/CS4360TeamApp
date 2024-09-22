@@ -73,5 +73,19 @@
             android:exported="true"
             android:label="@string/petition_title"
             android:theme="@style/Theme.CS4360App" />
+
+        <!-- Added SelectParkingLot Activity -->
+        <activity
+            android:name=".activities.SelectParkingLot"
+            android:exported="true"
+            android:label="@string/select_parking_lot_title"
+            android:theme="@style/Theme.CS4360App" />
+
+        <!-- Added PayParkingLot Activity -->
+        <activity
+            android:name=".activities.PayParkingLot"
+            android:exported="true"
+            android:label="@string/pay_parking_lot"
+            android:theme="@style/Theme.CS4360App" />
     </application>
 </manifest>

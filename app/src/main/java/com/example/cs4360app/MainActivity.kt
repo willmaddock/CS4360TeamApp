@@ -11,7 +11,6 @@ import com.example.cs4360app.activities.*
 import com.example.cs4360app.adapters.ReviewAdapter
 import com.example.cs4360app.databinding.ActivityMainBinding
 import com.example.cs4360app.models.Review
-import com.example.cs4360app.models.Petition
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -36,47 +35,35 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        // Set up the RecyclerView for displaying reviews
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(this)
-
-        // Fetch reviews from Firestore and display them in the RecyclerView
         fetchReviews()
-
-        // Set up button click listeners
         setupClickListeners()
-
-        // Update UI based on the current authentication state
         updateUI()
     }
 
     private fun setupClickListeners() {
-        // Handle the "Submit Review" button click
         binding.btnSubmitReview.setOnClickListener {
             Log.d(TAG, "Submit Review Button Clicked")
             startActivity(Intent(this, SubmitReviewActivity::class.java))
         }
 
-        // Handle the "Survey" button click
         binding.buttonSurvey.setOnClickListener {
             Log.d(TAG, "Survey Button Clicked")
             startActivity(Intent(this, SurveyActivity::class.java))
         }
 
-        // Handle the "Map" button click
         binding.mapButton.setOnClickListener {
             Log.d(TAG, "Map Button Clicked")
             val intent = Intent(this, MapsActivity::class.java)
-            intent.putExtra("maxCost", MAX_COST) // Example: Pass a maximum cost parameter
+            intent.putExtra("maxCost", MAX_COST)
             startActivity(intent)
         }
 
-        // Handle the "Login" button click
         binding.loginButton.setOnClickListener {
             Log.d(TAG, "Login Button Clicked")
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        // Handle the "Logout" button click
         binding.logoutButton.setOnClickListener {
             Log.d(TAG, "Logout Button Clicked")
             logoutUser()
@@ -85,7 +72,12 @@ class MainActivity : AppCompatActivity() {
         // Handle the "Submit Petition" button click
         binding.buttonPetition.setOnClickListener {
             Log.d(TAG, "Submit Petition Button Clicked")
-            startActivity(Intent(this, PetitionActivity::class.java))
+            startActivity(Intent(this, PetitionActivity::class.java)) // Update to correct activity
+        }
+
+        binding.paymentButton.setOnClickListener {
+            Log.d(TAG, "Payment Button Clicked")
+            startActivity(Intent(this, SelectParkingLot::class.java))
         }
     }
 
@@ -111,11 +103,13 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            binding.loginButton.visibility = View.GONE
-            binding.logoutButton.visibility = View.VISIBLE
+            binding.loginButton.visibility = View.GONE // Hide login button
+            binding.logoutButton.visibility = View.VISIBLE // Show logout button
+            binding.buttonPetition.visibility = View.VISIBLE // Show submit petition button
         } else {
-            binding.loginButton.visibility = View.VISIBLE
-            binding.logoutButton.visibility = View.GONE
+            binding.loginButton.visibility = View.VISIBLE // Show login button
+            binding.logoutButton.visibility = View.GONE // Hide logout button
+            binding.buttonPetition.visibility = View.GONE // Hide submit petition button
         }
     }
 
