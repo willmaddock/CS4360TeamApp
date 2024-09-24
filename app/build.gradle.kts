@@ -83,6 +83,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx:21.1.0")
     implementation("com.google.firebase:firebase-firestore-ktx:24.4.0")
     implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
+    implementation("com.google.firebase:firebase-messaging-ktx:23.2.0") // Added FCM dependency
 
     // Facebook SDK (for social login or sharing)
     implementation("com.facebook.android:facebook-android-sdk:12.3.0")
@@ -93,7 +94,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.0.1")
 
     // RecyclerView and Activity dependencies
-    implementation("androidx.recyclerview:recyclerview:1.3.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.0") // RecyclerView dependency
     implementation("androidx.activity:activity:1.6.1")
 
     // Google Sign-In

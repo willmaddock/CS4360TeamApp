@@ -1,9 +1,11 @@
 package com.example.cs4360app
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +26,11 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val MAX_COST = 10.0 // Example value
         private const val TAG = "MainActivity"
+        private var instance: MainActivity? = null
+
+        fun getInstance(): MainActivity? {
+            return instance
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        instance = this // Set instance when the activity is created
         auth = FirebaseAuth.getInstance()
 
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -69,15 +77,21 @@ class MainActivity : AppCompatActivity() {
             logoutUser()
         }
 
-        // Handle the "Submit Petition" button click
         binding.buttonPetition.setOnClickListener {
             Log.d(TAG, "Submit Petition Button Clicked")
-            startActivity(Intent(this, PetitionActivity::class.java)) // Update to correct activity
+            startActivity(Intent(this, PetitionActivity::class.java))
         }
 
         binding.paymentButton.setOnClickListener {
             Log.d(TAG, "Payment Button Clicked")
             startActivity(Intent(this, SelectParkingLot::class.java))
+        }
+
+        // New Notification Button Click Listener
+        binding.notificationButton.setOnClickListener {
+            Log.d(TAG, "Notification Button Clicked")
+            // Add your code to handle notifications, such as opening a notifications activity or displaying a dialog
+            startActivity(Intent(this, NotificationsActivity::class.java)) // Assume you have a NotificationsActivity
         }
     }
 
@@ -117,5 +131,21 @@ class MainActivity : AppCompatActivity() {
         auth.signOut()
         updateUI()
         Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        instance = null // Clear the instance when the activity is destroyed
+    }
+
+    // Method to show a notification dialog (if needed)
+    fun showNotificationDialog(title: String, message: String) {
+        runOnUiThread {
+            AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
     }
 }

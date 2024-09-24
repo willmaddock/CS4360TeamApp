@@ -26,6 +26,7 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.FacebookSdk
 import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.messaging.FirebaseMessaging // Importing FCM
 
 class LoginActivity : AppCompatActivity() {
 
@@ -96,6 +97,13 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        // Subscribe to a notification topic upon successful login
+        auth.addAuthStateListener { auth ->
+            if (auth.currentUser != null) {
+                subscribeToNotifications() // Subscribe to notifications
+            }
         }
     }
 
@@ -198,6 +206,20 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
+            }
+    }
+
+    // Subscribe to notifications
+    private fun subscribeToNotifications() {
+        FirebaseMessaging.getInstance().subscribeToTopic("event_notifications")
+            .addOnCompleteListener { task ->
+                val msg = if (task.isSuccessful) {
+                    "Subscribed to event notifications"
+                } else {
+                    "Subscription failed"
+                }
+                Log.d("LoginActivity", msg)
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             }
     }
 

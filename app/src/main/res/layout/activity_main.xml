@@ -110,4 +110,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonPetition" />
 
+    <!-- Button for Notifications -->
+    <Button
+        android:id="@+id/notificationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Notifications"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paymentButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/eventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Title"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/eventDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event Details go here."
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register for Event"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
