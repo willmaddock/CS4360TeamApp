@@ -25,7 +25,8 @@ class ParkingLotAdapter(private var parkingLots: List<ParkingLot>) : RecyclerVie
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, PayParkingLot::class.java)
-                intent.putExtra("parkingLot", 1) // Pass the ParkingLot object to the PayParkingLot activity
+                intent.putExtra("parkingLotName", parkingLot.name) // Pass the ParkingLot name
+                intent.putExtra("parkingLotPrice", parkingLot.cost) // Pass the ParkingLot price
                 itemView.context.startActivity(intent)
             }
         }

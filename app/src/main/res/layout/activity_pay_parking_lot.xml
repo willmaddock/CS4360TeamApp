@@ -12,18 +12,45 @@
         style="@style/HeaderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/purple_700"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
+        android:text="Enter your payment information"
+        android:textColor="@color/purple_700"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Enter your payment information" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/title_label2"
+        style="@style/HeaderText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="Chosen Parking Lot:"
+        android:textColor="@color/purple_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/money_reminder"
+        style="@style/SubText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="104dp"
+        android:textColor="@color/purple_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/subtitle_label"
         style="@style/SubText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="196dp"
         android:text="Choose how you want to pay your parking ticket"
         android:textColor="@color/purple_700"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +75,7 @@
         <RadioButton
             android:id="@+id/faculty_radio_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Debit Card" />
     </RadioGroup>
 
@@ -56,7 +83,7 @@
         android:id="@+id/cardname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="364dp"
         android:hint="Cardholder Name"
         android:inputType="textPersonName"
         android:padding="16dp"

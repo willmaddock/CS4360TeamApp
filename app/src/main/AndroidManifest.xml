@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cs4360app">
-
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -15,18 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CS4360App">
-
+        <activity
+            android:name=".activities.ParkingTimer"
+            android:exported="false" />
         <!-- API Key for Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <!-- Facebook App ID -->
+            android:value="@string/google_maps_key" /> <!-- Facebook App ID -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-
-        <!-- Activities -->
+            android:value="@string/facebook_app_id" /> <!-- Activities -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -34,38 +31,45 @@
             android:theme="@style/Theme.CS4360App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
             android:label="@string/login"
             android:theme="@style/Theme.CS4360App" />
-
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="true"
             android:label="@string/register"
             android:theme="@style/Theme.CS4360App" />
-
         <activity
             android:name=".activities.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps"
             android:theme="@style/Theme.CS4360App" />
-
         <activity
             android:name=".activities.SurveyActivity"
             android:exported="false"
             android:label="@string/survey_title"
             android:theme="@style/Theme.CS4360App" />
-
         <activity
             android:name=".activities.SubmitReviewActivity"
             android:exported="false"
             android:label="@string/submit_review"
+            android:theme="@style/Theme.CS4360App" /> <!-- Added SelectParkingLot Activity -->
+        <activity
+            android:name=".activities.SelectParkingLot"
+            android:exported="true"
+            android:label="@string/select_parking_lot_title"
+            android:theme="@style/Theme.CS4360App" /> <!-- Added PayParkingLot Activity -->
+        <activity
+            android:name=".activities.PayParkingLot"
+            android:exported="true"
+            android:label="@string/pay_parking_lot"
             android:theme="@style/Theme.CS4360App" />
     </application>
+
 </manifest>

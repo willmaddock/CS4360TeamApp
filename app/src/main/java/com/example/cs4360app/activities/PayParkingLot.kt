@@ -3,8 +3,10 @@ package com.example.cs4360app.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputFilter
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,6 +20,15 @@ class PayParkingLot : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pay_parking_lot)
+
+        // Retrieve the parking lot name and price from the Intent extras
+        val parkingLotName = intent.getStringExtra("parkingLotName")
+        val parkingLotPrice = intent.getDoubleExtra("parkingLotPrice", 0.0)
+
+        // Use the retrieved name and price
+        // For example, display them in a TextView
+        val parkingLotInfoTextView: TextView = findViewById(R.id.money_reminder)
+        parkingLotInfoTextView.text = "Parking Lot: $parkingLotName, Price: $$parkingLotPrice"
 
         val payButton: Button = findViewById(R.id.payButton)
         payButton.setOnClickListener {
@@ -49,7 +60,13 @@ class PayParkingLot : AppCompatActivity() {
                 // If all fields are valid, proceed with the Intent
                 val intent = Intent(this, MainActivity::class.java)
                 Toast.makeText(this, "Payment Completed. Thank you for paying your parking ticket", Toast.LENGTH_SHORT).show()
-                startActivity(intent)
+                //startActivity(intent)
+                // After payment is successful
+                val parkingTime = 240000 // 2 hours in milliseconds, adjust as needed
+                Log.d("PayParkingLot", "Parking time: $parkingTime")
+                val intent2 = Intent(this, ParkingTimer::class.java)
+                intent2.putExtra("parkingTime", parkingTime)
+                startActivity(intent2)
             }
         }
     }

@@ -129,8 +129,8 @@ class LoginActivity : AppCompatActivity() {
             Log.d("LoginActivity", "Google sign in successful: ${account.id}")
             firebaseAuthWithGoogle(account)
         } catch (e: ApiException) {
-            Log.w("LoginActivity", "signInResult:failed code=" + e.statusCode)
-            Toast.makeText(this, "Google sign in failed: ${e.statusCode}", Toast.LENGTH_SHORT).show()
+            Log.w("LoginActivity", "signInResult:failed code=" + e.statusCode, e)
+            Toast.makeText(this, "Google sign in failed: ${e.statusCode} - ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 

@@ -81,6 +81,14 @@
     <string name="write_your_review_here">Write your review here...</string>
     <string name="upload_photo">Upload Photo</string>
 
-    <!-- Facebook App ID -->
+    <!-- Petition Title -->
+    <string name="petition_title">Submit Petition</string>
+
+    <!-- Pay Parking Lot -->
+    <string name="pay_parking_lot">Pay Parking Lot</string> <!-- Added pay parking lot title -->
+
+    <!-- Select Parking Lot Title -->
+    <string name="select_parking_lot_title">Select Parking Lot</string> <!-- Added select parking lot title -->
     <string name="facebook_app_id">YOUR_FACEBOOK_APP_ID</string>
+    <string name="google_maps_key">YOUR_GOOGLE_MAPS_KEY</string>
 </resources>
