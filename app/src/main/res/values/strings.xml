@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Application Name -->
-    <string name="app_name">Auraria Mobile Parking</string>
+    <string name="app_name">AMP</string>
 
     <!-- Login -->
     <string name="login">Login</string>
