@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         instance = this // Set instance when the activity is created
         auth = FirebaseAuth.getInstance()
 
+        // Setup recycler view for reviews
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(this)
         fetchReviews()
         setupClickListeners()
@@ -90,8 +90,7 @@ class MainActivity : AppCompatActivity() {
         // New Notification Button Click Listener
         binding.notificationButton.setOnClickListener {
             Log.d(TAG, "Notification Button Clicked")
-            // Add your code to handle notifications, such as opening a notifications activity or displaying a dialog
-            startActivity(Intent(this, NotificationsActivity::class.java)) // Assume you have a NotificationsActivity
+            startActivity(Intent(this, NotificationsActivity::class.java)) // Assume NotificationsActivity exists
         }
     }
 
@@ -119,11 +118,11 @@ class MainActivity : AppCompatActivity() {
         if (currentUser != null) {
             binding.loginButton.visibility = View.GONE // Hide login button
             binding.logoutButton.visibility = View.VISIBLE // Show logout button
-            binding.buttonPetition.visibility = View.VISIBLE // Show submit petition button
+            binding.buttonPetition.visibility = View.VISIBLE // Show petition button
         } else {
             binding.loginButton.visibility = View.VISIBLE // Show login button
             binding.logoutButton.visibility = View.GONE // Hide logout button
-            binding.buttonPetition.visibility = View.GONE // Hide submit petition button
+            binding.buttonPetition.visibility = View.GONE // Hide petition button
         }
     }
 
@@ -135,7 +134,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        instance = null // Clear the instance when the activity is destroyed
+        instance = null // Clear instance when activity is destroyed
     }
 
     // Method to show a notification dialog (if needed)

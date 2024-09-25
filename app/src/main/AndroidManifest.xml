@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CS4360App">
+        android:theme="@style/Theme.CS4360App"> <!-- Default Theme -->
 
         <!-- API Key for Google Maps -->
         <meta-data
@@ -28,17 +28,24 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <!-- Activities -->
+        <!-- Splash Activity as Launcher -->
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.CS4360App">
+            android:theme="@style/Theme.AMP.SplashScreen"> <!-- Splash Screen Theme -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Other Activities -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.CS4360App" />
 
         <activity
             android:name=".activities.LoginActivity"
@@ -76,35 +83,30 @@
             android:label="@string/petition_title"
             android:theme="@style/Theme.CS4360App" />
 
-        <!-- Added SelectParkingLot Activity -->
         <activity
             android:name=".activities.SelectParkingLot"
             android:exported="true"
             android:label="@string/select_parking_lot_title"
             android:theme="@style/Theme.CS4360App" />
 
-        <!-- Added PayParkingLot Activity -->
         <activity
             android:name=".activities.PayParkingLot"
             android:exported="true"
             android:label="@string/pay_parking_lot"
             android:theme="@style/Theme.CS4360App" />
 
-        <!-- Added NotificationsActivity -->
         <activity
             android:name=".activities.NotificationsActivity"
             android:exported="true"
             android:label="@string/notifications_title"
             android:theme="@style/Theme.CS4360App" />
 
-        <!-- Added ParkingDetailsActivity -->
         <activity
             android:name=".activities.ParkingDetailsActivity"
             android:exported="true"
             android:label="@string/parking_lot_details"
             android:theme="@style/Theme.CS4360App" />
 
-        <!-- Added EventDetailsActivity -->
         <activity
             android:name=".activities.EventDetailsActivity"
             android:exported="true"

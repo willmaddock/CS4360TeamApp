@@ -93,4 +93,5 @@
 
     <!-- Notifications Title -->
     <string name="notifications_title">Notifications</string>
+    <string name="welcome_message">Welcome to Auraria Mobile Parking!</string>
 </resources>
