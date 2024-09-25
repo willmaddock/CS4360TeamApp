@@ -1,5 +1,6 @@
 package com.example.cs4360app
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cs4360app.activities.LoginActivity
 import com.example.cs4360app.activities.MapsActivity
+import com.example.cs4360app.activities.ParkingTimer
 import com.example.cs4360app.activities.SelectParkingLot
 import com.example.cs4360app.activities.SurveyActivity
 import com.example.cs4360app.activities.SubmitReviewActivity
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         private const val MAX_COST = 10.0 // Example value
         private const val TAG = "MainActivity"
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +85,14 @@ class MainActivity : AppCompatActivity() {
         binding.paymentButton.setOnClickListener {
             Log.d(TAG, "Payment Button Clicked")
             startActivity(Intent(this, SelectParkingLot::class.java))
+        }
+        binding.timerButton.setOnClickListener {
+            val sharedPref = getSharedPreferences("MyPref", MODE_PRIVATE)
+            val parkingTime = sharedPref.getInt("parkingTime", 0)
+            val intent = Intent(this, ParkingTimer::class.java)
+            intent.putExtra("parkingTime", parkingTime)
+            startActivity(intent)
+            Log.d(TAG, "Timer Button Clicked")
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.cs4360app.activities
 
+//import ParkingTimer
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputFilter
@@ -58,11 +59,17 @@ class PayParkingLot : AppCompatActivity() {
                 Toast.makeText(this, "Please enter a valid CVC", Toast.LENGTH_SHORT).show()
             } else {
                 // If all fields are valid, proceed with the Intent
-                val intent = Intent(this, MainActivity::class.java)
-                Toast.makeText(this, "Payment Completed. Thank you for paying your parking ticket", Toast.LENGTH_SHORT).show()
-                //startActivity(intent)
-                // After payment is successful
                 val parkingTime = 240000 // 2 hours in milliseconds, adjust as needed
+                val sharedPref = getSharedPreferences("MyPref", MODE_PRIVATE)
+                val editor = sharedPref.edit()
+                editor.putInt("parkingTime", parkingTime)
+                editor.apply()
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("parkingTime", parkingTime)
+                Toast.makeText(this, "Payment Completed. Thank you for paying your parking ticket", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+                // After payment is successful
+
                 Log.d("PayParkingLot", "Parking time: $parkingTime")
                 val intent2 = Intent(this, ParkingTimer::class.java)
                 intent2.putExtra("parkingTime", parkingTime)

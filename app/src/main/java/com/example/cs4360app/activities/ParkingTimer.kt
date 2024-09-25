@@ -1,12 +1,16 @@
 package com.example.cs4360app.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
 
 class ParkingTimer : AppCompatActivity() {
@@ -36,6 +40,12 @@ class ParkingTimer : AppCompatActivity() {
                 timerTextView.text = "Parking time ended"
             }
         }.start()
+
+        val payButton: Button = findViewById(R.id.menuButton)
+        payButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroy() {
