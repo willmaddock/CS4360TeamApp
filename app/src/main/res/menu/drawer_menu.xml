@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_login"
+        android:title="Login" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout" />
+    <item
+        android:id="@+id/nav_guest"
+        android:title="Continue as Guest" />
+    <item
+        android:id="@+id/nav_back_to_menu"
+        android:title="Back to Menu" />
+</menu>

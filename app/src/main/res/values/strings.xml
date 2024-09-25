@@ -94,4 +94,8 @@
     <!-- Notifications Title -->
     <string name="notifications_title">Notifications</string>
     <string name="welcome_message">Welcome to Auraria Mobile Parking!</string>
+
+    <!-- Navigation Drawer Strings -->
+    <string name="open">Open Navigation Drawer</string>
+    <string name="close">Close Navigation Drawer</string>
 </resources>

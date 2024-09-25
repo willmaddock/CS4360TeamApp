@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_continue_as_guest"
+        android:title="Continue as Guest"/>
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Log Out"/>
+    <!-- New menu item to go back to the main menu -->
+    <item
+        android:id="@+id/menu_back_to_main"
+        android:title="Back to Main Menu"/>
+</menu>
