@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cs4360app">
+
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -14,10 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CS4360App">
+        <service
+            android:name=".activities.TimerService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="TODO" />
+
         <activity
             android:name=".activities.ParkingTimer"
-            android:exported="false" />
-        <!-- API Key for Google Maps -->
+            android:exported="false" /> <!-- API Key for Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" /> <!-- Facebook App ID -->
@@ -70,6 +76,7 @@
             android:exported="true"
             android:label="@string/pay_parking_lot"
             android:theme="@style/Theme.CS4360App" />
+
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 package com.example.cs4360app.activities
 
 //import ParkingTimer
+import android.app.ActivityManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputFilter
@@ -17,6 +19,17 @@ import com.example.cs4360app.R
 import com.example.cs4360app.models.ParkingLot
 
 class PayParkingLot : AppCompatActivity() {
+    // Add this function
+    fun isMyServiceRunning(serviceClass: Class<*>): Boolean {
+        val manager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        for (service in manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.name == service.service.className) {
+                Toast.makeText(this, "Before you pay another parking ticket, wait for the timer to finish", Toast.LENGTH_SHORT).show()
+                return true
+            }
+        }
+        return false
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +72,14 @@ class PayParkingLot : AppCompatActivity() {
                 Toast.makeText(this, "Please enter a valid CVC", Toast.LENGTH_SHORT).show()
             } else {
                 // If all fields are valid, proceed with the Intent
-                val parkingTime = 240000 // 2 hours in milliseconds, adjust as needed
+                val parkingTime = 120000 // 2 hours in milliseconds, adjust as needed
+                // In PayParkingLot.kt
+                if (!isMyServiceRunning(TimerService::class.java)) {
+                    val intent1 = Intent(this, TimerService::class.java)
+                    intent1.putExtra("parkingTime", parkingTime)
+                    startService(intent1)
+                    Log.d("PayParkingLot", "Started TimerService with parking time: $parkingTime")
+                }
                 val sharedPref = getSharedPreferences("MyPref", MODE_PRIVATE)
                 val editor = sharedPref.edit()
                 editor.putInt("parkingTime", parkingTime)
@@ -75,6 +95,7 @@ class PayParkingLot : AppCompatActivity() {
                 intent2.putExtra("parkingTime", parkingTime)
                 startActivity(intent2)
             }
+
         }
     }
 }
