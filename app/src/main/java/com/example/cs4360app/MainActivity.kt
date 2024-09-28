@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.padding
+import androidx.compose.ui.Modifier
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cs4360app.activities.LoginActivity
 import com.example.cs4360app.activities.MapsActivity
@@ -93,6 +95,11 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("parkingTime", parkingTime)
             startActivity(intent)
             Log.d(TAG, "Timer Button Clicked")
+        }
+
+        binding.chatButton.setOnClickListener {
+            Log.d(TAG, "Chat Button Clicked")
+            startActivity(Intent(this, ChatActivity::class.java))
         }
     }
 

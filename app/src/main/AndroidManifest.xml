@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -76,6 +77,7 @@
             android:exported="true"
             android:label="@string/pay_parking_lot"
             android:theme="@style/Theme.CS4360App" />
+        <activity android:name=".ChatActivity" />
 
     </application>
 

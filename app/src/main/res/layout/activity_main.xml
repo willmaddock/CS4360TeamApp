@@ -101,9 +101,22 @@
         android:id="@+id/timerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:text="Parking Timer"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paymentButton" />
+
+    <Button
+        android:id="@+id/chatButton"
+        android:layout_width="126dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="196dp"
+        android:background="@drawable/chat_button"
+        android:text="Chat with AI Parking Attendant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerButton" /> <!-- set the custom drawable as background -->
 </androidx.constraintlayout.widget.ConstraintLayout>
