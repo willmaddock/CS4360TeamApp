@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_login"
+        android:title="Login" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout" />
+    <item
+        android:id="@+id/nav_guest"
+        android:title="Continue as Guest" />
+    <item
+        android:id="@+id/nav_back_to_menu"
+        android:title="Back to Menu" />
+    <item
+        android:id="@+id/nav_pay_parking_meter"
+        android:title="@string/pay_parking_meter" /> <!-- Pay Parking Meter -->
+    <item
+        android:id="@+id/nav_payment"
+        android:title="Payment" /> <!-- New Payment item -->
+
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_chat"
+    android:title="Chat" />
+
+    <item
+        android:id="@+id/nav_notifications"
+        android:icon="@drawable/ic_notifications"
+        android:title="Notifications" />
+</menu>

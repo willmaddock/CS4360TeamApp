@@ -3,6 +3,7 @@ package com.example.cs4360app.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -26,6 +27,7 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.FacebookSdk
 import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.messaging.FirebaseMessaging // Importing FCM
 
 class LoginActivity : AppCompatActivity() {
 
@@ -96,6 +98,24 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
+        // Add Guest Login Button
+        val guestLoginButton: Button = binding.guestLoginButton // Assuming you added the button in XML
+        guestLoginButton.setOnClickListener {
+            // Navigate to the map activity directly
+            Intent(this, MapsActivity::class.java).also { intent ->
+                intent.putExtra("isGuest", true) // Optional: pass a flag to indicate guest login
+                startActivity(intent)
+                finish() // Finish the login activity so the user can't go back to it
+            }
+        }
+
+        // Subscribe to a notification topic upon successful login
+        auth.addAuthStateListener { auth ->
+            if (auth.currentUser != null) {
+                subscribeToNotifications() // Subscribe to notifications
+            }
         }
     }
 
@@ -198,6 +218,20 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
+            }
+    }
+
+    // Subscribe to notifications
+    private fun subscribeToNotifications() {
+        FirebaseMessaging.getInstance().subscribeToTopic("event_notifications")
+            .addOnCompleteListener { task ->
+                val msg = if (task.isSuccessful) {
+                    "Subscribed to event notifications"
+                } else {
+                    "Subscription failed"
+                }
+                Log.d("LoginActivity", msg)
+                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
             }
     }
 

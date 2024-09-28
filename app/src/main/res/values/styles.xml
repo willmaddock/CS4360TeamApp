@@ -9,4 +9,12 @@
         <item name="colorOnBackground">@android:color/black</item>
         <item name="colorSecondary">@color/orange</item> <!-- Changed attribute -->
     </style>
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.AMP.SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background_lightning</item> <!-- Your splash background -->
+        <item name="android:statusBarColor">@android:color/transparent</item> <!-- Optional: Set status bar color -->
+        <item name="colorPrimary">@color/teal_200</item> <!-- Use your primary color -->
+        <item name="colorOnPrimary">@android:color/white</item> <!-- Ensure text is readable -->
+    </style>
 </resources>

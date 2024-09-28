@@ -1,5 +1,6 @@
 package com.example.cs4360app
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val MAX_COST = 10.0 // Example value
         private const val TAG = "MainActivity"
+        private var instance: MainActivity? = null
+
+        fun getInstance(): MainActivity? {
+            return instance
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +39,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        instance = this // Set instance when the activity is created
         auth = FirebaseAuth.getInstance()
 
+        // Setup recycler view for reviews
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(this)
         fetchReviews()
         setupClickListeners()
@@ -69,15 +77,26 @@ class MainActivity : AppCompatActivity() {
             logoutUser()
         }
 
-        // Handle the "Submit Petition" button click
         binding.buttonPetition.setOnClickListener {
             Log.d(TAG, "Submit Petition Button Clicked")
-            startActivity(Intent(this, PetitionActivity::class.java)) // Update to correct activity
+            startActivity(Intent(this, PetitionActivity::class.java))
         }
 
         binding.paymentButton.setOnClickListener {
             Log.d(TAG, "Payment Button Clicked")
             startActivity(Intent(this, SelectParkingLot::class.java))
+        }
+
+        // New Notification Button Click Listener
+        binding.notificationButton.setOnClickListener {
+            Log.d(TAG, "Notification Button Clicked")
+            startActivity(Intent(this, NotificationsActivity::class.java)) // Assume NotificationsActivity exists
+        }
+
+        // New Chat Button Click Listener
+        binding.chatButton.setOnClickListener {
+            Log.d(TAG, "Chat Button Clicked")
+            startActivity(Intent(this, ChatActivity::class.java)) // Assume ChatActivity exists
         }
     }
 
@@ -105,11 +124,11 @@ class MainActivity : AppCompatActivity() {
         if (currentUser != null) {
             binding.loginButton.visibility = View.GONE // Hide login button
             binding.logoutButton.visibility = View.VISIBLE // Show logout button
-            binding.buttonPetition.visibility = View.VISIBLE // Show submit petition button
+            binding.buttonPetition.visibility = View.VISIBLE // Show petition button
         } else {
             binding.loginButton.visibility = View.VISIBLE // Show login button
             binding.logoutButton.visibility = View.GONE // Hide logout button
-            binding.buttonPetition.visibility = View.GONE // Hide submit petition button
+            binding.buttonPetition.visibility = View.GONE // Hide petition button
         }
     }
 
@@ -117,5 +136,21 @@ class MainActivity : AppCompatActivity() {
         auth.signOut()
         updateUI()
         Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        instance = null // Clear instance when activity is destroyed
+    }
+
+    // Method to show a notification dialog (if needed)
+    fun showNotificationDialog(title: String, message: String) {
+        runOnUiThread {
+            AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                .show()
+        }
     }
 }

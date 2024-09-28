@@ -23,11 +23,11 @@
         style="@style/SubText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="8dp"
         android:text="Choose how you want to pay your parking ticket"
         android:textColor="@color/purple_700"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/title_label" />
 
     <RadioGroup
         android:id="@+id/user_type_radio_group"
@@ -56,14 +56,13 @@
         android:id="@+id/cardname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="24dp"
         android:hint="Cardholder Name"
         android:inputType="textPersonName"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/user_type_radio_group" />
 
     <EditText
         android:id="@+id/cardnumber"
@@ -74,7 +73,6 @@
         android:inputType="number"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardname" />
 
@@ -83,10 +81,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Exipre Date: MM/YY"
+        android:hint="Expire Date: MM/YY"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardnumber" />
 
@@ -99,7 +96,6 @@
         android:inputType="number"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/expire_date" />
 
@@ -111,5 +107,5 @@
         android:text="Complete Payment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvc" />
+        app:layout_constraintTop_toBottomOf="@id/cvc" />
 </androidx.constraintlayout.widget.ConstraintLayout>

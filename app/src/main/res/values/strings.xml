@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Application Name -->
-    <string name="app_name">Auraria Mobile Parking</string>
+    <string name="app_name">AMP</string>
 
     <!-- Login -->
     <string name="login">Login</string>
@@ -85,8 +86,19 @@
     <string name="petition_title">Submit Petition</string>
 
     <!-- Pay Parking Lot -->
-    <string name="pay_parking_lot">Pay Parking Lot</string> <!-- Added pay parking lot title -->
+    <string name="pay_parking_lot">Pay Parking Lot</string>
+
+    <!-- Pay Parking Meter -->
+    <string name="pay_parking_meter">Pay Parking Meter</string>  <!-- Added this line -->
 
     <!-- Select Parking Lot Title -->
-    <string name="select_parking_lot_title">Select Parking Lot</string> <!-- Added select parking lot title -->
+    <string name="select_parking_lot_title">Select Parking Lot</string>
+
+    <!-- Notifications Title -->
+    <string name="notifications_title">Notifications</string>
+    <string name="welcome_message">Welcome to Auraria Mobile Parking!</string>
+
+    <!-- Navigation Drawer Strings -->
+    <string name="open">Open Navigation Drawer</string>
+    <string name="close">Close Navigation Drawer</string>
 </resources>

@@ -50,6 +50,14 @@ class SelectParkingLot : AppCompatActivity() {
                 rating = 4.5f,
                 location = MSUDCampusLocation.NINTH_AND_WALNUT,
                 isMsudParkingLot = true
+            ),
+            ParkingLot(
+                id = "6",
+                name = "Auraria East",
+                cost = 9.0,
+                rating = 3.9f,
+                location = MSUDCampusLocation.AURARIA_EAST,
+                isMsudParkingLot = true
             )
         ) // Replace with your actual list if needed
 

@@ -1,0 +1,11 @@
+<!-- res/drawable/splash_background_lightning.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="#010814" /> <!-- Replace with your desired color -->
+    </item>
+    <item>
+        <bitmap
+            android:src="@drawable/lightning_image"
+            android:gravity="center" />
+    </item>
+</layer-list>
