@@ -245,6 +245,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    // Other methods for login, logout, and navigation...
+
+    private fun openPayParkingMeterActivity() {
+        val intent = Intent(this, PayParkingMeterActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun openPaymentActivity() {
+        val intent = Intent(this, PaymentActivity::class.java)
+        startActivity(intent)
+    }
+
     private fun showLoginActivity() {
         // Implement login activity logic here
         val intent = Intent(this, LoginActivity::class.java)
@@ -269,18 +281,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         startActivity(intent)
     }
 
-    private fun openPayParkingMeterActivity() {
-        // Implement logic to open Pay Parking Meter activity
-        val intent = Intent(this, PaymentActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun openPaymentActivity() {
-        // Implement logic to open Payment activity
-        val intent = Intent(this, PaymentActivity::class.java)
-        startActivity(intent)
-    }
-    
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true
