@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_continue_as_guest"
@@ -5,8 +6,7 @@
     <item
         android:id="@+id/menu_logout"
         android:title="Log Out"/>
-    <!-- New menu item to go back to the main menu -->
     <item
         android:id="@+id/menu_back_to_main"
-        android:title="Back to Main Menu"/>
+        android:title="Back to Main Menu"/> <!-- This item is included as before -->
 </menu>

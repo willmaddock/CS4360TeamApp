@@ -66,6 +66,12 @@
             android:theme="@style/Theme.CS4360App" />
 
         <activity
+            android:name=".activities.PayParkingMeterActivity"
+        android:exported="true"
+        android:label="@string/pay_parking_meter"
+        android:theme="@style/Theme.CS4360App" />
+
+        <activity
             android:name=".activities.SurveyActivity"
             android:exported="false"
             android:label="@string/survey_title"
@@ -111,6 +117,12 @@
             android:name=".activities.EventDetailsActivity"
             android:exported="true"
             android:label="Event Details"
+            android:theme="@style/Theme.CS4360App" />
+
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:exported="true"
+            android:label="Payment"
             android:theme="@style/Theme.CS4360App" />
 
         <!-- Firebase Cloud Messaging Service -->

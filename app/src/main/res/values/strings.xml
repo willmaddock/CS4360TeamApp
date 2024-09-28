@@ -88,6 +88,9 @@
     <!-- Pay Parking Lot -->
     <string name="pay_parking_lot">Pay Parking Lot</string>
 
+    <!-- Pay Parking Meter -->
+    <string name="pay_parking_meter">Pay Parking Meter</string>  <!-- Added this line -->
+
     <!-- Select Parking Lot Title -->
     <string name="select_parking_lot_title">Select Parking Lot</string>
 

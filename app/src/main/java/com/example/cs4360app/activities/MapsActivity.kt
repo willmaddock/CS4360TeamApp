@@ -42,7 +42,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var costFilterEnabled = false
     private var maxCost: Float = 10.0f // Default to 10 dollars
 
-
     // List of parking lots
     private val parkingLots = listOf(
         ParkingLot("1", "Jordan Parking Garage", 10.0, 4.5f, MSUDCampusLocation.JORDAN_PARKING_GARAGE, true),
@@ -105,6 +104,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 R.id.nav_back_to_menu -> {
                     navigateToMenu() // New method to navigate to the menu
+                    true
+                }
+                R.id.nav_pay_parking_meter -> {
+                    openPayParkingMeterActivity() // Method to open Pay Parking Meter activity
+                    true
+                }
+                R.id.nav_payment -> {
+                    openPaymentActivity() // Method to open Payment activity
                     true
                 }
                 else -> false
@@ -236,27 +243,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun logoutUser() {
         FirebaseAuth.getInstance().signOut()
-        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
-        recreate() // Refresh the activity to update UI
+        recreate() // Restart activity to update UI
     }
 
     private fun continueAsGuest() {
-        Toast.makeText(this, "Continuing as guest", Toast.LENGTH_SHORT).show()
-        // Implement your guest user logic here
+        // Handle guest login logic
     }
 
     private fun navigateToMenu() {
-        // Navigate back to the main menu (MainActivity)
+        // Logic to navigate back to main menu
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish() // Finish MapsActivity to prevent going back
+        finish() // Close MapsActivity
+    }
+
+    private fun openPayParkingMeterActivity() {
+        val intent = Intent(this, PayParkingMeterActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun openPaymentActivity() {
+        val intent = Intent(this, PaymentActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            true
-        } else {
-            super.onOptionsItemSelected(item)
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true
         }
+        return super.onOptionsItemSelected(item)
     }
 }

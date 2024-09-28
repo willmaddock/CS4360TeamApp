@@ -12,4 +12,10 @@
     <item
         android:id="@+id/nav_back_to_menu"
         android:title="Back to Menu" />
+    <item
+        android:id="@+id/nav_pay_parking_meter"
+        android:title="@string/pay_parking_meter" /> <!-- Pay Parking Meter -->
+    <item
+        android:id="@+id/nav_payment"
+        android:title="Payment" /> <!-- New Payment item -->
 </menu>

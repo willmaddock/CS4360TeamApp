@@ -65,9 +65,11 @@
             android:id="@+id/open_drawer_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_menu" />
+            android:layout_gravity="start|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_menu"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="603dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
