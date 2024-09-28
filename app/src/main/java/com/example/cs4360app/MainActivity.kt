@@ -92,6 +92,12 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "Notification Button Clicked")
             startActivity(Intent(this, NotificationsActivity::class.java)) // Assume NotificationsActivity exists
         }
+
+        // New Chat Button Click Listener
+        binding.chatButton.setOnClickListener {
+            Log.d(TAG, "Chat Button Clicked")
+            startActivity(Intent(this, ChatActivity::class.java)) // Assume ChatActivity exists
+        }
     }
 
     private fun fetchReviews() {

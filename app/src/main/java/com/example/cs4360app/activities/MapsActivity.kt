@@ -70,24 +70,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val loginMenuItem = menu.findItem(R.id.nav_login)
         val logoutMenuItem = menu.findItem(R.id.nav_logout)
         val guestMenuItem = menu.findItem(R.id.nav_guest)
-        val backToMenuItem = menu.findItem(R.id.nav_back_to_menu) // New menu item
+        val backToMenuItem = menu.findItem(R.id.nav_back_to_menu)
+        val chatMenuItem = menu.findItem(R.id.nav_chat) // Get the Chat menu item
+        val notificationsMenuItem = menu.findItem(R.id.nav_notifications) // Get the Notifications menu item
 
-        // Check if the user is logged in or guest
+        // Check if the user is logged in or a guest
         val firebaseAuth = FirebaseAuth.getInstance()
-        if (firebaseAuth.currentUser != null) {
+        val currentUser = firebaseAuth.currentUser
+
+        // Check if user is logged in
+        if (currentUser != null) {
             // User is logged in
             loginMenuItem.isVisible = false
-            guestMenuItem.isVisible = false
             logoutMenuItem.isVisible = true
-            backToMenuItem.isVisible = true // Show Back to Menu for logged-in users
+            guestMenuItem.isVisible = false // Hide guest menu item for logged in users
+            backToMenuItem.isVisible = true // Show back to menu item for logged in users
+            chatMenuItem.isVisible = true // Show chat menu item for logged in users
+            notificationsMenuItem.isVisible = true // Show notifications menu item for logged in users
         } else {
-            // Guest user
+            // User is logged out
             loginMenuItem.isVisible = true
-            guestMenuItem.isVisible = true
             logoutMenuItem.isVisible = false
-            backToMenuItem.isVisible = false // Hide Back to Menu for guests
+            guestMenuItem.isVisible = false // Hide guest menu item for logged out users
+            backToMenuItem.isVisible = false // Hide back to menu item for logged out users
+            chatMenuItem.isVisible = false // Hide chat menu item for guests
+            notificationsMenuItem.isVisible = false // Hide notifications menu item for guests
         }
 
+        // Handle drawer navigation item selection
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_login -> {
@@ -103,15 +113,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     true
                 }
                 R.id.nav_back_to_menu -> {
-                    navigateToMenu() // New method to navigate to the menu
+                    navigateToMenu()
                     true
                 }
                 R.id.nav_pay_parking_meter -> {
-                    openPayParkingMeterActivity() // Method to open Pay Parking Meter activity
+                    openPayParkingMeterActivity()
                     true
                 }
                 R.id.nav_payment -> {
-                    openPaymentActivity() // Method to open Payment activity
+                    openPaymentActivity()
+                    true
+                }
+                R.id.nav_chat -> {
+                    val intent = Intent(this, ChatActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_notifications -> {
+                    val intent = Intent(this, NotificationsActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 else -> false
@@ -138,6 +158,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         openDrawerFab.setOnClickListener {
             drawerLayout.openDrawer(GravityCompat.START)
         }
+
 
         checkLocationPermission()
 
@@ -208,12 +229,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             location?.let {
                 val markerOptions = MarkerOptions()
                     .position(it)
-                    .title(parkingLot.name)
-                    .snippet("Cost: $${parkingLot.cost}, Rating: ${parkingLot.rating}, Address: ${getAddressForLocation(parkingLot.location)}")
-                mMap.addMarker(markerOptions) // Add marker to the map
+                    .title("${parkingLot.name} - $${parkingLot.cost}")
+                mMap.addMarker(markerOptions)
             }
         }
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GARAGE_LOCATION, currentZoomLevel)) // Center camera on garage location
     }
 
     private fun getLatLngForLocation(location: MSUDCampusLocation): LatLng {
@@ -226,51 +245,54 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    private fun getAddressForLocation(location: MSUDCampusLocation): String {
-        return when (location) {
-            MSUDCampusLocation.JORDAN_PARKING_GARAGE -> "1001 10th St, Denver, CO 80204"
-            MSUDCampusLocation.TIVOLI_PARKING_LOT -> "900 Auraria Pkwy, Denver, CO 80204"
-            MSUDCampusLocation.AURARIA_WEST -> "1100 9th St, Denver, CO 80204"
-            MSUDCampusLocation.AURARIA_EAST -> "1100 7th St, Denver, CO 80204"
-            MSUDCampusLocation.NINTH_AND_WALNUT -> "9th St & Walnut St, Denver, CO 80204"
-        }
-    }
-
     private fun showLoginActivity() {
+        // Implement login activity logic here
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
 
     private fun logoutUser() {
+        // Implement logout logic
         FirebaseAuth.getInstance().signOut()
-        recreate() // Restart activity to update UI
+        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+        recreate() // Refresh the activity to update UI
     }
 
     private fun continueAsGuest() {
-        // Handle guest login logic
+        // Implement guest continuation logic
+        Toast.makeText(this, "Continuing as Guest", Toast.LENGTH_SHORT).show()
     }
 
     private fun navigateToMenu() {
-        // Logic to navigate back to main menu
+        // Implement navigation to the main menu logic
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        finish() // Close MapsActivity
     }
 
     private fun openPayParkingMeterActivity() {
-        val intent = Intent(this, PayParkingMeterActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun openPaymentActivity() {
+        // Implement logic to open Pay Parking Meter activity
         val intent = Intent(this, PaymentActivity::class.java)
         startActivity(intent)
     }
 
+    private fun openPaymentActivity() {
+        // Implement logic to open Payment activity
+        val intent = Intent(this, PaymentActivity::class.java)
+        startActivity(intent)
+    }
+    
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

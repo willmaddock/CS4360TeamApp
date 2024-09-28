@@ -99,6 +99,7 @@ dependencies {
 
     // Google Sign-In
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation(libs.generativeai)
 
     // Testing dependencies
     testImplementation("junit:junit:4.13.2")

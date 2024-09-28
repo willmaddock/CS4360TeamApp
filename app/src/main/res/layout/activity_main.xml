@@ -97,19 +97,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paymentButton" />
 
-    <!-- Button to logout -->
+    <!-- Button for Chat -->
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/chatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Logout"
+        android:layout_marginTop="8dp"
+        android:text="Chat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notificationButton"
-        android:visibility="gone" /> <!-- Initially hidden -->
+        app:layout_constraintTop_toBottomOf="@+id/notificationButton" />
 
-    <!-- Button to open Petition Activity -->
+    <!-- Button for Petition -->
     <Button
         android:id="@+id/buttonPetition"
         android:layout_width="wrap_content"
@@ -118,7 +117,17 @@
         android:text="Submit Petition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logout_button"
-        android:visibility="gone" /> <!-- Initially hidden -->
+        app:layout_constraintTop_toBottomOf="@+id/chatButton" />
+
+    <!-- Button for Logout -->
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPetition" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
