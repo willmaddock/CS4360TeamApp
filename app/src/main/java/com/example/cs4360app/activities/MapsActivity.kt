@@ -77,63 +77,52 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_login -> {
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    drawerLayout.close()
+                    startActivityForResult(Intent(this, LoginActivity::class.java), 1)
                     true
                 }
                 R.id.nav_logout -> {
                     FirebaseAuth.getInstance().signOut() // Sign out the user
                     updateMenuForUser() // Update menu items after logout
-                    drawerLayout.close()
                     true
                 }
                 R.id.nav_back_to_menu -> {
-                    startActivity(Intent(this, MainActivity::class.java).apply {
+                    startActivityForResult(Intent(this, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    })
-                    drawerLayout.close()
+                    }, 1)
                     true
                 }
                 R.id.nav_payment -> {
-                    startActivity(Intent(this, PaymentActivity::class.java))
-                    drawerLayout.close()
+                    startActivityForResult(Intent(this, PaymentActivity::class.java), 1)
                     true
                 }
                 R.id.nav_chat -> {
-                    startActivity(Intent(this, ChatActivity::class.java))
-                    drawerLayout.close()
+                    startActivityForResult(Intent(this, ChatActivity::class.java), 1)
                     true
                 }
                 R.id.nav_notifications -> {
-                    startActivity(Intent(this, NotificationsActivity::class.java))
-                    drawerLayout.close()
+                    startActivityForResult(Intent(this, NotificationsActivity::class.java), 1)
                     true
                 }
                 R.id.nav_timer -> {
-                    startActivity(Intent(this, TimerActivity::class.java))
-                    drawerLayout.close()
+                    startActivityForResult(Intent(this, TimerActivity::class.java), 1)
                     true
                 }
                 R.id.nav_submit_review -> {
-                    startActivity(Intent(this, SubmitReviewActivity::class.java))
-                    drawerLayout.close()
+                    startActivityForResult(Intent(this, SubmitReviewActivity::class.java), 1)
                     true
                 }
                 R.id.nav_submit_petition -> {
-                    startActivity(Intent(this, PetitionActivity::class.java))
-                    drawerLayout.close()
+                    startActivityForResult(Intent(this, PetitionActivity::class.java), 1)
                     true
                 }
                 R.id.nav_take_survey -> {
                     // Start the SurveyActivity for guest users
                     if (!isLoggedIn()) {
-                        startActivity(Intent(this, SurveyActivity::class.java))
+                        startActivityForResult(Intent(this, SurveyActivity::class.java), 1)
                     }
-                    drawerLayout.close()
                     true
                 }
                 else -> {
-                    drawerLayout.close()
                     false
                 }
             }
@@ -212,5 +201,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // Reopen the drawer when returning to this activity
+        drawerLayout.open()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Ensure the drawer is open if returning from another activity
+        drawerLayout.open()
     }
 }

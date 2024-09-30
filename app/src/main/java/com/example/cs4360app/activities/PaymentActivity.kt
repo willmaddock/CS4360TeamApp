@@ -27,7 +27,7 @@ class PaymentActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
-        // Get intent data
+        // Get intent data to check if navigated from Main Menu
         fromMainMenu = intent.getBooleanExtra("fromMainMenu", false)
 
         // Find views by ID
@@ -45,17 +45,17 @@ class PaymentActivity : AppCompatActivity() {
             setupGuestPayment()
         }
 
-        // Login button action
+        // Login button action to navigate to login screen
         loginButton.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        // Back button action
+        // Back button action for both logged-in users and guests
         backButton.setOnClickListener {
             if (auth.currentUser != null && fromMainMenu) {
                 navigateToMainMenu()
             } else {
-                navigateToMaps()
+                navigateToDrawer()
             }
         }
     }
@@ -100,14 +100,15 @@ class PaymentActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    // Navigate back to Maps activity
-    private fun navigateToMaps() {
+    // Navigate back to the drawer (not Maps) by overriding back button
+    private fun navigateToDrawer() {
         val intent = Intent(this, MapsActivity::class.java)
+        intent.putExtra("openDrawer", true) // Pass intent to open drawer
         startActivity(intent)
         finish()
     }
 
-    // Navigate back to Main Menu
+    // Navigate back to Main Menu for logged-in users
     private fun navigateToMainMenu() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
@@ -115,7 +116,11 @@ class PaymentActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        // Navigate back to MapsActivity when back is pressed
-        navigateToMaps()
+        // Handle the back press similarly to the back button behavior
+        if (auth.currentUser != null && fromMainMenu) {
+            navigateToMainMenu()
+        } else {
+            navigateToDrawer() // Ensure returning to drawer
+        }
     }
 }
