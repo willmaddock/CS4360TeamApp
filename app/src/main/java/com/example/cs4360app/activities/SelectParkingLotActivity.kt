@@ -9,6 +9,7 @@ import com.example.cs4360app.databinding.ActivitySelectParkingLotBinding
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot
 
+@Suppress("DEPRECATION")
 class SelectParkingLotActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySelectParkingLotBinding
