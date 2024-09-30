@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -10,29 +11,31 @@
         android:id="@+id/license_plate_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Enter License Plate"
+        android:hint="@string/enter_license_plate"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
-        android:maxLength="10" /> <!-- Optional: Limit length -->
+        android:maxLength="10"
+        tools:ignore="Autofill,TextFields" /> <!-- Optional: Limit length -->
 
     <EditText
         android:id="@+id/time_input"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Time (in minutes)"
+        android:hint="@string/enter_time_in_minutes"
         app:layout_constraintTop_toBottomOf="@id/license_plate_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-        android:maxLength="3" /> <!-- Optional: Limit length -->
+        android:maxLength="3"
+        tools:ignore="Autofill,TextFields" /> <!-- Optional: Limit length -->
 
     <Button
         android:id="@+id/pay_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Pay"
+        android:text="@string/pay"
         app:layout_constraintTop_toBottomOf="@id/time_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +46,7 @@
         android:id="@+id/timer_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timer: 00:00"
+        android:text="@string/timer_00_00"
         app:layout_constraintTop_toBottomOf="@id/pay_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +61,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp" /> <!-- Positioned at bottom -->
+        android:layout_marginBottom="16dp"
+        tools:ignore="HardcodedText" /> <!-- Positioned at bottom -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

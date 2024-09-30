@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -188,7 +189,8 @@
             android:id="@+id/biggestConcernEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/biggest_concern_hint" />
+            android:hint="@string/biggest_concern_hint"
+            tools:ignore="Autofill,TextFields" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -201,7 +203,8 @@
             android:id="@+id/additionalFeaturesEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/additional_features_hint" />
+            android:hint="@string/additional_features_hint"
+            tools:ignore="Autofill,TextFields" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -214,7 +217,8 @@
             android:id="@+id/otherCommentsEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/other_comments_hint" />
+            android:hint="@string/other_comments_hint"
+            tools:ignore="Autofill,TextFields" />
 
         <!-- Submit Button -->
         <Button

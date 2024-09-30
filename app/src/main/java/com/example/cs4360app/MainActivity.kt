@@ -1,6 +1,5 @@
 package com.example.cs4360app
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -145,14 +144,4 @@ class MainActivity : AppCompatActivity() {
         instance = null // Clear instance when activity is destroyed
     }
 
-    // Method to show a notification dialog (if needed)
-    fun showNotificationDialog(title: String, message: String) {
-        runOnUiThread {
-            AlertDialog.Builder(this)
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
-                .show()
-        }
-    }
 }

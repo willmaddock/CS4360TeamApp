@@ -30,12 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.SemanticsProperties.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cs4360app.models.ChatViewModel
+import com.example.cs4360app.models.MessageModel
 
 @Composable
 fun ChatPage(modifier: Modifier = Modifier, viewModel: ChatViewModel)

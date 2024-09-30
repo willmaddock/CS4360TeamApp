@@ -1,5 +1,6 @@
 package com.example.cs4360app.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.SeekBar
@@ -22,7 +23,7 @@ class FilterActivity : AppCompatActivity() {
         selectedCostText = findViewById(R.id.selectedCostText)
 
         // Example parking lot list using MSUDCampusLocation
-        val parkingLots = listOf(
+        listOf(
             ParkingLot(
                 id = "1",
                 name = "Jordan Parking Garage",
@@ -66,7 +67,7 @@ class FilterActivity : AppCompatActivity() {
         )
 
         // Example usage with nullable location
-        val otherParkingLot = ParkingLot(
+        ParkingLot(
             id = "6",
             name = "Other Parking Lot",
             cost = 4.0,
@@ -77,6 +78,7 @@ class FilterActivity : AppCompatActivity() {
 
         // Update SeekBar and display the cost in $0.50 increments
         seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            @SuppressLint("SetTextI18n")
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 // Convert the progress value to a cost with $0.50 increments
                 val maxCost = progress * 0.5

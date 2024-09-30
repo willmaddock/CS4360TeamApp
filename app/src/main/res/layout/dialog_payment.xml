@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -8,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Card Number"
+        android:text="@string/enter_card_number"
         android:textSize="18sp"/>
 
     <EditText
@@ -16,12 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Card Number"
-        android:inputType="text"/>
+        android:inputType="text"
+        tools:ignore="Autofill,HardcodedText" />
 
     <Button
         android:id="@+id/confirm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirm"
+        android:text="@string/confirm"
         android:layout_gravity="end"/>
 </LinearLayout>

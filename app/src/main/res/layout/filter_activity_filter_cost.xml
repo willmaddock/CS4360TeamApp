@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,7 +12,7 @@
         android:id="@+id/selectedCostText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Max Cost: $0"
+        android:text="@string/max_cost_0"
         android:textSize="18sp"
         android:layout_marginBottom="16dp" />
 
@@ -28,7 +29,7 @@
         android:id="@+id/cost_filter_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enable Cost Filter"
+        android:text="@string/enable_cost_filter"
         android:layout_marginTop="16dp" />
 
     <!-- RecyclerView for displaying the filtered parking lots (if applicable) -->
@@ -40,6 +41,7 @@
 
     <!-- Buttons for zooming in and out on the map -->
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -47,21 +49,25 @@
 
         <Button
             android:id="@+id/zoom_in_button"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Zoom In" />
+            android:text="Zoom In"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/zoom_out_button"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Zoom Out" />
+            android:text="Zoom Out"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
     <!-- Map Fragment to display Google Maps -->
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"

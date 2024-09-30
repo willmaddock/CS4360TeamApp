@@ -85,7 +85,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp"
+        tools:ignore="HardcodedText" />
 
     <!-- TextView for total review count -->
     <TextView
@@ -99,7 +100,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp"
+        tools:ignore="HardcodedText" />
 
     <!-- EditText for user comment -->
     <EditText
@@ -113,7 +115,8 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reviewCountTextView" />
+        app:layout_constraintTop_toBottomOf="@id/reviewCountTextView"
+        tools:ignore="Autofill" />
 
     <!-- Button to upload an image -->
     <Button

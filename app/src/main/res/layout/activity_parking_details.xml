@@ -9,7 +9,7 @@
         android:id="@+id/parkingDetailsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Parking Details"
+        android:text="@string/parking_details"
         android:textSize="24sp"
         android:layout_marginBottom="16dp"/>
 
@@ -17,6 +17,6 @@
         android:id="@+id/parkingDetailsInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Here you will see details about the selected parking spot."
+        android:text="@string/here_you_will_see_details_about_the_selected_parking_spot"
         android:textSize="18sp"/>
 </LinearLayout>

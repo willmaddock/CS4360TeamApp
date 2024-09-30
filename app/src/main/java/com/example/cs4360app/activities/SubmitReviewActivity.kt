@@ -1,5 +1,6 @@
 package com.example.cs4360app.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
@@ -19,6 +20,7 @@ import com.example.cs4360app.models.ParkingLot
 import com.example.cs4360app.models.Review
 import com.google.firebase.firestore.FirebaseFirestore
 
+@Suppress("DEPRECATION")
 class SubmitReviewActivity : AppCompatActivity() {
 
     private lateinit var ratingBar: RatingBar
@@ -91,7 +93,7 @@ class SubmitReviewActivity : AppCompatActivity() {
         val rating = ratingBar.rating
         val comment = commentEditText.text.toString()
         val parkingLot = parkingLots[parkingLotSpinner.selectedItemPosition]
-        val category = categorySpinner.selectedItem.toString()
+        categorySpinner.selectedItem.toString()
 
         if (rating > 0 && comment.isNotBlank()) {
             val review = Review(
@@ -117,6 +119,7 @@ class SubmitReviewActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n", "DefaultLocale")
     private fun fetchReviews() {
         db.collection("reviews").get()
             .addOnSuccessListener { result ->
@@ -150,6 +153,7 @@ class SubmitReviewActivity : AppCompatActivity() {
         finish()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {

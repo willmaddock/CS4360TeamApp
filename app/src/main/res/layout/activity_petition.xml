@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,16 +11,18 @@
         android:id="@+id/petitionDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Describe your petition"
+        android:hint="@string/describe_your_petition"
         android:inputType="textMultiLine"
-        android:lines="4" />
+        android:lines="4"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/gracePeriodSuggestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Suggest a grace period (optional)"
-        android:inputType="text" />
+        android:hint="@string/suggest_a_grace_period_optional"
+        android:inputType="text"
+        tools:ignore="Autofill" />
 
     <Button
         android:id="@+id/submitPetitionButton"
@@ -27,5 +30,6 @@
         android:layout_height="wrap_content"
         android:text="Submit Petition"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        tools:ignore="HardcodedText" />
 </LinearLayout>

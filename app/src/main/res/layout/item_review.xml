@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp">
@@ -23,7 +21,7 @@
         android:id="@+id/reviewCommentTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Review comment here"
+        android:text="@string/review_comment_here"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar"
         app:layout_constraintStart_toStartOf="parent"

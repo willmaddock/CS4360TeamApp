@@ -88,18 +88,4 @@ class PayParkingLotActivity : AppCompatActivity() {
         }
     }
 
-    // Retrieve saved payment details (if necessary)
-    private fun getPaymentInfo(): Map<String, String>? {
-        val sharedPreferences = getSharedPreferences("payment_info", MODE_PRIVATE)
-        return if (sharedPreferences.contains("card_number")) {
-            mapOf(
-                "card_name" to (sharedPreferences.getString("card_name", "") ?: ""),
-                "card_number" to (sharedPreferences.getString("card_number", "") ?: ""),
-                "expire_date" to (sharedPreferences.getString("expire_date", "") ?: ""),
-                "cvc" to (sharedPreferences.getString("cvc", "") ?: "")
-            )
-        } else {
-            null
-        }
-    }
 }

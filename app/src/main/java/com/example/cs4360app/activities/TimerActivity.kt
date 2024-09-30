@@ -1,5 +1,6 @@
 package com.example.cs4360app.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -9,8 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
-import com.example.cs4360app.activities.MapsActivity // Ensure MapsActivity is imported
 
+@Suppress("SameParameterValue")
 class TimerActivity : AppCompatActivity() {
 
     private lateinit var amountPaidTextView: TextView
@@ -20,12 +21,10 @@ class TimerActivity : AppCompatActivity() {
     private var timer: CountDownTimer? = null
     private var remainingTime: Long = 0 // Time in seconds
 
-    // Constants
-    private val MIN_PARKING_TIME: Long = 15 * 60 // 15 minutes in seconds
-    private val MAX_PARKING_TIME: Long = 150 * 60 // 2 hours 30 minutes in seconds
-    private val MAX_COST: Float = 5.35f // Maximum cost for 2 hours and 30 minutes
-    private val COST_PER_MINUTE: Float = MAX_COST / 150 // Cost per minute
+    private val maxCost: Float = 5.35f // Maximum cost for 2 hours and 30 minutes
+    private val costPerMinute: Float = maxCost / 150 // Cost per minute
 
+    @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
@@ -85,7 +84,7 @@ class TimerActivity : AppCompatActivity() {
     private fun calculateAmount(durationInSeconds: Long): Float {
         // Convert duration from seconds to minutes
         val durationInMinutes = durationInSeconds / 60
-        return durationInMinutes * COST_PER_MINUTE
+        return durationInMinutes * costPerMinute
     }
 
     private fun startTimer(seconds: Long) {
@@ -97,6 +96,7 @@ class TimerActivity : AppCompatActivity() {
                 updateTimerDisplay(millisUntilFinished)
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onFinish() {
                 timerTextView.text = "Time's up!"
                 Toast.makeText(this@TimerActivity, "Parking time expired!", Toast.LENGTH_SHORT).show()
@@ -105,6 +105,7 @@ class TimerActivity : AppCompatActivity() {
         }.start()
     }
 
+    @SuppressLint("DefaultLocale")
     private fun updateTimerDisplay(millisUntilFinished: Long) {
         val secondsLeft = (millisUntilFinished / 1000).toInt()
         val minutesLeft = secondsLeft / 60

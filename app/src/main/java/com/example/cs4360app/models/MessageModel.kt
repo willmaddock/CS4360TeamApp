@@ -1,4 +1,4 @@
-package com.example.cs4360app
+package com.example.cs4360app.models
 
 data class MessageModel(
     val message: String,

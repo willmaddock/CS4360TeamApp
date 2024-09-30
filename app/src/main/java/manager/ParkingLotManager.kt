@@ -1,4 +1,4 @@
-package com.example.cs4360app.managers
+package manager
 
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot
@@ -7,8 +7,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 object ParkingLotManager {
-    // Define the default location for the map
-    val DEFAULT_LOCATION = LatLng(39.743883, -105.001878) // Example coordinates for Ninth and Walnut
 
     // List of predefined parking lots
     private val parkingLots = listOf(
@@ -18,9 +16,6 @@ object ParkingLotManager {
         ParkingLot("4", "Auraria East", 7.0, 3.0f, MSUDCampusLocation.AURARIA_EAST, true),
         ParkingLot("5", "Ninth and Walnut", 6.0, 2.5f, MSUDCampusLocation.NINTH_AND_WALNUT, true)
     )
-
-    // Function to retrieve the list of parking lots
-    fun getParkingLots(): List<ParkingLot> = parkingLots
 
     // Load parking lots onto the map based on the specified maximum cost
     fun loadParkingLots(googleMap: GoogleMap, maxCost: Double) {
