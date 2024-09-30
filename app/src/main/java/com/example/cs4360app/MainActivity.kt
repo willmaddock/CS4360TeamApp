@@ -84,7 +84,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.paymentButton.setOnClickListener {
             Log.d(TAG, "Payment Button Clicked")
-            startActivity(Intent(this, SelectParkingLot::class.java))
+            startActivity(Intent(this, SelectParkingLotActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            })
         }
 
         // New Notification Button Click Listener

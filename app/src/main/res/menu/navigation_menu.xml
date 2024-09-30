@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Menu item for continuing as a guest -->
     <item
         android:id="@+id/menu_continue_as_guest"
         android:title="Continue as Guest"/>
+
+    <!-- Menu item for logging out -->
     <item
         android:id="@+id/menu_logout"
         android:title="Log Out"/>
+
+    <!-- Menu item for navigating back to the main menu -->
     <item
         android:id="@+id/menu_back_to_main"
-        android:title="Back to Main Menu"/> <!-- This item is included as before -->
+        android:title="Back to Main Menu"/>
+
+    <!-- Additional items for payment and reviews -->
+    <item
+        android:id="@+id/menu_pay_parking_meter"
+        android:title="Pay Parking Meter"/> <!-- Accessible for both users -->
+
+    <item
+        android:id="@+id/menu_notifications"
+        android:title="Notifications"/> <!-- Only for logged-in users -->
+
+    <item
+        android:id="@+id/menu_chat"
+        android:title="Chat"/> <!-- Only for logged-in users -->
+
+    <item
+        android:id="@+id/menu_submit_petition"
+        android:title="Submit a Petition"/> <!-- Only for logged-in users -->
+
+    <item
+        android:id="@+id/menu_submit_review"
+        android:title="Submit a Review"/> <!-- Only for logged-in users -->
+
+    <item
+        android:id="@+id/menu_take_survey"
+        android:title="Take a Survey"/> <!-- Only for guests -->
 </menu>

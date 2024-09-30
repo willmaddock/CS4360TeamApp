@@ -1,5 +1,6 @@
 package com.example.cs4360app.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,7 +9,7 @@ import com.example.cs4360app.databinding.ActivitySelectParkingLotBinding
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot
 
-class SelectParkingLot : AppCompatActivity() {
+class SelectParkingLotActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySelectParkingLotBinding
 
@@ -59,10 +60,24 @@ class SelectParkingLot : AppCompatActivity() {
                 location = MSUDCampusLocation.AURARIA_EAST,
                 isMsudParkingLot = true
             )
-        ) // Replace with your actual list if needed
+        )
 
         // Set up RecyclerView for displaying parking lots
         binding.parkingLotRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.parkingLotRecyclerView.adapter = ParkingLotAdapter(parkingLots)
+        val adapter = ParkingLotAdapter(parkingLots) { parkingLot ->
+            // Handle parking lot click and pass data to PayParkingLotActivity
+            val intent = Intent(this, PayParkingLotActivity::class.java).apply {
+                putExtra("PARKING_LOT_ID", parkingLot.id)
+                putExtra("PARKING_LOT_NAME", parkingLot.name)
+                putExtra("PARKING_LOT_COST", parkingLot.cost)
+            }
+            startActivity(intent) // Start PayParkingLotActivity
+        }
+        binding.parkingLotRecyclerView.adapter = adapter
+
+        // Optional: Handle the Back button click
+        binding.backButton.setOnClickListener {
+            onBackPressed() // Navigate to the previous activity
+        }
     }
 }

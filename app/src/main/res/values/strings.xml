@@ -67,8 +67,8 @@
 
     <!-- Default text for review comments -->
     <string name="review_comment">No comment provided</string>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="title_activity_maps2">MapsActivity2</string>
+    <string name="title_activity_maps">Maps Activity</string>
+    <string name="title_activity_maps2">Maps Activity 2</string>
     <string name="CS4360App">CS4360App</string>
 
     <!-- Additional strings -->
@@ -89,7 +89,7 @@
     <string name="pay_parking_lot">Pay Parking Lot</string>
 
     <!-- Pay Parking Meter -->
-    <string name="pay_parking_meter">Pay Parking Meter</string>  <!-- Added this line -->
+    <string name="pay_parking_meter">Pay Parking Meter</string>
 
     <!-- Select Parking Lot Title -->
     <string name="select_parking_lot_title">Select Parking Lot</string>
@@ -101,4 +101,18 @@
     <!-- Navigation Drawer Strings -->
     <string name="open">Open Navigation Drawer</string>
     <string name="close">Close Navigation Drawer</string>
+
+    <!-- Additional Payment and Timer Strings -->
+    <string name="payment_title">Payment</string>
+    <string name="payment_successful">Payment Successful!</string>
+    <string name="payment_failed">Payment Failed. Please try again.</string>
+    <string name="payment_processing">Processing Payment...</string>
+    <string name="timer_running">Timer is running...</string>
+    <string name="timer_expired">Your parking time has expired.</string>
+    <string name="back_to_maps">Back to Maps</string>
+    <string name="back_to_main_menu">Back to Main Menu</string>
+    <string name="logout_confirmation">Are you sure you want to log out?</string>
+    <string name="confirm_payment">Confirm your payment of %1$s?</string> <!-- %1$s can be replaced with the amount -->
+    <string name="network_error">Network error. Please check your connection.</string>
+    <string name="location_error">Could not retrieve your location. Please enable GPS.</string>
 </resources>

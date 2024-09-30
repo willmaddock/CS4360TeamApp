@@ -101,7 +101,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // Add Guest Login Button
-        val guestLoginButton: Button = binding.guestLoginButton // Assuming you added the button in XML
+        val guestLoginButton: Button = binding.guestLoginButton // Added button in XML
         guestLoginButton.setOnClickListener {
             // Navigate to the map activity directly
             Intent(this, MapsActivity::class.java).also { intent ->
