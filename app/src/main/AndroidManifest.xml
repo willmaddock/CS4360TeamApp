@@ -90,13 +90,13 @@
             android:theme="@style/Theme.CS4360App" />
 
         <activity
-            android:name=".activities.SelectParkingLot"
+            android:name=".activities.SelectParkingLotActivity"
             android:exported="true"
             android:label="@string/select_parking_lot_title"
             android:theme="@style/Theme.CS4360App" />
 
         <activity
-            android:name=".activities.PayParkingLot"
+            android:name=".activities.PayParkingLotActivity"
             android:exported="true"
             android:label="@string/pay_parking_lot"
             android:theme="@style/Theme.CS4360App" />
@@ -123,6 +123,13 @@
             android:name=".activities.PaymentActivity"
             android:exported="true"
             android:label="Payment"
+            android:theme="@style/Theme.CS4360App" />
+
+        <!-- Timer Activity -->
+        <activity
+            android:name=".activities.TimerActivity"
+            android:exported="true"
+            android:label="Parking Timer"
             android:theme="@style/Theme.CS4360App" />
 
         <!-- Chat Activity -->

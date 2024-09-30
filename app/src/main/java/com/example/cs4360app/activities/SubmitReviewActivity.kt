@@ -13,7 +13,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot
@@ -96,7 +95,7 @@ class SubmitReviewActivity : AppCompatActivity() {
 
         if (rating > 0 && comment.isNotBlank()) {
             val review = Review(
-                userId = "user123",
+                userId = "user123", // Replace with actual user ID if available
                 parkingLotId = parkingLot.id,
                 rating = rating,
                 comment = comment,
@@ -106,8 +105,8 @@ class SubmitReviewActivity : AppCompatActivity() {
             db.collection("reviews").add(review)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Review submitted successfully", Toast.LENGTH_SHORT).show()
-                    // Navigate back to the main screen
-                    navigateToMainScreen()
+                    // Navigate back to the MapsActivity
+                    returnToMaps()
                 }
                 .addOnFailureListener { e ->
                     Log.e("SubmitReviewActivity", "Error submitting review", e)
@@ -137,14 +136,14 @@ class SubmitReviewActivity : AppCompatActivity() {
             }
     }
 
-    private fun navigateToMainScreen() {
-        // Create an intent to start the MainActivity
-        val intent = Intent(this, MainActivity::class.java)
+    private fun returnToMaps() {
+        // Create an intent to start the MapsActivity
+        val intent = Intent(this, MapsActivity::class.java)
 
         // Optional: Add flags to clear the activity stack
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
 
-        // Start the MainActivity
+        // Start the MapsActivity
         startActivity(intent)
 
         // Finish the current activity to remove it from the stack

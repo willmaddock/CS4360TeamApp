@@ -1,298 +1,216 @@
 package com.example.cs4360app.activities
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.Toast
 import android.widget.ToggleButton
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
+import com.example.cs4360app.managers.ParkingLotManager
 import com.example.cs4360app.models.MSUDCampusLocation
-import com.example.cs4360app.models.ParkingLot
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private var maxCost: Double = 10.0 // Default max cost
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-    private val zoomIncrement = 1.0f
-    private var currentZoomLevel: Float = 15f
-    private val MIN_ZOOM_LEVEL = 5.0f
-    private val MAX_ZOOM_LEVEL = 20.0f
-    private val LOCATION_REQUEST_CODE = 1000
-    private val GARAGE_LOCATION = LatLng(39.745209, -105.005908) // Corrected coordinates for 7th Street Garage
-    private var costFilterEnabled = false
-    private var maxCost: Float = 10.0f // Default to 10 dollars
-
-    // List of parking lots
-    private val parkingLots = listOf(
-        ParkingLot("1", "Jordan Parking Garage", 10.0, 4.5f, MSUDCampusLocation.JORDAN_PARKING_GARAGE, true),
-        ParkingLot("2", "Tivoli Parking Lot", 8.0, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, true),
-        ParkingLot("3", "Auraria West", 5.0, 3.5f, MSUDCampusLocation.AURARIA_WEST, true),
-        ParkingLot("4", "Auraria East", 7.0, 3.0f, MSUDCampusLocation.AURARIA_EAST, true),
-        ParkingLot("5", "Ninth and Walnut", 6.0, 2.5f, MSUDCampusLocation.NINTH_AND_WALNUT, true)
-    )
+    private lateinit var navigationView: NavigationView
+    private lateinit var costFilterToggle: ToggleButton
+    private lateinit var auth: FirebaseAuth
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
-        // Set up the drawer layout and navigation view
+        // Initialize Firebase Authentication
+        auth = FirebaseAuth.getInstance()
+
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
+
+        // Initialize DrawerLayout and NavigationView
         drawerLayout = findViewById(R.id.drawer_layout)
-        val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+        navigationView = findViewById(R.id.navigation_view)
 
-        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-        drawerLayout.addDrawerListener(actionBarDrawerToggle)
-        actionBarDrawerToggle.syncState()
+        // Setup the navigation drawer
+        setupDrawer()
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // Get max cost from intent, if not available, default to 10.0
+        maxCost = intent.getDoubleExtra("maxCost", 10.0)
 
-        // Modify drawer menu items based on login state
-        val menu = navigationView.menu
-        val loginMenuItem = menu.findItem(R.id.nav_login)
-        val logoutMenuItem = menu.findItem(R.id.nav_logout)
-        val guestMenuItem = menu.findItem(R.id.nav_guest)
-        val backToMenuItem = menu.findItem(R.id.nav_back_to_menu)
-        val chatMenuItem = menu.findItem(R.id.nav_chat) // Get the Chat menu item
-        val notificationsMenuItem = menu.findItem(R.id.nav_notifications) // Get the Notifications menu item
+        // Initialize the map
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
-        // Check if the user is logged in or a guest
-        val firebaseAuth = FirebaseAuth.getInstance()
-        val currentUser = firebaseAuth.currentUser
+        // Setup zoom buttons for map
+        setupZoomButtons()
 
-        // Check if user is logged in
-        if (currentUser != null) {
-            // User is logged in
-            loginMenuItem.isVisible = false
-            logoutMenuItem.isVisible = true
-            guestMenuItem.isVisible = false // Hide guest menu item for logged in users
-            backToMenuItem.isVisible = true // Show back to menu item for logged in users
-            chatMenuItem.isVisible = true // Show chat menu item for logged in users
-            notificationsMenuItem.isVisible = true // Show notifications menu item for logged in users
-        } else {
-            // User is logged out
-            loginMenuItem.isVisible = true
-            logoutMenuItem.isVisible = false
-            guestMenuItem.isVisible = false // Hide guest menu item for logged out users
-            backToMenuItem.isVisible = false // Hide back to menu item for logged out users
-            chatMenuItem.isVisible = false // Hide chat menu item for guests
-            notificationsMenuItem.isVisible = false // Hide notifications menu item for guests
+        // Initialize cost filter toggle
+        costFilterToggle = findViewById(R.id.cost_filter_toggle)
+        costFilterToggle.setOnCheckedChangeListener { _, isChecked ->
+            updateMapWithFilter(isChecked) // Refresh map markers based on the toggle state
         }
 
-        // Handle drawer navigation item selection
+        // Floating Action Button to open the drawer
+        findViewById<FloatingActionButton>(R.id.open_drawer_fab).setOnClickListener {
+            drawerLayout.open()
+        }
+
+        // Update the drawer menu initially
+        updateDrawerMenu()
+    }
+
+    private fun setupDrawer() {
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_login -> {
-                    showLoginActivity()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    drawerLayout.close()
                     true
                 }
                 R.id.nav_logout -> {
-                    logoutUser()
-                    true
-                }
-                R.id.nav_guest -> {
-                    continueAsGuest()
+                    FirebaseAuth.getInstance().signOut() // Sign out the user
+                    updateMenuForUser() // Update menu items after logout
+                    drawerLayout.close()
                     true
                 }
                 R.id.nav_back_to_menu -> {
-                    navigateToMenu()
-                    true
-                }
-                R.id.nav_pay_parking_meter -> {
-                    openPayParkingMeterActivity()
+                    startActivity(Intent(this, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    })
+                    drawerLayout.close()
                     true
                 }
                 R.id.nav_payment -> {
-                    openPaymentActivity()
+                    startActivity(Intent(this, PaymentActivity::class.java))
+                    drawerLayout.close()
                     true
                 }
                 R.id.nav_chat -> {
-                    val intent = Intent(this, ChatActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, ChatActivity::class.java))
+                    drawerLayout.close()
                     true
                 }
                 R.id.nav_notifications -> {
-                    val intent = Intent(this, NotificationsActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, NotificationsActivity::class.java))
+                    drawerLayout.close()
                     true
                 }
-                else -> false
+                R.id.nav_timer -> {
+                    startActivity(Intent(this, TimerActivity::class.java))
+                    drawerLayout.close()
+                    true
+                }
+                R.id.nav_submit_review -> {
+                    startActivity(Intent(this, SubmitReviewActivity::class.java))
+                    drawerLayout.close()
+                    true
+                }
+                R.id.nav_submit_petition -> {
+                    startActivity(Intent(this, PetitionActivity::class.java))
+                    drawerLayout.close()
+                    true
+                }
+                R.id.nav_take_survey -> {
+                    // Start the SurveyActivity for guest users
+                    if (!isLoggedIn()) {
+                        startActivity(Intent(this, SurveyActivity::class.java))
+                    }
+                    drawerLayout.close()
+                    true
+                }
+                else -> {
+                    drawerLayout.close()
+                    false
+                }
             }
         }
+        updateMenuForUser() // Update menu items on creation based on user status
+    }
 
-        // Set up the map fragment
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-        // Set up zoom buttons
-        findViewById<Button>(R.id.zoom_in_button).setOnClickListener { zoomIn() }
-        findViewById<Button>(R.id.zoom_out_button).setOnClickListener { zoomOut() }
-
-        // Set up cost filter toggle
-        val costFilterToggle = findViewById<ToggleButton>(R.id.cost_filter_toggle)
-        costFilterToggle.setOnCheckedChangeListener { _, isChecked ->
-            costFilterEnabled = isChecked
-            updateMapWithFilter()
+    private fun setupZoomButtons() {
+        findViewById<Button>(R.id.zoom_in_button).setOnClickListener {
+            mMap.animateCamera(CameraUpdateFactory.zoomIn())
         }
 
-        // Set up Floating Action Button to open drawer
-        val openDrawerFab = findViewById<FloatingActionButton>(R.id.open_drawer_fab)
-        openDrawerFab.setOnClickListener {
-            drawerLayout.openDrawer(GravityCompat.START)
+        findViewById<Button>(R.id.zoom_out_button).setOnClickListener {
+            mMap.animateCamera(CameraUpdateFactory.zoomOut())
         }
+    }
 
+    private fun updateMenuForUser() {
+        val menu = navigationView.menu
+        val isLoggedIn = auth.currentUser != null
 
-        checkLocationPermission()
+        // Show/hide menu items based on user status
+        menu.findItem(R.id.nav_login).isVisible = !isLoggedIn
+        menu.findItem(R.id.nav_logout).isVisible = isLoggedIn
+        menu.findItem(R.id.nav_back_to_menu).isVisible = isLoggedIn
+        menu.findItem(R.id.nav_chat).isVisible = isLoggedIn
+        menu.findItem(R.id.nav_notifications).isVisible = isLoggedIn
+        menu.findItem(R.id.nav_submit_petition).isVisible = isLoggedIn
+        menu.findItem(R.id.nav_submit_review).isVisible = isLoggedIn
+        menu.findItem(R.id.nav_take_survey).isVisible = !isLoggedIn // Show for guests only
 
-        // Retrieve max cost from intent, default to 10 if not provided
-        maxCost = intent.getFloatExtra("maxCost", 10.0f)
+        // Update visibility of the Timer option based on active payment
+        updateDrawerMenu()
+    }
+
+    // Method to check if payment is active and update Timer visibility
+    private fun updateDrawerMenu() {
+        val isPaymentActive = isTimerActive() // Check payment active status
+        val menu = navigationView.menu
+        val timerMenuItem = menu.findItem(R.id.nav_timer) // Find the Timer menu item
+
+        // Show or hide the Timer item based on payment status
+        timerMenuItem.isVisible = isPaymentActive
+    }
+
+    private fun isTimerActive(): Boolean {
+        return sharedPreferences.getBoolean("payment_active", false)
+    }
+
+    private fun isLoggedIn(): Boolean {
+        return auth.currentUser != null
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Enable location if permission is granted
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mMap.isMyLocationEnabled = true
+        // Move camera to the Jordan Parking Garage location
+        val jordanParkingGarageLocation = ParkingLotManager.getLatLngForLocation(MSUDCampusLocation.JORDAN_PARKING_GARAGE)
+        jordanParkingGarageLocation?.let {
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 15f)) // Set zoom level to 15
         }
 
-        // Add marker for the garage location and move the camera
-        mMap.addMarker(MarkerOptions().position(GARAGE_LOCATION).title("7th Street Garage"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GARAGE_LOCATION, currentZoomLevel))
-
-        // Update map with parking lot filters
-        updateMapWithFilter()
+        // Load parking lots from your data source
+        ParkingLotManager.loadParkingLots(mMap, maxCost)
     }
 
-    private fun zoomIn() {
-        if (::mMap.isInitialized && currentZoomLevel < MAX_ZOOM_LEVEL) {
-            currentZoomLevel += zoomIncrement
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(currentZoomLevel))
-        }
-    }
-
-    private fun zoomOut() {
-        if (::mMap.isInitialized && currentZoomLevel > MIN_ZOOM_LEVEL) {
-            currentZoomLevel -= zoomIncrement
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(currentZoomLevel))
-        }
-    }
-
-    private fun checkLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_REQUEST_CODE)
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == LOCATION_REQUEST_CODE && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            if (::mMap.isInitialized) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    mMap.isMyLocationEnabled = true
-                }
-            }
-            Toast.makeText(this, "Location permission granted", Toast.LENGTH_SHORT).show()
+    private fun updateMapWithFilter(isChecked: Boolean) {
+        if (isChecked) {
+            // Show only parking lots within a certain cost
+            ParkingLotManager.loadParkingLots(mMap, maxCost)
         } else {
-            Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show()
+            // Show all parking lots
+            ParkingLotManager.loadParkingLots(mMap, Double.MAX_VALUE) // Use a large number to show all
         }
-    }
-
-    private fun updateMapWithFilter() {
-        mMap.clear() // Clear previous markers
-        val filteredParkingLots = if (costFilterEnabled) {
-            parkingLots.filter { it.cost <= maxCost } // Filter based on cost
-        } else {
-            parkingLots // No filter applied
-        }
-
-        filteredParkingLots.forEach { parkingLot ->
-            val location = parkingLot.location?.let { getLatLngForLocation(it) }
-            location?.let {
-                val markerOptions = MarkerOptions()
-                    .position(it)
-                    .title("${parkingLot.name} - $${parkingLot.cost}")
-                mMap.addMarker(markerOptions)
-            }
-        }
-    }
-
-    private fun getLatLngForLocation(location: MSUDCampusLocation): LatLng {
-        return when (location) {
-            MSUDCampusLocation.JORDAN_PARKING_GARAGE -> LatLng(39.745473, -105.007460)
-            MSUDCampusLocation.TIVOLI_PARKING_LOT -> LatLng(39.744338, -105.002847)
-            MSUDCampusLocation.AURARIA_WEST -> LatLng(39.744556, -105.009145)
-            MSUDCampusLocation.AURARIA_EAST -> LatLng(39.743115, -105.000376)
-            MSUDCampusLocation.NINTH_AND_WALNUT -> LatLng(39.743883, -105.001878)
-        }
-    }
-
-    // Other methods for login, logout, and navigation...
-
-    private fun openPayParkingMeterActivity() {
-        val intent = Intent(this, PayParkingMeterActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun openPaymentActivity() {
-        val intent = Intent(this, PaymentActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun showLoginActivity() {
-        // Implement login activity logic here
-        val intent = Intent(this, LoginActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun logoutUser() {
-        // Implement logout logic
-        FirebaseAuth.getInstance().signOut()
-        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
-        recreate() // Refresh the activity to update UI
-    }
-
-    private fun continueAsGuest() {
-        // Implement guest continuation logic
-        Toast.makeText(this, "Continuing as Guest", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun navigateToMenu() {
-        // Implement navigation to the main menu logic
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true
-        }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
     }
 }

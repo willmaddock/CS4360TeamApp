@@ -1,31 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Menu items for all users -->
     <item
         android:id="@+id/nav_login"
-        android:title="Login" />
-    <item
-        android:id="@+id/nav_logout"
-        android:title="Logout" />
-    <item
-        android:id="@+id/nav_guest"
-        android:title="Continue as Guest" />
+        android:title="Login" /> <!-- Only for guests -->
+
     <item
         android:id="@+id/nav_back_to_menu"
-        android:title="Back to Menu" />
-    <item
-        android:id="@+id/nav_pay_parking_meter"
-        android:title="@string/pay_parking_meter" /> <!-- Pay Parking Meter -->
+        android:title="Back to Menu" /> <!-- Only for logged-in users -->
+
     <item
         android:id="@+id/nav_payment"
-        android:title="Payment" /> <!-- New Payment item -->
+        android:title="Payment" /> <!-- Accessible for both users -->
 
+    <item
+        android:id="@+id/nav_timer"
+        android:title="View Parking Timer"
+        android:icon="@drawable/ic_timer" /> <!-- Accessible for both users, hidden if not active -->
+
+    <item
+        android:id="@+id/nav_take_survey"
+        android:title="Take a Survey" /> <!-- Only for guests -->
+
+    <!-- Menu items for logged-in users -->
     <item
         android:id="@+id/nav_chat"
         android:icon="@drawable/ic_chat"
-    android:title="Chat" />
+        android:title="Chat" /> <!-- Only for logged-in users -->
+
+    <item
+        android:id="@+id/nav_submit_petition"
+        android:title="Submit a Petition" /> <!-- Only for logged-in users -->
+
+    <item
+        android:id="@+id/nav_submit_review"
+        android:title="Submit a Review" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_notifications"
         android:icon="@drawable/ic_notifications"
-        android:title="Notifications" />
+        android:title="Notifications" /> <!-- Only for logged-in users -->
+
+    <!-- Log Out Menu Item -->
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Log Out" /> <!-- Only for logged-in users -->
+
 </menu>
