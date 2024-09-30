@@ -4,7 +4,6 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cs4360app.Constants
-import com.example.cs4360app.MessageModel
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
 import kotlinx.coroutines.launch
@@ -15,7 +14,7 @@ class ChatViewModel(context: android.content.Context) : ViewModel() {
         mutableStateListOf<MessageModel>()
     }
 
-    val generativeModel : GenerativeModel = GenerativeModel(
+    private val generativeModel : GenerativeModel = GenerativeModel(
         modelName = "gemini-pro",
         apiKey = Constants.getApiKey(context)  // Fetching API key from resources
     )

@@ -1,5 +1,6 @@
 package com.example.cs4360app.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,7 @@ class ParkingLotAdapter(
         private val costTextView: TextView = itemView.findViewById(R.id.parking_lot_cost)
         private val ratingTextView: TextView = itemView.findViewById(R.id.parking_lot_rating)
 
+        @SuppressLint("SetTextI18n")
         fun bind(parkingLot: ParkingLot) {
             nameTextView.text = parkingLot.name
             costTextView.text = "$${parkingLot.cost}"

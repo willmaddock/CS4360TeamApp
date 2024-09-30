@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -11,7 +12,7 @@
         android:id="@+id/amount_paid_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Amount Paid: $0.00"
+        android:text="@string/amount_paid_0_00"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
         android:id="@+id/timer_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time Remaining: 00:00"
+        android:text="@string/time_remaining_00_00"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@id/amount_paid_text_view"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +41,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/back_to_maps_button"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginEnd="8dp"
+        tools:ignore="HardcodedText" />
 
     <!-- Button to navigate back to the maps -->
     <Button
@@ -52,6 +54,7 @@
         app:layout_constraintStart_toEndOf="@id/back_to_main_menu_button"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"/>
+        android:layout_marginStart="8dp"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

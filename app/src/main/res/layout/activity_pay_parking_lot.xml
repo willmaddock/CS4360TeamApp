@@ -16,7 +16,7 @@
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Enter your payment information" />
+        android:text="@string/enter_your_payment_information" />
 
     <TextView
         android:id="@+id/subtitle_label"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Choose how you want to pay your parking ticket"
+        android:text="@string/choose_how_you_want_to_pay_your_parking_ticket"
         android:textColor="@color/purple_700"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_label" />
@@ -43,13 +43,13 @@
             android:id="@+id/student_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Credit Card" />
+            android:text="@string/credit_card" />
 
         <RadioButton
             android:id="@+id/faculty_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Debit Card" />
+            android:text="@string/debit_card" />
     </RadioGroup>
 
     <EditText
@@ -57,54 +57,58 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:hint="Cardholder Name"
+        android:hint="@string/cardholder_name"
         android:inputType="textPersonName"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/user_type_radio_group" />
+        app:layout_constraintTop_toBottomOf="@id/user_type_radio_group"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/cardnumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Card Number"
+        android:hint="@string/card_number"
         android:inputType="number"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardname" />
+        app:layout_constraintTop_toBottomOf="@id/cardname"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/expire_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Expire Date: MM/YY"
+        android:hint="@string/expire_date_mm_yy"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardnumber" />
+        app:layout_constraintTop_toBottomOf="@id/cardnumber"
+        tools:ignore="Autofill,TextFields" />
 
     <EditText
         android:id="@+id/cvc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="CVC Number: Three Digit Code"
+        android:hint="@string/cvc_number_three_digit_code"
         android:inputType="number"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expire_date" />
+        app:layout_constraintTop_toBottomOf="@id/expire_date"
+        tools:ignore="Autofill" />
 
     <Button
         android:id="@+id/payButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Complete Payment"
+        android:text="@string/complete_payment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvc" />
@@ -113,7 +117,7 @@
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"

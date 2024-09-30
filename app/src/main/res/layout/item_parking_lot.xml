@@ -9,7 +9,7 @@
         android:id="@+id/parking_lot_name"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Parking Lot Name"
+    android:text="@string/parking_lot_name"
     android:textStyle="bold"
     android:textSize="16sp" />
 
@@ -17,14 +17,14 @@
         android:id="@+id/parking_lot_cost"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Cost: $0.0"
+    android:text="@string/cost_0_0"
     android:textSize="14sp" />
 
     <TextView
         android:id="@+id/parking_lot_rating"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Rating: 0.0"
+    android:text="@string/rating_0_0"
     android:textSize="14sp" />
 
 </LinearLayout>

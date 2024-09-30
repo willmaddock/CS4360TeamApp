@@ -14,8 +14,8 @@ class EventDetailsActivity : AppCompatActivity() {
 
         // Retrieve event details from the intent
         val eventTitle = intent.getStringExtra("EVENT_TITLE") ?: "No Title"
-        val eventDate = intent.getStringExtra("EVENT_DATE") ?: "No Date"
-        val eventLocation = intent.getStringExtra("EVENT_LOCATION") ?: "No Location"
+        intent.getStringExtra("EVENT_DATE") ?: "No Date"
+        intent.getStringExtra("EVENT_LOCATION") ?: "No Location"
         val eventDescription = intent.getStringExtra("EVENT_DESCRIPTION") ?: "No Description"
 
         // Set the values in the TextViews

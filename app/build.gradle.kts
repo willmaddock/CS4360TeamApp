@@ -12,6 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.example.cs4360app"
         minSdk = 25
+        //noinspection OldTargetApi
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -66,45 +67,45 @@ android {
 
 dependencies {
     // Core Android dependencies
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
 
     // Compose dependencies
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-tooling")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3:1.0.0")
-    implementation("androidx.activity:activity-compose:1.6.1")
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.tooling)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.activity.compose)
 
     // Firebase dependencies
-    implementation("com.google.firebase:firebase-analytics-ktx:21.1.0")
-    implementation("com.google.firebase:firebase-firestore-ktx:24.4.0")
-    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
-    implementation("com.google.firebase:firebase-messaging-ktx:23.2.0") // Added FCM dependency
+    implementation(libs.firebase.analytics.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.messaging.ktx) // Added FCM dependency
 
     // Facebook SDK (for social login or sharing)
-    implementation("com.facebook.android:facebook-android-sdk:12.3.0")
+    implementation(libs.facebook.android.sdk)
 
     // Google Maps and Places APIs
-    implementation("com.google.android.gms:play-services-maps:18.1.0")
-    implementation("com.google.android.libraries.places:places:2.7.0")
-    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation(libs.play.services.maps)
+    implementation(libs.places.v400)
+    implementation(libs.play.services.location)
 
     // RecyclerView and Activity dependencies
-    implementation("androidx.recyclerview:recyclerview:1.3.0") // RecyclerView dependency
-    implementation("androidx.activity:activity:1.6.1")
+    implementation(libs.androidx.recyclerview) // RecyclerView dependency
+    implementation(libs.androidx.activity)
 
     // Google Sign-In
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation(libs.play.services.auth)
     implementation(libs.generativeai)
 
     // Testing dependencies
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
 
 // Apply the Google services Gradle plugin

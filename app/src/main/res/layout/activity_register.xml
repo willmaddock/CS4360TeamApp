@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,25 +10,27 @@
         android:id="@+id/email_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="100dp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/password_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_edit_text"
         android:layout_marginTop="16dp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        tools:ignore="Autofill" />
 
     <RadioGroup
         android:id="@+id/user_type_radio_group"
@@ -43,25 +46,25 @@
             android:id="@+id/student_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Student" />
+            android:text="@string/student" />
 
         <RadioButton
             android:id="@+id/faculty_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Faculty" />
+            android:text="@string/faculty" />
 
         <RadioButton
             android:id="@+id/visitor_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Visitor" />
+            android:text="@string/visitor" />
 
         <RadioButton
             android:id="@+id/staff_radio_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Staff" />
+            android:text="@string/staff" />
     </RadioGroup>
 
     <Button
@@ -72,6 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/user_type_radio_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

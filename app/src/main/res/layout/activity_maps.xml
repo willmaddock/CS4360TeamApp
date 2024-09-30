@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <!-- Map Fragment -->
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="0dp"
@@ -37,7 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Zoom In"
+                android:text="@string/zoom_in"
                 android:textSize="12sp" />
 
             <Button
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="Zoom Out"
+                android:text="@string/zoom_out"
                 android:textSize="12sp" />
 
             <ToggleButton
@@ -54,8 +54,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textOn="Cost Filter: ON"
-                android:textOff="Cost Filter: OFF"
+                android:textOn="@string/cost_filter_on"
+                android:textOff="@string/cost_filter_off"
                 android:textSize="12sp"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
@@ -69,7 +69,8 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_menu"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="603dp" />
+            tools:layout_editor_absoluteY="603dp"
+            tools:ignore="ContentDescription,MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

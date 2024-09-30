@@ -1,50 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Menu items for all users -->
     <item
         android:id="@+id/nav_login"
-        android:title="Login" /> <!-- Only for guests -->
+        android:title="Login"
+        tools:ignore="HardcodedText" /> <!-- Only for guests -->
 
     <item
         android:id="@+id/nav_back_to_menu"
-        android:title="Back to Menu" /> <!-- Only for logged-in users -->
+        android:title="@string/back_to_menu" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_payment"
-        android:title="Payment" /> <!-- Accessible for both users -->
+        android:title="Payment"
+        tools:ignore="HardcodedText" /> <!-- Accessible for both users -->
 
     <item
         android:id="@+id/nav_timer"
-        android:title="View Parking Timer"
+        android:title="@string/view_parking_timer"
         android:icon="@drawable/ic_timer" /> <!-- Accessible for both users, hidden if not active -->
 
     <item
         android:id="@+id/nav_take_survey"
-        android:title="Take a Survey" /> <!-- Only for guests -->
+        android:title="@string/take_a_survey" /> <!-- Only for guests -->
 
     <!-- Menu items for logged-in users -->
     <item
         android:id="@+id/nav_chat"
         android:icon="@drawable/ic_chat"
-        android:title="Chat" /> <!-- Only for logged-in users -->
+        android:title="Chat"
+        tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_submit_petition"
-        android:title="Submit a Petition" /> <!-- Only for logged-in users -->
+        android:title="@string/submit_a_petition" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_submit_review"
-        android:title="Submit a Review" /> <!-- Only for logged-in users -->
+        android:title="Submit a Review"
+        tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_notifications"
         android:icon="@drawable/ic_notifications"
-        android:title="Notifications" /> <!-- Only for logged-in users -->
+        android:title="Notifications"
+        tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <!-- Log Out Menu Item -->
     <item
         android:id="@+id/nav_logout"
-        android:title="Log Out" /> <!-- Only for logged-in users -->
+        android:title="@string/log_out" /> <!-- Only for logged-in users -->
 
 </menu>
