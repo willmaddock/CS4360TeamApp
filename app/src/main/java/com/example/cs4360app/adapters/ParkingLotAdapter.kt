@@ -37,7 +37,7 @@ class ParkingLotAdapter(
         private val ratingTextView: TextView = itemView.findViewById(R.id.parking_lot_rating)
         private val proximityTextView: TextView = itemView.findViewById(R.id.parking_lot_proximity)
 
-        @SuppressLint("SetTextI18n")
+        @SuppressLint("SetTextI18n", "DefaultLocale")
         fun bind(parkingLot: ParkingLot) {
             nameTextView.text = parkingLot.name
             costTextView.text = "$${parkingLot.cost}"

@@ -177,4 +177,13 @@
     <string name="take_a_survey">Take a Survey</string>
     <string name="submit_a_petition">Submit a Petition</string>
     <string name="log_out">Log Out</string>
+    <string name="filter">Filter</string>
+    <string name="filter_parking_options">Filter Parking Options</string>
+    <string name="price_filter">Price Filter</string>
+    <string name="availability_filter">Availability Filter</string>
+    <string name="proximity_filter">Proximity Filter</string>
+    <string name="rating_filter">Rating Filter</string>
+    <string name="address_filter">Address Filter</string>
+    <string name="apply_filters">Apply Filters</string>
+    <string name="proximity_0_ft">Proximity: 0 ft</string>
 </resources>

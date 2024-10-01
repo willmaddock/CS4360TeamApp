@@ -48,7 +48,7 @@ object ParkingLotManager {
             // Check if lot meets cost and availability filters
             if (lot.cost <= maxCost && lot.availabilityPercentage >= minAvailability) {
                 val latLng = getLatLngForLocation(lot.location)
-                latLng?.let {
+                latLng?.let { it ->
                     val markerColor = getMarkerColor(lot.availabilityPercentage)
 
                     // Build snippet based on selected filters
