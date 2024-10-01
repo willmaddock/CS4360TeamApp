@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Filter Parking Options"
+        android:text="@string/filter_parking_options"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp" />
@@ -18,37 +18,37 @@
         android:id="@+id/checkbox_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price Filter" />
+        android:text="@string/price_filter" />
 
     <CheckBox
         android:id="@+id/checkbox_availability"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Availability Filter" />
+        android:text="@string/availability_filter" />
 
     <CheckBox
         android:id="@+id/checkbox_proximity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proximity Filter" />
+        android:text="@string/proximity_filter" />
 
     <CheckBox
         android:id="@+id/checkbox_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rating Filter" />
+        android:text="@string/rating_filter" />
 
     <CheckBox
         android:id="@+id/checkbox_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Address Filter" />
+        android:text="@string/address_filter" />
 
     <Button
         android:id="@+id/button_apply_filters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Apply Filters"
+        android:text="@string/apply_filters"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/colorAccent" /> <!-- Change this to your desired color -->
 

@@ -10,7 +10,7 @@ import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
 import com.google.firebase.auth.FirebaseAuth
 
-@Suppress("SameParameterValue")
+@Suppress("SameParameterValue", "DEPRECATION")
 class PaymentActivity : AppCompatActivity() {
 
     private lateinit var guestEmailInput: EditText
@@ -118,6 +118,7 @@ class PaymentActivity : AppCompatActivity() {
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
+        super.onBackPressed()
         // Handle the back press similarly to the back button behavior
         if (auth.currentUser != null && fromMainMenu) {
             navigateToMainMenu()

@@ -38,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/zoom_in"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/zoom_out_button"
@@ -47,7 +48,8 @@
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
                 android:text="@string/zoom_out"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="ButtonStyle" />
 
             <!-- Filter Button with color change -->
             <Button
@@ -56,9 +58,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginStart="8dp"
-                android:text="Filter"
+                android:text="@string/filter"
                 android:textSize="12sp"
-                android:backgroundTint="@color/colorAccent" /> <!-- Replace with your desired color -->
+                android:backgroundTint="@color/colorAccent"
+                tools:ignore="ButtonStyle" /> <!-- Replace with your desired color -->
 
         </LinearLayout>
 
