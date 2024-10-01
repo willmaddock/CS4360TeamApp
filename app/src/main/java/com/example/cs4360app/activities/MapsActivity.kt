@@ -4,7 +4,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ToggleButton
+import android.widget.CheckBox
+import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.cs4360app.MainActivity
@@ -26,9 +28,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private var maxCost: Double = 10.0 // Default max cost
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
-    private lateinit var costFilterToggle: ToggleButton
     private lateinit var auth: FirebaseAuth
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var infoIcon: ImageView // Added info icon variable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,19 +60,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Setup zoom buttons for map
         setupZoomButtons()
 
-        // Initialize cost filter toggle
-        costFilterToggle = findViewById(R.id.cost_filter_toggle)
-        costFilterToggle.setOnCheckedChangeListener { _, isChecked ->
-            updateMapWithFilter(isChecked) // Refresh map markers based on the toggle state
-        }
-
         // Floating Action Button to open the drawer
         findViewById<FloatingActionButton>(R.id.open_drawer_fab).setOnClickListener {
             drawerLayout.open()
         }
 
+        // Initialize the info icon and set its click listener
+        infoIcon = findViewById(R.id.info_icon)
+        infoIcon.setOnClickListener {
+            showInfoDialog()
+        }
+
         // Update the drawer menu initially
         updateDrawerMenu()
+
+        // Add button for filtering options
+        findViewById<Button>(R.id.filter_button).setOnClickListener {
+            showFilterDialog()
+        }
     }
 
     private fun setupDrawer() {
@@ -189,26 +196,63 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         ParkingLotManager.loadParkingLots(mMap, maxCost)
     }
 
-    private fun updateMapWithFilter(isChecked: Boolean) {
-        if (isChecked) {
-            // Show only parking lots within a certain cost
-            ParkingLotManager.loadParkingLots(mMap, maxCost)
-        } else {
-            // Show all parking lots
-            ParkingLotManager.loadParkingLots(mMap, Double.MAX_VALUE) // Use a large number to show all
+    private fun showFilterDialog() {
+        // Inflate the filter dialog layout
+        val dialogView = layoutInflater.inflate(R.layout.dialog_filter_options, null)
+        val priceCheckBox = dialogView.findViewById<CheckBox>(R.id.checkbox_price)
+        val availabilityCheckBox = dialogView.findViewById<CheckBox>(R.id.checkbox_availability)
+        val proximityCheckBox = dialogView.findViewById<CheckBox>(R.id.checkbox_proximity)
+        val ratingCheckBox = dialogView.findViewById<CheckBox>(R.id.checkbox_rating)
+        val addressCheckBox = dialogView.findViewById<CheckBox>(R.id.checkbox_address)
+
+        // Create the dialog
+        val dialogBuilder = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+
+        val dialog = dialogBuilder.create()
+
+        // Set up the button click listener for applying filters
+        dialogView.findViewById<Button>(R.id.button_apply_filters).setOnClickListener {
+            // Get filter values
+            val priceFilterEnabled = priceCheckBox.isChecked
+            val availabilityFilterEnabled = availabilityCheckBox.isChecked
+            val proximityFilterEnabled = proximityCheckBox.isChecked
+            val ratingFilterEnabled = ratingCheckBox.isChecked
+            val addressFilterEnabled = addressCheckBox.isChecked
+
+            // Call method to apply filters to the map
+            applyFilters(priceFilterEnabled, availabilityFilterEnabled, proximityFilterEnabled, ratingFilterEnabled, addressFilterEnabled)
+
+            // Dismiss the dialog
+            dialog.dismiss()
         }
+
+        dialog.show()
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        // Reopen the drawer when returning to this activity
-        drawerLayout.open()
+    private fun applyFilters(price: Boolean, availability: Boolean, proximity: Boolean, rating: Boolean, address: Boolean) {
+        // Logic to filter parking lots based on the selected options
+        ParkingLotManager.loadParkingLots(
+            mMap,
+            maxCost,
+            showPrice = price,
+            showAvailability = availability,
+            showProximity = proximity,
+            showRating = rating,
+            showAddress = address // Make sure to include all relevant parameters
+        )
     }
 
-    override fun onResume() {
-        super.onResume()
-        // Ensure the drawer is open if returning from another activity
-        drawerLayout.open()
+    private fun showInfoDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Parking Lot Availability")
+            .setMessage("The colored markers represent the availability of parking lots:\n" +
+                    "Green: Available\n" +
+                    "Yellow: Almost Full\n" +
+                    "Red: Full")
+            .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+            .create()
+            .show()
     }
 }
