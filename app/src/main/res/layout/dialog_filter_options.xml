@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter Parking Options"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <CheckBox
+        android:id="@+id/checkbox_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price Filter" />
+
+    <CheckBox
+        android:id="@+id/checkbox_availability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Availability Filter" />
+
+    <CheckBox
+        android:id="@+id/checkbox_proximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proximity Filter" />
+
+    <CheckBox
+        android:id="@+id/checkbox_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rating Filter" />
+
+    <CheckBox
+        android:id="@+id/checkbox_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address Filter" />
+
+    <Button
+        android:id="@+id/button_apply_filters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apply Filters"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorAccent" /> <!-- Change this to your desired color -->
+
+</LinearLayout>

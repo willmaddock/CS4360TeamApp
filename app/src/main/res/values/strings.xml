@@ -131,8 +131,8 @@
     <string name="logout">Logout</string>
     <string name="zoom_in">Zoom In</string>
     <string name="zoom_out">Zoom Out</string>
-    <string name="cost_filter_on">Cost Filter: ON</string>
-    <string name="cost_filter_off">Cost Filter: OFF</string>
+    <string name="info_icon_desc">Info icon to explain marker colors</string>
+    <string name="open_drawer">Open Navigation Drawer</string>
     <string name="parking_details">Parking Details</string>
     <string name="here_you_will_see_details_about_the_selected_parking_spot">Here you will see details about the selected parking spot.</string>
     <string name="enter_your_payment_information">Enter your payment information</string>

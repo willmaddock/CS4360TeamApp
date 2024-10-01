@@ -54,13 +54,13 @@ class SubmitReviewActivity : AppCompatActivity() {
         parkingLotDetailsTextView = findViewById(R.id.parkingLotDetailsTextView)
         uploadImageButton = findViewById(R.id.uploadImageButton)
 
-        // Example data for parking lots
+        // Example data for parking lots including addresses
         parkingLots = listOf(
-            ParkingLot("1", "Jordan Parking Garage", 10.0, 4.5f, MSUDCampusLocation.JORDAN_PARKING_GARAGE, true),
-            ParkingLot("2", "Tivoli Parking Garage", 15.0, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, false),
-            ParkingLot("3", "Auraria West", 8.0, 3.8f, MSUDCampusLocation.AURARIA_WEST, true),
-            ParkingLot("4", "Auraria East", 12.0, 4.2f, MSUDCampusLocation.AURARIA_EAST, true),
-            ParkingLot("5", "Ninth and Walnut", 5.0, 4.6f, MSUDCampusLocation.NINTH_AND_WALNUT, false)
+            ParkingLot("1", "Jordan Parking Garage", 10.0, 4.5f, MSUDCampusLocation.JORDAN_PARKING_GARAGE, true, 90, 100, "123 Jordan St"), // Added address
+            ParkingLot("2", "Tivoli Parking Garage", 15.0, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, false, 30, 200, "456 Tivoli St"), // Added address
+            ParkingLot("3", "Auraria West", 8.0, 3.8f, MSUDCampusLocation.AURARIA_WEST, true, 75, 150, "789 Auraria W"), // Added address
+            ParkingLot("4", "Auraria East", 12.0, 4.2f, MSUDCampusLocation.AURARIA_EAST, true, 50, 300, "321 Auraria E"), // Added address
+            ParkingLot("5", "Ninth and Walnut", 5.0, 4.6f, MSUDCampusLocation.NINTH_AND_WALNUT, false, 10, 400, "654 Ninth St") // Added address
         )
 
         // Setup parking lot spinner
@@ -93,7 +93,6 @@ class SubmitReviewActivity : AppCompatActivity() {
         val rating = ratingBar.rating
         val comment = commentEditText.text.toString()
         val parkingLot = parkingLots[parkingLotSpinner.selectedItemPosition]
-        categorySpinner.selectedItem.toString()
 
         if (rating > 0 && comment.isNotBlank()) {
             val review = Review(

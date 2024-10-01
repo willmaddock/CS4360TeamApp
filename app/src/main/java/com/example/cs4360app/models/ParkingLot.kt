@@ -16,5 +16,8 @@ data class ParkingLot(
     val cost: Double,
     val rating: Float,
     val location: MSUDCampusLocation?,  // Nullable location
-    val isMsudParkingLot: Boolean
+    val isMsudParkingLot: Boolean,
+    val availabilityPercentage: Int,     // Field for availability percentage
+    val proximity: Int,                   // Field for proximity in feet
+    val address: String                    // New field for street address
 )

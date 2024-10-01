@@ -19,7 +19,7 @@ class SelectParkingLotActivity : AppCompatActivity() {
         binding = ActivitySelectParkingLotBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Create a list of ParkingLot objects
+        // Create a list of ParkingLot objects with proximity values and addresses
         val parkingLots: List<ParkingLot> = listOf(
             ParkingLot(
                 id = "1",
@@ -27,7 +27,10 @@ class SelectParkingLotActivity : AppCompatActivity() {
                 cost = 10.0,
                 rating = 4.2f,
                 location = MSUDCampusLocation.JORDAN_PARKING_GARAGE,
-                isMsudParkingLot = true
+                isMsudParkingLot = true,
+                availabilityPercentage = 90,
+                proximity = 100,
+                address = "123 Jordan St"  // Added address
             ),
             ParkingLot(
                 id = "2",
@@ -35,7 +38,10 @@ class SelectParkingLotActivity : AppCompatActivity() {
                 cost = 8.0,
                 rating = 3.8f,
                 location = MSUDCampusLocation.TIVOLI_PARKING_LOT,
-                isMsudParkingLot = true
+                isMsudParkingLot = true,
+                availabilityPercentage = 30,
+                proximity = 200,
+                address = "456 Tivoli St"  // Added address
             ),
             ParkingLot(
                 id = "3",
@@ -43,7 +49,10 @@ class SelectParkingLotActivity : AppCompatActivity() {
                 cost = 5.0,
                 rating = 4.0f,
                 location = MSUDCampusLocation.AURARIA_WEST,
-                isMsudParkingLot = true
+                isMsudParkingLot = true,
+                availabilityPercentage = 75,
+                proximity = 150,
+                address = "789 Auraria W"  // Added address
             ),
             ParkingLot(
                 id = "4",
@@ -51,15 +60,21 @@ class SelectParkingLotActivity : AppCompatActivity() {
                 cost = 6.0,
                 rating = 4.5f,
                 location = MSUDCampusLocation.NINTH_AND_WALNUT,
-                isMsudParkingLot = true
+                isMsudParkingLot = true,
+                availabilityPercentage = 10,
+                proximity = 400,
+                address = "654 Ninth St"  // Added address
             ),
             ParkingLot(
-                id = "6",
+                id = "5",
                 name = "Auraria East",
                 cost = 9.0,
                 rating = 3.9f,
                 location = MSUDCampusLocation.AURARIA_EAST,
-                isMsudParkingLot = true
+                isMsudParkingLot = true,
+                availabilityPercentage = 50,
+                proximity = 300,
+                address = "321 Auraria E"  // Added address
             )
         )
 

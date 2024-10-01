@@ -49,16 +49,29 @@
                 android:text="@string/zoom_out"
                 android:textSize="12sp" />
 
-            <ToggleButton
-                android:id="@+id/cost_filter_toggle"
+            <!-- Filter Button with color change -->
+            <Button
+                android:id="@+id/filter_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textOn="@string/cost_filter_on"
-                android:textOff="@string/cost_filter_off"
+                android:layout_marginStart="8dp"
+                android:text="Filter"
                 android:textSize="12sp"
-                android:layout_marginStart="8dp" />
+                android:backgroundTint="@color/colorAccent" /> <!-- Replace with your desired color -->
+
         </LinearLayout>
+
+        <!-- Info Icon to explain marker colors -->
+        <ImageView
+            android:id="@+id/info_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_info"
+            android:contentDescription="@string/info_icon_desc"
+            android:layout_gravity="end|top"
+            android:layout_margin="16dp"
+            tools:ignore="MissingConstraints" />
 
         <!-- Floating Action Button to open the navigation drawer -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -67,10 +80,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start|bottom"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_menu"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="603dp"
-            tools:ignore="ContentDescription,MissingConstraints" />
+            android:src="@drawable/ic_amp_vector"
+        android:contentDescription="@string/open_drawer"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="603dp"
+        tools:ignore="ContentDescription,MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
