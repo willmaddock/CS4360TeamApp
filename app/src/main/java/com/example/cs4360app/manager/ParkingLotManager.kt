@@ -1,4 +1,4 @@
-package manager
+package com.example.cs4360app.manager
 
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot

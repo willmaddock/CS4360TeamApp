@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
-import manager.ParkingLotManager
+import com.example.cs4360app.manager.ParkingLotManager
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
