@@ -1,4 +1,4 @@
-package com.example.cs4360app.manager
+package com.example.cs4360app.managers
 
 import android.content.Context
 import android.content.Intent

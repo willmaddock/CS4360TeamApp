@@ -7,9 +7,9 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.cs4360app.R
-import com.example.cs4360app.manager.DrawerManager
-import com.example.cs4360app.manager.FilterManager
-import com.example.cs4360app.manager.ParkingLotManager
+import com.example.cs4360app.managers.DrawerManager
+import com.example.cs4360app.managers.FilterManager
+import com.example.cs4360app.managers.ParkingLotManager
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -69,8 +69,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val jordanGarage = LatLng(39.745473, -105.007460)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jordanGarage, 15f)) // Zoom level can be adjusted
 
-        // Load parking lots (if applicable)
-        ParkingLotManager.loadParkingLots(mMap, 10.0)
+        // Load parking lots (without maxCost, only passing other filters if needed)
+        ParkingLotManager.loadParkingLots(mMap)
     }
 
     private fun setupZoomButtons() {

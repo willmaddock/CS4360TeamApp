@@ -1,4 +1,4 @@
-package com.example.cs4360app.manager
+package com.example.cs4360app.managers
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -37,9 +37,7 @@ object FilterManager {
             // Load parking lots with selected filters
             ParkingLotManager.loadParkingLots(
                 mMap,
-                maxCost = 10.0, // Set max cost here (or get from user input)
                 showPrice = showPrice,
-                minAvailability = if (showAvailability) 75 else 0, // Example: set min availability if checked
                 showAvailability = showAvailability,
                 showProximity = showProximity,
                 showRating = showRating,
