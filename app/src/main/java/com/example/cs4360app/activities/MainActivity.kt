@@ -1,4 +1,4 @@
-package com.example.cs4360app
+package com.example.cs4360app.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cs4360app.activities.*
 import com.example.cs4360app.adapters.ReviewAdapter
 import com.example.cs4360app.databinding.ActivityMainBinding
 import com.example.cs4360app.models.Review

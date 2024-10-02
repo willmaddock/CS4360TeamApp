@@ -1,4 +1,4 @@
-package com.example.cs4360app
+package com.example.cs4360app.chatbots
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -33,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.cs4360app.R
 import com.example.cs4360app.models.ChatViewModel
 import com.example.cs4360app.models.MessageModel
 

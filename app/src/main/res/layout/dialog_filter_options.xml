@@ -18,7 +18,16 @@
         android:id="@+id/checkbox_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/price_filter" />
+        android:text="@string/cost_filter" />
+
+    <TextView
+        android:id="@+id/price_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
 
     <CheckBox
         android:id="@+id/checkbox_availability"
@@ -26,11 +35,29 @@
         android:layout_height="wrap_content"
         android:text="@string/availability_filter" />
 
+    <TextView
+        android:id="@+id/availability_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
+
     <CheckBox
         android:id="@+id/checkbox_proximity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/proximity_filter" />
+
+    <TextView
+        android:id="@+id/proximity_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
 
     <CheckBox
         android:id="@+id/checkbox_rating"
@@ -38,18 +65,34 @@
         android:layout_height="wrap_content"
         android:text="@string/rating_filter" />
 
+    <TextView
+        android:id="@+id/rating_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rating_select_this_filter_to_show_parking_lots_based_on_their_ratings"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
+
     <CheckBox
         android:id="@+id/checkbox_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/address_filter" />
 
+    <TextView
+        android:id="@+id/address_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address_select_this_filter_to_show_parking_lots_with_their_respective_addresses"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp" />
+
     <Button
         android:id="@+id/button_apply_filters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/apply_filters"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/colorAccent" /> <!-- Change this to your desired color -->
-
+        android:layout_marginTop="16dp" />
 </LinearLayout>
