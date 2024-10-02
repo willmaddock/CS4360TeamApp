@@ -1,4 +1,4 @@
-package com.example.cs4360app
+package com.example.cs4360app.chatbots
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

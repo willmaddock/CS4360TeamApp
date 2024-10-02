@@ -18,24 +18,11 @@ object ParkingLotManager {
         ParkingLot("5", "Ninth and Walnut", 6.0, 2.5f, MSUDCampusLocation.NINTH_AND_WALNUT, true, 10, 400, "654 Ninth St")
     )
 
-    /**
-     * Load parking lots onto the map with filters for max cost, minimum availability percentage,
-     * and other optional display options.
-     *
-     * @param googleMap The GoogleMap instance where markers will be added.
-     * @param maxCost The maximum cost filter for parking lots.
-     * @param minAvailability The minimum availability percentage filter for parking lots.
-     * @param showPrice Indicates whether to show price information on markers.
-     * @param showAvailability Indicates whether to show availability information on markers.
-     * @param showProximity Indicates whether to show proximity information on markers.
-     * @param showRating Indicates whether to show rating information on markers.
-     * @param showAddress Indicates whether to show address information on markers.
-     */
     fun loadParkingLots(
         googleMap: GoogleMap,
         maxCost: Double,
-        minAvailability: Int = 0,
         showPrice: Boolean = false,
+        minAvailability: Int = 0,
         showAvailability: Boolean = false,
         showProximity: Boolean = false,
         showRating: Boolean = false,
@@ -44,27 +31,21 @@ object ParkingLotManager {
         // Clear existing markers before loading new ones
         googleMap.clear()
 
-        for (lot in parkingLots) {
-            // Check if lot meets cost and availability filters
+        // Loop through each parking lot and check against filters
+        parkingLots.forEach { lot ->
             if (lot.cost <= maxCost && lot.availabilityPercentage >= minAvailability) {
-                val latLng = getLatLngForLocation(lot.location)
-                latLng?.let { it ->
+                getLatLngForLocation(lot.location)?.let { latLng ->
                     val markerColor = getMarkerColor(lot.availabilityPercentage)
 
                     // Build snippet based on selected filters
-                    val snippet = buildString {
-                        if (showPrice) append("Cost: \$${lot.cost} | ")
-                        if (showAvailability) append("Availability: ${lot.availabilityPercentage}% | ")
-                        if (showProximity) append("Proximity: ${lot.proximity} ft | ")
-                        if (showRating) append("Rating: ${lot.rating} | ") // Example for rating
-                        if (showAddress) append("Address: ${lot.address} | ") // Show street address
-                    }.trimEnd(' ', '|')
+                    val snippet = buildSnippet(lot, showPrice, showAvailability, showProximity, showRating, showAddress)
 
+                    // Add marker to the map
                     googleMap.addMarker(
                         MarkerOptions()
-                            .position(it)
+                            .position(latLng)
                             .title(lot.name)
-                            .snippet(snippet.takeIf { it.isNotEmpty() } ?: "No additional info")
+                            .snippet(snippet)
                             .icon(BitmapDescriptorFactory.defaultMarker(markerColor))
                     )
                 }
@@ -72,13 +53,25 @@ object ParkingLotManager {
         }
     }
 
-    /**
-     * Get LatLng based on the MSUDCampusLocation.
-     *
-     * @param location The campus location to retrieve coordinates for.
-     * @return LatLng object representing the location coordinates, or null if unknown.
-     */
-    fun getLatLngForLocation(location: MSUDCampusLocation?): LatLng? {
+    private fun buildSnippet(
+        lot: ParkingLot,
+        showPrice: Boolean,
+        showAvailability: Boolean,
+        showProximity: Boolean,
+        showRating: Boolean,
+        showAddress: Boolean
+    ): String {
+        return buildString {
+            if (showPrice) append("Cost: \$${lot.cost} | ")
+            if (showAvailability) append("Availability: ${lot.availabilityPercentage}% | ")
+            if (showProximity) append("Proximity: ${lot.proximity} ft | ")
+            if (showRating) append("Rating: ${lot.rating} | ")
+            if (showAddress) append("Address: ${lot.address} | ")
+        }.trimEnd(' ', '|')
+            .takeIf { it.isNotEmpty() } ?: "No additional info"
+    }
+
+    private fun getLatLngForLocation(location: MSUDCampusLocation?): LatLng? {
         return when (location) {
             MSUDCampusLocation.JORDAN_PARKING_GARAGE -> LatLng(39.745473, -105.007460)
             MSUDCampusLocation.TIVOLI_PARKING_LOT -> LatLng(39.744338, -105.002847)
@@ -89,12 +82,6 @@ object ParkingLotManager {
         }
     }
 
-    /**
-     * Get marker color based on availability percentage.
-     *
-     * @param availability The availability percentage of the parking lot.
-     * @return Float representing the marker color.
-     */
     private fun getMarkerColor(availability: Int): Float {
         return when {
             availability >= 90 -> BitmapDescriptorFactory.HUE_RED // Full parking lot

@@ -180,10 +180,21 @@
     <string name="filter">Filter</string>
     <string name="filter_parking_options">Filter Parking Options</string>
     <string name="price_filter">Price Filter</string>
+    <string name="cost_filter">Cost Filter</string>
     <string name="availability_filter">Availability Filter</string>
     <string name="proximity_filter">Proximity Filter</string>
     <string name="rating_filter">Rating Filter</string>
     <string name="address_filter">Address Filter</string>
     <string name="apply_filters">Apply Filters</string>
     <string name="proximity_0_ft">Proximity: 0 ft</string>
+    <string name="select_parking_duration">Select Parking Duration</string>
+    <string name="selected_time_0_minutes">Selected Time: 0 minutes</string>
+    <string name="cost_per_hour_5_35">Cost per hour: $5.35</string>
+    <string name="total_cost_0_00">Total cost: $0.00</string>
+    <string name="minimum_15_mins_maximum_4_hours">Minimum: 15 mins, Maximum: 4 hours</string>
+    <string name="cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range">Cost: Select this filter to show parking lots within a certain price range.</string>
+    <string name="availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full">Availability: Select this filter to show parking lots that are at least a certain percentage full.</string>
+    <string name="proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location">Proximity: Select this filter to show parking lots that are within a certain distance from your location.</string>
+    <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">Rating: Select this filter to show parking lots based on their ratings.</string>
+    <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">Address: Select this filter to show parking lots with their respective addresses.</string>
 </resources>

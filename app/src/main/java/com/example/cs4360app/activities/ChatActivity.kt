@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
-import com.example.cs4360app.ChatPage
-import com.example.cs4360app.ChatViewModelFactory
+import com.example.cs4360app.chatbots.ChatPage
+import com.example.cs4360app.chatbots.ChatViewModelFactory
 import com.example.cs4360app.models.ChatViewModel
 
 class ChatActivity : ComponentActivity() {

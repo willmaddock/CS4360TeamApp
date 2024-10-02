@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
 import com.example.cs4360app.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
