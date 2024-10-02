@@ -1,4 +1,4 @@
-package com.example.cs4360app.manager
+package com.example.cs4360app.managers
 
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot
@@ -9,7 +9,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 object ParkingLotManager {
 
-    // List of predefined parking lots with availability percentage, proximity in feet, and addresses
     private val parkingLots = listOf(
         ParkingLot("1", "Jordan Parking Garage", 10.0, 4.5f, MSUDCampusLocation.JORDAN_PARKING_GARAGE, true, 90, 100, "123 Jordan St"),
         ParkingLot("2", "Tivoli Parking Lot", 8.0, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, true, 30, 200, "456 Tivoli St"),
@@ -20,41 +19,33 @@ object ParkingLotManager {
 
     fun loadParkingLots(
         googleMap: GoogleMap,
-        maxCost: Double,
         showPrice: Boolean = false,
-        minAvailability: Int = 0,
         showAvailability: Boolean = false,
         showProximity: Boolean = false,
         showRating: Boolean = false,
         showAddress: Boolean = false
     ) {
-        // Clear existing markers before loading new ones
         googleMap.clear()
 
-        // Loop through each parking lot and check against filters
         parkingLots.forEach { lot ->
-            if (lot.cost <= maxCost && lot.availabilityPercentage >= minAvailability) {
-                getLatLngForLocation(lot.location)?.let { latLng ->
-                    val markerColor = getMarkerColor(lot.availabilityPercentage)
+            getLatLngForLocation(lot.location)?.let { latLng ->
+                val (markerColor, availabilityKeyword) = getMarkerColorAndKeyword(lot.availabilityPercentage)
+                val snippet = buildSnippet(lot, availabilityKeyword, showPrice, showAvailability, showProximity, showRating, showAddress)
 
-                    // Build snippet based on selected filters
-                    val snippet = buildSnippet(lot, showPrice, showAvailability, showProximity, showRating, showAddress)
-
-                    // Add marker to the map
-                    googleMap.addMarker(
-                        MarkerOptions()
-                            .position(latLng)
-                            .title(lot.name)
-                            .snippet(snippet)
-                            .icon(BitmapDescriptorFactory.defaultMarker(markerColor))
-                    )
-                }
+                googleMap.addMarker(
+                    MarkerOptions()
+                        .position(latLng)
+                        .title(lot.name)
+                        .snippet(snippet)
+                        .icon(BitmapDescriptorFactory.defaultMarker(markerColor))
+                )
             }
         }
     }
 
     private fun buildSnippet(
         lot: ParkingLot,
+        availabilityKeyword: String,
         showPrice: Boolean,
         showAvailability: Boolean,
         showProximity: Boolean,
@@ -63,12 +54,20 @@ object ParkingLotManager {
     ): String {
         return buildString {
             if (showPrice) append("Cost: \$${lot.cost} | ")
-            if (showAvailability) append("Availability: ${lot.availabilityPercentage}% | ")
+            if (showAvailability) append("Availability: $availabilityKeyword (${lot.availabilityPercentage}%) | ")
             if (showProximity) append("Proximity: ${lot.proximity} ft | ")
             if (showRating) append("Rating: ${lot.rating} | ")
             if (showAddress) append("Address: ${lot.address} | ")
         }.trimEnd(' ', '|')
             .takeIf { it.isNotEmpty() } ?: "No additional info"
+    }
+
+    private fun getMarkerColorAndKeyword(availability: Int): Pair<Float, String> {
+        return when {
+            availability >= 90 -> Pair(BitmapDescriptorFactory.HUE_RED, "Full")
+            availability >= 75 -> Pair(BitmapDescriptorFactory.HUE_YELLOW, "Almost Full")
+            else -> Pair(BitmapDescriptorFactory.HUE_GREEN, "Available")
+        }
     }
 
     private fun getLatLngForLocation(location: MSUDCampusLocation?): LatLng? {
@@ -78,15 +77,7 @@ object ParkingLotManager {
             MSUDCampusLocation.AURARIA_WEST -> LatLng(39.744556, -105.009145)
             MSUDCampusLocation.AURARIA_EAST -> LatLng(39.743115, -105.000376)
             MSUDCampusLocation.NINTH_AND_WALNUT -> LatLng(39.743883, -105.001878)
-            null -> null // Return null for unknown location
-        }
-    }
-
-    private fun getMarkerColor(availability: Int): Float {
-        return when {
-            availability >= 90 -> BitmapDescriptorFactory.HUE_RED // Full parking lot
-            availability >= 75 -> BitmapDescriptorFactory.HUE_YELLOW // Almost full
-            else -> BitmapDescriptorFactory.HUE_GREEN // Available
+            null -> null
         }
     }
 }
