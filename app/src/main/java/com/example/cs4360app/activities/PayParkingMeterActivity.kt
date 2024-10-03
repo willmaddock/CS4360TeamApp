@@ -86,9 +86,10 @@ class PayParkingMeterActivity : AppCompatActivity() {
     private fun onPaymentSuccess(amountPaid: Float, timeInMinutes: Int) {
         // Store payment status in SharedPreferences
         val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
+        val endTime = System.currentTimeMillis() + (timeInMinutes * 60 * 1000) // Calculate end time in milliseconds
         with(sharedPreferences.edit()) {
             putBoolean("payment_active", true)
-            putLong("remaining_time", timeInMinutes.toLong() * 60) // Store remaining time in seconds
+            putLong("end_time", endTime) // Store end time
             apply()
         }
 

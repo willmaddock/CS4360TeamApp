@@ -31,19 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"/>
 
-    <!-- Button to navigate back to the main menu -->
-    <Button
-        android:id="@+id/back_to_main_menu_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Back to Main Menu"
-        app:layout_constraintTop_toBottomOf="@id/timer_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/back_to_maps_button"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        tools:ignore="HardcodedText" />
-
     <!-- Button to navigate back to the maps -->
     <Button
         android:id="@+id/back_to_maps_button"
@@ -51,10 +38,9 @@
         android:layout_height="wrap_content"
         android:text="Back to Maps"
         app:layout_constraintTop_toBottomOf="@id/timer_text_view"
-        app:layout_constraintStart_toEndOf="@id/back_to_main_menu_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
