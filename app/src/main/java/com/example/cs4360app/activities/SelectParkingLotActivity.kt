@@ -2,6 +2,7 @@ package com.example.cs4360app.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cs4360app.adapters.ParkingLotAdapter
@@ -81,13 +82,25 @@ class SelectParkingLotActivity : AppCompatActivity() {
         // Set up RecyclerView for displaying parking lots
         binding.parkingLotRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = ParkingLotAdapter(parkingLots) { parkingLot ->
-            // Handle parking lot click and pass data to PayParkingLotActivity
-            val intent = Intent(this, PayParkingLotActivity::class.java).apply {
-                putExtra("PARKING_LOT_ID", parkingLot.id)
-                putExtra("PARKING_LOT_NAME", parkingLot.name)
-                putExtra("PARKING_LOT_COST", parkingLot.cost)
+            // Check if a timer is already active
+            val sharedPreferences = getSharedPreferences("timer_info", MODE_PRIVATE)
+            val isTimerActive = sharedPreferences.getBoolean("TIMER_ACTIVE", false)
+            if (isTimerActive) {
+                // Show a message to the user
+                Toast.makeText(this, "A timer is already running. Please wait until the current timer finishes.", Toast.LENGTH_LONG).show()
             }
-            startActivity(intent) // Start PayParkingLotActivity
+            else {
+                // Handle parking lot click and pass data to PayParkingLotActivity
+                val intent = Intent(this, PayParkingLotActivity::class.java).apply {
+                    putExtra("PARKING_LOT_ID", parkingLot.id)
+                    putExtra("PARKING_LOT_NAME", parkingLot.name)
+                    putExtra("PARKING_LOT_COST", parkingLot.cost)
+                    putExtra("PARKING_LOT_RATING", parkingLot.rating)
+                    putExtra("PARKING_LOT_PROXIMITY", parkingLot.proximity)
+                    putExtra("PARKING_LOT_ADDRESS", parkingLot.address)
+                }
+                startActivity(intent) // Start PayParkingLotActivity
+            }
         }
         binding.parkingLotRecyclerView.adapter = adapter
 

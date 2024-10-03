@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cs4360app.MainActivity
 import com.example.cs4360app.R
 
 @Suppress("SameParameterValue")
@@ -16,10 +15,9 @@ class TimerActivity : AppCompatActivity() {
 
     private lateinit var amountPaidTextView: TextView
     private lateinit var timerTextView: TextView
-    private lateinit var backToMainMenuButton: Button
     private lateinit var backToMapsButton: Button
     private var timer: CountDownTimer? = null
-    private var remainingTime: Long = 0 // Time in seconds
+    private var remainingTime: Long = 0 // Time in milliseconds
 
     private val maxCost: Float = 5.35f // Maximum cost for 2 hours and 30 minutes
     private val costPerMinute: Float = maxCost / 150 // Cost per minute
@@ -32,53 +30,48 @@ class TimerActivity : AppCompatActivity() {
         // Bind UI elements
         amountPaidTextView = findViewById(R.id.amount_paid_text_view)
         timerTextView = findViewById(R.id.timer_text_view)
-        backToMainMenuButton = findViewById(R.id.back_to_main_menu_button)
         backToMapsButton = findViewById(R.id.back_to_maps_button)
 
-        // Check if payment is active and the remaining time is set
+        // Retrieve the end time from SharedPreferences
         val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
-        remainingTime = sharedPreferences.getLong("remaining_time", 0)
+        val endTime = sharedPreferences.getLong("end_time", 0)
 
-        // Check if user is logged in
-        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false) // Adjust according to your login logic
-
-        if (!isPaymentActive() || remainingTime == 0L) {
+        // Check if payment is active
+        if (!isPaymentActive(endTime)) {
             // Redirect to Maps if no payment is active
             showToastAndRedirect("Payment not completed. Redirecting to Maps.", MapsActivity::class.java)
             return
         }
 
-        // Set button visibility based on login status
-        if (isLoggedIn) {
-            backToMainMenuButton.visibility = Button.VISIBLE // Show "Back to Main Menu" button for logged-in users
-        } else {
-            backToMainMenuButton.visibility = Button.GONE // Hide it for guests
+        // Calculate remaining time
+        remainingTime = endTime - System.currentTimeMillis()
+        if (remainingTime < 0) {
+            remainingTime = 0 // If time is already expired
         }
 
         // Calculate the amount paid
-        val amountPaid = calculateAmount(remainingTime)
+        val amountPaid = calculateAmount(remainingTime / 1000)
 
         // Display the amount paid
         amountPaidTextView.text = String.format("Amount Paid: $%.2f", amountPaid)
 
-        // Start the timer
-        startTimer(remainingTime)
-
-        // Set up button listeners
-        backToMainMenuButton.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+        // Start the timer if there's time remaining
+        if (remainingTime > 0) {
+            startTimer(remainingTime)
+        } else {
+            timerTextView.text = "Time's up!"
+            Toast.makeText(this, "Parking time expired!", Toast.LENGTH_SHORT).show()
+            navigateToMaps()
         }
 
+        // Set up button listeners
         backToMapsButton.setOnClickListener {
-            startActivity(Intent(this, MapsActivity::class.java))
-            finish()
+            navigateToMaps()
         }
     }
 
-    private fun isPaymentActive(): Boolean {
-        val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
-        return sharedPreferences.getBoolean("payment_active", false) && remainingTime > 0
+    private fun isPaymentActive(endTime: Long): Boolean {
+        return endTime > 0
     }
 
     private fun calculateAmount(durationInSeconds: Long): Float {
@@ -87,11 +80,11 @@ class TimerActivity : AppCompatActivity() {
         return durationInMinutes * costPerMinute
     }
 
-    private fun startTimer(seconds: Long) {
+    private fun startTimer(milliseconds: Long) {
         // Cancel any existing timer before starting a new one
         timer?.cancel()
 
-        timer = object : CountDownTimer(seconds * 1000, 1000) {
+        timer = object : CountDownTimer(milliseconds, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 updateTimerDisplay(millisUntilFinished)
             }
@@ -100,6 +93,13 @@ class TimerActivity : AppCompatActivity() {
             override fun onFinish() {
                 timerTextView.text = "Time's up!"
                 Toast.makeText(this@TimerActivity, "Parking time expired!", Toast.LENGTH_SHORT).show()
+
+                // Clear the timer active flag
+                val sharedPreferences = getSharedPreferences("timer_info", MODE_PRIVATE)
+                with(sharedPreferences.edit()) {
+                    putBoolean("TIMER_ACTIVE", false)
+                    apply()
+                }
                 navigateToMaps()
             }
         }.start()

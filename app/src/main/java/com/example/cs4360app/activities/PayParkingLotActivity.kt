@@ -20,7 +20,8 @@ class PayParkingLotActivity : AppCompatActivity() {
 
         // Back Button click listener (optional)
         val backButton: Button = findViewById(R.id.back_button)
-        backButton.setOnClickListener { finish() } // Finish activity and return to the previous one
+        backButton.setOnClickListener { finish() } // Finish activity and return to the previous one4
+
     }
 
     private fun validateAndProceed() {
@@ -36,6 +37,9 @@ class PayParkingLotActivity : AppCompatActivity() {
         val expireDateStr = expireDate.text.toString()
         val cvcStr = cvc.text.toString()
 
+        val parkingLotName = intent.getStringExtra("PARKING_LOT_NAME")
+        val parkingLotPrice = intent.getDoubleExtra("PARKING_LOT_COST", 0.0)
+
         // Validate inputs
         val validationResult = validateInputs(cardNameStr, cardNumberStr, expireDateStr, cvcStr)
 
@@ -49,10 +53,24 @@ class PayParkingLotActivity : AppCompatActivity() {
             // Set timer duration (for example, 60 minutes)
             val timerDuration: Long = 60 * 60 * 1000 // 60 minutes in milliseconds
 
+
+            // Save parking lot information in SharedPreferences
+            val sharedPreferences = getSharedPreferences("parking_info", MODE_PRIVATE)
+            with(sharedPreferences.edit()) {
+                putString("PARKING_LOT_NAME", intent.getStringExtra("PARKING_LOT_NAME"))
+                putLong("PARKING_LOT_COST", intent.getDoubleExtra("PARKING_LOT_COST", 0.0).toRawBits())// Store as Long bits
+                putFloat("PARKING_LOT_RATING", intent.getFloatExtra("PARKING_LOT_RATING", 0.0f))
+                putInt("PARKING_LOT_PROXIMITY", intent.getIntExtra("PARKING_LOT_PROXIMITY", 0))
+                putString("PARKING_LOT_ADDRESS", intent.getStringExtra("PARKING_LOT_ADDRESS"))
+                apply()
+            }
+
             // Redirect to PayParkingMeterActivity
             val intent = Intent(this, PayParkingMeterActivity::class.java)
             intent.putExtra("timerDuration", timerDuration) // Pass timer duration to the next activity
+
             startActivity(intent)
+
             finish() // Finish this activity
         } else {
             // Show validation error message
