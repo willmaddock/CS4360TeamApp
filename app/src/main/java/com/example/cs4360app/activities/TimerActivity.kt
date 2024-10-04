@@ -22,7 +22,7 @@ class TimerActivity : AppCompatActivity() {
     private val maxCost: Float = 5.35f // Maximum cost for 2 hours and 30 minutes
     private val costPerMinute: Float = maxCost / 150 // Cost per minute
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint("DefaultLocale", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)

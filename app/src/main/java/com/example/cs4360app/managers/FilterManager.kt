@@ -1,6 +1,7 @@
 package com.example.cs4360app.managers
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.CheckBox
@@ -10,6 +11,13 @@ import com.google.android.gms.maps.GoogleMap
 
 object FilterManager {
 
+    private const val PREFS_NAME = "filter_prefs"
+    private const val KEY_SHOW_PRICE = "show_price"
+    private const val KEY_SHOW_AVAILABILITY = "show_availability"
+    private const val KEY_SHOW_PROXIMITY = "show_proximity"
+    private const val KEY_SHOW_RATING = "show_rating"
+    private const val KEY_SHOW_ADDRESS = "show_address"
+
     fun showFilterDialog(context: Context, mMap: GoogleMap) {
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_filter_options, null)
         val priceCheckBox: CheckBox = dialogView.findViewById(R.id.checkbox_price)
@@ -18,6 +26,14 @@ object FilterManager {
         val ratingCheckBox: CheckBox = dialogView.findViewById(R.id.checkbox_rating)
         val addressCheckBox: CheckBox = dialogView.findViewById(R.id.checkbox_address)
         val applyFiltersButton: Button = dialogView.findViewById(R.id.button_apply_filters)
+
+        // Load saved preferences
+        val sharedPreferences: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        priceCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_PRICE, false)
+        availabilityCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_AVAILABILITY, false)
+        proximityCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_PROXIMITY, false)
+        ratingCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_RATING, false)
+        addressCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_ADDRESS, false)
 
         // Create AlertDialog
         val builder = AlertDialog.Builder(context)
@@ -33,6 +49,16 @@ object FilterManager {
             val showProximity = proximityCheckBox.isChecked
             val showRating = ratingCheckBox.isChecked
             val showAddress = addressCheckBox.isChecked
+
+            // Save filter preferences
+            with(sharedPreferences.edit()) {
+                putBoolean(KEY_SHOW_PRICE, showPrice)
+                putBoolean(KEY_SHOW_AVAILABILITY, showAvailability)
+                putBoolean(KEY_SHOW_PROXIMITY, showProximity)
+                putBoolean(KEY_SHOW_RATING, showRating)
+                putBoolean(KEY_SHOW_ADDRESS, showAddress)
+                apply()
+            }
 
             // Load parking lots with selected filters
             ParkingLotManager.loadParkingLots(
