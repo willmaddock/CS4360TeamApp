@@ -31,7 +31,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_maps)
 
         // Initialize SharedPreferences
-        sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("filter_prefs", MODE_PRIVATE)
 
         // Initialize DrawerLayout and NavigationView
         drawerLayout = findViewById(R.id.drawer_layout)
