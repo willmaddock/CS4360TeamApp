@@ -66,8 +66,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Set the camera to the Jordan Parking Garage coordinates
-        val jordanGarage = LatLng(39.745473, -105.007460)
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jordanGarage, 15f)) // Zoom level can be adjusted
+        val dogWoodParkingLot = LatLng(39.74396, -105.00869)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dogWoodParkingLot, 15f)) // Zoom level can be adjusted
 
         // Load parking lots (without maxCost, only passing other filters if needed)
         ParkingLotManager.loadParkingLots(mMap)
