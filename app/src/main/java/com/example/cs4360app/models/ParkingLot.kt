@@ -2,11 +2,15 @@ package com.example.cs4360app.models
 
 // Enum for MSUD campus parking locations
 enum class MSUDCampusLocation {
-    JORDAN_PARKING_GARAGE,
+    DOGWOOD_PARKING_LOT,
     TIVOLI_PARKING_LOT,
-    AURARIA_WEST,
-    AURARIA_EAST,
-    NINTH_AND_WALNUT
+    CHERRY_PARKING_LOT,
+    SPRUCE_PARKING_LOT,
+    FIR_PARKING_LOT,
+    NUTMEG_LOT,
+    BOULDER_CREEK,
+    ELM_PARKING_LOT,
+    SEVENTH_LOT
 }
 
 // Data class for parking lots

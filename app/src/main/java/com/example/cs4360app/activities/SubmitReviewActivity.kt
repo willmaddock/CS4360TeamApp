@@ -35,7 +35,7 @@ class SubmitReviewActivity : AppCompatActivity() {
     private lateinit var uploadImageButton: Button
     private val db = FirebaseFirestore.getInstance()
     private lateinit var parkingLots: List<ParkingLot>
-    private val IMAGE_REQUEST_CODE = 1001
+    private val imageRequestCode = 1001
     private var selectedImageUri: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,12 +55,16 @@ class SubmitReviewActivity : AppCompatActivity() {
         uploadImageButton = findViewById(R.id.uploadImageButton)
 
         // Example data for parking lots including addresses
-        parkingLots = listOf(
-            ParkingLot("1", "Jordan Parking Garage", 10.0, 4.5f, MSUDCampusLocation.JORDAN_PARKING_GARAGE, true, 90, 100, "123 Jordan St"), // Added address
-            ParkingLot("2", "Tivoli Parking Garage", 15.0, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, false, 30, 200, "456 Tivoli St"), // Added address
-            ParkingLot("3", "Auraria West", 8.0, 3.8f, MSUDCampusLocation.AURARIA_WEST, true, 75, 150, "789 Auraria W"), // Added address
-            ParkingLot("4", "Auraria East", 12.0, 4.2f, MSUDCampusLocation.AURARIA_EAST, true, 50, 300, "321 Auraria E"), // Added address
-            ParkingLot("5", "Ninth and Walnut", 5.0, 4.6f, MSUDCampusLocation.NINTH_AND_WALNUT, false, 10, 400, "654 Ninth St") // Added address
+        val parkingLots = listOf(
+            ParkingLot("1", "Dogwood Parking Lot",       7.25, 4.5f,  MSUDCampusLocation.DOGWOOD_PARKING_LOT, true,  90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
+            ParkingLot("2", "Tivoli Parking Lot",        7.25, 4.0f,  MSUDCampusLocation.TIVOLI_PARKING_LOT,   true,  30, 200, "901 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("3", "Cherry Parking Lot",         5.75, 3.5f,  MSUDCampusLocation.CHERRY_PARKING_LOT,   true,  75, 150, "605 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("4", "Spruce Parking Lot",        7.25, 3.0f,  MSUDCampusLocation.SPRUCE_PARKING_LOT,   true,  50, 300, "800 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("5", "Fir Parking Lot",            5.75, 2.5f,  MSUDCampusLocation.FIR_PARKING_LOT,      true,  10, 400, "555 Curtis St Auraria Denver, CO 80204"),
+            ParkingLot("6", "Nutmeg Lot",                 7.25, 4.0f,  MSUDCampusLocation.NUTMEG_LOT,            true,  70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
+            ParkingLot("7", "Boulder Creek",              2.00, 3.8f,  MSUDCampusLocation.BOULDER_CREEK,        true,  40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
+            ParkingLot("8", "Elm Parking Lot",            5.75, 3.9f,  MSUDCampusLocation.ELM_PARKING_LOT,      true,  55, 180, "1301 5th St Auraria Denver, CO 80204"),
+            ParkingLot("9", "7th Street Garage",          7.25, 4.1f,  MSUDCampusLocation.SEVENTH_LOT,          true,  65, 220, "777 Lawrence Way Auraria Denver, CO 80204")
         )
 
         // Setup parking lot spinner
@@ -77,7 +81,7 @@ class SubmitReviewActivity : AppCompatActivity() {
         // Handle image upload
         uploadImageButton.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, IMAGE_REQUEST_CODE)
+            startActivityForResult(intent, imageRequestCode)
         }
 
         // Handle review submission
@@ -155,7 +159,7 @@ class SubmitReviewActivity : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+        if (requestCode == imageRequestCode && resultCode == RESULT_OK && data != null) {
             selectedImageUri = data.data.toString()
             Toast.makeText(this, "Image selected: $selectedImageUri", Toast.LENGTH_SHORT).show()
             // Handle image upload to Firestore if needed

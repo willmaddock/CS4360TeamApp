@@ -19,63 +19,16 @@ class SelectParkingLotActivity : AppCompatActivity() {
         binding = ActivitySelectParkingLotBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Create a list of ParkingLot objects with proximity values and addresses
-        val parkingLots: List<ParkingLot> = listOf(
-            ParkingLot(
-                id = "1",
-                name = "Jordan Parking Garage",
-                cost = 10.0,
-                rating = 4.2f,
-                location = MSUDCampusLocation.JORDAN_PARKING_GARAGE,
-                isMsudParkingLot = true,
-                availabilityPercentage = 90,
-                proximity = 100,
-                address = "123 Jordan St"  // Added address
-            ),
-            ParkingLot(
-                id = "2",
-                name = "Tivoli Parking Lot",
-                cost = 8.0,
-                rating = 3.8f,
-                location = MSUDCampusLocation.TIVOLI_PARKING_LOT,
-                isMsudParkingLot = true,
-                availabilityPercentage = 30,
-                proximity = 200,
-                address = "456 Tivoli St"  // Added address
-            ),
-            ParkingLot(
-                id = "3",
-                name = "Auraria West",
-                cost = 5.0,
-                rating = 4.0f,
-                location = MSUDCampusLocation.AURARIA_WEST,
-                isMsudParkingLot = true,
-                availabilityPercentage = 75,
-                proximity = 150,
-                address = "789 Auraria W"  // Added address
-            ),
-            ParkingLot(
-                id = "4",
-                name = "9th and Walnut",
-                cost = 6.0,
-                rating = 4.5f,
-                location = MSUDCampusLocation.NINTH_AND_WALNUT,
-                isMsudParkingLot = true,
-                availabilityPercentage = 10,
-                proximity = 400,
-                address = "654 Ninth St"  // Added address
-            ),
-            ParkingLot(
-                id = "5",
-                name = "Auraria East",
-                cost = 9.0,
-                rating = 3.9f,
-                location = MSUDCampusLocation.AURARIA_EAST,
-                isMsudParkingLot = true,
-                availabilityPercentage = 50,
-                proximity = 300,
-                address = "321 Auraria E"  // Added address
-            )
+        val parkingLots = listOf(
+            ParkingLot("1", "Dogwood Parking Lot",       7.25, 4.5f,  MSUDCampusLocation.DOGWOOD_PARKING_LOT, true,  90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
+            ParkingLot("2", "Tivoli Parking Lot",        7.25, 4.0f,  MSUDCampusLocation.TIVOLI_PARKING_LOT,   true,  30, 200, "901 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("3", "Cherry Parking Lot",         5.75, 3.5f,  MSUDCampusLocation.CHERRY_PARKING_LOT,   true,  75, 150, "605 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("4", "Spruce Parking Lot",        7.25, 3.0f,  MSUDCampusLocation.SPRUCE_PARKING_LOT,   true,  50, 300, "800 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("5", "Fir Parking Lot",            5.75, 2.5f,  MSUDCampusLocation.FIR_PARKING_LOT,      true,  10, 400, "555 Curtis St Auraria Denver, CO 80204"),
+            ParkingLot("6", "Nutmeg Lot",                 7.25, 4.0f,  MSUDCampusLocation.NUTMEG_LOT,            true,  70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
+            ParkingLot("7", "Boulder Creek",              2.00, 3.8f,  MSUDCampusLocation.BOULDER_CREEK,        true,  40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
+            ParkingLot("8", "Elm Parking Lot",            5.75, 3.9f,  MSUDCampusLocation.ELM_PARKING_LOT,      true,  55, 180, "1301 5th St Auraria Denver, CO 80204"),
+            ParkingLot("9", "7th Street Garage",          7.25, 4.1f,  MSUDCampusLocation.SEVENTH_LOT,          true,  65, 220, "777 Lawrence Way Auraria Denver, CO 80204")
         )
 
         // Set up RecyclerView for displaying parking lots

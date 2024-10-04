@@ -10,11 +10,15 @@ import com.google.android.gms.maps.model.MarkerOptions
 object ParkingLotManager {
 
     private val parkingLots = listOf(
-        ParkingLot("1", "Jordan Parking Garage", 10.0, 4.5f, MSUDCampusLocation.JORDAN_PARKING_GARAGE, true, 90, 100, "123 Jordan St"),
-        ParkingLot("2", "Tivoli Parking Lot", 8.0, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, true, 30, 200, "456 Tivoli St"),
-        ParkingLot("3", "Auraria West", 5.0, 3.5f, MSUDCampusLocation.AURARIA_WEST, true, 75, 150, "789 Auraria W"),
-        ParkingLot("4", "Auraria East", 7.0, 3.0f, MSUDCampusLocation.AURARIA_EAST, true, 50, 300, "321 Auraria E"),
-        ParkingLot("5", "Ninth and Walnut", 6.0, 2.5f, MSUDCampusLocation.NINTH_AND_WALNUT, true, 10, 400, "654 Ninth St")
+        ParkingLot("1", "Dogwood Parking Lot",       7.25, 4.5f,  MSUDCampusLocation.DOGWOOD_PARKING_LOT, true,  90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
+        ParkingLot("2", "Tivoli Parking Lot",        7.25, 4.0f,  MSUDCampusLocation.TIVOLI_PARKING_LOT,   true,  30, 200, "901 Walnut St Auraria Denver, CO 80204"),
+        ParkingLot("3", "Cherry Parking Lot",         5.75, 3.5f,  MSUDCampusLocation.CHERRY_PARKING_LOT,   true,  75, 150, "605 Walnut St Auraria Denver, CO 80204"),
+        ParkingLot("4", "Spruce Parking Lot",        7.25, 3.0f,  MSUDCampusLocation.SPRUCE_PARKING_LOT,   true,  50, 300, "800 Walnut St Auraria Denver, CO 80204"),
+        ParkingLot("5", "Fir Parking Lot",            5.75, 2.5f,  MSUDCampusLocation.FIR_PARKING_LOT,      true,  10, 400, "555 Curtis St Auraria Denver, CO 80204"),
+        ParkingLot("6", "Nutmeg Lot",                 7.25, 4.0f,  MSUDCampusLocation.NUTMEG_LOT,            true,  70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
+        ParkingLot("7", "Boulder Creek",              2.00, 3.8f,  MSUDCampusLocation.BOULDER_CREEK,        true,  40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
+        ParkingLot("8", "Elm Parking Lot",            5.75, 3.9f,  MSUDCampusLocation.ELM_PARKING_LOT,      true,  55, 180, "1301 5th St Auraria Denver, CO 80204"),
+        ParkingLot("9", "7th Street Garage",          7.25, 4.1f,  MSUDCampusLocation.SEVENTH_LOT,          true,  65, 220, "777 Lawrence Way Auraria Denver, CO 80204")
     )
 
     fun loadParkingLots(
@@ -64,19 +68,23 @@ object ParkingLotManager {
 
     private fun getMarkerColorAndKeyword(availability: Int): Pair<Float, String> {
         return when {
-            availability >= 90 -> Pair(BitmapDescriptorFactory.HUE_RED, "Full")
-            availability >= 75 -> Pair(BitmapDescriptorFactory.HUE_YELLOW, "Almost Full")
-            else -> Pair(BitmapDescriptorFactory.HUE_GREEN, "Available")
+            availability >= 80 -> Pair(BitmapDescriptorFactory.HUE_RED, "Full")
+            availability >= 60 -> Pair(BitmapDescriptorFactory.HUE_YELLOW, "Almost Full")
+            else -> Pair(BitmapDescriptorFactory.HUE_GREEN, "Percent Full")
         }
     }
 
     private fun getLatLngForLocation(location: MSUDCampusLocation?): LatLng? {
         return when (location) {
-            MSUDCampusLocation.JORDAN_PARKING_GARAGE -> LatLng(39.745473, -105.007460)
-            MSUDCampusLocation.TIVOLI_PARKING_LOT -> LatLng(39.744338, -105.002847)
-            MSUDCampusLocation.AURARIA_WEST -> LatLng(39.744556, -105.009145)
-            MSUDCampusLocation.AURARIA_EAST -> LatLng(39.743115, -105.000376)
-            MSUDCampusLocation.NINTH_AND_WALNUT -> LatLng(39.743883, -105.001878)
+            MSUDCampusLocation.DOGWOOD_PARKING_LOT -> LatLng(39.74396, -105.00869)
+            MSUDCampusLocation.TIVOLI_PARKING_LOT -> LatLng(39.7459, -105.00609)
+            MSUDCampusLocation.CHERRY_PARKING_LOT -> LatLng(39.74378, -105.01021)
+            MSUDCampusLocation.SPRUCE_PARKING_LOT -> LatLng(39.74407, -105.00842)
+            MSUDCampusLocation.FIR_PARKING_LOT -> LatLng(39.74083, -105.00909)
+            MSUDCampusLocation.NUTMEG_LOT -> LatLng(39.74227, -105.00056)
+            MSUDCampusLocation.BOULDER_CREEK -> LatLng( 39.740945, -105.003022)  // Example coordinates
+            MSUDCampusLocation.ELM_PARKING_LOT -> LatLng(39.74255, -105.0106)  // Example coordinates
+            MSUDCampusLocation.SEVENTH_LOT -> LatLng(39.74312, -105.00587)  // Example coordinates
             null -> null
         }
     }
