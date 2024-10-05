@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cs4360app.R
 
-@Suppress("SameParameterValue")
 class TimerActivity : AppCompatActivity() {
 
     private lateinit var amountPaidTextView: TextView
@@ -38,7 +37,6 @@ class TimerActivity : AppCompatActivity() {
 
         // Check if payment is active
         if (!isPaymentActive(endTime)) {
-            // Redirect to Maps if no payment is active
             showToastAndRedirect("Payment not completed. Redirecting to Maps.", MapsActivity::class.java)
             return
         }
@@ -75,30 +73,30 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun calculateAmount(durationInSeconds: Long): Float {
-        // Convert duration from seconds to minutes
         val durationInMinutes = durationInSeconds / 60
         return durationInMinutes * costPerMinute
     }
 
     private fun startTimer(milliseconds: Long) {
-        // Cancel any existing timer before starting a new one
         timer?.cancel()
-
         timer = object : CountDownTimer(milliseconds, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 updateTimerDisplay(millisUntilFinished)
             }
 
-            @SuppressLint("SetTextI18n")
             override fun onFinish() {
                 timerTextView.text = "Time's up!"
                 Toast.makeText(this@TimerActivity, "Parking time expired!", Toast.LENGTH_SHORT).show()
+
+                // Step 3: Update SharedPreferences when the timer expires
+                val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
+                sharedPreferences.edit().putBoolean("payment_active", false).apply()
+
                 navigateToMaps()
             }
         }.start()
     }
 
-    @SuppressLint("DefaultLocale")
     private fun updateTimerDisplay(millisUntilFinished: Long) {
         val secondsLeft = (millisUntilFinished / 1000).toInt()
         val minutesLeft = secondsLeft / 60
@@ -107,18 +105,19 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun navigateToMaps() {
-        startActivity(Intent(this, MapsActivity::class.java))
+        val intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
         finish()
     }
 
-    private fun showToastAndRedirect(message: String, destinationActivity: Class<*>) {
+    private fun showToastAndRedirect(message: String, redirectClass: Class<*>) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, destinationActivity))
+        startActivity(Intent(this, redirectClass))
         finish()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        timer?.cancel() // Cancel the timer when the activity is destroyed
+        timer?.cancel()
     }
 }

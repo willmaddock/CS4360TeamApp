@@ -105,9 +105,12 @@ object DrawerManager {
         }
     }
 
+    // Step 1: Check if the timer is active or expired
     private fun isTimerActive(context: Context): Boolean {
         val sharedPreferences = context.getSharedPreferences("payment_prefs", Context.MODE_PRIVATE)
-        return sharedPreferences.getBoolean("payment_active", false)
+        val endTime = sharedPreferences.getLong("end_time", 0)
+        // Timer is active if the end time is in the future
+        return endTime > System.currentTimeMillis()
     }
 
     private fun isLoggedIn(): Boolean {
