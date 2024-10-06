@@ -10,4 +10,7 @@
     <color name="orange">#FFA500</color> <!-- Example color definition -->
     <color name="colorAccent">#FF4081</color> <!-- Example color -->
     <color name="blue">#3b5998</color>
+    <color name="green">#4CAF50</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="red">#F44336</color>
 </resources>

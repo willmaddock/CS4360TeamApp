@@ -73,12 +73,13 @@ object DrawerManager {
     private fun updateMenuForUser(context: Context, navigationView: NavigationView) {
         val isLoggedIn = auth.currentUser != null
         val menu = navigationView.menu
+        val isTimerActive = isTimerActive(context)
 
         // Show options based on user login status
         if (isLoggedIn) {
             menu.findItem(R.id.nav_back_to_menu).isVisible = true
-            menu.findItem(R.id.nav_payment).isVisible = true
-            menu.findItem(R.id.nav_timer).isVisible = isTimerActive(context) // Only show active timer
+            menu.findItem(R.id.nav_payment).isVisible = !isTimerActive // Hide payment if the timer is active
+            menu.findItem(R.id.nav_timer).isVisible = isTimerActive // Only show active timer
             menu.findItem(R.id.nav_chat).isVisible = true
             menu.findItem(R.id.nav_submit_petition).isVisible = true
             menu.findItem(R.id.nav_submit_review).isVisible = true
@@ -91,8 +92,8 @@ object DrawerManager {
         } else {
             // Show options for guests
             menu.findItem(R.id.nav_login).isVisible = true // Show login option
-            menu.findItem(R.id.nav_payment).isVisible = true
-            menu.findItem(R.id.nav_timer).isVisible = isTimerActive(context) // Only show active timer
+            menu.findItem(R.id.nav_payment).isVisible = !isTimerActive // Hide payment if the timer is active
+            menu.findItem(R.id.nav_timer).isVisible = isTimerActive // Only show active timer
             menu.findItem(R.id.nav_take_survey).isVisible = true // Show survey option
 
             // Hide logged-in user options

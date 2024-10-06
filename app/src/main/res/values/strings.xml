@@ -197,4 +197,5 @@
     <string name="proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location">Proximity: Select this filter to show parking lots that are within a certain distance from your location.</string>
     <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">Rating: Select this filter to show parking lots based on their ratings.</string>
     <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">Address: Select this filter to show parking lots with their respective addresses.</string>
+    <string name="time_remaining_00_00_00">Time Remaining: 00:00:00</string>
 </resources>
