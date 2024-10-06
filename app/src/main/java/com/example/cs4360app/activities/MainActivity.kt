@@ -1,28 +1,26 @@
 package com.example.cs4360app.activities
 
-import android.content.Intent
+import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.os.CountDownTimer
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cs4360app.adapters.ReviewAdapter
 import com.example.cs4360app.databinding.ActivityMainBinding
-import com.example.cs4360app.models.Review
+import com.example.cs4360app.managers.MainMenuManager
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
-    private val db = FirebaseFirestore.getInstance()
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var mainMenuManager: MainMenuManager
 
     companion object {
-        private const val MAX_COST = 10.0 // Example value
-        private const val TAG = "MainActivity"
         private var instance: MainActivity? = null
 
         fun getInstance(): MainActivity? {
@@ -40,107 +38,87 @@ class MainActivity : AppCompatActivity() {
         instance = this // Set instance when the activity is created
         auth = FirebaseAuth.getInstance()
 
+        // Initialize MainMenuManager
+        mainMenuManager = MainMenuManager(this, binding, auth)
+        mainMenuManager.initializeMenu()
+
         // Setup recycler view for reviews
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(this)
         fetchReviews()
-        setupClickListeners()
-        updateUI()
-    }
 
-    private fun setupClickListeners() {
-        binding.btnSubmitReview.setOnClickListener {
-            Log.d(TAG, "Submit Review Button Clicked")
-            startActivity(Intent(this, SubmitReviewActivity::class.java))
-        }
-
-        binding.buttonSurvey.setOnClickListener {
-            Log.d(TAG, "Survey Button Clicked")
-            startActivity(Intent(this, SurveyActivity::class.java))
-        }
-
-        binding.mapButton.setOnClickListener {
-            Log.d(TAG, "Map Button Clicked")
-            val intent = Intent(this, MapsActivity::class.java)
-            intent.putExtra("maxCost", MAX_COST)
-            startActivity(intent)
-        }
-
-        binding.loginButton.setOnClickListener {
-            Log.d(TAG, "Login Button Clicked")
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
-
-        binding.logoutButton.setOnClickListener {
-            Log.d(TAG, "Logout Button Clicked")
-            logoutUser()
-        }
-
-        binding.buttonPetition.setOnClickListener {
-            Log.d(TAG, "Submit Petition Button Clicked")
-            startActivity(Intent(this, PetitionActivity::class.java))
-        }
-
-        binding.paymentButton.setOnClickListener {
-            Log.d(TAG, "Payment Button Clicked")
-            startActivity(Intent(this, SelectParkingLotActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            })
-        }
-
-        // New Notification Button Click Listener
-        binding.notificationButton.setOnClickListener {
-            Log.d(TAG, "Notification Button Clicked")
-            startActivity(Intent(this, NotificationsActivity::class.java)) // Assume NotificationsActivity exists
-        }
-
-        // New Chat Button Click Listener
-        binding.chatButton.setOnClickListener {
-            Log.d(TAG, "Chat Button Clicked")
-            startActivity(Intent(this, ChatActivity::class.java)) // Assume ChatActivity exists
+        // Check if timer is active and show it
+        if (isTimerActive()) {
+            showActiveTimer()
+        } else {
+            binding.timerButton.visibility = View.GONE // Hide timer button if not active
         }
     }
 
     private fun fetchReviews() {
-        db.collection("reviews").get()
-            .addOnSuccessListener { documents ->
-                if (documents.isEmpty) {
-                    Log.d(TAG, "No reviews found")
-                    binding.reviewRecyclerView.adapter = ReviewAdapter(emptyList())
-                    Toast.makeText(this, "No reviews available", Toast.LENGTH_SHORT).show()
-                } else {
-                    val reviews = documents.toObjects(Review::class.java)
-                    Log.d(TAG, "Fetched ${reviews.size} reviews")
-                    binding.reviewRecyclerView.adapter = ReviewAdapter(reviews)
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.e(TAG, "Error fetching reviews", exception)
-                Toast.makeText(this, "Error fetching reviews. Please try again.", Toast.LENGTH_SHORT).show()
-            }
+        // Your fetch reviews code...
     }
 
-    private fun updateUI() {
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            binding.loginButton.visibility = View.GONE // Hide login button
-            binding.logoutButton.visibility = View.VISIBLE // Show logout button
-            binding.buttonPetition.visibility = View.VISIBLE // Show petition button
+    private fun isTimerActive(): Boolean {
+        val sharedPreferences = getSharedPreferences("payment_prefs", Context.MODE_PRIVATE)
+        val endTime = sharedPreferences.getLong("end_time", 0)
+        return endTime > System.currentTimeMillis()
+    }
+
+    private fun showActiveTimer() {
+        val sharedPreferences = getSharedPreferences("payment_prefs", Context.MODE_PRIVATE)
+        val endTime = sharedPreferences.getLong("end_time", 0)
+        val remainingTime = endTime - System.currentTimeMillis()
+
+        if (remainingTime > 0) {
+            binding.timerButton.visibility = View.VISIBLE
+            startTimer(remainingTime)
         } else {
-            binding.loginButton.visibility = View.VISIBLE // Show login button
-            binding.logoutButton.visibility = View.GONE // Hide logout button
-            binding.buttonPetition.visibility = View.GONE // Hide petition button
+            binding.timerButton.visibility = View.GONE
         }
     }
 
-    private fun logoutUser() {
-        auth.signOut()
-        updateUI()
-        Toast.makeText(this, "Logged out successfully", Toast.LENGTH_SHORT).show()
+    @SuppressLint("SetTextI18n")
+    private fun startTimer(timeInMillis: Long) {
+        binding.timerButton.setBackgroundColor(Color.GREEN) // Set initial color to green
+        binding.timerButton.text = "Time Remaining: ${formatTime(timeInMillis)}"
+
+        object : CountDownTimer(timeInMillis, 1000) {
+            @SuppressLint("DefaultLocale")
+            override fun onTick(millisUntilFinished: Long) {
+                binding.timerButton.text = "Time Remaining: ${formatTime(millisUntilFinished)}"
+
+                // Change button color based on remaining time
+                when {
+                    millisUntilFinished < (timeInMillis * 0.60) && millisUntilFinished >= (timeInMillis * 0.15) -> {
+                        // 60% done
+                        binding.timerButton.setBackgroundColor(Color.YELLOW)
+                    }
+                    millisUntilFinished < (timeInMillis * 0.15) -> {
+                        // 15 minutes left
+                        binding.timerButton.setBackgroundColor(Color.RED)
+                    }
+                    else -> {
+                        binding.timerButton.setBackgroundColor(Color.GREEN)
+                    }
+                }
+            }
+
+            override fun onFinish() {
+                binding.timerButton.visibility = View.GONE // Hide the timer button once finished
+            }
+        }.start()
+    }
+
+    @SuppressLint("DefaultLocale")
+    private fun formatTime(millis: Long): String {
+        val hours = TimeUnit.MILLISECONDS.toHours(millis)
+        val minutes = TimeUnit.MILLISECONDS.toMinutes(millis) % 60
+        val seconds = TimeUnit.MILLISECONDS.toSeconds(millis) % 60
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         instance = null // Clear instance when activity is destroyed
     }
-
 }
