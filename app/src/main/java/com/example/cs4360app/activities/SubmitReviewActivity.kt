@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -18,6 +19,7 @@ import com.example.cs4360app.R
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot
 import com.example.cs4360app.models.Review
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 @Suppress("DEPRECATION")
@@ -54,17 +56,17 @@ class SubmitReviewActivity : AppCompatActivity() {
         parkingLotDetailsTextView = findViewById(R.id.parkingLotDetailsTextView)
         uploadImageButton = findViewById(R.id.uploadImageButton)
 
-        // Example data for parking lots including addresses
-        val parkingLots = listOf(
-            ParkingLot("1", "Dogwood Parking Lot",       7.25, 4.5f,  MSUDCampusLocation.DOGWOOD_PARKING_LOT, true,  90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
-            ParkingLot("2", "Tivoli Parking Lot",        7.25, 4.0f,  MSUDCampusLocation.TIVOLI_PARKING_LOT,   true,  30, 200, "901 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("3", "Cherry Parking Lot",         5.75, 3.5f,  MSUDCampusLocation.CHERRY_PARKING_LOT,   true,  75, 150, "605 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("4", "Spruce Parking Lot",        7.25, 3.0f,  MSUDCampusLocation.SPRUCE_PARKING_LOT,   true,  50, 300, "800 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("5", "Fir Parking Lot",            5.75, 2.5f,  MSUDCampusLocation.FIR_PARKING_LOT,      true,  10, 400, "555 Curtis St Auraria Denver, CO 80204"),
-            ParkingLot("6", "Nutmeg Lot",                 7.25, 4.0f,  MSUDCampusLocation.NUTMEG_LOT,            true,  70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
-            ParkingLot("7", "Boulder Creek",              2.00, 3.8f,  MSUDCampusLocation.BOULDER_CREEK,        true,  40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
-            ParkingLot("8", "Elm Parking Lot",            5.75, 3.9f,  MSUDCampusLocation.ELM_PARKING_LOT,      true,  55, 180, "1301 5th St Auraria Denver, CO 80204"),
-            ParkingLot("9", "7th Street Garage",          7.25, 4.1f,  MSUDCampusLocation.SEVENTH_LOT,          true,  65, 220, "777 Lawrence Way Auraria Denver, CO 80204")
+        // Assign the global parkingLots list
+        parkingLots = listOf(
+            ParkingLot("1", "Dogwood Parking Lot", 7.25, 4.5f, MSUDCampusLocation.DOGWOOD_PARKING_LOT, true, 90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
+            ParkingLot("2", "Tivoli Parking Lot", 7.25, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, true, 30, 200, "901 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("3", "Cherry Parking Lot", 5.75, 3.5f, MSUDCampusLocation.CHERRY_PARKING_LOT, true, 75, 150, "605 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("4", "Spruce Parking Lot", 7.25, 3.0f, MSUDCampusLocation.SPRUCE_PARKING_LOT, true, 50, 300, "800 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("5", "Fir Parking Lot", 5.75, 2.5f, MSUDCampusLocation.FIR_PARKING_LOT, true, 10, 400, "555 Curtis St Auraria Denver, CO 80204"),
+            ParkingLot("6", "Nutmeg Lot", 7.25, 4.0f, MSUDCampusLocation.NUTMEG_LOT, true, 70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
+            ParkingLot("7", "Boulder Creek", 2.00, 3.8f, MSUDCampusLocation.BOULDER_CREEK, true, 40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
+            ParkingLot("8", "Elm Parking Lot", 5.75, 3.9f, MSUDCampusLocation.ELM_PARKING_LOT, true, 55, 180, "1301 5th St Auraria Denver, CO 80204"),
+            ParkingLot("9", "7th Street Garage", 7.25, 4.1f, MSUDCampusLocation.SEVENTH_LOT, true, 65, 220, "777 Lawrence Way Auraria Denver, CO 80204")
         )
 
         // Setup parking lot spinner
@@ -96,11 +98,19 @@ class SubmitReviewActivity : AppCompatActivity() {
     private fun submitReview() {
         val rating = ratingBar.rating
         val comment = commentEditText.text.toString()
-        val parkingLot = parkingLots[parkingLotSpinner.selectedItemPosition]
+        val selectedParkingLotPosition = parkingLotSpinner.selectedItemPosition
+
+        if (selectedParkingLotPosition == AdapterView.INVALID_POSITION) {
+            Toast.makeText(this, "Please select a parking lot", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val parkingLot = parkingLots[selectedParkingLotPosition]
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: "unknown"
 
         if (rating > 0 && comment.isNotBlank()) {
             val review = Review(
-                userId = "user123", // Replace with actual user ID if available
+                userId = userId,
                 parkingLotId = parkingLot.id,
                 rating = rating,
                 comment = comment,
@@ -110,12 +120,11 @@ class SubmitReviewActivity : AppCompatActivity() {
             db.collection("reviews").add(review)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Review submitted successfully", Toast.LENGTH_SHORT).show()
-                    // Navigate back to the MapsActivity
                     returnToMaps()
                 }
                 .addOnFailureListener { e ->
                     Log.e("SubmitReviewActivity", "Error submitting review", e)
-                    Toast.makeText(this, "Error submitting review", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Error submitting review: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         } else {
             Toast.makeText(this, "Please provide a rating and comment", Toast.LENGTH_SHORT).show()
@@ -149,20 +158,10 @@ class SubmitReviewActivity : AppCompatActivity() {
         // Optional: Add flags to clear the activity stack
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
 
-        // Start the MapsActivity
+        // Start the activity
         startActivity(intent)
 
-        // Finish the current activity to remove it from the stack
+        // Optional: Finish the current activity to remove it from the back stack
         finish()
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == imageRequestCode && resultCode == RESULT_OK && data != null) {
-            selectedImageUri = data.data.toString()
-            Toast.makeText(this, "Image selected: $selectedImageUri", Toast.LENGTH_SHORT).show()
-            // Handle image upload to Firestore if needed
-        }
     }
 }
