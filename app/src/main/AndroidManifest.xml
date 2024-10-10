@@ -79,11 +79,7 @@
             android:exported="true"
             android:label="@string/select_parking_lot_title"
             android:theme="@style/Theme.CS4360App" />
-        <activity
-            android:name=".activities.PayParkingLotActivity"
-            android:exported="true"
-            android:label="@string/pay_parking_lot"
-            android:theme="@style/Theme.CS4360App" />
+
         <activity
             android:name=".activities.NotificationsActivity"
             android:exported="true"

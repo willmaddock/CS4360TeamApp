@@ -7,32 +7,33 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/license_plate_input"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/ParkingMeter_Title"
+        style="@style/SubText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:hint="@string/enter_license_plate"
-        android:maxLength="10"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:text="Set Up Parking Meter For your Vehicle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill,TextFields" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/seekbar_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
+        android:textColor="@color/black"
         android:text="@string/select_parking_duration"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/license_plate_input"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/ParkingMeter_Title" />
 
     <SeekBar
         android:id="@+id/parking_duration_seekbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:max="240"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/seekbar_label"
@@ -43,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/selected_time_0_minutes"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/parking_duration_seekbar"
         android:layout_marginTop="16dp" />
@@ -52,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cost_per_hour_5_35"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/selected_time_text"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp" />
@@ -61,6 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_cost_0_00"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/cost_per_hour_text"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="8dp" />
@@ -69,6 +73,7 @@
         android:id="@+id/time_constraints_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:text="@string/minimum_15_mins_maximum_4_hours"
         app:layout_constraintTop_toBottomOf="@id/total_cost_text"
         app:layout_constraintStart_toStartOf="parent"

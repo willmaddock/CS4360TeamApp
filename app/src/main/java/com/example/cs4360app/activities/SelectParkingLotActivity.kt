@@ -91,7 +91,7 @@ class SelectParkingLotActivity : AppCompatActivity() {
             }
             else {
                 // Handle parking lot click and pass data to PayParkingLotActivity
-                val intent = Intent(this, PayParkingLotActivity::class.java).apply {
+                val intent = Intent(this, PayParkingMeterActivity::class.java).apply {
                     putExtra("PARKING_LOT_ID", parkingLot.id)
                     putExtra("PARKING_LOT_NAME", parkingLot.name)
                     putExtra("PARKING_LOT_COST", parkingLot.cost)
@@ -99,7 +99,7 @@ class SelectParkingLotActivity : AppCompatActivity() {
                     putExtra("PARKING_LOT_PROXIMITY", parkingLot.proximity)
                     putExtra("PARKING_LOT_ADDRESS", parkingLot.address)
                 }
-                startActivity(intent) // Start PayParkingLotActivity
+                startActivity(intent) // Start PayParkingMeterActivity
             }
         }
         binding.parkingLotRecyclerView.adapter = adapter

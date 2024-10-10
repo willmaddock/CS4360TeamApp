@@ -28,7 +28,6 @@ class PayParkingMeterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pay_parking_meter)
 
         // Bind UI elements
-        licensePlateInput = findViewById(R.id.license_plate_input)
         parkingDurationSeekBar = findViewById(R.id.parking_duration_seekbar)
         selectedTimeText = findViewById(R.id.selected_time_text)
         costPerHourText = findViewById(R.id.cost_per_hour_text)
@@ -53,17 +52,23 @@ class PayParkingMeterActivity : AppCompatActivity() {
 
         // Set up Pay button click listener
         payButton.setOnClickListener {
-            val licensePlate = licensePlateInput.text.toString().trim()
             val timeInMinutes = parkingDurationSeekBar.progress
 
             // Validate inputs
-            if (licensePlate.isEmpty()) {
-                Toast.makeText(this, "Please enter a license plate.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+
             if (timeInMinutes < 15) {
                 Toast.makeText(this, "Parking duration must be at least 15 minutes.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
+            }
+
+            val sharedPreferences = getSharedPreferences("parking_info", MODE_PRIVATE)
+            with(sharedPreferences.edit()) {
+                putString("PARKING_LOT_NAME", intent.getStringExtra("PARKING_LOT_NAME"))
+                putLong("PARKING_LOT_COST", intent.getDoubleExtra("PARKING_LOT_COST", 0.0).toRawBits())// Store as Long bits
+                putFloat("PARKING_LOT_RATING", intent.getFloatExtra("PARKING_LOT_RATING", 0.0f))
+                putInt("PARKING_LOT_PROXIMITY", intent.getIntExtra("PARKING_LOT_PROXIMITY", 0))
+                putString("PARKING_LOT_ADDRESS", intent.getStringExtra("PARKING_LOT_ADDRESS"))
+                apply()
             }
 
             // Simulate successful payment
