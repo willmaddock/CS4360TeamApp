@@ -6,20 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cs4360app.databinding.ActivityMainBinding
 import com.example.cs4360app.managers.MainMenuManager
 import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var auth: FirebaseAuth
     private lateinit var mainMenuManager: MainMenuManager
 
     companion object {
         private var instance: MainActivity? = null
 
-        fun getInstance(): MainActivity? {
-            return instance
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,10 +25,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         instance = this // Set instance when the activity is created
-        auth = FirebaseAuth.getInstance()
 
         // Initialize MainMenuManager
-        mainMenuManager = MainMenuManager(this, binding, auth)
+        mainMenuManager = MainMenuManager(this, binding)
         mainMenuManager.initializeMenu()
 
         // Setup recycler view for reviews
@@ -42,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetchReviews() {
-        // Your fetch reviews code...
+        // Your fetch reviews code here...
     }
 
     override fun onResume() {

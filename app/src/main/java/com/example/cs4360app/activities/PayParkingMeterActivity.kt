@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
@@ -13,12 +12,10 @@ import com.example.cs4360app.R
 
 class PayParkingMeterActivity : AppCompatActivity() {
 
-    private lateinit var licensePlateInput: EditText
     private lateinit var parkingDurationSeekBar: SeekBar
     private lateinit var selectedTimeText: TextView
-    private lateinit var costPerHourText: TextView
     private lateinit var totalCostText: TextView
-    private lateinit var payButton: Button
+    private lateinit var startBudgetSimulatorButton: Button
     private lateinit var backButton: Button
 
     private val ratePerMinute = 5.35f / 150 // $5.35 for 2 hours and 30 minutes (150 minutes)
@@ -28,12 +25,10 @@ class PayParkingMeterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pay_parking_meter)
 
         // Bind UI elements
-        licensePlateInput = findViewById(R.id.license_plate_input)
         parkingDurationSeekBar = findViewById(R.id.parking_duration_seekbar)
         selectedTimeText = findViewById(R.id.selected_time_text)
-        costPerHourText = findViewById(R.id.cost_per_hour_text)
         totalCostText = findViewById(R.id.total_cost_text)
-        payButton = findViewById(R.id.pay_button)
+        startBudgetSimulatorButton = findViewById(R.id.start_budget_simulator_button)
         backButton = findViewById(R.id.back_button)
 
         // Set up SeekBar listener
@@ -51,24 +46,19 @@ class PayParkingMeterActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        // Set up Pay button click listener
-        payButton.setOnClickListener {
-            val licensePlate = licensePlateInput.text.toString().trim()
+        // Set up Start Budget Simulator button click listener
+        startBudgetSimulatorButton.setOnClickListener {
             val timeInMinutes = parkingDurationSeekBar.progress
 
             // Validate inputs
-            if (licensePlate.isEmpty()) {
-                Toast.makeText(this, "Please enter a license plate.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
             if (timeInMinutes < 15) {
                 Toast.makeText(this, "Parking duration must be at least 15 minutes.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            // Simulate successful payment
+            // Calculate payment and save end time in SharedPreferences
             val amountPaid = calculatePayment(timeInMinutes)
-            onPaymentSuccess(amountPaid, timeInMinutes)
+            onSimulationStart(amountPaid, timeInMinutes)
         }
 
         // Set up Back button click listener
@@ -83,26 +73,22 @@ class PayParkingMeterActivity : AppCompatActivity() {
         totalCostText.text = "Total cost: $${String.format("%.2f", totalCost)}"
     }
 
-    private fun onPaymentSuccess(amountPaid: Float, timeInMinutes: Int) {
-        // Store payment status in SharedPreferences
+    @SuppressLint("DefaultLocale")
+    private fun onSimulationStart(amountPaid: Float, timeInMinutes: Int) {
+        // Save end time in SharedPreferences
+        val endTime = System.currentTimeMillis() + (timeInMinutes * 60 * 1000) // Calculate end time
         val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
-        val endTime = System.currentTimeMillis() + (timeInMinutes * 60 * 1000) // Calculate end time in milliseconds
-        with(sharedPreferences.edit()) {
-            putBoolean("payment_active", true)
-            putLong("end_time", endTime) // Store end time
-            apply()
-        }
+        sharedPreferences.edit().putLong("end_time", endTime).apply()
+
+        Toast.makeText(this, "Starting budget simulation for $${String.format("%.2f", amountPaid)} over $timeInMinutes minutes!", Toast.LENGTH_SHORT).show()
 
         // Redirect to TimerActivity
         val intent = Intent(this, TimerActivity::class.java)
-        intent.putExtra("amountPaid", amountPaid)
-        intent.putExtra("timeInMinutes", timeInMinutes.toLong())
         startActivity(intent)
-        finish() // Close this activity
+        finish() // Optionally finish this activity
     }
 
-    // Calculate the payment based on the time (using rate per minute)
     private fun calculatePayment(minutes: Int): Float {
-        return minutes * ratePerMinute
+        return (minutes * ratePerMinute)
     }
 }

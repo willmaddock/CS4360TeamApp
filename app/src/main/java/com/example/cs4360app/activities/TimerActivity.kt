@@ -35,12 +35,6 @@ class TimerActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
         val endTime = sharedPreferences.getLong("end_time", 0)
 
-        // Check if payment is active
-        if (!isPaymentActive(endTime)) {
-            showToastAndRedirect("Payment not completed. Redirecting to Maps.", MapsActivity::class.java)
-            return
-        }
-
         // Calculate remaining time
         remainingTime = endTime - System.currentTimeMillis()
         if (remainingTime < 0) {
@@ -68,10 +62,6 @@ class TimerActivity : AppCompatActivity() {
         }
     }
 
-    private fun isPaymentActive(endTime: Long): Boolean {
-        return endTime > 0
-    }
-
     private fun calculateAmount(durationInSeconds: Long): Float {
         val durationInMinutes = durationInSeconds / 60
         return durationInMinutes * costPerMinute
@@ -84,11 +74,12 @@ class TimerActivity : AppCompatActivity() {
                 updateTimerDisplay(millisUntilFinished)
             }
 
+            @SuppressLint("SetTextI18n")
             override fun onFinish() {
                 timerTextView.text = "Time's up!"
                 Toast.makeText(this@TimerActivity, "Parking time expired!", Toast.LENGTH_SHORT).show()
 
-                // Step 3: Update SharedPreferences when the timer expires
+                // Update SharedPreferences when the timer expires
                 val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
                 sharedPreferences.edit().putBoolean("payment_active", false).apply()
 
@@ -97,6 +88,7 @@ class TimerActivity : AppCompatActivity() {
         }.start()
     }
 
+    @SuppressLint("DefaultLocale")
     private fun updateTimerDisplay(millisUntilFinished: Long) {
         val secondsLeft = (millisUntilFinished / 1000).toInt()
         val minutesLeft = secondsLeft / 60
@@ -107,12 +99,6 @@ class TimerActivity : AppCompatActivity() {
     private fun navigateToMaps() {
         val intent = Intent(this, MapsActivity::class.java)
         startActivity(intent)
-        finish()
-    }
-
-    private fun showToastAndRedirect(message: String, redirectClass: Class<*>) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, redirectClass))
         finish()
     }
 

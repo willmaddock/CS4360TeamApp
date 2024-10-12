@@ -4,27 +4,22 @@
 
     <!-- Menu items for all users -->
     <item
-        android:id="@+id/nav_login"
-        android:title="Login"
-        tools:ignore="HardcodedText" /> <!-- Only for guests -->
-
-    <item
         android:id="@+id/nav_back_to_menu"
-        android:title="@string/back_to_menu" /> <!-- Only for logged-in users -->
+        android:title="@string/back_to_menu" /> <!-- Accessible for all users -->
 
     <item
-        android:id="@+id/nav_payment"
-        android:title="Payment"
-        tools:ignore="HardcodedText" /> <!-- Accessible for both users -->
+        android:id="@+id/nav_parking_budget_simulator"
+        android:title="Parking Budget Simulator"
+        tools:ignore="HardcodedText" /> <!-- Accessible for all users -->
 
     <item
         android:id="@+id/nav_timer"
-        android:title="@string/view_parking_timer"
-        android:icon="@drawable/ic_timer" /> <!-- Accessible for both users, hidden if not active -->
+        android:title="@string/view_parking_timer_simulator"
+        android:icon="@drawable/ic_timer" /> <!-- Accessible for all users, hidden if not active -->
 
     <item
         android:id="@+id/nav_take_survey"
-        android:title="@string/take_a_survey" /> <!-- Only for guests -->
+        android:title="@string/take_a_survey" /> <!-- Accessible for all users -->
 
     <!-- Menu items for logged-in users -->
     <item
@@ -47,10 +42,5 @@
         android:icon="@drawable/ic_notifications"
         android:title="Notifications"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
-
-    <!-- Log Out Menu Item -->
-    <item
-        android:id="@+id/nav_logout"
-        android:title="@string/log_out" /> <!-- Only for logged-in users -->
 
 </menu>

@@ -198,4 +198,12 @@
     <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">Rating: Select this filter to show parking lots based on their ratings.</string>
     <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">Address: Select this filter to show parking lots with their respective addresses.</string>
     <string name="time_remaining_00_00_00">Time Remaining: 00:00:00</string>
+    <string name="parking_budget_simulator">Parking Budget Simulator</string>
+    <string name="view_parking_timer_simulator">View Parking Timer Simulator</string>
+    <string name="select_budget_type">Select Budget Type</string>
+    <string name="daily_budget">Daily Budget</string>
+    <string name="semester_budget">Semester Budget</string>
+    <string name="next">Next</string>
+    <string name="selected_time_0h_0m">Selected Time: 0h 0m</string>
+    <string name="start_budget_simulator">Start Budget Simulator</string>
 </resources>

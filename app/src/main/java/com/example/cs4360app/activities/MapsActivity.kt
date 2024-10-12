@@ -30,21 +30,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
-        // Initialize SharedPreferences
+        // Initialize SharedPreferences for filters
         sharedPreferences = getSharedPreferences("filter_prefs", MODE_PRIVATE)
 
         // Initialize DrawerLayout and NavigationView
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigation_view)
 
-        // Initialize the map
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-        // Set up Floating Action Button to open the drawer
+        // Set up the Floating Action Button to open the drawer
         findViewById<FloatingActionButton>(R.id.open_drawer_fab).setOnClickListener {
             drawerLayout.open()
         }
+
+        // Initialize the map
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
         // Initialize the info icon and set its click listener
         infoIcon = findViewById(R.id.info_icon)
@@ -56,9 +56,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setupZoomButtons()
 
         // Delegate drawer and filter setup to managers
-        DrawerManager.setupDrawer(this, navigationView)
+        DrawerManager.setupDrawer(this, navigationView)  // Managing drawer setup via DrawerManager
         findViewById<Button>(R.id.filter_button).setOnClickListener {
-            FilterManager.showFilterDialog(this, mMap)
+            FilterManager.showFilterDialog(this, mMap)  // Handling filters using FilterManager
         }
     }
 
@@ -67,9 +67,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Set the camera to the Jordan Parking Garage coordinates
         val dogWoodParkingLot = LatLng(39.74396, -105.00869)
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dogWoodParkingLot, 15f)) // Zoom level can be adjusted
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dogWoodParkingLot, 15f))  // Initial zoom level
 
-        // Load parking lots (without maxCost, only passing other filters if needed)
+        // Load parking lots (filters can be passed via FilterManager if needed)
         ParkingLotManager.loadParkingLots(mMap)
     }
 
@@ -85,10 +85,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun showInfoDialog() {
         val builder = androidx.appcompat.app.AlertDialog.Builder(this)
         builder.setTitle("Parking Lot Availability")
-            .setMessage("The colored markers represent the availability of parking lots:\n" +
-                    "Green: Available\n" +
-                    "Yellow: Almost Full\n" +
-                    "Red: Full")
+            .setMessage(
+                """
+                The colored markers represent the availability of parking lots:
+                - Green: Available
+                - Yellow: Almost Full
+                - Red: Full
+                """.trimIndent()
+            )
             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
             .create()
             .show()
