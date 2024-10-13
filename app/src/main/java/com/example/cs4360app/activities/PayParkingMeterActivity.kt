@@ -18,7 +18,9 @@ class PayParkingMeterActivity : AppCompatActivity() {
     private lateinit var startBudgetSimulatorButton: Button
     private lateinit var backButton: Button
 
-    private val ratePerMinute = 5.35f / 150 // $5.35 for 2 hours and 30 minutes (150 minutes)
+    private val commonCost = 5.35f // Fixed cost for 2 hours and 30 minutes (150 minutes)
+    private val maxMinutes = 240 // Maximum parking time in minutes (4 hours)
+    private val baseMinutes = 150 // Base time (2 hours 30 minutes)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,7 @@ class PayParkingMeterActivity : AppCompatActivity() {
         backButton = findViewById(R.id.back_button)
 
         // Set up SeekBar listener
-        parkingDurationSeekBar.max = 240 // Maximum of 4 hours
+        parkingDurationSeekBar.max = maxMinutes // Maximum of 4 hours (240 minutes)
         parkingDurationSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             @SuppressLint("SetTextI18n")
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -89,6 +91,12 @@ class PayParkingMeterActivity : AppCompatActivity() {
     }
 
     private fun calculatePayment(minutes: Int): Float {
-        return (minutes * ratePerMinute)
+        return if (minutes <= baseMinutes) {
+            commonCost // If the time is within or equal to 2 hours and 30 minutes, charge $5.35
+        } else {
+            // Additional cost for any time beyond the base time (2 hours 30 minutes)
+            val extraMinutes = minutes - baseMinutes
+            commonCost + (extraMinutes * (commonCost / baseMinutes)) // Pro-rated extra time
+        }
     }
 }

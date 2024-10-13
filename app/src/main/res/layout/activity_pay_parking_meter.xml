@@ -21,7 +21,7 @@
         android:id="@+id/cost_per_hour_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cost per hour: $5.35"
+        android:text="Cost for 2 hours 30 minutes: $5.35"
         tools:ignore="HardcodedText" />
 
     <TextView
