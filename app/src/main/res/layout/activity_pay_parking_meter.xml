@@ -1,98 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp">
-
-    <EditText
-        android:id="@+id/license_plate_input"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:hint="@string/enter_license_plate"
-        android:maxLength="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill,TextFields" />
-
-    <TextView
-        android:id="@+id/seekbar_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/select_parking_duration"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/license_plate_input"
-        android:layout_marginTop="16dp" />
-
-    <SeekBar
-        android:id="@+id/parking_duration_seekbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:max="240"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/seekbar_label"
-        android:layout_marginTop="16dp" />
 
     <TextView
         android:id="@+id/selected_time_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/selected_time_0_minutes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/parking_duration_seekbar"
-        android:layout_marginTop="16dp" />
+        android:text="@string/selected_time_0h_0m" />
+
+    <SeekBar
+        android:id="@+id/parking_duration_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/cost_per_hour_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cost_per_hour_5_35"
-        app:layout_constraintTop_toBottomOf="@id/selected_time_text"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
+        android:text="Cost per hour: $5.35"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/total_cost_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/total_cost_0_00"
-        app:layout_constraintTop_toBottomOf="@id/cost_per_hour_text"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/time_constraints_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/minimum_15_mins_maximum_4_hours"
-        app:layout_constraintTop_toBottomOf="@id/total_cost_text"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp" />
+        android:text="Total cost: $0.00"
+        tools:ignore="HardcodedText" />
 
     <Button
-        android:id="@+id/pay_button"
-        android:layout_width="0dp"
+        android:id="@+id/start_budget_simulator_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pay"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time_constraints_text"
-        android:layout_marginTop="40dp" />
+        android:text="@string/start_budget_simulator" />
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Back"
-        app:layout_constraintTop_toBottomOf="@id/pay_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
         tools:ignore="HardcodedText" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

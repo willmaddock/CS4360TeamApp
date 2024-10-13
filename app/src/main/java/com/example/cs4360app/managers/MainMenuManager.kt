@@ -6,21 +6,18 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.CountDownTimer
 import android.view.View
-import android.widget.Toast
 import com.example.cs4360app.activities.*
 import com.example.cs4360app.databinding.ActivityMainBinding
-import com.google.firebase.auth.FirebaseAuth
 import java.util.concurrent.TimeUnit
 
 class MainMenuManager(
     private val context: Context,
-    private val binding: ActivityMainBinding,
-    private val auth: FirebaseAuth
+    private val binding: ActivityMainBinding
 ) {
+    private var countDownTimer: CountDownTimer? = null // Declare a variable to hold the timer
 
     fun initializeMenu() {
         setupClickListeners()
-        updateUI()
         checkAndShowActiveTimer() // Check if timer is active and update UI accordingly
     }
 
@@ -40,24 +37,9 @@ class MainMenuManager(
             context.startActivity(Intent(context, MapsActivity::class.java))
         }
 
-        // Login
-        binding.loginButton.setOnClickListener {
-            context.startActivity(Intent(context, LoginActivity::class.java))
-        }
-
-        // Logout
-        binding.logoutButton.setOnClickListener {
-            logoutUser()
-        }
-
         // Petition
         binding.buttonPetition.setOnClickListener {
             context.startActivity(Intent(context, PetitionActivity::class.java))
-        }
-
-        // Payment
-        binding.paymentButton.setOnClickListener {
-            context.startActivity(Intent(context, PaymentActivity::class.java))
         }
 
         // Notifications
@@ -69,6 +51,16 @@ class MainMenuManager(
         binding.chatButton.setOnClickListener {
             context.startActivity(Intent(context, ChatActivity::class.java))
         }
+
+        // Parking Budget Simulator (Payment Button)
+        binding.paymentButton.setOnClickListener {
+            context.startActivity(Intent(context, ParkingBudgetSimulatorActivity::class.java))
+        }
+
+        // Timer Button
+        binding.timerButton.setOnClickListener {
+            context.startActivity(Intent(context, TimerActivity::class.java))
+        }
     }
 
     @SuppressLint("DefaultLocale")
@@ -79,10 +71,10 @@ class MainMenuManager(
         // Check if the timer is active
         if (endTime > System.currentTimeMillis()) {
             showActiveTimer(endTime)
-            updatePaymentButtonVisibility(true) // Hide payment button when timer is active
+            // No need to hide any buttons; all buttons remain visible
         } else {
             binding.timerButton.visibility = View.GONE // Hide timer button if not active
-            updatePaymentButtonVisibility(false) // Show payment button when timer is inactive
+            countDownTimer?.cancel() // Cancel any active timer
         }
     }
 
@@ -94,10 +86,11 @@ class MainMenuManager(
 
     @SuppressLint("SetTextI18n")
     private fun startTimer(timeInMillis: Long) {
+        countDownTimer?.cancel() // Cancel any existing timer before starting a new one
         binding.timerButton.setBackgroundColor(Color.GREEN) // Set initial color to green
         binding.timerButton.text = "Time Remaining: ${formatTime(timeInMillis)}"
 
-        object : CountDownTimer(timeInMillis, 1000) {
+        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
             @SuppressLint("DefaultLocale")
             override fun onTick(millisUntilFinished: Long) {
                 binding.timerButton.text = "Time Remaining: ${formatTime(millisUntilFinished)}"
@@ -120,7 +113,7 @@ class MainMenuManager(
 
             override fun onFinish() {
                 binding.timerButton.visibility = View.GONE // Hide the timer button once finished
-                updatePaymentButtonVisibility(false) // Show payment button when timer finishes
+                countDownTimer = null // Clear the timer instance
             }
         }.start()
     }
@@ -131,36 +124,5 @@ class MainMenuManager(
         val minutes = TimeUnit.MILLISECONDS.toMinutes(millis) % 60
         val seconds = TimeUnit.MILLISECONDS.toSeconds(millis) % 60
         return String.format("%02d:%02d:%02d", hours, minutes, seconds)
-    }
-
-    private fun logoutUser() {
-        auth.signOut()
-        Toast.makeText(context, "Logged out successfully", Toast.LENGTH_SHORT).show()
-        updateUI()
-
-        // Redirect to map on logout
-        context.startActivity(Intent(context, MapsActivity::class.java))
-    }
-
-    private fun updateUI() {
-        val user = auth.currentUser
-        if (user == null) {
-            // Show login button and hide other options when logged out
-            binding.loginButton.visibility = View.VISIBLE
-            binding.logoutButton.visibility = View.GONE
-        } else {
-            // Show logout button and other options when logged in
-            binding.loginButton.visibility = View.GONE
-            binding.logoutButton.visibility = View.VISIBLE
-        }
-    }
-
-    // Function to update the visibility of the payment button
-    private fun updatePaymentButtonVisibility(isTimerActive: Boolean) {
-        binding.paymentButton.visibility = if (isTimerActive) {
-            View.GONE // Hide payment button when timer is active
-        } else {
-            View.VISIBLE // Show payment button when timer is inactive
-        }
     }
 }

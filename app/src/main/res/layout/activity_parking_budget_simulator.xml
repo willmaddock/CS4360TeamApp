@@ -1,0 +1,88 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Budget Type"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        tools:ignore="HardcodedText" />
+
+    <RadioGroup
+        android:id="@+id/budget_type_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radio_daily_budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily Budget"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/radio_semester_budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semester Budget"
+            tools:ignore="HardcodedText" />
+    </RadioGroup>
+
+    <!-- Add semester date selection for 'Semester Budget' -->
+    <TextView
+        android:id="@+id/semester_dates_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_semester_start_and_end_dates"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/start_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_date"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/start_date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_start_date"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/end_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/end_date"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/end_date_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_end_date"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        tools:ignore="HardcodedText" />
+
+    <!-- New button for Parking Meter Simulator -->
+    <Button
+        android:id="@+id/parking_meter_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/parking_meter_simulator"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

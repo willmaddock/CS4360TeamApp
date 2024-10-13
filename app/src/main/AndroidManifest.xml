@@ -45,18 +45,6 @@
             android:theme="@style/Theme.CS4360App" />
 
         <activity
-            android:name=".activities.LoginActivity"
-            android:exported="true"
-            android:label="@string/login"
-            android:theme="@style/Theme.CS4360App" />
-
-        <activity
-            android:name=".activities.RegisterActivity"
-            android:exported="true"
-            android:label="@string/register"
-            android:theme="@style/Theme.CS4360App" />
-
-        <activity
             android:name=".activities.MapsActivity"
             android:exported="true"
             android:label="@string/title_activity_maps"
@@ -93,12 +81,6 @@
             android:theme="@style/Theme.CS4360App" />
 
         <activity
-            android:name=".activities.PayParkingLotActivity"
-            android:exported="true"
-            android:label="@string/pay_parking_lot"
-            android:theme="@style/Theme.CS4360App" />
-
-        <activity
             android:name=".activities.NotificationsActivity"
             android:exported="true"
             android:label="@string/notifications_title"
@@ -116,12 +98,6 @@
             android:label="Event Details"
             android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.PaymentActivity"
-            android:exported="true"
-            android:label="Payment"
-            android:theme="@style/Theme.CS4360App" />
-
         <!-- Timer Activity -->
         <activity
             android:name=".activities.TimerActivity"
@@ -134,6 +110,13 @@
             android:name=".activities.ChatActivity"
             android:exported="true"
             android:label="Chat"
+            android:theme="@style/Theme.CS4360App" />
+
+        <!-- New ParkingBudgetSimulatorActivity -->
+        <activity
+            android:name=".activities.ParkingBudgetSimulatorActivity"
+            android:exported="true"
+            android:label="Parking Budget Simulator"
             android:theme="@style/Theme.CS4360App" />
 
         <!-- Firebase Cloud Messaging Service -->

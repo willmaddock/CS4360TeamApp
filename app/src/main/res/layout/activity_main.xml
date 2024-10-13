@@ -32,12 +32,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Timer Button -->
+    <!-- Timer Button (renamed to View Parking Timer Simulator) -->
     <Button
         android:id="@+id/timerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time Remaining: 00:00:00"
+        android:text="View Parking Timer Simulator"
         android:backgroundTint="@color/green"
         android:textColor="@android:color/white"
         android:textSize="32sp"
@@ -49,18 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="HardcodedText" />
 
-    <!-- Button to open the Login Activity -->
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timerButton"
-        tools:ignore="HardcodedText" />
-
     <!-- Button to open the map -->
     <Button
         android:id="@+id/mapButton"
@@ -70,7 +58,7 @@
         android:text="@string/open_map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/timerButton" />
 
     <!-- Button to open the submit review form -->
     <Button
@@ -94,13 +82,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSubmitReview" />
 
-    <!-- Button for Payment -->
+    <!-- Button for Parking Budget Simulator (renamed from Payment) -->
     <Button
         android:id="@+id/paymentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/payment"
+        android:text="@string/parking_budget_simulator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSurvey" />
@@ -138,16 +126,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chatButton" />
-
-    <!-- Button for Logout -->
-    <Button
-        android:id="@+id/logout_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPetition" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

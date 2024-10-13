@@ -38,7 +38,6 @@ class SubmitReviewActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private lateinit var parkingLots: List<ParkingLot>
     private val imageRequestCode = 1001
-    private var selectedImageUri: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

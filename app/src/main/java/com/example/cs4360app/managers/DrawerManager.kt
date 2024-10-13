@@ -5,35 +5,21 @@ import android.content.Intent
 import com.example.cs4360app.R
 import com.example.cs4360app.activities.*
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 
 object DrawerManager {
 
-    private lateinit var auth: FirebaseAuth
-
     fun setupDrawer(context: Context, navigationView: NavigationView) {
-        auth = FirebaseAuth.getInstance()
-
         // Set up navigation item selection listener
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_login -> {
-                    context.startActivity(Intent(context, LoginActivity::class.java))
-                    true
-                }
-                R.id.nav_logout -> {
-                    FirebaseAuth.getInstance().signOut() // Sign out the user
-                    updateMenuForUser(context, navigationView) // Update menu items after logout
-                    true
-                }
                 R.id.nav_back_to_menu -> {
                     context.startActivity(Intent(context, MainActivity::class.java).apply {
                         flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                     })
                     true
                 }
-                R.id.nav_payment -> {
-                    context.startActivity(Intent(context, PaymentActivity::class.java))
+                R.id.nav_parking_budget_simulator -> {
+                    context.startActivity(Intent(context, ParkingBudgetSimulatorActivity::class.java))
                     true
                 }
                 R.id.nav_chat -> {
@@ -57,10 +43,7 @@ object DrawerManager {
                     true
                 }
                 R.id.nav_take_survey -> {
-                    // Start the SurveyActivity for guest users
-                    if (!isLoggedIn()) {
-                        context.startActivity(Intent(context, SurveyActivity::class.java))
-                    }
+                    context.startActivity(Intent(context, SurveyActivity::class.java))
                     true
                 }
                 else -> false
@@ -71,50 +54,25 @@ object DrawerManager {
     }
 
     private fun updateMenuForUser(context: Context, navigationView: NavigationView) {
-        val isLoggedIn = auth.currentUser != null
         val menu = navigationView.menu
         val isTimerActive = isTimerActive(context)
 
-        // Show options based on user login status
-        if (isLoggedIn) {
-            menu.findItem(R.id.nav_back_to_menu).isVisible = true
-            menu.findItem(R.id.nav_payment).isVisible = !isTimerActive // Hide payment if the timer is active
-            menu.findItem(R.id.nav_timer).isVisible = isTimerActive // Only show active timer
-            menu.findItem(R.id.nav_chat).isVisible = true
-            menu.findItem(R.id.nav_submit_petition).isVisible = true
-            menu.findItem(R.id.nav_submit_review).isVisible = true
-            menu.findItem(R.id.nav_notifications).isVisible = true
-            menu.findItem(R.id.nav_logout).isVisible = true // Show logout option
-
-            // Hide guest options
-            menu.findItem(R.id.nav_login).isVisible = false
-            menu.findItem(R.id.nav_take_survey).isVisible = false
-        } else {
-            // Show options for guests
-            menu.findItem(R.id.nav_login).isVisible = true // Show login option
-            menu.findItem(R.id.nav_payment).isVisible = !isTimerActive // Hide payment if the timer is active
-            menu.findItem(R.id.nav_timer).isVisible = isTimerActive // Only show active timer
-            menu.findItem(R.id.nav_take_survey).isVisible = true // Show survey option
-
-            // Hide logged-in user options
-            menu.findItem(R.id.nav_back_to_menu).isVisible = false
-            menu.findItem(R.id.nav_chat).isVisible = false
-            menu.findItem(R.id.nav_submit_petition).isVisible = false
-            menu.findItem(R.id.nav_submit_review).isVisible = false
-            menu.findItem(R.id.nav_notifications).isVisible = false
-            menu.findItem(R.id.nav_logout).isVisible = false // Hide logout option
-        }
+        // Menu options visibility based on conditions
+        menu.findItem(R.id.nav_back_to_menu).isVisible = true
+        menu.findItem(R.id.nav_parking_budget_simulator).isVisible = true // Always visible
+        menu.findItem(R.id.nav_timer).isVisible = isTimerActive // Only show active timer
+        menu.findItem(R.id.nav_chat).isVisible = true
+        menu.findItem(R.id.nav_submit_petition).isVisible = true
+        menu.findItem(R.id.nav_submit_review).isVisible = true
+        menu.findItem(R.id.nav_notifications).isVisible = true
+        menu.findItem(R.id.nav_take_survey).isVisible = true
     }
 
-    // Step 1: Check if the timer is active or expired
+    // Check if the timer is active or expired
     private fun isTimerActive(context: Context): Boolean {
         val sharedPreferences = context.getSharedPreferences("payment_prefs", Context.MODE_PRIVATE)
         val endTime = sharedPreferences.getLong("end_time", 0)
         // Timer is active if the end time is in the future
         return endTime > System.currentTimeMillis()
-    }
-
-    private fun isLoggedIn(): Boolean {
-        return auth.currentUser != null
     }
 }

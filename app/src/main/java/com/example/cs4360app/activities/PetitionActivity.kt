@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cs4360app.R
 import com.example.cs4360app.models.Petition
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class PetitionActivity : AppCompatActivity() {
@@ -15,7 +14,6 @@ class PetitionActivity : AppCompatActivity() {
     private lateinit var petitionDescription: EditText
     private lateinit var gracePeriodSuggestion: EditText
     private lateinit var submitPetitionButton: Button
-    private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,15 +25,8 @@ class PetitionActivity : AppCompatActivity() {
         gracePeriodSuggestion = findViewById(R.id.gracePeriodSuggestion)
         submitPetitionButton = findViewById(R.id.submitPetitionButton)
 
-        // Initialize Firebase instances
-        auth = FirebaseAuth.getInstance() // Firebase Authentication
+        // Initialize Firestore instance
         db = FirebaseFirestore.getInstance() // Firestore Database
-
-        // Check if the user is logged in
-        if (auth.currentUser == null) {
-            Toast.makeText(this, "Please log in to submit a petition.", Toast.LENGTH_LONG).show()
-            finish() // Close activity if user is not authenticated
-        }
 
         // Set up the submit button click listener
         submitPetitionButton.setOnClickListener {
@@ -53,9 +44,8 @@ class PetitionActivity : AppCompatActivity() {
 
     // Function to submit the petition to Firestore
     private fun submitPetition(description: String, gracePeriod: String?) {
-        val userId = auth.currentUser?.uid ?: return // Get user ID
         val petition = Petition(
-            userId = userId,
+            userId = "anonymous",  // Set userId as anonymous since no login
             description = description,
             gracePeriod = gracePeriod,
             timestamp = System.currentTimeMillis()
