@@ -206,4 +206,10 @@
     <string name="next">Next</string>
     <string name="selected_time_0h_0m">Selected Time: 0h 0m</string>
     <string name="start_budget_simulator">Start Budget Simulator</string>
+    <string name="select_semester_start_and_end_dates">Select Semester Start and End Dates</string>
+    <string name="start_date">Start Date:</string>
+    <string name="select_start_date">Select Start Date</string>
+    <string name="end_date">End Date:</string>
+    <string name="select_end_date">Select End Date</string>
+    <string name="parking_meter_simulator">Parking Meter Simulator</string>
 </resources>

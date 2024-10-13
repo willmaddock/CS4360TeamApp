@@ -2,6 +2,7 @@ package com.example.cs4360app.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cs4360app.adapters.ParkingLotAdapter
@@ -36,8 +37,11 @@ class SelectParkingLotActivity : AppCompatActivity() {
         binding.parkingLotRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = ParkingLotAdapter(parkingLots) { parkingLot ->
             // Handle parking lot click
-            val intent = Intent(this, PayParkingMeterActivity::class.java)
-            intent.putExtra("selected_parking_lot", parkingLot) // Pass selected parking lot
+            Toast.makeText(this, "Selected: ${parkingLot.name}", Toast.LENGTH_SHORT).show()
+
+            // Redirect to MapsActivity and pass the selected parking lot location
+            val intent = Intent(this, MapsActivity::class.java)
+            intent.putExtra("selectedLocation", parkingLot.location) // Pass the selected location
             startActivity(intent)
         }
         binding.parkingLotRecyclerView.adapter = adapter

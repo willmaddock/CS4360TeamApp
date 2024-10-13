@@ -14,6 +14,7 @@ class MainMenuManager(
     private val context: Context,
     private val binding: ActivityMainBinding
 ) {
+    private var countDownTimer: CountDownTimer? = null // Declare a variable to hold the timer
 
     fun initializeMenu() {
         setupClickListeners()
@@ -53,13 +54,11 @@ class MainMenuManager(
 
         // Parking Budget Simulator (Payment Button)
         binding.paymentButton.setOnClickListener {
-            // Add your intent for the Parking Budget Simulator activity here
             context.startActivity(Intent(context, ParkingBudgetSimulatorActivity::class.java))
         }
 
         // Timer Button
         binding.timerButton.setOnClickListener {
-            // Add logic for the timer button click if needed
             context.startActivity(Intent(context, TimerActivity::class.java))
         }
     }
@@ -72,10 +71,10 @@ class MainMenuManager(
         // Check if the timer is active
         if (endTime > System.currentTimeMillis()) {
             showActiveTimer(endTime)
-            updatePaymentButtonVisibility(true) // Hide payment button when timer is active
+            // No need to hide any buttons; all buttons remain visible
         } else {
             binding.timerButton.visibility = View.GONE // Hide timer button if not active
-            updatePaymentButtonVisibility(false) // Show payment button when timer is inactive
+            countDownTimer?.cancel() // Cancel any active timer
         }
     }
 
@@ -87,10 +86,11 @@ class MainMenuManager(
 
     @SuppressLint("SetTextI18n")
     private fun startTimer(timeInMillis: Long) {
+        countDownTimer?.cancel() // Cancel any existing timer before starting a new one
         binding.timerButton.setBackgroundColor(Color.GREEN) // Set initial color to green
         binding.timerButton.text = "Time Remaining: ${formatTime(timeInMillis)}"
 
-        object : CountDownTimer(timeInMillis, 1000) {
+        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
             @SuppressLint("DefaultLocale")
             override fun onTick(millisUntilFinished: Long) {
                 binding.timerButton.text = "Time Remaining: ${formatTime(millisUntilFinished)}"
@@ -113,7 +113,7 @@ class MainMenuManager(
 
             override fun onFinish() {
                 binding.timerButton.visibility = View.GONE // Hide the timer button once finished
-                updatePaymentButtonVisibility(false) // Show payment button when timer finishes
+                countDownTimer = null // Clear the timer instance
             }
         }.start()
     }
@@ -124,14 +124,5 @@ class MainMenuManager(
         val minutes = TimeUnit.MILLISECONDS.toMinutes(millis) % 60
         val seconds = TimeUnit.MILLISECONDS.toSeconds(millis) % 60
         return String.format("%02d:%02d:%02d", hours, minutes, seconds)
-    }
-
-    // Function to update the visibility of the payment button
-    private fun updatePaymentButtonVisibility(isTimerActive: Boolean) {
-        binding.paymentButton.visibility = if (isTimerActive) {
-            View.GONE // Hide payment button when timer is active
-        } else {
-            View.VISIBLE // Show payment button when timer is inactive
-        }
     }
 }
