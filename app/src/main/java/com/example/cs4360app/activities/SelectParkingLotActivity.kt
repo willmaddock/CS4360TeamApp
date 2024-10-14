@@ -62,9 +62,9 @@ class SelectParkingLotActivity : AppCompatActivity() {
                 val startDate = dateFormat.parse(startDateStr)
                 val endDate = dateFormat.parse(endDateStr)
 
-                // Calculate the number of days
+                // Calculate the number of days (Add 1 to count the starting date)
                 if (startDate != null && endDate != null && endDate.time >= startDate.time) {
-                    numberOfDays = ((endDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt()
+                    numberOfDays = ((endDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt() + 1
                 } else {
                     Toast.makeText(this, "Invalid date range.", Toast.LENGTH_SHORT).show()
                     return@ParkingLotAdapter
