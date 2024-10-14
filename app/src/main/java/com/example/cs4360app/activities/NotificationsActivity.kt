@@ -10,6 +10,18 @@ import com.example.cs4360app.R
 import com.example.cs4360app.adapters.Notification
 import com.example.cs4360app.adapters.NotificationsAdapter
 
+data class ParkingLots(
+    val name: String,
+    val cost: String,
+    val rating: Float,
+    val proximity: String
+)
+
+data class Notification(
+    val title: String,
+    val message: String,
+    val parkingLot: ParkingLots?
+)
 class NotificationsActivity : AppCompatActivity() {
     private lateinit var notificationsRecyclerView: RecyclerView
     private lateinit var notificationsAdapter: NotificationsAdapter
@@ -42,7 +54,9 @@ class NotificationsActivity : AppCompatActivity() {
         when (notification.title) {
             "Parking Reminder" -> {
                 // Start ParkingDetailsActivity
-                val intent = Intent(this, ParkingDetailsActivity::class.java)
+                val intent = Intent(this, ParkingDetailsActivity::class.java).apply{
+                    putExtra("parkingLot", notification.parkingLot)
+                }
                 startActivity(intent)
             }
             "Event Alert" -> {
