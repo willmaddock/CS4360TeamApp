@@ -8,7 +8,8 @@ class ParkingDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking_details)
-        
+
         // TODO: Implement your parking details display logic here
         // For example, retrieve extras from the intent, set up UI elements, etc.
     }
+}
