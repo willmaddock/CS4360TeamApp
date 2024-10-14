@@ -6,6 +6,38 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/parkingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parking Name"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/parkingCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parking Cost"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/parkingRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parking Rating"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/parkingProximity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parking Proximity"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
         android:id="@+id/parkingDetailsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
