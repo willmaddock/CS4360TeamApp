@@ -9,6 +9,8 @@ import com.example.cs4360app.adapters.ParkingLotAdapter
 import com.example.cs4360app.databinding.ActivitySelectParkingLotBinding
 import com.example.cs4360app.models.MSUDCampusLocation
 import com.example.cs4360app.models.ParkingLot
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @Suppress("DEPRECATION")
 class SelectParkingLotActivity : AppCompatActivity() {
@@ -39,9 +41,46 @@ class SelectParkingLotActivity : AppCompatActivity() {
             // Handle parking lot click
             Toast.makeText(this, "Selected: ${parkingLot.name}", Toast.LENGTH_SHORT).show()
 
-            // Redirect to MapsActivity and pass the selected parking lot location
-            val intent = Intent(this, MapsActivity::class.java)
-            intent.putExtra("selectedLocation", parkingLot.location) // Pass the selected location
+            // Get budget type and start/end dates from Intent extras
+            val budgetType = intent.getStringExtra("selected_budget_type") // Corrected key
+            var numberOfDays = intent.getIntExtra("number_of_days", 1) // Default to 1 if not provided
+
+            // Calculate the number of days based on the semester option
+            if (budgetType == "Semester") { // Check against the correct string
+                // Retrieve start and end dates from Intent extras
+                val startDateStr = intent.getStringExtra("start_date")
+                val endDateStr = intent.getStringExtra("end_date")
+
+                // Check if start or end dates are null
+                if (startDateStr == null || endDateStr == null) {
+                    Toast.makeText(this, "Start and end dates are required for semester budget.", Toast.LENGTH_SHORT).show()
+                    return@ParkingLotAdapter // Exit the lambda if dates are not provided
+                }
+
+                // Parse the dates
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val startDate = dateFormat.parse(startDateStr)
+                val endDate = dateFormat.parse(endDateStr)
+
+                // Calculate the number of days
+                if (startDate != null && endDate != null && endDate.time >= startDate.time) {
+                    numberOfDays = ((endDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt()
+                } else {
+                    Toast.makeText(this, "Invalid date range.", Toast.LENGTH_SHORT).show()
+                    return@ParkingLotAdapter
+                }
+            }
+
+            // Calculate total cost
+            val totalCost = numberOfDays * parkingLot.cost
+
+            // Redirect to ParkingCostActivity and pass the selected parking lot details
+            val intent = Intent(this, ParkingCostActivity::class.java).apply {
+                putExtra("parking_lot_cost", parkingLot.cost) // Pass the cost of the selected lot
+                putExtra("number_of_days", numberOfDays) // Pass the number of days
+                putExtra("total_cost", totalCost) // Pass the total cost
+                putExtra("parking_lot_name", parkingLot.name) // Pass the name of the selected parking lot
+            }
             startActivity(intent)
         }
         binding.parkingLotRecyclerView.adapter = adapter

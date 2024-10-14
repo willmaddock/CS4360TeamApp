@@ -77,10 +77,11 @@ class ParkingBudgetSimulatorActivity : AppCompatActivity() {
                 if (selectedBudgetType == "Semester" && (startDate == null || endDate == null)) {
                     Toast.makeText(this, "Please select both start and end dates for the semester.", Toast.LENGTH_SHORT).show()
                 } else {
-                    val intent = Intent(this, SelectParkingLotActivity::class.java)
-                    intent.putExtra("selected_budget_type", selectedBudgetType)
-                    intent.putExtra("start_date", startDate)
-                    intent.putExtra("end_date", endDate)
+                    val intent = Intent(this, SelectParkingLotActivity::class.java).apply {
+                        putExtra("selected_budget_type", selectedBudgetType) // Corrected key
+                        putExtra("start_date", startDate) // Pass start date
+                        putExtra("end_date", endDate) // Pass end date
+                    }
                     startActivity(intent)
                 }
             } else {

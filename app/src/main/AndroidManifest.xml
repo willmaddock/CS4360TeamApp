@@ -119,6 +119,13 @@
             android:label="Parking Budget Simulator"
             android:theme="@style/Theme.CS4360App" />
 
+        <!-- New ParkingCostActivity -->
+        <activity
+            android:name=".activities.ParkingCostActivity"
+            android:exported="true"
+            android:label="Parking Cost"
+            android:theme="@style/Theme.CS4360App" />
+
         <!-- Firebase Cloud Messaging Service -->
         <service
             android:name=".services.MyFirebaseMessagingService"
