@@ -45,15 +45,18 @@ class NotificationsActivity : AppCompatActivity() {
                 val intent = Intent(this, ParkingDetailsActivity::class.java)
                 startActivity(intent)
             }
+
             "Event Alert" -> {
                 // Show event details or open an event activity
                 val intent = Intent(this, EventDetailsActivity::class.java)
                 startActivity(intent)
             }
+
             "System Update" -> {
                 // Show update information
                 showToast("A system update is available.")
             }
+
             else -> {
                 // Handle other cases or do nothing
                 showToast("Unknown notification clicked.")
