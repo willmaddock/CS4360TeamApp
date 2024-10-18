@@ -2,11 +2,6 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Menu items for all users -->
-    <item
-        android:id="@+id/nav_back_to_menu"
-        android:title="@string/back_to_menu" /> <!-- Accessible for all users -->
-
     <item
         android:id="@+id/nav_parking_budget_simulator"
         android:title="Parking Budget Simulator"
