@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.cs4360app.R
 import com.google.android.gms.maps.GoogleMap
@@ -34,6 +35,9 @@ object FilterManager {
         proximityCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_PROXIMITY, false)
         ratingCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_RATING, false)
         addressCheckBox.isChecked = sharedPreferences.getBoolean(KEY_SHOW_ADDRESS, false)
+
+        // Show a pop-up explaining AI-based and historical filtering
+        Toast.makeText(context, "Filter options are based on historical data and AI simulations", Toast.LENGTH_LONG).show()
 
         // Create AlertDialog
         val builder = AlertDialog.Builder(context)
