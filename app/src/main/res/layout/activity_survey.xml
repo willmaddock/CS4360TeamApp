@@ -2,7 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/drawer_background"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,13 +17,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/role_prompt"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
 
         <Spinner
             android:id="@+id/roleSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/roles" />
+            android:entries="@array/roles"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- Survey Priorities (Checkboxes) -->
         <TextView
@@ -29,55 +35,64 @@
             android:layout_height="wrap_content"
             android:text="@string/priorities_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <CheckBox
             android:id="@+id/checkboxRealTimeUpdates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/real_time_updates" />
+            android:text="@string/real_time_updates"
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/checkboxAccurateNavigation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/accurate_navigation" />
+            android:text="@string/accurate_navigation"
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/checkboxNotifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/notifications" />
+            android:text="@string/notifications"
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/checkboxEventIntegration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/event_integration" />
+            android:text="@string/event_integration"
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/checkboxReservationSystem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/reservation_system" />
+            android:text="@string/reservation_system"
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/checkboxUserReviews"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/user_reviews" />
+            android:text="@string/user_reviews"
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/checkboxPaymentOptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/payment_options" />
+            android:text="@string/payment_options"
+            android:textColor="@android:color/white" />
 
         <CheckBox
             android:id="@+id/checkboxParkingLotFeatures"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/parking_lot_features" />
+            android:text="@string/parking_lot_features"
+            android:textColor="@android:color/white" />
 
         <!-- Importance of Real-time Updates -->
         <TextView
@@ -85,13 +100,17 @@
             android:layout_height="wrap_content"
             android:text="@string/real_time_updates_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/realTimeUpdatesImportanceSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/importance_levels" />
+            android:entries="@array/importance_levels"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- Reservation Value -->
         <TextView
@@ -99,13 +118,17 @@
             android:layout_height="wrap_content"
             android:text="@string/reserve_parking_value_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/reserveParkingValueSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/value_levels" />
+            android:entries="@array/value_levels"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- Event Integration Importance -->
         <TextView
@@ -113,13 +136,17 @@
             android:layout_height="wrap_content"
             android:text="@string/event_integration_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/eventIntegrationImportanceSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/importance_levels" />
+            android:entries="@array/importance_levels"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- User Reviews Importance -->
         <TextView
@@ -127,13 +154,17 @@
             android:layout_height="wrap_content"
             android:text="@string/user_reviews_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/userReviewsImportanceSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/importance_levels" />
+            android:entries="@array/importance_levels"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- Find Car Feature Interest -->
         <TextView
@@ -141,13 +172,17 @@
             android:layout_height="wrap_content"
             android:text="@string/find_car_feature_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/findCarFeatureInterestSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/interest_levels" />
+            android:entries="@array/interest_levels"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- App Usability -->
         <TextView
@@ -155,13 +190,17 @@
             android:layout_height="wrap_content"
             android:text="@string/app_usability_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/appUsabilitySpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/usability_levels" />
+            android:entries="@array/usability_levels"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- Customer Support Importance -->
         <TextView
@@ -169,13 +208,17 @@
             android:layout_height="wrap_content"
             android:text="@string/customer_support_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/customerSupportImportanceSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/importance_levels" />
+            android:entries="@array/importance_levels"
+            android:popupBackground="@drawable/drawer_background"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="@android:color/white" />
 
         <!-- Optional Feedback -->
         <TextView
@@ -183,6 +226,7 @@
             android:layout_height="wrap_content"
             android:text="@string/biggest_concern_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <EditText
@@ -190,6 +234,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/biggest_concern_hint"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
             tools:ignore="Autofill,TextFields" />
 
         <TextView
@@ -197,6 +243,7 @@
             android:layout_height="wrap_content"
             android:text="@string/additional_features_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <EditText
@@ -204,13 +251,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/additional_features_hint"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
             tools:ignore="Autofill,TextFields" />
 
+        <!-- Other Comments -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/other_comments_prompt"
             android:textSize="16sp"
+            android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
         <EditText
@@ -218,14 +269,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/other_comments_hint"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@android:color/darker_gray"
             tools:ignore="Autofill,TextFields" />
 
         <!-- Submit Button -->
         <Button
             android:id="@+id/btnSubmitSurvey"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/submit_survey_button"
+            android:text="@string/submit"
+            android:backgroundTint="@color/teal_200"
+            android:textColor="@android:color/white"
             android:layout_marginTop="24dp" />
     </LinearLayout>
 </ScrollView>

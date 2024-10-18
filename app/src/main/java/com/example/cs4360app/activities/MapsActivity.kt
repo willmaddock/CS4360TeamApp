@@ -65,7 +65,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Set the camera to the Jordan Parking Garage coordinates
+        // Set the camera to the Dogwood Parking Garage coordinates
         val dogWoodParkingLot = LatLng(39.74396, -105.00869)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dogWoodParkingLot, 15f))  // Initial zoom level
 

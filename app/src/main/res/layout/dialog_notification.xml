@@ -4,25 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/drawer_background"> <!-- Set the background -->
 
     <TextView
         android:id="@+id/notification_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@android:color/white" /> <!-- Updated text color -->
 
     <TextView
         android:id="@+id/notification_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:textColor="@android:color/white" /> <!-- Updated text color -->
 
     <Button
         android:id="@+id/button_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Close"
-        tools:ignore="HardcodedText" />
+        android:textColor="@android:color/white"
+    tools:ignore="HardcodedText" />
 </LinearLayout>

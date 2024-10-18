@@ -5,12 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activities.MapsActivity">
 
     <!-- Main content layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/drawer_background">
 
         <!-- Map Fragment -->
         <androidx.fragment.app.FragmentContainerView
@@ -32,6 +34,7 @@
             android:layout_margin="16dp"
             app:layout_constraintBottom_toBottomOf="parent">
 
+            <!-- Zoom In Button -->
             <Button
                 android:id="@+id/zoom_in_button"
                 android:layout_width="0dp"
@@ -41,6 +44,7 @@
                 android:textSize="12sp"
                 tools:ignore="ButtonStyle" />
 
+            <!-- Zoom Out Button -->
             <Button
                 android:id="@+id/zoom_out_button"
                 android:layout_width="0dp"
@@ -51,7 +55,7 @@
                 android:textSize="12sp"
                 tools:ignore="ButtonStyle" />
 
-            <!-- Filter Button with color change -->
+            <!-- Filter Button -->
             <Button
                 android:id="@+id/filter_button"
                 android:layout_width="0dp"
@@ -61,7 +65,7 @@
                 android:text="@string/filter"
                 android:textSize="12sp"
                 android:backgroundTint="@color/colorAccent"
-                tools:ignore="ButtonStyle" /> <!-- Replace with your desired color -->
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
@@ -84,10 +88,10 @@
             android:layout_gravity="start|bottom"
             android:layout_margin="16dp"
             android:src="@drawable/ic_amp_vector"
-        android:contentDescription="@string/open_drawer"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="603dp"
-        tools:ignore="ContentDescription,MissingConstraints" />
+            android:contentDescription="@string/open_drawer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="603dp"
+            tools:ignore="ContentDescription,MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -97,6 +101,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/drawer_menu" />
+        android:background="@drawable/drawer_background"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/drawer_menu"
+        app:itemTextColor="@android:color/white"
+        app:itemTextAppearance="@style/MenuItemStyle" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

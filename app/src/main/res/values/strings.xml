@@ -213,4 +213,5 @@
     <string name="select_end_date">Select End Date</string>
     <string name="parking_meter_simulator">Parking Meter Simulator</string>
     <string name="parking_lot_chosen">Parking Lot Chosen:</string>
+    <string name="filter_options_are_based_on_historical_data_and_ai_simulations">Filter options are based on historical data and AI simulations</string>
 </resources>

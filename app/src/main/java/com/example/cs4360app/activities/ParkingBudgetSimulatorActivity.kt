@@ -28,6 +28,7 @@ class ParkingBudgetSimulatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking_budget_simulator)
 
+        // Bind UI elements
         budgetTypeRadioGroup = findViewById(R.id.budget_type_radio_group)
         nextButton = findViewById(R.id.next_button)
         startDateButton = findViewById(R.id.start_date_button)
@@ -78,7 +79,7 @@ class ParkingBudgetSimulatorActivity : AppCompatActivity() {
                     Toast.makeText(this, "Please select both start and end dates for the semester.", Toast.LENGTH_SHORT).show()
                 } else {
                     val intent = Intent(this, SelectParkingLotActivity::class.java).apply {
-                        putExtra("selected_budget_type", selectedBudgetType) // Corrected key
+                        putExtra("selected_budget_type", selectedBudgetType)
                         putExtra("start_date", startDate) // Pass start date
                         putExtra("end_date", endDate) // Pass end date
                     }

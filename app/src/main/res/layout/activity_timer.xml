@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/drawer_background"> <!-- Set the background -->
 
     <!-- TextView for displaying the amount paid -->
     <TextView
@@ -14,10 +15,11 @@
         android:layout_height="wrap_content"
         android:text="@string/amount_paid_0_00"
         android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:textColor="@android:color/white"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="32dp"/>
 
     <!-- TextView for displaying the remaining time -->
     <TextView
@@ -26,10 +28,11 @@
         android:layout_height="wrap_content"
         android:text="@string/time_remaining_00_00"
         android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@id/amount_paid_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:textColor="@android:color/white"
+    app:layout_constraintTop_toBottomOf="@id/amount_paid_text_view"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="32dp"/>
 
     <!-- Button to navigate back to the maps -->
     <Button
@@ -37,10 +40,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Back to Maps"
-        app:layout_constraintTop_toBottomOf="@id/timer_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"
-        tools:ignore="HardcodedText" />
+        android:textColor="@android:color/white"
+    app:layout_constraintTop_toBottomOf="@id/timer_text_view"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="32dp"
+    tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

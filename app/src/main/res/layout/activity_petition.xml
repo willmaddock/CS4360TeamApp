@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/drawer_background"> <!-- Background image for the layout -->
 
     <EditText
         android:id="@+id/petitionDescription"
@@ -14,7 +15,9 @@
         android:hint="@string/describe_your_petition"
         android:inputType="textMultiLine"
         android:lines="4"
-        tools:ignore="Autofill" />
+        android:textColorHint="@color/white"
+    android:background="@android:color/transparent"
+    tools:ignore="Autofill" />
 
     <EditText
         android:id="@+id/gracePeriodSuggestion"
@@ -22,14 +25,18 @@
         android:layout_height="wrap_content"
         android:hint="@string/suggest_a_grace_period_optional"
         android:inputType="text"
-        tools:ignore="Autofill" />
+        android:textColorHint="@color/white"
+    android:background="@android:color/transparent"
+    tools:ignore="Autofill" />
 
     <Button
         android:id="@+id/submitPetitionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit Petition"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        tools:ignore="HardcodedText" />
+        android:textColor="@android:color/white"
+    android:backgroundTint="@color/teal_200"
+    android:layout_gravity="center"
+    android:layout_marginTop="16dp"
+    tools:ignore="HardcodedText" />
 </LinearLayout>

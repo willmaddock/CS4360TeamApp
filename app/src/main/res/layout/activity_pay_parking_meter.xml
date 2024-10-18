@@ -2,45 +2,54 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/drawer_background"
+    android:layout_marginBottom="8dp"> <!-- Optional: Margin to separate items -->
 
-    <TextView
-        android:id="@+id/selected_time_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/selected_time_0h_0m" />
+<TextView
+android:id="@+id/selected_time_text"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/selected_time_0h_0m"
+android:textColor="@android:color/white" /> <!-- Ensures visibility -->
 
-    <SeekBar
-        android:id="@+id/parking_duration_seekbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+<SeekBar
+android:id="@+id/parking_duration_seekbar"
+android:layout_width="match_parent"
+android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/cost_per_hour_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cost for 2 hours 30 minutes: $5.35"
-        tools:ignore="HardcodedText" />
+<TextView
+android:id="@+id/cost_per_hour_text"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Cost for 2 hours 30 minutes: $5.35"
+android:textColor="@android:color/white"
+    tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/total_cost_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total cost: $0.00"
-        tools:ignore="HardcodedText" />
+<TextView
+android:id="@+id/total_cost_text"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Total cost: $0.00"
+android:textColor="@android:color/white"
+    tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/start_budget_simulator_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/start_budget_simulator" />
+<Button
+android:id="@+id/start_budget_simulator_button"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="@string/start_budget_simulator"
+android:backgroundTint="@color/teal_200"
+    android:textColor="@android:color/white" /> <!-- Ensures button text visibility -->
 
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        tools:ignore="HardcodedText" />
-</LinearLayout>
+<Button
+android:id="@+id/back_button"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:text="Back"
+android:backgroundTint="@color/teal_200"
+    android:textColor="@android:color/white"
+    tools:ignore="HardcodedText" />
+    </LinearLayout>

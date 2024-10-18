@@ -41,7 +41,7 @@ object FilterManager {
 
         // Create AlertDialog
         val builder = AlertDialog.Builder(context)
-            .setTitle("Filter Options")
+
             .setView(dialogView)
 
         val alertDialog = builder.create()
