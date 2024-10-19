@@ -35,6 +35,7 @@
     <string name="real_time_updates">Real-time parking availability updates</string>
     <string name="accurate_navigation">Accurate navigation to parking spots</string>
     <string name="notifications">Notifications about lot status (e.g., full, empty)</string>
+    <string name="notifications2">Notifications</string>
     <string name="event_integration">Integration with campus events</string>
     <string name="reservation_system">Reservation system for parking spots</string>
     <string name="user_reviews">User reviews and ratings of parking lots</string>
@@ -213,4 +214,12 @@
     <string name="select_end_date">Select End Date</string>
     <string name="parking_meter_simulator">Parking Meter Simulator</string>
     <string name="parking_lot_chosen">Parking Lot Chosen:</string>
+
+    <string name="menu_back_to_main">Back to Main Menu</string>
+    <string name="menu_parking_budget_simulator">Parking Budget Simulator</string>
+    <string name="menu_notifications">Notifications</string>
+    <string name="menu_chat">Chat</string>
+    <string name="menu_submit_petition">Submit a Petition</string>
+    <string name="menu_submit_review">Submit a Review</string>
+    <string name="menu_take_survey">Take a Survey</string>
 </resources>

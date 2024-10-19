@@ -9,7 +9,7 @@ import com.example.cs4360app.R
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ParkingBudgetSimulatorActivity : AppCompatActivity() {
+class ParkingBudgetSimulatorActivity : BaseActivity() {
 
     private lateinit var budgetTypeRadioGroup: RadioGroup
     private lateinit var nextButton: Button

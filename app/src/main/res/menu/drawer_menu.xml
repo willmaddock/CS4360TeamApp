@@ -9,7 +9,7 @@
 
     <item
         android:id="@+id/nav_parking_budget_simulator"
-        android:title="Parking Budget Simulator"
+        android:title="@string/menu_parking_budget_simulator"
         tools:ignore="HardcodedText" /> <!-- Accessible for all users -->
 
     <item
@@ -19,28 +19,28 @@
 
     <item
         android:id="@+id/nav_take_survey"
-        android:title="@string/take_a_survey" /> <!-- Accessible for all users -->
+        android:title="@string/menu_take_survey" /> <!-- Accessible for all users -->
 
     <!-- Menu items for logged-in users -->
     <item
         android:id="@+id/nav_chat"
         android:icon="@drawable/ic_chat"
-        android:title="Chat"
+        android:title="@string/menu_chat"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_submit_petition"
-        android:title="@string/submit_a_petition" /> <!-- Only for logged-in users -->
+        android:title="@string/menu_submit_petition" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_submit_review"
-        android:title="Submit a Review"
+        android:title="@string/menu_submit_review"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_notifications"
         android:icon="@drawable/ic_notifications"
-        android:title="Notifications"
+        android:title="@string/menu_notifications"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
 </menu>

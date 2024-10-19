@@ -6,7 +6,7 @@ import com.example.cs4360app.R
 import com.example.cs4360app.activities.*
 import com.google.android.material.navigation.NavigationView
 
-object DrawerManager {
+object DrawerManager : BaseActivity(){
 
     fun setupDrawer(context: Context, navigationView: NavigationView) {
         // Set up navigation item selection listener

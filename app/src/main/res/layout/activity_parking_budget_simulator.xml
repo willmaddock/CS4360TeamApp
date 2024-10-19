@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Budget Type"
+        android:text="@string/select_budget_type"
         android:textSize="18sp"
         android:layout_marginBottom="16dp"
         tools:ignore="HardcodedText" />
@@ -24,14 +24,14 @@
             android:id="@+id/radio_daily_budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daily Budget"
+            android:text="@string/daily_budget"
             tools:ignore="HardcodedText" />
 
         <RadioButton
             android:id="@+id/radio_semester_budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Semester Budget"
+            android:text="@string/semester_budget"
             tools:ignore="HardcodedText" />
     </RadioGroup>
 
@@ -75,7 +75,7 @@
         android:id="@+id/next_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="@string/next"
         tools:ignore="HardcodedText" />
 
     <!-- New button for Parking Meter Simulator -->

@@ -10,10 +10,10 @@ import com.example.cs4360app.activities.*
 import com.example.cs4360app.databinding.ActivityMainBinding
 import java.util.concurrent.TimeUnit
 
-class MainMenuManager(
+class MainMenuManager (
     private val context: Context,
     private val binding: ActivityMainBinding
-) {
+) : BaseActivity(){
     private var countDownTimer: CountDownTimer? = null // Declare a variable to hold the timer
 
     fun initializeMenu() {

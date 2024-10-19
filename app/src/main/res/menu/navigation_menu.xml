@@ -5,38 +5,38 @@
     <!-- Menu item for navigating back to the main menu -->
     <item
         android:id="@+id/menu_back_to_main"
-        android:title="Back to Main Menu"
+        android:title="@string/menu_back_to_main"
         tools:ignore="HardcodedText" />
 
     <!-- Additional items for parking budget simulator and reviews -->
     <item
         android:id="@+id/menu_parking_budget_simulator"
-        android:title="Parking Budget Simulator"
+        android:title="@string/menu_parking_budget_simulator"
         tools:ignore="HardcodedText" /> <!-- Accessible for all users -->
 
     <item
         android:id="@+id/menu_notifications"
-        android:title="Notifications"
+        android:title="@string/menu_notifications"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/menu_chat"
-        android:title="Chat"
+        android:title="@string/menu_chat"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/menu_submit_petition"
-        android:title="Submit a Petition"
+        android:title="@string/menu_submit_petition"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/menu_submit_review"
-        android:title="Submit a Review"
+        android:title="@string/menu_submit_review"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/menu_take_survey"
-        android:title="Take a Survey"
+        android:title="@string/menu_take_survey"
         tools:ignore="HardcodedText" /> <!-- Accessible for all users -->
 
 </menu>

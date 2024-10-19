@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplicación de Estacionamiento</string>
+    <string name="parking_lot_title">Seleccionar Estacionamiento</string>
+    <string name="parking_lot_name">Nombre</string>
+    <string name="parking_lot_cost">Costo</string>
+    <string name="parking_lot_rating">Calificación</string>
+    <string name="back_button">Atrás</string>
+
+
+    <string name="click_on_a_parking_lot_to_pay_for_parking">Haga clic en un estacionamiento para pagar</string>
+    <string name="back">Atrás</string>
+
+    <string name="select_budget_type">Seleccione el tipo de presupuesto</string>
+    <string name="daily_budget">Presupuesto diario</string>
+    <string name="semester_budget">Presupuesto semestral</string>
+    <string name="next">Próximo</string>
+    <string name="parking_meter_simulator">Simulador de parquímetros</string>
+
+    <string name="open_map">Abrir mapa</string>
+    <string name="launch_survey">Realice la encuesta</string>
+    <string name="submit_a_review">Enviar una reseña</string>
+    <string name="parking_budget_simulator">Simulador de presupuesto de estacionamiento</string>
+    <string name="notifications2">Notificaciones</string>
+    <string name="chat">Charlar</string>
+    <string name="submit_petition">Enviar petición</string>
+
+    <string name="menu_back_to_main">Volver al menú principal</string>
+    <string name="menu_parking_budget_simulator">Simulador de presupuesto de estacionamiento</string>
+    <string name="menu_notifications">Notificaciones</string>
+    <string name="menu_chat">Charlar</string>
+    <string name="menu_submit_petition">Enviar una petición</string>
+    <string name="menu_submit_review">Enviar una reseña</string>
+    <string name="menu_take_survey">Realizar una encuesta</string>
+    <string name="back_to_menu">Volver al menú</string>
+    <string name="view_parking_timer_simulator">Ver simulador de temporizador de estacionamiento</string>
+
+</resources>
