@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@drawable/drawer_background"
-    android:layout_marginBottom="8dp"> <!-- Optional: Margin to separate items -->
+    android:layout_marginBottom="8dp"
+    tools:ignore="Overdraw"> <!-- Optional: Margin to separate items -->
 
 <TextView
 android:id="@+id/selected_time_text"
@@ -21,8 +22,7 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content" />
 
 <TextView
-android:id="@+id/cost_per_hour_text"
-android:layout_width="wrap_content"
+    android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Cost for 2 hours 30 minutes: $5.35"
 android:textColor="@android:color/white"

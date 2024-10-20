@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/drawer_background"
-    tools:context=".activities.SubmitReviewActivity">
+    tools:context=".activities.SubmitReviewActivity"
+    tools:ignore="Overdraw">
 
     <!-- Spinner for selecting a parking lot -->
     <Spinner

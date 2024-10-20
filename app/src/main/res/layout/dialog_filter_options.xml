@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/drawer_background"> <!-- Set the background -->
+    android:background="@drawable/drawer_background"
+    tools:ignore="Overdraw"> <!-- Set the background -->
 
     <!-- AI and Historical Data Info -->
     <TextView
@@ -33,7 +35,6 @@
         android:textColor="@android:color/white" /> <!-- Updated text color -->
 
     <TextView
-        android:id="@+id/price_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range"
@@ -49,7 +50,6 @@
         android:textColor="@android:color/white" /> <!-- Updated text color -->
 
     <TextView
-        android:id="@+id/availability_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full"
@@ -65,7 +65,6 @@
         android:textColor="@android:color/white" /> <!-- Updated text color -->
 
     <TextView
-        android:id="@+id/proximity_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location"
@@ -81,7 +80,6 @@
         android:textColor="@android:color/white" /> <!-- Updated text color -->
 
     <TextView
-        android:id="@+id/rating_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/rating_select_this_filter_to_show_parking_lots_based_on_their_ratings"
@@ -97,7 +95,6 @@
         android:textColor="@android:color/white" /> <!-- Updated text color -->
 
     <TextView
-        android:id="@+id/address_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/address_select_this_filter_to_show_parking_lots_with_their_respective_addresses"

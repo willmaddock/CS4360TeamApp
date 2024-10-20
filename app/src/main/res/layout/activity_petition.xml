@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/drawer_background"> <!-- Background image for the layout -->
+    android:background="@drawable/drawer_background"
+    tools:ignore="Overdraw"> <!-- Background image for the layout -->
 
     <EditText
         android:id="@+id/petitionDescription"
