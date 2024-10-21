@@ -57,13 +57,13 @@ class ParkingCostActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n", "DefaultLocale")
     private fun updateTotalCost(cost: Double) {
         // Update the TextView with the total cost
-        totalCostTextView.text = "Total Cost: $${String.format("%.2f", cost)}"
+        totalCostTextView.text = getString(R.string.total_cost, String.format("%.2f", cost))
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "StringFormatMatches")
     private fun displayDaysSelected(days: Int) {
         // Update the TextView to display the number of days selected
-        daysSelectedTextView.text = "Days Selected: $days"
+        daysSelectedTextView.text = getString(R.string.days_selected, days)
     }
 
     @SuppressLint("SetTextI18n")
@@ -75,6 +75,6 @@ class ParkingCostActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n", "DefaultLocale")
     private fun displayCostPerDay(cost: Double) {
         // Update the TextView to display the cost per day
-        costPerDayTextView.text = "Cost Per Day: $${String.format("%.2f", cost)}"
+        costPerDayTextView.text = getString(R.string.cost_per_day, String.format("%.2f", cost))
     }
 }

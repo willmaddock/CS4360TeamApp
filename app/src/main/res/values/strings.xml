@@ -180,4 +180,7 @@
     <string name="invalid_date_range">Invalid date range.</string>
     <string name="start_and_end_dates_are_required_for_semester_budget">Start and end dates are required for semester budget.</string>
     <string name="starting_budget_simulation_for_over_minutes">Starting budget simulation for $%1$s over %2$s minutes!</string>
+    <string name="days_selected">Days Selected: %1$s</string>
+    <string name="total_cost">Total Cost: $%1$s</string>
+    <string name="cost_per_day">Cost Per Day: $%1$s</string>
 </resources>
