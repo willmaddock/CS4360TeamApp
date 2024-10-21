@@ -1,5 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.cs4360app.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -107,26 +110,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     // Method to set the locale/language
+    @SuppressLint("AppBundleLocaleChanges")
     private fun setLocale(languageCode: String?) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
+        val locale = languageCode?.let { Locale(it) }
+        locale?.let { Locale.setDefault(it) }
         val config = resources.configuration
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
     }
 
-    // Method to save language preference
-    private fun saveLanguagePreference(languageCode: String) {
-        with(sharedPreferences.edit()) {
-            putString("app_language", languageCode)
-            apply()
-        }
-    }
-
-    // Method to restart the activity after a language change
-    private fun restartActivity() {
-        val intent = intent
-        finish()
-        startActivity(intent)
-    }
 }

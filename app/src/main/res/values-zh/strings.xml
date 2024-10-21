@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- 应用名称 -->
     <string name="app_name">AMP</string>
 
@@ -8,56 +8,62 @@
     <!-- 按钮和操作 -->
     <string name="submit">提交</string>
 
-    <!-- 调查和评论 -->
-    <string name="survey_title">停车调查</string>
+    <!-- 调查和评价 -->
+    <string name="survey_title">停车场调查</string>
 
     <!-- 调查问题的文本 -->
     <string name="role_prompt">您的角色</string>
-    <string name="priorities_prompt">您对停车移动应用的优先级是什么？</string>
-    <string name="real_time_updates_prompt">您对实时停车位可用性更新的重要性有多重视？</string>
-    <string name="reserve_parking_value_prompt">预定停车位的价值有多重要？</string>
-    <string name="event_integration_prompt">事件集成的重要性有多高？</string>
-    <string name="user_reviews_prompt">用户评论的重要性有多高？</string>
-    <string name="find_car_feature_prompt">您对寻找您停放的汽车的功能有多感兴趣？</string>
-    <string name="app_usability_prompt">您如何评估应用的可用性？</string>
-    <string name="customer_support_prompt">客户支持的重要性有多高？</string>
-    <string name="biggest_concern_prompt">您对应用的最大担忧是什么？</string>
-    <string name="additional_features_prompt">您想看到的其他功能是什么？</string>
-    <string name="other_comments_prompt">其他评论或建议？</string>
+    <string name="priorities_prompt">您对停车场移动应用程序的主要优先事项是什么？</string>
+    <string name="real_time_updates_prompt">应用程序提供停车位实时更新有多重要？</string>
+    <string name="reserve_parking_value_prompt">预约价值有多重要？</string>
+    <string name="event_integration_prompt">活动集成有多重要？</string>
+    <string name="user_reviews_prompt">用户评价有多重要？</string>
+    <string name="find_car_feature_prompt">您对查找停放汽车的功能有多感兴趣？</string>
+    <string name="app_usability_prompt">您如何评价应用程序的可用性？</string>
+    <string name="customer_support_prompt">客户支持对您有多重要？</string>
+    <string name="biggest_concern_prompt">您对应用程序最大的担忧是什么？</string>
+    <string name="additional_features_prompt">您希望看到哪些其他功能？</string>
+    <string name="other_comments_prompt">还有其他评论或建议吗？</string>
 
     <!-- 复选框标签 -->
-    <string name="real_time_updates">实时停车位可用性更新</string>
-    <string name="accurate_navigation">精确导航至停车位</string>
-    <string name="notifications">有关停车场状态的通知（例如，已满、空闲）</string>
-    <string name="event_integration">与校园事件的集成</string>
-    <string name="reservation_system">停车位的预定系统</string>
-    <string name="user_reviews">用户对停车场的评论和评分</string>
+    <string name="real_time_updates">实时停车位更新</string>
+    <string name="accurate_navigation">准确的停车位导航</string>
+    <string name="notifications">有关停车场状态的通知（例如：已满、空）</string>
+    <string name="event_integration">与校园活动的集成</string>
+    <string name="reservation_system">停车位预约系统</string>
+    <string name="user_reviews">用户对停车场的评价和评分</string>
     <string name="payment_options">停车费用的支付选项</string>
-    <string name="parking_lot_features">有关停车场特征的详细信息（例如，安全性、便利设施）</string>
+    <string name="parking_lot_features">停车场特征的详细信息（例如：安全性、设施）</string>
 
-    <!-- 确保这些字符串已定义 -->
-    <string name="submit_review">提交评论</string>
+    <!-- 更多功能选项 -->
+
+    <!-- 确保定义这些字符串 -->
+    <string name="submit_review">提交评价</string>
 
     <!-- 地图相关字符串 -->
 
-    <!-- 评审评论的默认文本 -->
+    <!-- API 密钥的占位符 -->
+
+    <!-- 评价评论的默认文本 -->
     <string name="title_activity_maps">地图活动</string>
 
     <!-- 其他字符串 -->
     <string name="biggest_concern_hint">您最大的担忧是什么？</string>
-    <string name="additional_features_hint">您想看到的额外功能：</string>
+    <string name="additional_features_hint">您希望看到的其他功能：</string>
     <string name="other_comments_hint">其他评论：</string>
 
-    <!-- 其他缺少的字符串 -->
+    <!-- 其他缺失的字符串 -->
     <string name="parking_lot_details">停车场详情</string>
     <string name="rate_specific_aspects">评估特定方面</string>
-    <string name="write_your_review_here">在此写下您的评论…</string>
+    <string name="write_your_review_here">在此写下您的评价……</string>
     <string name="upload_photo">上传照片</string>
 
     <!-- 请愿标题 -->
     <string name="petition_title">提交请愿</string>
 
     <!-- 付费停车场 -->
+
+    <!-- 付费停车计时器 -->
     <string name="pay_parking_meter">支付停车计时器</string>
 
     <!-- 选择停车场标题 -->
@@ -68,44 +74,45 @@
 
     <!-- 导航抽屉字符串 -->
 
-    <!-- 其他支付和计时器字符串 -->
-    <string name="event_title">事件标题</string>
-    <string name="event_details_go_here">事件详情在此。</string>
+    <!-- 其他付款和计时器字符串 -->
+    <!-- %1$s 可以替换为金额 -->
+    <string name="event_title">活动标题</string>
+    <string name="event_details_go_here">活动详情在此。</string>
     <string name="register_for_event">注册活动</string>
     <string name="zoom_in">放大</string>
     <string name="zoom_out">缩小</string>
-    <string name="info_icon_desc">信息图标，解释标记的颜色</string>
+    <string name="info_icon_desc">说明标记颜色的信息图标</string>
     <string name="open_drawer">打开导航抽屉</string>
     <string name="parking_details">停车详情</string>
-    <string name="here_you_will_see_details_about_the_selected_parking_spot">在这里，您将看到关于所选停车位的详细信息。</string>
+    <string name="here_you_will_see_details_about_the_selected_parking_spot">您将在此查看所选停车位的详情。</string>
     <string name="describe_your_petition">描述您的请愿</string>
     <string name="suggest_a_grace_period_optional">建议宽限期（可选）</string>
-    <string name="click_on_a_parking_lot_to_pay_for_parking">点击停车场以支付停车费。</string>
-    <string name="welcome_to">欢迎来到：</string>
-    <string name="auraria_mobile_parking">Auraria移动停车</string>
-    <string name="amount_paid_0_00">已支付金额：0.00 $</string>
+    <string name="click_on_a_parking_lot_to_pay_for_parking">点击停车场进行支付。</string>
+    <string name="welcome_to">欢迎使用：</string>
+    <string name="auraria_mobile_parking">Auraria 移动停车</string>
+    <string name="amount_paid_0_00">已支付金额：$0.00</string>
     <string name="time_remaining_00_00">剩余时间：00:00</string>
     <string name="parking_lot_name">停车场名称</string>
-    <string name="cost_0_0">费用：0.0 $</string>
+    <string name="cost_0_0">费用：$0.0</string>
     <string name="rating_0_0">评分：0.0</string>
-    <string name="take_a_survey">参加调查</string>
+    <string name="take_a_survey">参与调查</string>
     <string name="submit_a_petition">提交请愿</string>
-    <string name="filter">过滤</string>
-    <string name="filter_parking_options">过滤停车选项</string>
-    <string name="cost_filter">成本过滤器</string>
-    <string name="availability_filter">可用性过滤器</string>
-    <string name="proximity_filter">接近度过滤器</string>
-    <string name="rating_filter">评分过滤器</string>
-    <string name="address_filter">地址过滤器</string>
-    <string name="apply_filters">应用过滤器</string>
-    <string name="proximity_0_ft">接近度：0英尺</string>
-    <string name="cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range">成本：选择此过滤器以显示某个价格范围内的停车场。</string>
-    <string name="availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full">可用性：选择此过滤器以显示至少某个百分比满的停车场。</string>
-    <string name="proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location">接近度：选择此过滤器以显示距离您位置在某个距离内的停车场。</string>
-    <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">评分：选择此过滤器以根据其评分显示停车场。</string>
-    <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">地址：选择此过滤器以显示各自地址的停车场。</string>
+    <string name="filter">筛选</string>
+    <string name="filter_parking_options">筛选停车选项</string>
+    <string name="cost_filter">费用筛选</string>
+    <string name="availability_filter">可用性筛选</string>
+    <string name="proximity_filter">邻近度筛选</string>
+    <string name="rating_filter">评分筛选</string>
+    <string name="address_filter">地址筛选</string>
+    <string name="apply_filters">应用筛选</string>
+    <string name="proximity_0_ft">邻近度：0 英尺</string>
+    <string name="cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range">费用：选择此筛选以显示在特定价格范围内的停车场。</string>
+    <string name="availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full">可用性：选择此筛选以显示至少满了某个百分比的停车场。</string>
+    <string name="proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location">邻近度：选择此筛选以显示距离您位置在某个范围内的停车场。</string>
+    <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">评分：选择此筛选以显示根据其评分的停车场。</string>
+    <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">地址：选择此筛选以显示停车场及其相应地址。</string>
     <string name="view_parking_timer_simulator">查看停车计时器模拟器</string>
-    <string name="selected_time_0h_0m">选择的时间：0小时0分钟</string>
+    <string name="selected_time_0h_0m">选择时间：0小时 0分钟</string>
     <string name="start_budget_simulator">开始预算模拟器</string>
     <string name="select_semester_start_and_end_dates">选择学期开始和结束日期</string>
     <string name="start_date">开始日期：</string>
@@ -114,10 +121,10 @@
     <string name="select_end_date">选择结束日期</string>
     <string name="parking_meter_simulator">停车计时器模拟器</string>
     <string name="parking_lot_chosen">选择的停车场：</string>
-    <string name="filter_options_are_based_on_historical_data_and_ai_simulations">过滤选项基于历史数据和人工智能模拟。</string>
+    <string name="filter_options_are_based_on_historical_data_and_ai_simulations">筛选选项基于历史数据和 AI 模拟</string>
     <string name="settings">设置</string>
-    <string name="back_button_description">返回</string>
-    <string name="change_language_button_description">更改语言</string>
     <string name="change_language">更改语言</string>
     <string name="back">返回</string>
+    <string name="choose_a_language" translatable="false">选择语言</string>
+    <string name="cancel" translatable="false">取消</string>
 </resources>

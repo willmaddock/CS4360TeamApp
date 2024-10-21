@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.cs4360app.activities
 
 import android.content.Context

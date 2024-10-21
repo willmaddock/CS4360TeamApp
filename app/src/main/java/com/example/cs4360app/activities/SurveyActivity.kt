@@ -1,3 +1,5 @@
+@file:Suppress("SameReturnValue")
+
 package com.example.cs4360app.activities
 
 import android.os.Bundle
