@@ -13,10 +13,10 @@ class EventDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_event_details)
 
         // Retrieve event details from the intent
-        val eventTitle = intent.getStringExtra("EVENT_TITLE") ?: "No Title"
-        intent.getStringExtra("EVENT_DATE") ?: "No Date"
-        intent.getStringExtra("EVENT_LOCATION") ?: "No Location"
-        val eventDescription = intent.getStringExtra("EVENT_DESCRIPTION") ?: "No Description"
+        val eventTitle = intent.getStringExtra("EVENT_TITLE") ?: getString(R.string.no_title)
+        intent.getStringExtra("EVENT_DATE") ?: getString(R.string.no_date)
+        intent.getStringExtra("EVENT_LOCATION") ?: getString(R.string.no_location)
+        val eventDescription = intent.getStringExtra("EVENT_DESCRIPTION") ?: getString(R.string.no_description)
 
         // Set the values in the TextViews
         findViewById<TextView>(R.id.eventTitle).text = eventTitle
@@ -30,6 +30,6 @@ class EventDetailsActivity : AppCompatActivity() {
 
     private fun registerForEvent(eventTitle: String) {
         // Implement registration logic (e.g., show a confirmation message)
-        Toast.makeText(this, "Registered for $eventTitle", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.registered_for, eventTitle), Toast.LENGTH_SHORT).show()
     }
 }

@@ -193,4 +193,9 @@
     <string name="system_update">系统更新</string>
     <string name="a_system_update_is_available">系统更新可用。</string>
     <string name="unknown_notification_clicked">未知通知被点击。</string>
+    <string name="no_title">无标题</string>
+    <string name="no_date">无日期</string>
+    <string name="no_location">无地点</string>
+    <string name="no_description">无描述</string>
+    <string name="registered_for">已注册 %1$s</string>
 </resources>

@@ -193,4 +193,9 @@
     <string name="system_update">System Update</string>
     <string name="a_system_update_is_available">A system update is available.</string>
     <string name="unknown_notification_clicked">Unknown notification clicked.</string>
+    <string name="no_title">No Title</string>
+    <string name="no_date">No Date</string>
+    <string name="no_location">No Location</string>
+    <string name="no_description">No Description</string>
+    <string name="registered_for">Registered for %1$s</string>
 </resources>
