@@ -131,4 +131,15 @@
     <string name="chat">Chat</string>
     <string name="submit_a_review">Enviar una Reseña</string>
     <string name="Notifications">Notificaciones</string>
+    <string name="back_to_maps">Volver a Mapas</string>
+    <string name="total_reviews_0">Total de Reseñas: 0</string>
+    <string name="average_rating_0_0">Calificación Promedio: 0.0</string>
+    <string name="submit_petition">Enviar Petición</string>
+    <string name="total_cost_0_00">Costo Total: $0.00</string>
+    <string name="cost_for_2_hours_30_minutes_5_35">Costo por 2 horas 30 minutos: $5.35</string>
+    <string name="confirm">Confirmar</string>
+    <string name="select_budget_type">Seleccionar Tipo de Presupuesto</string>
+    <string name="daily_budget">Presupuesto Diario</string>
+    <string name="semester_budget">Presupuesto Semestral</string>
+    <string name="next">Siguiente</string>
 </resources>

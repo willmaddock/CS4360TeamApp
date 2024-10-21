@@ -131,4 +131,15 @@
     <string name="chat">聊天</string>
     <string name="submit_a_review">提交评价</string>
     <string name="Notifications">通知</string>
+    <string name="back_to_maps">返回地图</string>
+    <string name="total_reviews_0">总评价数: 0</string>
+    <string name="average_rating_0_0">平均评分: 0.0</string>
+    <string name="submit_petition">提交请愿</string>
+    <string name="total_cost_0_00">总费用: $0.00</string>
+    <string name="cost_for_2_hours_30_minutes_5_35">2小时30分钟的费用: $5.35</string>
+    <string name="confirm">确认</string>
+    <string name="select_budget_type">选择预算类型</string>
+    <string name="daily_budget">每日预算</string>
+    <string name="semester_budget">学期预算</string>
+    <string name="next">下一步</string>
 </resources>

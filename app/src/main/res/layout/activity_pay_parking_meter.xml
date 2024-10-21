@@ -24,7 +24,7 @@ android:layout_height="wrap_content" />
 <TextView
     android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-android:text="Cost for 2 hours 30 minutes: $5.35"
+android:text="@string/cost_for_2_hours_30_minutes_5_35"
 android:textColor="@android:color/white"
     tools:ignore="HardcodedText" />
 
@@ -32,7 +32,7 @@ android:textColor="@android:color/white"
 android:id="@+id/total_cost_text"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-android:text="Total cost: $0.00"
+android:text="@string/total_cost_0_00"
 android:textColor="@android:color/white"
     tools:ignore="HardcodedText" />
 
