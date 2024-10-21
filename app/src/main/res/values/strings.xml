@@ -147,4 +147,23 @@
     <string name="time_s_up">Time\'s up!</string>
     <string name="parking_time_expired">Parking time expired!</string>
     <string name="payment_active">payment_active</string>
+    <string name="ease_of_finding_spot">Ease of Finding Spot</string>
+    <string name="security">Security</string>
+    <string name="cleanliness">Cleanliness</string>
+    <string name="please_select_a_parking_lot">Please select a parking lot</string>
+    <string name="review_submitted_successfully">Review submitted successfully</string>
+    <string name="error_submitting_review">Error submitting review</string>
+    <string name="please_provide_a_rating_and_comment">Please provide a rating and comment</string>
+    <string name="average_rating">Average Rating: %1$s</string>
+    <string name="total_reviews">Total Reviews: %1$s</string>
+    <string name="error_fetching_reviews">Error fetching reviews</string>
+    <string name="dogwood_parking_lot">Dogwood Parking Lot</string>
+    <string name="tivoli_parking_lot">Tivoli Parking Lot</string>
+    <string name="cherry_parking_lot">Cherry Parking Lot</string>
+    <string name="spruce_parking_lot">Spruce Parking Lot</string>
+    <string name="fir_parking_lot">Fir Parking Lot</string>
+    <string name="nutmeg_lot">Nutmeg Lot</string>
+    <string name="boulder_creek">Boulder Creek</string>
+    <string name="elm_parking_lot">Elm Parking Lot</string>
+    <string name="_7th_street_garage">7th Street Garage</string>
 </resources>

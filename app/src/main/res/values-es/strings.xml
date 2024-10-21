@@ -147,4 +147,23 @@
     <string name="time_s_up">¡Se acabó el tiempo!</string>
     <string name="parking_time_expired">¡El tiempo de estacionamiento ha expirado!</string>
     <string name="payment_active">pago_activo</string>
+    <string name="ease_of_finding_spot">Facilidad para Encontrar el Lugar</string>
+    <string name="security">Seguridad</string>
+    <string name="cleanliness">Limpieza</string>
+    <string name="please_select_a_parking_lot">Por favor, seleccione un estacionamiento</string>
+    <string name="review_submitted_successfully">Reseña enviada exitosamente</string>
+    <string name="error_submitting_review">Error al enviar la reseña</string>
+    <string name="please_provide_a_rating_and_comment">Por favor, proporcione una calificación y un comentario</string>
+    <string name="average_rating">Calificación Promedio: %1$s</string>
+    <string name="total_reviews">Total de Reseñas: %1$s</string>
+    <string name="error_fetching_reviews">Error al obtener las reseñas</string>
+    <string name="dogwood_parking_lot">Estacionamiento Dogwood</string>
+    <string name="tivoli_parking_lot">Estacionamiento Tivoli</string>
+    <string name="cherry_parking_lot">Estacionamiento Cherry</string>
+    <string name="spruce_parking_lot">Estacionamiento Spruce</string>
+    <string name="fir_parking_lot">Estacionamiento Fir</string>
+    <string name="nutmeg_lot">Estacionamiento Nutmeg</string>
+    <string name="boulder_creek">Arroyo Boulder</string>
+    <string name="elm_parking_lot">Estacionamiento Elm</string>
+    <string name="_7th_street_garage">Garaje de la 7ª Calle</string>
 </resources>

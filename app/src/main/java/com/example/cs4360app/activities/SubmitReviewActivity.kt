@@ -57,15 +57,24 @@ class SubmitReviewActivity : AppCompatActivity() {
 
         // Assign the global parkingLots list
         parkingLots = listOf(
-            ParkingLot("1", "Dogwood Parking Lot", 7.25, 4.5f, MSUDCampusLocation.DOGWOOD_PARKING_LOT, true, 90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
-            ParkingLot("2", "Tivoli Parking Lot", 7.25, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, true, 30, 200, "901 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("3", "Cherry Parking Lot", 5.75, 3.5f, MSUDCampusLocation.CHERRY_PARKING_LOT, true, 75, 150, "605 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("4", "Spruce Parking Lot", 7.25, 3.0f, MSUDCampusLocation.SPRUCE_PARKING_LOT, true, 50, 300, "800 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("5", "Fir Parking Lot", 5.75, 2.5f, MSUDCampusLocation.FIR_PARKING_LOT, true, 10, 400, "555 Curtis St Auraria Denver, CO 80204"),
-            ParkingLot("6", "Nutmeg Lot", 7.25, 4.0f, MSUDCampusLocation.NUTMEG_LOT, true, 70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
-            ParkingLot("7", "Boulder Creek", 2.00, 3.8f, MSUDCampusLocation.BOULDER_CREEK, true, 40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
-            ParkingLot("8", "Elm Parking Lot", 5.75, 3.9f, MSUDCampusLocation.ELM_PARKING_LOT, true, 55, 180, "1301 5th St Auraria Denver, CO 80204"),
-            ParkingLot("9", "7th Street Garage", 7.25, 4.1f, MSUDCampusLocation.SEVENTH_LOT, true, 65, 220, "777 Lawrence Way Auraria Denver, CO 80204")
+            ParkingLot("1",
+                getString(R.string.dogwood_parking_lot), 7.25, 4.5f, MSUDCampusLocation.DOGWOOD_PARKING_LOT, true, 90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
+            ParkingLot("2",
+                getString(R.string.tivoli_parking_lot), 7.25, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_LOT, true, 30, 200, "901 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("3",
+                getString(R.string.cherry_parking_lot), 5.75, 3.5f, MSUDCampusLocation.CHERRY_PARKING_LOT, true, 75, 150, "605 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("4",
+                getString(R.string.spruce_parking_lot), 7.25, 3.0f, MSUDCampusLocation.SPRUCE_PARKING_LOT, true, 50, 300, "800 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("5",
+                getString(R.string.fir_parking_lot), 5.75, 2.5f, MSUDCampusLocation.FIR_PARKING_LOT, true, 10, 400, "555 Curtis St Auraria Denver, CO 80204"),
+            ParkingLot("6",
+                getString(R.string.nutmeg_lot), 7.25, 4.0f, MSUDCampusLocation.NUTMEG_LOT, true, 70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
+            ParkingLot("7",
+                getString(R.string.boulder_creek), 2.00, 3.8f, MSUDCampusLocation.BOULDER_CREEK, true, 40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
+            ParkingLot("8",
+                getString(R.string.elm_parking_lot), 5.75, 3.9f, MSUDCampusLocation.ELM_PARKING_LOT, true, 55, 180, "1301 5th St Auraria Denver, CO 80204"),
+            ParkingLot("9",
+                getString(R.string._7th_street_garage), 7.25, 4.1f, MSUDCampusLocation.SEVENTH_LOT, true, 65, 220, "777 Lawrence Way Auraria Denver, CO 80204")
         )
 
         // Setup parking lot spinner
@@ -74,7 +83,8 @@ class SubmitReviewActivity : AppCompatActivity() {
         parkingLotSpinner.adapter = parkingLotAdapter
 
         // Setup category spinner
-        val categories = arrayOf("Ease of Finding Spot", "Security", "Cleanliness")
+        val categories = arrayOf(getString(R.string.ease_of_finding_spot),
+            getString(R.string.security), getString(R.string.cleanliness))
         val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         categorySpinner.adapter = categoryAdapter
@@ -100,7 +110,7 @@ class SubmitReviewActivity : AppCompatActivity() {
         val selectedParkingLotPosition = parkingLotSpinner.selectedItemPosition
 
         if (selectedParkingLotPosition == AdapterView.INVALID_POSITION) {
-            Toast.makeText(this, "Please select a parking lot", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.please_select_a_parking_lot), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -118,15 +128,17 @@ class SubmitReviewActivity : AppCompatActivity() {
             // Upload review to Firestore
             db.collection("reviews").add(review)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Review submitted successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,
+                        getString(R.string.review_submitted_successfully), Toast.LENGTH_SHORT).show()
                     returnToMaps()
                 }
                 .addOnFailureListener { e ->
-                    Log.e("SubmitReviewActivity", "Error submitting review", e)
+                    Log.e("SubmitReviewActivity", getString(R.string.error_submitting_review), e)
                     Toast.makeText(this, "Error submitting review: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
         } else {
-            Toast.makeText(this, "Please provide a rating and comment", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,
+                getString(R.string.please_provide_a_rating_and_comment), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -142,11 +154,12 @@ class SubmitReviewActivity : AppCompatActivity() {
                     reviewCount++
                 }
                 val averageRating = if (reviewCount > 0) totalRating / reviewCount else 0f
-                averageRatingTextView.text = "Average Rating: ${String.format("%.1f", averageRating)}"
-                reviewCountTextView.text = "Total Reviews: $reviewCount"
+                averageRatingTextView.text =
+                    getString(R.string.average_rating, String.format("%.1f", averageRating))
+                reviewCountTextView.text = getString(R.string.total_reviews, reviewCount)
             }
             .addOnFailureListener { e ->
-                Log.e("SubmitReviewActivity", "Error fetching reviews", e)
+                Log.e("SubmitReviewActivity", getString(R.string.error_fetching_reviews), e)
             }
     }
 

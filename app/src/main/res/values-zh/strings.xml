@@ -147,4 +147,23 @@
     <string name="time_s_up">时间到！</string>
     <string name="parking_time_expired">停车时间已到！</string>
     <string name="payment_active">支付_活跃</string>
+    <string name="ease_of_finding_spot">寻找停车位的方便程度</string>
+    <string name="security">安全性</string>
+    <string name="cleanliness">清洁度</string>
+    <string name="please_select_a_parking_lot">请选择一个停车场</string>
+    <string name="review_submitted_successfully">评论提交成功</string>
+    <string name="error_submitting_review">提交评论时出错</string>
+    <string name="please_provide_a_rating_and_comment">请提供评分和评论</string>
+    <string name="average_rating">平均评分: %1$s</string>
+    <string name="total_reviews">总评论数: %1$s</string>
+    <string name="error_fetching_reviews">获取评论时出错</string>
+    <string name="dogwood_parking_lot">狗木停车场</string>
+    <string name="tivoli_parking_lot">提沃利停车场</string>
+    <string name="cherry_parking_lot">樱桃停车场</string>
+    <string name="spruce_parking_lot">云杉停车场</string>
+    <string name="fir_parking_lot">冷杉停车场</string>
+    <string name="nutmeg_lot">肉豆蔻停车场</string>
+    <string name="boulder_creek">博尔德溪</string>
+    <string name="elm_parking_lot">榆树停车场</string>
+    <string name="_7th_street_garage">第七街车库</string>
 </resources>
