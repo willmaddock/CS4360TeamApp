@@ -38,7 +38,9 @@ class SettingsActivity : AppCompatActivity() {
 
     // Language selection dialog
     private fun showLanguageSelectionDialog() {
-        val languages = arrayOf("English", "Spanish", "Chinese")
+        val languages = arrayOf(getString(R.string.english), getString(R.string.spanish), getString(
+            R.string.chinese
+        ))
         val languageCodes = arrayOf("en", "es", "zh") // Corresponding language codes
 
         // Inflate the custom layout
@@ -74,10 +76,10 @@ class SettingsActivity : AppCompatActivity() {
     // Show confirmation dialog for language change
     private fun showConfirmationDialog(languageCode: String) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Confirm Language Change")
-            .setMessage("Are you sure you want to change the language?")
-            .setPositiveButton("Yes") { _, _ -> setLocale(languageCode) }
-            .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
+        builder.setTitle(getString(R.string.confirm_language_change))
+            .setMessage(getString(R.string.are_you_sure_you_want_to_change_the_language))
+            .setPositiveButton(getString(R.string.yes)) { _, _ -> setLocale(languageCode) }
+            .setNegativeButton(getString(R.string.no)) { dialog, _ -> dialog.dismiss() }
             .create()
             .show()
     }

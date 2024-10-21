@@ -166,4 +166,11 @@
     <string name="boulder_creek">博尔德溪</string>
     <string name="elm_parking_lot">榆树停车场</string>
     <string name="_7th_street_garage">第七街车库</string>
+    <string name="english">英语</string>
+    <string name="spanish">西班牙语</string>
+    <string name="chinese">中文</string>
+    <string name="confirm_language_change">确认语言更改</string>
+    <string name="are_you_sure_you_want_to_change_the_language">您确定要更改语言吗？</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
 </resources>
