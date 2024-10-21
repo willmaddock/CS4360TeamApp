@@ -45,14 +45,14 @@ class TimerActivity : AppCompatActivity() {
         val amountPaid = calculateAmount(remainingTime / 1000)
 
         // Display the amount paid
-        amountPaidTextView.text = String.format("Amount Paid: $%.2f", amountPaid)
+        amountPaidTextView.text = String.format(getString(R.string.amount_paid_2f), amountPaid)
 
         // Start the timer if there's time remaining
         if (remainingTime > 0) {
             startTimer(remainingTime)
         } else {
-            timerTextView.text = "Time's up!"
-            Toast.makeText(this, "Parking time expired!", Toast.LENGTH_SHORT).show()
+            timerTextView.text = getString(R.string.time_s_up)
+            Toast.makeText(this, getString(R.string.parking_time_expired), Toast.LENGTH_SHORT).show()
             navigateToMaps()
         }
 
@@ -81,7 +81,7 @@ class TimerActivity : AppCompatActivity() {
 
                 // Update SharedPreferences when the timer expires
                 val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
-                sharedPreferences.edit().putBoolean("payment_active", false).apply()
+                sharedPreferences.edit().putBoolean(getString(R.string.payment_active), false).apply()
 
                 navigateToMaps()
             }
@@ -93,7 +93,7 @@ class TimerActivity : AppCompatActivity() {
         val secondsLeft = (millisUntilFinished / 1000).toInt()
         val minutesLeft = secondsLeft / 60
         val remainingSeconds = secondsLeft % 60
-        timerTextView.text = String.format("Time Remaining: %02d:%02d", minutesLeft, remainingSeconds)
+        timerTextView.text = String.format(getString(R.string.time_remaining_02d_02d), minutesLeft, remainingSeconds)
     }
 
     private fun navigateToMaps() {

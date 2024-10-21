@@ -142,4 +142,9 @@
     <string name="daily_budget">Daily Budget</string>
     <string name="semester_budget">Semester Budget</string>
     <string name="next">Next</string>
+    <string name="time_remaining_02d_02d">Time Remaining: %02d:%02d</string>
+    <string name="amount_paid_2f">Amount Paid: $%.2f</string>
+    <string name="time_s_up">Time\'s up!</string>
+    <string name="parking_time_expired">Parking time expired!</string>
+    <string name="payment_active">payment_active</string>
 </resources>
