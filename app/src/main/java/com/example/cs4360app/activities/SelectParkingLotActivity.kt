@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cs4360app.R
 import com.example.cs4360app.adapters.ParkingLotAdapter
 import com.example.cs4360app.databinding.ActivitySelectParkingLotBinding
 import com.example.cs4360app.models.MSUDCampusLocation
@@ -39,7 +40,7 @@ class SelectParkingLotActivity : AppCompatActivity() {
         binding.parkingLotRecyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = ParkingLotAdapter(parkingLots) { parkingLot ->
             // Handle parking lot click
-            Toast.makeText(this, "Selected: ${parkingLot.name}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.selected, parkingLot.name), Toast.LENGTH_SHORT).show()
 
             // Get budget type and start/end dates from Intent extras
             val budgetType = intent.getStringExtra("selected_budget_type") // Corrected key

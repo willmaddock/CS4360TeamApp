@@ -173,4 +173,5 @@
     <string name="are_you_sure_you_want_to_change_the_language">您确定要更改语言吗？</string>
     <string name="yes">是</string>
     <string name="no">否</string>
+    <string name="selected">已选择: %1$s</string>
 </resources>
