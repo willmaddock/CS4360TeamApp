@@ -179,4 +179,5 @@
     <string name="failed_to_submit_petition">Error al enviar la petición: %1$s</string>
     <string name="invalid_date_range">Rango de fechas no válido.</string>
     <string name="start_and_end_dates_are_required_for_semester_budget">Las fechas de inicio y fin son obligatorias para el presupuesto semestral.</string>
+    <string name="starting_budget_simulation_for_over_minutes">Iniciando la simulación de presupuesto por $%1$s durante %2$s minutos!</string>
 </resources>
