@@ -40,6 +40,11 @@ object DrawerManager {
                     context.startActivity(Intent(context, SurveyActivity::class.java))
                     true
                 }
+
+                R.id.nav_settings -> {
+                    context.startActivity(Intent(context, SettingsActivity::class.java))
+                    true
+                }
                 else -> false
             }
         }
@@ -59,6 +64,7 @@ object DrawerManager {
         menu.findItem(R.id.nav_submit_review).isVisible = true
         menu.findItem(R.id.nav_notifications).isVisible = true
         menu.findItem(R.id.nav_take_survey).isVisible = true
+        menu.findItem(R.id.nav_settings).isVisible = true
     }
 
     // Check if the timer is active or expired

@@ -38,4 +38,9 @@
         android:title="Notifications"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
+    <!-- Added Settings Button -->
+    <item
+        android:id="@+id/nav_settings"
+        android:title="@string/settings" /> <!-- Accessible for all users -->
+
 </menu>
