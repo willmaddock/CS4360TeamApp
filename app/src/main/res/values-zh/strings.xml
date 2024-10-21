@@ -127,4 +127,8 @@
     <string name="back">返回</string>
     <string name="choose_a_language" translatable="false">选择语言</string>
     <string name="cancel" translatable="false">取消</string>
+    <string name="parking_budget_simulator">停车预算模拟器</string>
+    <string name="chat">聊天</string>
+    <string name="submit_a_review">提交评价</string>
+    <string name="Notifications">通知</string>
 </resources>

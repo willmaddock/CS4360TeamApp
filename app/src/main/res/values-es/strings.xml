@@ -127,4 +127,8 @@
     <string name="back">Atrás</string>
     <string name="choose_a_language" translatable="false">Elegir un Idioma</string>
     <string name="cancel" translatable="false">Cancelar</string>
+    <string name="parking_budget_simulator">Simulador de Presupuesto de Estacionamiento</string>
+    <string name="chat">Chat</string>
+    <string name="submit_a_review">Enviar una Reseña</string>
+    <string name="Notifications">Notificaciones</string>
 </resources>

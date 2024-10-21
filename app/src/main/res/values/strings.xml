@@ -127,4 +127,8 @@
     <string name="back">Back</string>
     <string name="choose_a_language" translatable="false">Choose a Language</string>
     <string name="cancel" translatable="false">Cancel</string>
+    <string name="parking_budget_simulator">Parking Budget Simulator</string>
+    <string name="chat">Chat</string>
+    <string name="submit_a_review">Submit a Review</string>
+    <string name="Notifications">Notifications</string>
 </resources>

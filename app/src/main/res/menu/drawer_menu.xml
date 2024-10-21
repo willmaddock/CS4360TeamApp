@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/nav_parking_budget_simulator"
-        android:title="Parking Budget Simulator"
+        android:title="@string/parking_budget_simulator"
         tools:ignore="HardcodedText" /> <!-- Accessible for all users -->
 
     <item
@@ -20,7 +20,7 @@
     <item
         android:id="@+id/nav_chat"
         android:icon="@drawable/ic_chat"
-        android:title="Chat"
+        android:title="@string/chat"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
@@ -29,13 +29,13 @@
 
     <item
         android:id="@+id/nav_submit_review"
-        android:title="Submit a Review"
+        android:title="@string/submit_a_review"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
         android:id="@+id/nav_notifications"
         android:icon="@drawable/ic_notifications"
-        android:title="Notifications"
+        android:title="@string/Notifications"
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <!-- Added Settings Button -->
