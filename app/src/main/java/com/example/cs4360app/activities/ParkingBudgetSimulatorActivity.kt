@@ -28,6 +28,7 @@ class ParkingBudgetSimulatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parking_budget_simulator)
 
+        // Bind UI elements
         budgetTypeRadioGroup = findViewById(R.id.budget_type_radio_group)
         nextButton = findViewById(R.id.next_button)
         startDateButton = findViewById(R.id.start_date_button)
@@ -75,17 +76,19 @@ class ParkingBudgetSimulatorActivity : AppCompatActivity() {
         nextButton.setOnClickListener {
             if (selectedBudgetType != null) {
                 if (selectedBudgetType == "Semester" && (startDate == null || endDate == null)) {
-                    Toast.makeText(this, "Please select both start and end dates for the semester.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,
+                        getString(R.string.please_select_both_start_and_end_dates_for_the_semester), Toast.LENGTH_SHORT).show()
                 } else {
                     val intent = Intent(this, SelectParkingLotActivity::class.java).apply {
-                        putExtra("selected_budget_type", selectedBudgetType) // Corrected key
+                        putExtra("selected_budget_type", selectedBudgetType)
                         putExtra("start_date", startDate) // Pass start date
                         putExtra("end_date", endDate) // Pass end date
                     }
                     startActivity(intent)
                 }
             } else {
-                Toast.makeText(this, "Please select a budget type.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.please_select_a_budget_type), Toast.LENGTH_SHORT).show()
             }
         }
 

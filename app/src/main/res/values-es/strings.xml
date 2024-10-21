@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nombre de la Aplicación -->
+    <string name="app_name">AMP</string>
+
+    <!-- Inicio de sesión -->
+
+    <!-- Botones y Acciones -->
+    <string name="submit">Enviar</string>
+
+    <!-- Encuesta y Reseña -->
+    <string name="survey_title">Encuesta del Estacionamiento</string>
+
+    <!-- Texto para preguntas de la encuesta -->
+    <string name="role_prompt">Tu Rol</string>
+    <string name="priorities_prompt">¿Cuáles son tus principales prioridades para una aplicación móvil de estacionamiento?</string>
+    <string name="real_time_updates_prompt">¿Qué tan importante es para ti que la aplicación proporcione actualizaciones en tiempo real sobre la disponibilidad de estacionamiento?</string>
+    <string name="reserve_parking_value_prompt">¿Qué tan importante es el valor de reserva?</string>
+    <string name="event_integration_prompt">¿Qué tan importante es la integración de eventos?</string>
+    <string name="user_reviews_prompt">¿Qué tan importantes son las reseñas de los usuarios?</string>
+    <string name="find_car_feature_prompt">¿Qué tan interesado estás en una función para encontrar tu coche estacionado?</string>
+    <string name="app_usability_prompt">¿Cómo calificarías la usabilidad de la aplicación?</string>
+    <string name="customer_support_prompt">¿Qué tan importante es el soporte al cliente para ti?</string>
+    <string name="biggest_concern_prompt">¿Cuál es tu mayor preocupación respecto a la aplicación?</string>
+    <string name="additional_features_prompt">¿Hay características adicionales que te gustaría ver?</string>
+    <string name="other_comments_prompt">¿Algotros comentarios o sugerencias?</string>
+
+    <!-- Etiquetas de las casillas de verificación -->
+    <string name="real_time_updates">Actualizaciones de disponibilidad de estacionamiento en tiempo real</string>
+    <string name="accurate_navigation">Navegación precisa a los espacios de estacionamiento</string>
+    <string name="notifications">Notificaciones sobre el estado del lote (por ejemplo, lleno, vacío)</string>
+    <string name="event_integration">Integración con eventos del campus</string>
+    <string name="reservation_system">Sistema de reservas para espacios de estacionamiento</string>
+    <string name="user_reviews">Reseñas y calificaciones de los estacionamientos por parte de los usuarios</string>
+    <string name="payment_options">Opciones de pago para tarifas de estacionamiento</string>
+    <string name="parking_lot_features">Información detallada sobre las características del estacionamiento (por ejemplo, seguridad, comodidades)</string>
+
+    <!-- Más opciones de características -->
+
+    <!-- Asegúrate de que estas cadenas estén definidas -->
+    <string name="submit_review">Enviar Reseña</string>
+
+    <!-- Cadenas relacionadas con el mapa -->
+
+    <!-- Marcador de posición para la clave de API -->
+
+    <!-- Texto predeterminado para los comentarios de la reseña -->
+    <string name="title_activity_maps">Actividad de Mapas</string>
+
+    <!-- Cadenas adicionales -->
+    <string name="biggest_concern_hint">¿Cuál es tu mayor preocupación?</string>
+    <string name="additional_features_hint">Características adicionales que te gustaría ver:</string>
+    <string name="other_comments_hint">Otros comentarios:</string>
+
+    <!-- Cadenas adicionales faltantes -->
+    <string name="parking_lot_details">Detalles del Estacionamiento</string>
+    <string name="rate_specific_aspects">Califica Aspectos Específicos</string>
+    <string name="write_your_review_here">Escribe tu reseña aquí...</string>
+    <string name="upload_photo">Subir Foto</string>
+
+    <!-- Título de la Petición -->
+    <string name="petition_title">Enviar Petición</string>
+
+    <!-- Pagar Estacionamiento -->
+
+    <!-- Pagar Parquímetro -->
+    <string name="pay_parking_meter">Pagar Parquímetro</string>
+
+    <!-- Título de Seleccionar Estacionamiento -->
+    <string name="select_parking_lot_title">Seleccionar Estacionamiento</string>
+
+    <!-- Título de Notificaciones -->
+    <string name="notifications_title">Notificaciones</string>
+
+    <!-- Cadenas del Menú de Navegación -->
+
+    <!-- Cadenas Adicionales de Pago y Temporizador -->
+    <!-- %1$s puede ser reemplazado con la cantidad -->
+    <string name="event_title">Título del Evento</string>
+    <string name="event_details_go_here">Detalles del Evento aquí.</string>
+    <string name="register_for_event">Registrarse para el Evento</string>
+    <string name="zoom_in">Acercar</string>
+    <string name="zoom_out">Alejar</string>
+    <string name="info_icon_desc">Icono de información para explicar los colores de los marcadores</string>
+    <string name="open_drawer">Abrir Menú de Navegación</string>
+    <string name="parking_details">Detalles del Estacionamiento</string>
+    <string name="here_you_will_see_details_about_the_selected_parking_spot">Aquí verás detalles sobre el espacio de estacionamiento seleccionado.</string>
+    <string name="describe_your_petition">Describe tu petición</string>
+    <string name="suggest_a_grace_period_optional">Sugerir un período de gracia (opcional)</string>
+    <string name="click_on_a_parking_lot_to_pay_for_parking">Haz clic en un estacionamiento para pagar.</string>
+    <string name="welcome_to">Bienvenido a:</string>
+    <string name="auraria_mobile_parking">Estacionamiento Móvil Auraria</string>
+    <string name="amount_paid_0_00">Cantidad Pagada: $0.00</string>
+    <string name="time_remaining_00_00">Tiempo Restante: 00:00</string>
+    <string name="parking_lot_name">Nombre del Estacionamiento</string>
+    <string name="cost_0_0">Costo: $0.0</string>
+    <string name="rating_0_0">Calificación: 0.0</string>
+    <string name="take_a_survey">Tomar una Encuesta</string>
+    <string name="submit_a_petition">Enviar una Petición</string>
+    <string name="filter">Filtrar</string>
+    <string name="filter_parking_options">Filtrar Opciones de Estacionamiento</string>
+    <string name="cost_filter">Filtro de Costo</string>
+    <string name="availability_filter">Filtro de Disponibilidad</string>
+    <string name="proximity_filter">Filtro de Proximidad</string>
+    <string name="rating_filter">Filtro de Calificación</string>
+    <string name="address_filter">Filtro de Dirección</string>
+    <string name="apply_filters">Aplicar Filtros</string>
+    <string name="proximity_0_ft">Proximidad: 0 pies</string>
+    <string name="cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range">Costo: Selecciona este filtro para mostrar estacionamientos dentro de un cierto rango de precios.</string>
+    <string name="availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full">Disponibilidad: Selecciona este filtro para mostrar estacionamientos que están al menos a cierto porcentaje de ocupación.</string>
+    <string name="proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location">Proximidad: Selecciona este filtro para mostrar estacionamientos que están dentro de una cierta distancia de tu ubicación.</string>
+    <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">Calificación: Selecciona este filtro para mostrar estacionamientos según sus calificaciones.</string>
+    <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">Dirección: Selecciona este filtro para mostrar estacionamientos con sus respectivas direcciones.</string>
+    <string name="view_parking_timer_simulator">Ver Simulador de Temporizador de Estacionamiento</string>
+    <string name="selected_time_0h_0m">Tiempo Seleccionado: 0h 0m</string>
+    <string name="start_budget_simulator">Iniciar Simulador de Presupuesto</string>
+    <string name="select_semester_start_and_end_dates">Seleccionar Fechas de Inicio y Fin del Semestre</string>
+    <string name="start_date">Fecha de Inicio:</string>
+    <string name="select_start_date">Seleccionar Fecha de Inicio</string>
+    <string name="end_date">Fecha de Fin:</string>
+    <string name="select_end_date">Seleccionar Fecha de Fin</string>
+    <string name="parking_meter_simulator">Simulador de Parquímetro</string>
+    <string name="parking_lot_chosen">Estacionamiento Elegido:</string>
+    <string name="filter_options_are_based_on_historical_data_and_ai_simulations">Las opciones de filtro se basan en datos históricos y simulaciones de IA</string>
+    <string name="settings">Configuraciones</string>
+    <string name="change_language">Cambiar Idioma</string>
+    <string name="back">Atrás</string>
+    <string name="choose_a_language" translatable="false">Elegir un Idioma</string>
+    <string name="cancel" translatable="false">Cancelar</string>
+    <string name="parking_budget_simulator">Simulador de Presupuesto de Estacionamiento</string>
+    <string name="chat">Chat</string>
+    <string name="submit_a_review">Enviar una Reseña</string>
+    <string name="Notifications">Notificaciones</string>
+    <string name="back_to_maps">Volver a Mapas</string>
+    <string name="total_reviews_0">Total de Reseñas: 0</string>
+    <string name="average_rating_0_0">Calificación Promedio: 0.0</string>
+    <string name="submit_petition">Enviar Petición</string>
+    <string name="total_cost_0_00">Costo Total: $0.00</string>
+    <string name="cost_for_2_hours_30_minutes_5_35">Costo por 2 horas 30 minutos: $5.35</string>
+    <string name="confirm">Confirmar</string>
+    <string name="select_budget_type">Seleccionar Tipo de Presupuesto</string>
+    <string name="daily_budget">Presupuesto Diario</string>
+    <string name="semester_budget">Presupuesto Semestral</string>
+    <string name="next">Siguiente</string>
+    <string name="time_remaining_02d_02d">Tiempo Restante: %02d:%02d</string>
+    <string name="amount_paid_2f">Cantidad Pagada: $%.2f</string>
+    <string name="time_s_up">¡Se acabó el tiempo!</string>
+    <string name="parking_time_expired">¡El tiempo de estacionamiento ha expirado!</string>
+    <string name="payment_active">pago_activo</string>
+    <string name="ease_of_finding_spot">Facilidad para Encontrar el Lugar</string>
+    <string name="security">Seguridad</string>
+    <string name="cleanliness">Limpieza</string>
+    <string name="please_select_a_parking_lot">Por favor, seleccione un estacionamiento</string>
+    <string name="review_submitted_successfully">Reseña enviada exitosamente</string>
+    <string name="error_submitting_review">Error al enviar la reseña</string>
+    <string name="please_provide_a_rating_and_comment">Por favor, proporcione una calificación y un comentario</string>
+    <string name="average_rating">Calificación Promedio: %1$s</string>
+    <string name="total_reviews">Total de Reseñas: %1$s</string>
+    <string name="error_fetching_reviews">Error al obtener las reseñas</string>
+    <string name="dogwood_parking_lot">Estacionamiento Dogwood</string>
+    <string name="tivoli_parking_lot">Estacionamiento Tivoli</string>
+    <string name="cherry_parking_lot">Estacionamiento Cherry</string>
+    <string name="spruce_parking_lot">Estacionamiento Spruce</string>
+    <string name="fir_parking_lot">Estacionamiento Fir</string>
+    <string name="nutmeg_lot">Estacionamiento Nutmeg</string>
+    <string name="boulder_creek">Arroyo Boulder</string>
+    <string name="elm_parking_lot">Estacionamiento Elm</string>
+    <string name="_7th_street_garage">Garaje de la 7ª Calle</string>
+    <string name="english">Inglés</string>
+    <string name="spanish">Español</string>
+    <string name="chinese">Chino</string>
+    <string name="confirm_language_change">Confirmar Cambio de Idioma</string>
+    <string name="are_you_sure_you_want_to_change_the_language">¿Está seguro de que desea cambiar el idioma?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="selected">Seleccionado: %1$s</string>
+    <string name="please_describe_your_petition">Por favor, describe tu petición.</string>
+    <string name="petition_submitted_successfully">Petición enviada con éxito.</string>
+    <string name="failed_to_submit_petition">Error al enviar la petición: %1$s</string>
+    <string name="invalid_date_range">Rango de fechas no válido.</string>
+    <string name="start_and_end_dates_are_required_for_semester_budget">Las fechas de inicio y fin son obligatorias para el presupuesto semestral.</string>
+    <string name="starting_budget_simulation_for_over_minutes">Iniciando la simulación de presupuesto por $%1$s durante %2$s minutos!</string>
+    <string name="days_selected">Días seleccionados: %1$s</string>
+    <string name="total_cost">Costo total: $%1$s</string>
+    <string name="cost_per_day">Costo por día: $%1$s</string>
+    <string name="please_select_both_start_and_end_dates_for_the_semester">Por favor, selecciona tanto la fecha de inicio como la de finalización del semestre.</string>
+    <string name="please_select_a_budget_type">Por favor, selecciona un tipo de presupuesto.</string>
+    <string name="don_t_forget_to_check_your_parking_time">¡No olvides revisar tu tiempo de estacionamiento!</string>
+    <string name="new_events_available_in_your_area">Nuevos eventos disponibles en tu área.</string>
+    <string name="the_app_has_been_updated_to_version_1_1">La aplicación ha sido actualizada a la versión 1.1.</string>
+    <string name="parking_reminder">Recordatorio de Estacionamiento</string>
+    <string name="event_alert">Alerta de Evento</string>
+    <string name="system_update">Actualización del Sistema</string>
+    <string name="a_system_update_is_available">Hay una actualización del sistema disponible.</string>
+    <string name="unknown_notification_clicked">Notificación desconocida clicada.</string>
+    <string name="no_title">Sin Título</string>
+    <string name="no_date">Sin Fecha</string>
+    <string name="no_location">Sin Ubicación</string>
+    <string name="no_description">Sin Descripción</string>
+    <string name="registered_for">Registrado para %1$s</string>
+</resources>

@@ -75,14 +75,19 @@ class PayParkingMeterActivity : AppCompatActivity() {
         totalCostText.text = "Total cost: $${String.format("%.2f", totalCost)}"
     }
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint("DefaultLocale", "StringFormatMatches")
     private fun onSimulationStart(amountPaid: Float, timeInMinutes: Int) {
         // Save end time in SharedPreferences
         val endTime = System.currentTimeMillis() + (timeInMinutes * 60 * 1000) // Calculate end time
         val sharedPreferences = getSharedPreferences("payment_prefs", MODE_PRIVATE)
         sharedPreferences.edit().putLong("end_time", endTime).apply()
 
-        Toast.makeText(this, "Starting budget simulation for $${String.format("%.2f", amountPaid)} over $timeInMinutes minutes!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,
+            getString(
+                R.string.starting_budget_simulation_for_over_minutes,
+                String.format("%.2f", amountPaid),
+                timeInMinutes
+            ), Toast.LENGTH_SHORT).show()
 
         // Redirect to TimerActivity
         val intent = Intent(this, TimerActivity::class.java)

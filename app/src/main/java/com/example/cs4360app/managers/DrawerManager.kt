@@ -12,12 +12,6 @@ object DrawerManager {
         // Set up navigation item selection listener
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_back_to_menu -> {
-                    context.startActivity(Intent(context, MainActivity::class.java).apply {
-                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-                    })
-                    true
-                }
                 R.id.nav_parking_budget_simulator -> {
                     context.startActivity(Intent(context, ParkingBudgetSimulatorActivity::class.java))
                     true
@@ -46,6 +40,11 @@ object DrawerManager {
                     context.startActivity(Intent(context, SurveyActivity::class.java))
                     true
                 }
+
+                R.id.nav_settings -> {
+                    context.startActivity(Intent(context, SettingsActivity::class.java))
+                    true
+                }
                 else -> false
             }
         }
@@ -58,7 +57,6 @@ object DrawerManager {
         val isTimerActive = isTimerActive(context)
 
         // Menu options visibility based on conditions
-        menu.findItem(R.id.nav_back_to_menu).isVisible = true
         menu.findItem(R.id.nav_parking_budget_simulator).isVisible = true // Always visible
         menu.findItem(R.id.nav_timer).isVisible = isTimerActive // Only show active timer
         menu.findItem(R.id.nav_chat).isVisible = true
@@ -66,6 +64,7 @@ object DrawerManager {
         menu.findItem(R.id.nav_submit_review).isVisible = true
         menu.findItem(R.id.nav_notifications).isVisible = true
         menu.findItem(R.id.nav_take_survey).isVisible = true
+        menu.findItem(R.id.nav_settings).isVisible = true
     }
 
     // Check if the timer is active or expired

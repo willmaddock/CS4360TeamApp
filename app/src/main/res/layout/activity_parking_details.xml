@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/drawer_background"
+    android:layout_marginBottom="8dp"
+    tools:ignore="Overdraw">
 
-    <TextView
-        android:id="@+id/parkingDetailsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/parking_details"
-        android:textSize="24sp"
-        android:layout_marginBottom="16dp"/>
+<TextView
+    android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/parking_details"
+android:textSize="24sp"
+android:textStyle="bold"
+    android:textColor="@android:color/white"
+    android:layout_marginBottom="4dp" /> <!-- Spacing between title and message -->
 
-    <TextView
-        android:id="@+id/parkingDetailsInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/here_you_will_see_details_about_the_selected_parking_spot"
-        android:textSize="18sp"/>
-</LinearLayout>
+<TextView
+    android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/here_you_will_see_details_about_the_selected_parking_spot"
+android:textSize="18sp"
+android:textColor="@android:color/white" /> <!-- Ensures visibility -->
+    </LinearLayout>

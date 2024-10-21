@@ -4,16 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/drawer_background"
+    android:layout_marginBottom="8dp"
+    tools:ignore="Overdraw">
 
+    <!-- Budget Type Label -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select Budget Type"
+        android:text="@string/select_budget_type"
         android:textSize="18sp"
+        android:textColor="@android:color/white"
         android:layout_marginBottom="16dp"
         tools:ignore="HardcodedText" />
 
+    <!-- Budget Type Radio Group -->
     <RadioGroup
         android:id="@+id/budget_type_radio_group"
         android:layout_width="match_parent"
@@ -24,65 +30,79 @@
             android:id="@+id/radio_daily_budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daily Budget"
+            android:text="@string/daily_budget"
+            android:textColor="@android:color/white"
             tools:ignore="HardcodedText" />
 
         <RadioButton
             android:id="@+id/radio_semester_budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Semester Budget"
+            android:text="@string/semester_budget"
+            android:textColor="@android:color/white"
             tools:ignore="HardcodedText" />
     </RadioGroup>
 
-    <!-- Add semester date selection for 'Semester Budget' -->
+    <!-- Semester Date Selection -->
     <TextView
         android:id="@+id/semester_dates_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_semester_start_and_end_dates"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/start_date_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_date"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/start_date_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_start_date"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:backgroundTint="@color/teal_200"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/end_date_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/end_date"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/end_date_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_end_date"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:backgroundTint="@color/teal_200"
+        android:textColor="@android:color/white" />
 
+    <!-- Next Button -->
     <Button
         android:id="@+id/next_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="@string/next"
+        android:backgroundTint="@color/teal_200"
+        android:textColor="@android:color/white"
         tools:ignore="HardcodedText" />
 
-    <!-- New button for Parking Meter Simulator -->
+    <!-- Parking Meter Simulator Button -->
     <Button
         android:id="@+id/parking_meter_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/parking_meter_simulator"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:textColor="@android:color/white" />
 </LinearLayout>

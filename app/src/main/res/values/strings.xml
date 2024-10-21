@@ -4,18 +4,12 @@
     <string name="app_name">AMP</string>
 
     <!-- Login -->
-    <string name="login">Login</string>
-    <string name="register">Register</string>
-    <string name="email_hint">Enter your email</string>
-    <string name="password_hint">Enter your password</string>
 
     <!-- Buttons and Actions -->
-    <string name="open_map">Open Map</string>
     <string name="submit">Submit</string>
 
     <!-- Survey and Review -->
     <string name="survey_title">Parking Lot Survey</string>
-    <string name="submit_survey_button">Submit Survey</string>
 
     <!-- Text for survey questions -->
     <string name="role_prompt">Your Role</string>
@@ -42,34 +36,16 @@
     <string name="parking_lot_features">Detailed information on parking lot features (e.g., security, amenities)</string>
 
     <!-- More feature options -->
-    <string name="availability_updates">Real-time availability and occupancy updates</string>
-    <string name="turn_by_turn_navigation">Turn-by-turn navigation to parking spots</string>
-    <string name="alerts">Alerts and notifications for parking lot status changes</string>
-    <string name="reserve_pay">Ability to reserve and pay for parking spots</string>
-    <string name="user_generated_reviews">User-generated reviews and ratings for parking lots</string>
-    <string name="safety_amenities">Information on parking lot safety and amenities</string>
-    <string name="event_schedules">Integration with campus event schedules</string>
-    <string name="find_parked_car">A feature to help locate your parked car</string>
 
     <!-- Ensure these strings are defined -->
-    <string name="submit_a_review">Submit a Review</string>
-    <string name="write_your_review">Write Your Review</string>
-    <string name="user_comment">Your Comment</string>
     <string name="submit_review">Submit Review</string>
-    <string name="launch_survey">Take the Survey</string>
 
     <!-- Map-related strings -->
-    <string name="maps_title">Map</string>
 
     <!-- Placeholder for API Key -->
-    <string name="average_rating_0_0">Average Rating: 0.0</string>
-    <string name="total_reviews_0">Total Reviews: 0</string>
 
     <!-- Default text for review comments -->
-    <string name="review_comment">No comment provided</string>
     <string name="title_activity_maps">Maps Activity</string>
-    <string name="title_activity_maps2">Maps Activity 2</string>
-    <string name="CS4360App">CS4360App</string>
 
     <!-- Additional strings -->
     <string name="biggest_concern_hint">What is your biggest concern?</string>
@@ -86,7 +62,6 @@
     <string name="petition_title">Submit Petition</string>
 
     <!-- Pay Parking Lot -->
-    <string name="pay_parking_lot">Pay Parking Lot</string>
 
     <!-- Pay Parking Meter -->
     <string name="pay_parking_meter">Pay Parking Meter</string>
@@ -96,90 +71,34 @@
 
     <!-- Notifications Title -->
     <string name="notifications_title">Notifications</string>
-    <string name="welcome_message">Welcome to Auraria Mobile Parking!</string>
 
     <!-- Navigation Drawer Strings -->
-    <string name="open">Open Navigation Drawer</string>
-    <string name="close">Close Navigation Drawer</string>
 
     <!-- Additional Payment and Timer Strings -->
-    <string name="payment_title">Payment</string>
-    <string name="payment_successful">Payment Successful!</string>
-    <string name="payment_failed">Payment Failed. Please try again.</string>
-    <string name="payment_processing">Processing Payment…</string>
-    <string name="timer_running">Timer is running…</string>
-    <string name="timer_expired">Your parking time has expired.</string>
-    <string name="back_to_maps">Back to Maps</string>
-    <string name="back_to_main_menu">Back to Main Menu</string>
-    <string name="logout_confirmation">Are you sure you want to log out?</string>
-    <string name="confirm_payment">Confirm your payment of %1$s?</string> <!-- %1$s can be replaced with the amount -->
-    <string name="network_error">Network error. Please check your connection.</string>
-    <string name="location_error">Could not retrieve your location. Please enable GPS.</string>
+    <!-- %1$s can be replaced with the amount -->
     <string name="event_title">Event Title</string>
     <string name="event_details_go_here">Event Details go here.</string>
     <string name="register_for_event">Register for Event</string>
-    <string name="enter_your_email">Enter your email</string>
-    <string name="reset_password">Reset Password</string>
-    <string name="create_an_account_and_register_with_auraria_mobile_parking_amp">Create an account and register with Auraria Mobile Parking (AMP)</string>
-    <string name="forgot_password">Forgot Password?</string>
-    <string name="login_with_facebook">Login with Facebook</string>
-    <string name="sign_in_with_google">Sign in with Google</string>
-    <string name="continue_as_guest">Continue as Guest</string>
-    <string name="payment">Payment</string>
-    <string name="chat">Chat</string>
-    <string name="submit_petition">Submit Petition</string>
-    <string name="logout">Logout</string>
     <string name="zoom_in">Zoom In</string>
     <string name="zoom_out">Zoom Out</string>
     <string name="info_icon_desc">Info icon to explain marker colors</string>
     <string name="open_drawer">Open Navigation Drawer</string>
     <string name="parking_details">Parking Details</string>
     <string name="here_you_will_see_details_about_the_selected_parking_spot">Here you will see details about the selected parking spot.</string>
-    <string name="enter_your_payment_information">Enter your payment information</string>
-    <string name="choose_how_you_want_to_pay_your_parking_ticket">Choose how you want to pay your parking ticket</string>
-    <string name="credit_card">Credit Card</string>
-    <string name="debit_card">Debit Card</string>
-    <string name="cardholder_name">Cardholder Name</string>
-    <string name="card_number">Card Number</string>
-    <string name="expire_date_mm_yy">Expire Date: MM/YY</string>
-    <string name="cvc_number_three_digit_code">CVC Number: Three Digit Code</string>
-    <string name="complete_payment">Complete Payment</string>
-    <string name="back">Back</string>
-    <string name="enter_license_plate">Enter License Plate</string>
-    <string name="enter_time_in_minutes">Enter Time (in minutes)</string>
-    <string name="pay">Pay</string>
-    <string name="timer_00_00">Timer: 00:00</string>
-    <string name="pay_as_guest">Pay as Guest</string>
-    <string name="login_register">Login/Register</string>
     <string name="describe_your_petition">Describe your petition</string>
     <string name="suggest_a_grace_period_optional">Suggest a grace period (optional)</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
-    <string name="student">Student</string>
-    <string name="faculty">Faculty</string>
-    <string name="visitor">Visitor</string>
-    <string name="staff">Staff</string>
     <string name="click_on_a_parking_lot_to_pay_for_parking">Click on a parking lot to pay for parking.</string>
     <string name="welcome_to">Welcome To:</string>
     <string name="auraria_mobile_parking">Auraria Mobile Parking</string>
     <string name="amount_paid_0_00">Amount Paid: $0.00</string>
     <string name="time_remaining_00_00">Time Remaining: 00:00</string>
-    <string name="enter_card_number">Enter Card Number</string>
-    <string name="confirm">Confirm</string>
-    <string name="max_cost_0">Max Cost: $0</string>
-    <string name="enable_cost_filter">Enable Cost Filter</string>
     <string name="parking_lot_name">Parking Lot Name</string>
     <string name="cost_0_0">Cost: $0.0</string>
     <string name="rating_0_0">Rating: 0.0</string>
-    <string name="review_comment_here">Review comment here</string>
-    <string name="back_to_menu">Back to Menu</string>
-    <string name="view_parking_timer">View Parking Timer</string>
     <string name="take_a_survey">Take a Survey</string>
     <string name="submit_a_petition">Submit a Petition</string>
-    <string name="log_out">Log Out</string>
     <string name="filter">Filter</string>
     <string name="filter_parking_options">Filter Parking Options</string>
-    <string name="price_filter">Price Filter</string>
     <string name="cost_filter">Cost Filter</string>
     <string name="availability_filter">Availability Filter</string>
     <string name="proximity_filter">Proximity Filter</string>
@@ -187,23 +106,12 @@
     <string name="address_filter">Address Filter</string>
     <string name="apply_filters">Apply Filters</string>
     <string name="proximity_0_ft">Proximity: 0 ft</string>
-    <string name="select_parking_duration">Select Parking Duration</string>
-    <string name="selected_time_0_minutes">Selected Time: 0 minutes</string>
-    <string name="cost_per_hour_5_35">Cost per hour: $5.35</string>
-    <string name="total_cost_0_00">Total cost: $0.00</string>
-    <string name="minimum_15_mins_maximum_4_hours">Minimum: 15 mins, Maximum: 4 hours</string>
     <string name="cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range">Cost: Select this filter to show parking lots within a certain price range.</string>
     <string name="availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full">Availability: Select this filter to show parking lots that are at least a certain percentage full.</string>
     <string name="proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location">Proximity: Select this filter to show parking lots that are within a certain distance from your location.</string>
     <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">Rating: Select this filter to show parking lots based on their ratings.</string>
     <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">Address: Select this filter to show parking lots with their respective addresses.</string>
-    <string name="time_remaining_00_00_00">Time Remaining: 00:00:00</string>
-    <string name="parking_budget_simulator">Parking Budget Simulator</string>
     <string name="view_parking_timer_simulator">View Parking Timer Simulator</string>
-    <string name="select_budget_type">Select Budget Type</string>
-    <string name="daily_budget">Daily Budget</string>
-    <string name="semester_budget">Semester Budget</string>
-    <string name="next">Next</string>
     <string name="selected_time_0h_0m">Selected Time: 0h 0m</string>
     <string name="start_budget_simulator">Start Budget Simulator</string>
     <string name="select_semester_start_and_end_dates">Select Semester Start and End Dates</string>
@@ -213,4 +121,81 @@
     <string name="select_end_date">Select End Date</string>
     <string name="parking_meter_simulator">Parking Meter Simulator</string>
     <string name="parking_lot_chosen">Parking Lot Chosen:</string>
+    <string name="filter_options_are_based_on_historical_data_and_ai_simulations">Filter options are based on historical data and AI simulations</string>
+    <string name="settings">Settings</string>
+    <string name="change_language">Change Language</string>
+    <string name="back">Back</string>
+    <string name="choose_a_language" translatable="false">Choose a Language</string>
+    <string name="cancel" translatable="false">Cancel</string>
+    <string name="parking_budget_simulator">Parking Budget Simulator</string>
+    <string name="chat">Chat</string>
+    <string name="submit_a_review">Submit a Review</string>
+    <string name="Notifications">Notifications</string>
+    <string name="back_to_maps">Back to Maps</string>
+    <string name="total_reviews_0">Total Reviews: 0</string>
+    <string name="average_rating_0_0">Average Rating: 0.0</string>
+    <string name="submit_petition">Submit Petition</string>
+    <string name="total_cost_0_00">Total cost: $0.00</string>
+    <string name="cost_for_2_hours_30_minutes_5_35">Cost for 2 hours 30 minutes: $5.35</string>
+    <string name="confirm">Confirm</string>
+    <string name="select_budget_type">Select Budget Type</string>
+    <string name="daily_budget">Daily Budget</string>
+    <string name="semester_budget">Semester Budget</string>
+    <string name="next">Next</string>
+    <string name="time_remaining_02d_02d">Time Remaining: %02d:%02d</string>
+    <string name="amount_paid_2f">Amount Paid: $%.2f</string>
+    <string name="time_s_up">Time\'s up!</string>
+    <string name="parking_time_expired">Parking time expired!</string>
+    <string name="payment_active">payment_active</string>
+    <string name="ease_of_finding_spot">Ease of Finding Spot</string>
+    <string name="security">Security</string>
+    <string name="cleanliness">Cleanliness</string>
+    <string name="please_select_a_parking_lot">Please select a parking lot</string>
+    <string name="review_submitted_successfully">Review submitted successfully</string>
+    <string name="error_submitting_review">Error submitting review</string>
+    <string name="please_provide_a_rating_and_comment">Please provide a rating and comment</string>
+    <string name="average_rating">Average Rating: %1$s</string>
+    <string name="total_reviews">Total Reviews: %1$s</string>
+    <string name="error_fetching_reviews">Error fetching reviews</string>
+    <string name="dogwood_parking_lot">Dogwood Parking Lot</string>
+    <string name="tivoli_parking_lot">Tivoli Parking Lot</string>
+    <string name="cherry_parking_lot">Cherry Parking Lot</string>
+    <string name="spruce_parking_lot">Spruce Parking Lot</string>
+    <string name="fir_parking_lot">Fir Parking Lot</string>
+    <string name="nutmeg_lot">Nutmeg Lot</string>
+    <string name="boulder_creek">Boulder Creek</string>
+    <string name="elm_parking_lot">Elm Parking Lot</string>
+    <string name="_7th_street_garage">7th Street Garage</string>
+    <string name="english">English</string>
+    <string name="spanish">Spanish</string>
+    <string name="chinese">Chinese</string>
+    <string name="confirm_language_change">Confirm Language Change</string>
+    <string name="are_you_sure_you_want_to_change_the_language">Are you sure you want to change the language?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="selected">Selected: %1$s</string>
+    <string name="please_describe_your_petition">Please describe your petition.</string>
+    <string name="petition_submitted_successfully">Petition submitted successfully.</string>
+    <string name="failed_to_submit_petition">Failed to submit petition: %1$s</string>
+    <string name="invalid_date_range">Invalid date range.</string>
+    <string name="start_and_end_dates_are_required_for_semester_budget">Start and end dates are required for semester budget.</string>
+    <string name="starting_budget_simulation_for_over_minutes">Starting budget simulation for $%1$s over %2$s minutes!</string>
+    <string name="days_selected">Days Selected: %1$s</string>
+    <string name="total_cost">Total Cost: $%1$s</string>
+    <string name="cost_per_day">Cost Per Day: $%1$s</string>
+    <string name="please_select_both_start_and_end_dates_for_the_semester">Please select both start and end dates for the semester.</string>
+    <string name="please_select_a_budget_type">Please select a budget type.</string>
+    <string name="don_t_forget_to_check_your_parking_time">Don\'t forget to check your parking time!</string>
+    <string name="new_events_available_in_your_area">New events available in your area.</string>
+    <string name="the_app_has_been_updated_to_version_1_1">The app has been updated to version 1.1.</string>
+    <string name="parking_reminder">Parking Reminder</string>
+    <string name="event_alert">Event Alert</string>
+    <string name="system_update">System Update</string>
+    <string name="a_system_update_is_available">A system update is available.</string>
+    <string name="unknown_notification_clicked">Unknown notification clicked.</string>
+    <string name="no_title">No Title</string>
+    <string name="no_date">No Date</string>
+    <string name="no_location">No Location</string>
+    <string name="no_description">No Description</string>
+    <string name="registered_for">Registered for %1$s</string>
 </resources>

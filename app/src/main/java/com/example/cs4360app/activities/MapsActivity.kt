@@ -1,5 +1,9 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.cs4360app.activities
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
@@ -17,6 +21,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import java.util.Locale
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -28,6 +33,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Retrieve saved language preference and apply it before setting the content view
+        sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val savedLanguage = sharedPreferences.getString("app_language", "en") // Default to English if not set
+        setLocale(savedLanguage)
+
         setContentView(R.layout.activity_maps)
 
         // Initialize SharedPreferences for filters
@@ -65,7 +76,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Set the camera to the Jordan Parking Garage coordinates
+        // Set the camera to the Dogwood Parking Garage coordinates
         val dogWoodParkingLot = LatLng(39.74396, -105.00869)
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dogWoodParkingLot, 15f))  // Initial zoom level
 
@@ -97,4 +108,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             .create()
             .show()
     }
+
+    // Method to set the locale/language
+    @SuppressLint("AppBundleLocaleChanges")
+    private fun setLocale(languageCode: String?) {
+        val locale = languageCode?.let { Locale(it) }
+        locale?.let { Locale.setDefault(it) }
+        val config = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
+
 }

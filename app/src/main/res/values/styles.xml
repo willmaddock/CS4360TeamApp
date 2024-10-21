@@ -17,4 +17,12 @@
         <item name="colorPrimary">@color/teal_200</item> <!-- Use your primary color -->
         <item name="colorOnPrimary">@android:color/white</item> <!-- Ensure text is readable -->
     </style>
+
+    <!-- Custom style for menu items -->
+    <style name="MenuItemStyle">
+        <item name="android:textColor">@android:color/white</item> <!-- Change text color to white -->
+        <item name="android:textSize">17sp</item> <!-- Adjust size as needed -->
+    </style>
+
+    <!-- Custom style for NavigationView -->
 </resources>
