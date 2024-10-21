@@ -174,4 +174,9 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="selected">Selected: %1$s</string>
+    <string name="please_describe_your_petition">Please describe your petition.</string>
+    <string name="petition_submitted_successfully">Petition submitted successfully.</string>
+    <string name="failed_to_submit_petition">Failed to submit petition: %1$s</string>
+    <string name="invalid_date_range">Invalid date range.</string>
+    <string name="start_and_end_dates_are_required_for_semester_budget">Start and end dates are required for semester budget.</string>
 </resources>

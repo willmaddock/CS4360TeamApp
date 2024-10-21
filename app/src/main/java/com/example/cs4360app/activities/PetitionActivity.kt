@@ -35,7 +35,8 @@ class PetitionActivity : AppCompatActivity() {
 
             // Validate input
             if (description.isBlank()) {
-                Toast.makeText(this, "Please describe your petition.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.please_describe_your_petition), Toast.LENGTH_SHORT).show()
             } else {
                 submitPetition(description, gracePeriod)
             }
@@ -55,11 +56,13 @@ class PetitionActivity : AppCompatActivity() {
         db.collection("petitions")
             .add(petition)
             .addOnSuccessListener {
-                Toast.makeText(this, "Petition submitted successfully.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.petition_submitted_successfully), Toast.LENGTH_SHORT).show()
                 finish() // Close activity on success
             }
             .addOnFailureListener { e ->
-                Toast.makeText(this, "Failed to submit petition: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,
+                    getString(R.string.failed_to_submit_petition, e.message), Toast.LENGTH_LONG).show()
             }
     }
 }

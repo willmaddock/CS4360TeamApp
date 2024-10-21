@@ -174,4 +174,9 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="selected">已选择: %1$s</string>
+    <string name="please_describe_your_petition">请描述您的请愿。</string>
+    <string name="petition_submitted_successfully">请愿提交成功。</string>
+    <string name="failed_to_submit_petition">提交请愿失败: %1$s</string>
+    <string name="invalid_date_range">日期范围无效。</string>
+    <string name="start_and_end_dates_are_required_for_semester_budget">学期预算需要开始和结束日期。</string>
 </resources>

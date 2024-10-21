@@ -54,7 +54,8 @@ class SelectParkingLotActivity : AppCompatActivity() {
 
                 // Check if start or end dates are null
                 if (startDateStr == null || endDateStr == null) {
-                    Toast.makeText(this, "Start and end dates are required for semester budget.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,
+                        getString(R.string.start_and_end_dates_are_required_for_semester_budget), Toast.LENGTH_SHORT).show()
                     return@ParkingLotAdapter // Exit the lambda if dates are not provided
                 }
 
@@ -67,7 +68,7 @@ class SelectParkingLotActivity : AppCompatActivity() {
                 if (startDate != null && endDate != null && endDate.time >= startDate.time) {
                     numberOfDays = ((endDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt() + 1
                 } else {
-                    Toast.makeText(this, "Invalid date range.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.invalid_date_range), Toast.LENGTH_SHORT).show()
                     return@ParkingLotAdapter
                 }
             }

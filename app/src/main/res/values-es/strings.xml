@@ -174,4 +174,9 @@
     <string name="yes">Sí</string>
     <string name="no">No</string>
     <string name="selected">Seleccionado: %1$s</string>
+    <string name="please_describe_your_petition">Por favor, describe tu petición.</string>
+    <string name="petition_submitted_successfully">Petición enviada con éxito.</string>
+    <string name="failed_to_submit_petition">Error al enviar la petición: %1$s</string>
+    <string name="invalid_date_range">Rango de fechas no válido.</string>
+    <string name="start_and_end_dates_are_required_for_semester_budget">Las fechas de inicio y fin son obligatorias para el presupuesto semestral.</string>
 </resources>
