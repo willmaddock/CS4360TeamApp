@@ -183,4 +183,6 @@
     <string name="days_selected">Days Selected: %1$s</string>
     <string name="total_cost">Total Cost: $%1$s</string>
     <string name="cost_per_day">Cost Per Day: $%1$s</string>
+    <string name="please_select_both_start_and_end_dates_for_the_semester">Please select both start and end dates for the semester.</string>
+    <string name="please_select_a_budget_type">Please select a budget type.</string>
 </resources>

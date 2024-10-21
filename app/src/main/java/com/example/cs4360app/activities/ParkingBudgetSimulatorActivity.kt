@@ -76,7 +76,8 @@ class ParkingBudgetSimulatorActivity : AppCompatActivity() {
         nextButton.setOnClickListener {
             if (selectedBudgetType != null) {
                 if (selectedBudgetType == "Semester" && (startDate == null || endDate == null)) {
-                    Toast.makeText(this, "Please select both start and end dates for the semester.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,
+                        getString(R.string.please_select_both_start_and_end_dates_for_the_semester), Toast.LENGTH_SHORT).show()
                 } else {
                     val intent = Intent(this, SelectParkingLotActivity::class.java).apply {
                         putExtra("selected_budget_type", selectedBudgetType)
@@ -86,7 +87,8 @@ class ParkingBudgetSimulatorActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             } else {
-                Toast.makeText(this, "Please select a budget type.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.please_select_a_budget_type), Toast.LENGTH_SHORT).show()
             }
         }
 

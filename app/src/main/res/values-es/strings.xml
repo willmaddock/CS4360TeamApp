@@ -183,4 +183,6 @@
     <string name="days_selected">Días seleccionados: %1$s</string>
     <string name="total_cost">Costo total: $%1$s</string>
     <string name="cost_per_day">Costo por día: $%1$s</string>
+    <string name="please_select_both_start_and_end_dates_for_the_semester">Por favor, selecciona tanto la fecha de inicio como la de finalización del semestre.</string>
+    <string name="please_select_a_budget_type">Por favor, selecciona un tipo de presupuesto.</string>
 </resources>
