@@ -185,4 +185,12 @@
     <string name="cost_per_day">每日费用：$%1$s</string>
     <string name="please_select_both_start_and_end_dates_for_the_semester">请选择学期的开始和结束日期。</string>
     <string name="please_select_a_budget_type">请选择预算类型。</string>
+    <string name="don_t_forget_to_check_your_parking_time">别忘了检查你的停车时间！</string>
+    <string name="new_events_available_in_your_area">您所在区域有新活动。</string>
+    <string name="the_app_has_been_updated_to_version_1_1">应用程序已更新至1.1版本。</string>
+    <string name="parking_reminder">停车提醒</string>
+    <string name="event_alert">事件提醒</string>
+    <string name="system_update">系统更新</string>
+    <string name="a_system_update_is_available">系统更新可用。</string>
+    <string name="unknown_notification_clicked">未知通知被点击。</string>
 </resources>

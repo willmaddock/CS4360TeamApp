@@ -185,4 +185,12 @@
     <string name="cost_per_day">Cost Per Day: $%1$s</string>
     <string name="please_select_both_start_and_end_dates_for_the_semester">Please select both start and end dates for the semester.</string>
     <string name="please_select_a_budget_type">Please select a budget type.</string>
+    <string name="don_t_forget_to_check_your_parking_time">Don\'t forget to check your parking time!</string>
+    <string name="new_events_available_in_your_area">New events available in your area.</string>
+    <string name="the_app_has_been_updated_to_version_1_1">The app has been updated to version 1.1.</string>
+    <string name="parking_reminder">Parking Reminder</string>
+    <string name="event_alert">Event Alert</string>
+    <string name="system_update">System Update</string>
+    <string name="a_system_update_is_available">A system update is available.</string>
+    <string name="unknown_notification_clicked">Unknown notification clicked.</string>
 </resources>

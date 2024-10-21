@@ -23,9 +23,13 @@ class NotificationsActivity : AppCompatActivity() {
 
         // Example notifications (replace with real data)
         val notifications = listOf(
-            Notification("Parking Reminder", "Don't forget to check your parking time!"),
-            Notification("Event Alert", "New events available in your area."),
-            Notification("System Update", "The app has been updated to version 1.1.")
+            Notification(
+                getString(R.string.parking_reminder),
+                getString(R.string.don_t_forget_to_check_your_parking_time)),
+            Notification(getString(R.string.event_alert), getString(R.string.new_events_available_in_your_area)),
+            Notification(
+                getString(R.string.system_update),
+                getString(R.string.the_app_has_been_updated_to_version_1_1))
         )
 
         // Initialize the adapter with a click listener
@@ -54,12 +58,12 @@ class NotificationsActivity : AppCompatActivity() {
 
             "System Update" -> {
                 // Show update information
-                showToast("A system update is available.")
+                showToast(getString(R.string.a_system_update_is_available))
             }
 
             else -> {
                 // Handle other cases or do nothing
-                showToast("Unknown notification clicked.")
+                showToast(getString(R.string.unknown_notification_clicked))
             }
         }
     }
