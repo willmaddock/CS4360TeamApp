@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cs4360app.R
@@ -37,13 +39,34 @@ class SettingsActivity : AppCompatActivity() {
         val languages = arrayOf("English", "Spanish", "French")
         val languageCodes = arrayOf("en", "es", "fr") // Corresponding language codes
 
+        // Inflate the custom layout
+        val dialogView = layoutInflater.inflate(R.layout.dialog_language_selection, null)
+
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Choose a Language")
-        builder.setItems(languages) { _, which ->
+        builder.setView(dialogView)
+
+        val languageListView: ListView = dialogView.findViewById(R.id.language_list)
+        val cancelButton: Button = dialogView.findViewById(R.id.button_cancel)
+
+        // Set up the ListView with languages
+        languageListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, languages)
+
+        // Handle language selection
+        languageListView.setOnItemClickListener { _, _, position, _ ->
             // Show confirmation dialog
-            showConfirmationDialog(languageCodes[which])
+            showConfirmationDialog(languageCodes[position])
         }
-        builder.show()
+
+        // Show the dialog
+        val dialog = builder.create()
+
+        // Handle cancel button
+        cancelButton.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        // Show the dialog
+        dialog.show()
     }
 
     // Show confirmation dialog for language change
