@@ -36,8 +36,8 @@ class SettingsActivity : AppCompatActivity() {
 
     // Language selection dialog
     private fun showLanguageSelectionDialog() {
-        val languages = arrayOf("English", "Spanish", "French")
-        val languageCodes = arrayOf("en", "es", "fr") // Corresponding language codes
+        val languages = arrayOf("English", "Spanish", "Chinese")
+        val languageCodes = arrayOf("en", "es", "zh") // Corresponding language codes
 
         // Inflate the custom layout
         val dialogView = layoutInflater.inflate(R.layout.dialog_language_selection, null)
