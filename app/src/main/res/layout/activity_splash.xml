@@ -1,41 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash_background_lightning">
 
-    <!-- LinearLayout to stack the two texts vertically -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        tools:ignore="UselessParent">
-
-        <!-- Welcome To text in white -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/welcome_to"
-            android:textSize="30sp"
-            android:textColor="@android:color/white"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:textStyle="bold" />
-
-        <!-- Auraria Mobile Parking text in white -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/auraria_mobile_parking"
-            android:textSize="36sp"
-            android:textColor="@android:color/white"
-            android:fontFamily="sans-serif-medium"
-            android:gravity="center"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <!-- VideoView to play the intro video -->
+    <VideoView
+        android:id="@+id/intro_video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>
