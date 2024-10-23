@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Nombre de la Aplicación -->
     <string name="app_name">AMP</string>
 
@@ -55,7 +55,7 @@
     <!-- Cadenas adicionales faltantes -->
     <string name="parking_lot_details">Detalles del Estacionamiento</string>
     <string name="rate_specific_aspects">Califica Aspectos Específicos</string>
-    <string name="write_your_review_here">Escribe tu reseña aquí...</string>
+    <string name="write_your_review_here" tools:ignore="TypographyEllipsis">Escribe tu reseña aquí...</string>
     <string name="upload_photo">Subir Foto</string>
 
     <!-- Título de la Petición -->
@@ -88,8 +88,6 @@
     <string name="describe_your_petition">Describe tu petición</string>
     <string name="suggest_a_grace_period_optional">Sugerir un período de gracia (opcional)</string>
     <string name="click_on_a_parking_lot_to_pay_for_parking">Haz clic en un estacionamiento para pagar.</string>
-    <string name="welcome_to">Bienvenido a:</string>
-    <string name="auraria_mobile_parking">Estacionamiento Móvil Auraria</string>
     <string name="amount_paid_0_00">Cantidad Pagada: $0.00</string>
     <string name="time_remaining_00_00">Tiempo Restante: 00:00</string>
     <string name="parking_lot_name">Nombre del Estacionamiento</string>
@@ -125,8 +123,8 @@
     <string name="settings">Configuraciones</string>
     <string name="change_language">Cambiar Idioma</string>
     <string name="back">Atrás</string>
-    <string name="choose_a_language" translatable="false">Elegir un Idioma</string>
-    <string name="cancel" translatable="false">Cancelar</string>
+    <string name="choose_a_language" translatable="false" tools:ignore="Untranslatable">Elegir un Idioma</string>
+    <string name="cancel" translatable="false" tools:ignore="Untranslatable">Cancelar</string>
     <string name="parking_budget_simulator">Simulador de Presupuesto de Estacionamiento</string>
     <string name="chat">Chat</string>
     <string name="submit_a_review">Enviar una Reseña</string>
@@ -155,7 +153,7 @@
     <string name="error_submitting_review">Error al enviar la reseña</string>
     <string name="please_provide_a_rating_and_comment">Por favor, proporcione una calificación y un comentario</string>
     <string name="average_rating">Calificación Promedio: %1$s</string>
-    <string name="total_reviews">Total de Reseñas: %1$s</string>
+    <string name="total_reviews" tools:ignore="StringFormatMatches">Total de Reseñas: %1$s</string>
     <string name="error_fetching_reviews">Error al obtener las reseñas</string>
     <string name="dogwood_parking_lot">Estacionamiento Dogwood</string>
     <string name="tivoli_parking_lot">Estacionamiento Tivoli</string>
@@ -173,7 +171,7 @@
     <string name="are_you_sure_you_want_to_change_the_language">¿Está seguro de que desea cambiar el idioma?</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
-    <string name="selected">Seleccionado: %1$s</string>
+    <string name="selected" tools:ignore="PrivateResource">Seleccionado: %1$s</string>
     <string name="please_describe_your_petition">Por favor, describe tu petición.</string>
     <string name="petition_submitted_successfully">Petición enviada con éxito.</string>
     <string name="failed_to_submit_petition">Error al enviar la petición: %1$s</string>

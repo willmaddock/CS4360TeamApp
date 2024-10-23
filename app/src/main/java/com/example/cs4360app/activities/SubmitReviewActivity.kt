@@ -142,7 +142,7 @@ class SubmitReviewActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("SetTextI18n", "DefaultLocale")
+    @SuppressLint("SetTextI18n", "DefaultLocale", "StringFormatMatches")
     private fun fetchReviews() {
         db.collection("reviews").get()
             .addOnSuccessListener { result ->

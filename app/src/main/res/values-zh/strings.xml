@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- 应用名称 -->
     <string name="app_name">AMP</string>
 
@@ -88,8 +88,6 @@
     <string name="describe_your_petition">描述您的请愿</string>
     <string name="suggest_a_grace_period_optional">建议宽限期（可选）</string>
     <string name="click_on_a_parking_lot_to_pay_for_parking">点击停车场进行支付。</string>
-    <string name="welcome_to">欢迎使用：</string>
-    <string name="auraria_mobile_parking">Auraria 移动停车</string>
     <string name="amount_paid_0_00">已支付金额：$0.00</string>
     <string name="time_remaining_00_00">剩余时间：00:00</string>
     <string name="parking_lot_name">停车场名称</string>
@@ -125,8 +123,8 @@
     <string name="settings">设置</string>
     <string name="change_language">更改语言</string>
     <string name="back">返回</string>
-    <string name="choose_a_language" translatable="false">选择语言</string>
-    <string name="cancel" translatable="false">取消</string>
+    <string name="choose_a_language" translatable="false" tools:ignore="Untranslatable">选择语言</string>
+    <string name="cancel" translatable="false" tools:ignore="Untranslatable">取消</string>
     <string name="parking_budget_simulator">停车预算模拟器</string>
     <string name="chat">聊天</string>
     <string name="submit_a_review">提交评价</string>
@@ -155,7 +153,7 @@
     <string name="error_submitting_review">提交评论时出错</string>
     <string name="please_provide_a_rating_and_comment">请提供评分和评论</string>
     <string name="average_rating">平均评分: %1$s</string>
-    <string name="total_reviews">总评论数: %1$s</string>
+    <string name="total_reviews" tools:ignore="StringFormatMatches">总评论数: %1$s</string>
     <string name="error_fetching_reviews">获取评论时出错</string>
     <string name="dogwood_parking_lot">狗木停车场</string>
     <string name="tivoli_parking_lot">提沃利停车场</string>
@@ -173,7 +171,7 @@
     <string name="are_you_sure_you_want_to_change_the_language">您确定要更改语言吗？</string>
     <string name="yes">是</string>
     <string name="no">否</string>
-    <string name="selected">已选择: %1$s</string>
+    <string name="selected" tools:ignore="PrivateResource">已选择: %1$s</string>
     <string name="please_describe_your_petition">请描述您的请愿。</string>
     <string name="petition_submitted_successfully">请愿提交成功。</string>
     <string name="failed_to_submit_petition">提交请愿失败: %1$s</string>
