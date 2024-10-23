@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Application Name -->
+    <string name="app_name">AMP</string>
+
+    <!-- Login -->
+
+    <!-- Buttons and Actions -->
+    <string name="submit">Einreichen</string>
+
+    <!-- Survey and Review -->
+    <string name="survey_title">Parkplatzumfrage</string>
+
+    <!-- Text for survey questions -->
+    <string name="role_prompt">Ihre Rolle</string>
+    <string name="priorities_prompt">Was sind Ihre wichtigsten Prioritäten für eine Parkplatz-App?</string>
+    <string name="real_time_updates_prompt">Wie wichtig ist es, dass die App Echtzeit-Updates zur Parkplatzverfügbarkeit bietet?</string>
+    <string name="reserve_parking_value_prompt">Wie wichtig ist der Wert der Reservierung?</string>
+    <string name="event_integration_prompt">Wie wichtig ist die Integration von Veranstaltungen?</string>
+    <string name="user_reviews_prompt">Wie wichtig sind Nutzerbewertungen?</string>
+    <string name="find_car_feature_prompt">Wie interessiert sind Sie an einer Funktion, um Ihr geparktes Auto zu finden?</string>
+    <string name="app_usability_prompt">Wie würden Sie die Benutzerfreundlichkeit der App bewerten?</string>
+    <string name="customer_support_prompt">Wie wichtig ist Ihnen der Kundensupport?</string>
+    <string name="biggest_concern_prompt">Was ist Ihre größte Sorge bezüglich der App?</string>
+    <string name="additional_features_prompt">Gibt es zusätzliche Funktionen, die Sie sehen möchten?</string>
+    <string name="other_comments_prompt">Weitere Kommentare oder Vorschläge?</string>
+
+    <!-- Checkboxes labels -->
+    <string name="real_time_updates">Echtzeit-Updates zur Parkplatzverfügbarkeit</string>
+    <string name="accurate_navigation">Genaue Navigation zu Parkplätzen</string>
+    <string name="notifications">Benachrichtigungen über den Status des Parkplatzes (z.B. voll, leer)</string>
+    <string name="event_integration">Integration mit Veranstaltungen auf dem Campus</string>
+    <string name="reservation_system">Reservierungssystem für Parkplätze</string>
+    <string name="user_reviews">Nutzerbewertungen und Bewertungen von Parkplätzen</string>
+    <string name="payment_options">Zahlungsoptionen für Parkgebühren</string>
+    <string name="parking_lot_features">Detaillierte Informationen zu Parkplatzeigenschaften (z.B. Sicherheit, Ausstattung)</string>
+
+    <!-- More feature options -->
+
+    <!-- Ensure these strings are defined -->
+    <string name="submit_review">Bewertung einreichen</string>
+
+    <!-- Map-related strings -->
+
+    <!-- Placeholder for API Key -->
+
+    <!-- Default text for review comments -->
+    <string name="title_activity_maps">Kartenaktivität</string>
+
+    <!-- Additional strings -->
+    <string name="biggest_concern_hint">Was ist Ihre größte Sorge?</string>
+    <string name="additional_features_hint">Zusätzliche Funktionen, die Sie sehen möchten:</string>
+    <string name="other_comments_hint">Weitere Kommentare:</string>
+
+    <!-- Additional missing strings -->
+    <string name="parking_lot_details">Parkplatzdetails</string>
+    <string name="rate_specific_aspects">Spezifische Aspekte bewerten</string>
+    <string name="write_your_review_here">Schreiben Sie hier Ihre Bewertung…</string>
+    <string name="upload_photo">Foto hochladen</string>
+
+    <!-- Petition Title -->
+    <string name="petition_title">Petition einreichen</string>
+
+    <!-- Pay Parking Lot -->
+
+    <!-- Pay Parking Meter -->
+    <string name="pay_parking_meter">Parkuhr bezahlen</string>
+
+    <!-- Select Parking Lot Title -->
+    <string name="select_parking_lot_title">Parkplatz auswählen</string>
+
+    <!-- Notifications Title -->
+    <string name="notifications_title">Benachrichtigungen</string>
+
+    <!-- Navigation Drawer Strings -->
+
+    <!-- Additional Payment and Timer Strings -->
+    <!-- %1$s can be replaced with the amount -->
+    <string name="event_title">Veranstaltungstitel</string>
+    <string name="event_details_go_here">Veranstaltungsdetails hier einfügen.</string>
+    <string name="register_for_event">Für Veranstaltung anmelden</string>
+    <string name="zoom_in">Vergrößern</string>
+    <string name="zoom_out">Verkleinern</string>
+    <string name="info_icon_desc">Info-Symbol zur Erklärung der Markierungsfarben</string>
+    <string name="open_drawer">Navigationsleiste öffnen</string>
+    <string name="parking_details">Parkplatzdetails</string>
+    <string name="here_you_will_see_details_about_the_selected_parking_spot">Hier sehen Sie Details zum ausgewählten Parkplatz.</string>
+    <string name="describe_your_petition">Beschreiben Sie Ihre Petition</string>
+    <string name="suggest_a_grace_period_optional">Schlagen Sie eine Karenzzeit vor (optional)</string>
+    <string name="click_on_a_parking_lot_to_pay_for_parking">Klicken Sie auf einen Parkplatz, um für das Parken zu bezahlen.</string>
+    <string name="welcome_to">Willkommen bei:</string>
+    <string name="auraria_mobile_parking">Auraria Mobile Parking</string>
+    <string name="amount_paid_0_00">Bezahlt: 0,00 $</string>
+    <string name="time_remaining_00_00">Verbleibende Zeit: 00:00</string>
+    <string name="parking_lot_name">Parkplatzname</string>
+    <string name="cost_0_0">Kosten: 0,0 $</string>
+    <string name="rating_0_0">Bewertung: 0,0</string>
+    <string name="take_a_survey">An einer Umfrage teilnehmen</string>
+    <string name="submit_a_petition">Petition einreichen</string>
+    <string name="filter">Filter</string>
+    <string name="filter_parking_options">Parkoptionen filtern</string>
+    <string name="cost_filter">Kostenfilter</string>
+    <string name="availability_filter">Verfügbarkeitsfilter</string>
+    <string name="proximity_filter">Entfernungsfilter</string>
+    <string name="rating_filter">Bewertungsfilter</string>
+    <string name="address_filter">Adressfilter</string>
+    <string name="apply_filters">Filter anwenden</string>
+    <string name="proximity_0_ft">Entfernung: 0 ft</string>
+    <string name="cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range">Kosten: Wählen Sie diesen Filter aus, um Parkplätze in einem bestimmten Preisspektrum anzuzeigen.</string>
+    <string name="availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full">Verfügbarkeit: Wählen Sie diesen Filter aus, um Parkplätze anzuzeigen, die mindestens zu einem bestimmten Prozentsatz belegt sind.</string>
+    <string name="proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location">Entfernung: Wählen Sie diesen Filter aus, um Parkplätze in einer bestimmten Entfernung von Ihrem Standort anzuzeigen.</string>
+    <string name="rating_select_this_filter_to_show_parking_lots_based_on_their_ratings">Bewertung: Wählen Sie diesen Filter aus, um Parkplätze basierend auf deren Bewertungen anzuzeigen.</string>
+    <string name="address_select_this_filter_to_show_parking_lots_with_their_respective_addresses">Adresse: Wählen Sie diesen Filter aus, um Parkplätze mit deren jeweiligen Adressen anzuzeigen.</string>
+    <string name="view_parking_timer_simulator">Parkuhr-Simulator anzeigen</string>
+    <string name="selected_time_0h_0m">Gewählte Zeit: 0h 0m</string>
+    <string name="start_budget_simulator">Budgetsimulator starten</string>
+    <string name="select_semester_start_and_end_dates">Wählen Sie Start- und Enddaten des Semesters</string>
+    <string name="start_date">Startdatum:</string>
+    <string name="select_start_date">Startdatum auswählen</string>
+    <string name="end_date">Enddatum:</string>
+    <string name="select_end_date">Enddatum auswählen</string>
+    <string name="parking_meter_simulator">Parkuhr-Simulator</string>
+    <string name="parking_lot_chosen">Ausgewählter Parkplatz:</string>
+    <string name="filter_options_are_based_on_historical_data_and_ai_simulations">Filteroptionen basieren auf historischen Daten und KI-Simulationen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="change_language">Sprache ändern</string>
+    <string name="back">Zurück</string>
+    <string name="choose_a_language" translatable="false">Sprache wählen</string>
+    <string name="cancel" translatable="false">Abbrechen</string>
+    <string name="parking_budget_simulator">Parkbudget-Simulator</string>
+    <string name="chat">Chat</string>
+    <string name="submit_a_review">Bewertung einreichen</string>
+    <string name="Notifications">Benachrichtigungen</string>
+    <string name="back_to_maps">Zurück zu Karten</string>
+    <string name="total_reviews_0">Gesamtbewertungen: 0</string>
+    <string name="average_rating_0_0">Durchschnittliche Bewertung: 0,0</string>
+    <string name="submit_petition">Petition einreichen</string>
+    <string name="total_cost_0_00">Gesamtkosten: 0,00 $</string>
+    <string name="cost_for_2_hours_30_minutes_5_35">Kosten für 2 Stunden 30 Minuten: 5,35 $</string>
+    <string name="confirm">Bestätigen</string>
+    <string name="select_budget_type">Budgettyp wählen</string>
+    <string name="daily_budget">Tagesbudget</string>
+    <string name="semester_budget">Semesterbudget</string>
+    <string name="next">Weiter</string>
+    <string name="time_remaining_02d_02d">Verbleibende Zeit: %02d:%02d</string>
+    <string name="amount_paid_2f">Gezahlter Betrag: %.2f $</string>
+    <string name="time_s_up">Die Zeit ist um!</string>
+    <string name="parking_time_expired">Parkzeit abgelaufen!</string>
+    <string name="payment_active">Zahlung aktiv</string>
+    <string name="ease_of_finding_spot">Leichtigkeit des Auffindens eines Platzes</string>
+    <string name="security">Sicherheit</string>
+    <string name="cleanliness">Sauberkeit</string>
+    <string name="please_select_a_parking_lot">Bitte wählen Sie einen Parkplatz</string>
+    <string name="review_submitted_successfully">Bewertung erfolgreich eingereicht</string>
+    <string name="error_submitting_review">Fehler beim Einreichen der Bewertung</string>
+    <string name="please_provide_a_rating_and_comment">Bitte geben Sie eine Bewertung und einen Kommentar ab</string>
+    <string name="average_rating">Durchschnittliche Bewertung: %1$s</string>
+    <string name="total_reviews">Gesamtbewertungen: %1$s</string>
+    <string name="error_fetching_reviews">Fehler beim Abrufen der Bewertungen</string>
+    <string name="dogwood_parking_lot">Dogwood-Parkplatz</string>
+    <string name="tivoli_parking_lot">Tivoli-Parkplatz</string>
+    <string name="cherry_parking_lot">Cherry-Parkplatz</string>
+    <string name="spruce_parking_lot">Spruce-Parkplatz</string>
+    <string name="fir_parking_lot">Fir-Parkplatz</string>
+    <string name="nutmeg_lot">Nutmeg-Parkplatz</string>
+    <string name="boulder_creek">Boulder Creek</string>
+    <string name="elm_parking_lot">Elm-Parkplatz</string>
+    <string name="_7th_street_garage">7th Street Garage</string>
+    <string name="english">Englisch</string>
+    <string name="spanish">Spanisch</string>
+    <string name="chinese">Chinesisch</string>
+    <string name="german">Deutsch</string>
+    <string name="french">Französisch</string>
+    <string name="confirm_language_change">Sprachänderung bestätigen</string>
+    <string name="are_you_sure_you_want_to_change_the_language">Sind Sie sicher, dass Sie die Sprache ändern möchten?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="selected">Ausgewählt: %1$s</string>
+    <string name="please_describe_your_petition">Bitte beschreiben Sie Ihre Petition.</string>
+    <string name="petition_submitted_successfully">Petition erfolgreich eingereicht.</string>
+    <string name="failed_to_submit_petition">Fehler beim Einreichen der Petition: %1$s</string>
+    <string name="invalid_date_range">Ungültiger Datumsbereich.</string>
+    <string name="start_and_end_dates_are_required_for_semester_budget">Start- und Enddaten sind für das Semesterbudget erforderlich.</string>
+    <string name="starting_budget_simulation_for_over_minutes">Beginn der Budgetsimulation für $%1$s über %2$s Minuten!</string>
+    <string name="days_selected">Ausgewählte Tage: %1$s</string>
+    <string name="total_cost">Gesamtkosten: $%1$s</string>
+    <string name="cost_per_day">Kosten pro Tag: $%1$s</string>
+    <string name="please_select_both_start_and_end_dates_for_the_semester">Bitte wählen Sie sowohl Start- als auch Enddatum für das Semester aus.</string>
+    <string name="please_select_a_budget_type">Bitte wählen Sie einen Budgettyp aus.</string>
+    <string name="don_t_forget_to_check_your_parking_time">Vergessen Sie nicht, Ihre Parkzeit zu überprüfen!</string>
+    <string name="new_events_available_in_your_area">Neue Veranstaltungen in Ihrer Umgebung verfügbar.</string>
+    <string name="the_app_has_been_updated_to_version_1_1">Die App wurde auf Version 1.1 aktualisiert.</string>
+    <string name="parking_reminder">Park-Erinnerung</string>
+    <string name="event_alert">Veranstaltungsalarm</string>
+    <string name="system_update">Systemaktualisierung</string>
+    <string name="a_system_update_is_available">Eine Systemaktualisierung ist verfügbar.</string>
+    <string name="unknown_notification_clicked">Unbekannte Benachrichtigung angeklickt.</string>
+    <string name="no_title">Kein Titel</string>
+    <string name="no_date">Kein Datum</string>
+    <string name="no_location">Kein Ort</string>
+    <string name="no_description">Keine Beschreibung</string>
+    <string name="registered_for">Registriert für %1$s</string>
+</resources>
