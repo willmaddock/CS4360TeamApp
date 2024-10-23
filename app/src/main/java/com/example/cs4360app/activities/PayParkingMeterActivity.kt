@@ -54,7 +54,8 @@ class PayParkingMeterActivity : AppCompatActivity() {
 
             // Validate inputs
             if (timeInMinutes < 15) {
-                Toast.makeText(this, "Parking duration must be at least 15 minutes.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.parking_duration_must_be_at_least_15_minutes), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
