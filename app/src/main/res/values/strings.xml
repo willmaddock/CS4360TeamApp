@@ -167,7 +167,6 @@
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
     <string name="chinese">Chinese</string>
-    <string name="french">French</string>
     <string name="german">German</string>
     <string name="confirm_language_change">Confirm Language Change</string>
     <string name="are_you_sure_you_want_to_change_the_language">Are you sure you want to change the language?</string>
@@ -198,4 +197,5 @@
     <string name="no_location">No Location</string>
     <string name="no_description">No Description</string>
     <string name="registered_for">Registered for %1$s</string>
+    <string name="parking_duration_must_be_at_least_15_minutes">Parking duration must be at least 15 minutes.</string>
 </resources>

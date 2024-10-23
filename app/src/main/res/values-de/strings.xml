@@ -88,8 +88,6 @@
     <string name="describe_your_petition">Beschreiben Sie Ihre Petition</string>
     <string name="suggest_a_grace_period_optional">Schlagen Sie eine Karenzzeit vor (optional)</string>
     <string name="click_on_a_parking_lot_to_pay_for_parking">Klicken Sie auf einen Parkplatz, um für das Parken zu bezahlen.</string>
-    <string name="welcome_to">Willkommen bei:</string>
-    <string name="auraria_mobile_parking">Auraria Mobile Parking</string>
     <string name="amount_paid_0_00">Bezahlt: 0,00 $</string>
     <string name="time_remaining_00_00">Verbleibende Zeit: 00:00</string>
     <string name="parking_lot_name">Parkplatzname</string>
@@ -125,8 +123,8 @@
     <string name="settings">Einstellungen</string>
     <string name="change_language">Sprache ändern</string>
     <string name="back">Zurück</string>
-    <string name="choose_a_language" translatable="false">Sprache wählen</string>
-    <string name="cancel" translatable="false">Abbrechen</string>
+    <string name="choose_a_language" translatable="false" tools:ignore="Untranslatable">Sprache wählen</string>
+    <string name="cancel" translatable="false" tools:ignore="Untranslatable">Abbrechen</string>
     <string name="parking_budget_simulator">Parkbudget-Simulator</string>
     <string name="chat">Chat</string>
     <string name="submit_a_review">Bewertung einreichen</string>
@@ -170,12 +168,11 @@
     <string name="spanish">Spanisch</string>
     <string name="chinese">Chinesisch</string>
     <string name="german">Deutsch</string>
-    <string name="french">Französisch</string>
     <string name="confirm_language_change">Sprachänderung bestätigen</string>
     <string name="are_you_sure_you_want_to_change_the_language">Sind Sie sicher, dass Sie die Sprache ändern möchten?</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
-    <string name="selected">Ausgewählt: %1$s</string>
+    <string name="selected" tools:ignore="PrivateResource">Ausgewählt: %1$s</string>
     <string name="please_describe_your_petition">Bitte beschreiben Sie Ihre Petition.</string>
     <string name="petition_submitted_successfully">Petition erfolgreich eingereicht.</string>
     <string name="failed_to_submit_petition">Fehler beim Einreichen der Petition: %1$s</string>
@@ -200,4 +197,5 @@
     <string name="no_location">Kein Ort</string>
     <string name="no_description">Keine Beschreibung</string>
     <string name="registered_for">Registriert für %1$s</string>
+    <string name="parking_duration_must_be_at_least_15_minutes">Die Parkdauer muss mindestens 15 Minuten betragen.</string>
 </resources>

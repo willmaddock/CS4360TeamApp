@@ -196,4 +196,6 @@
     <string name="no_location">Sin Ubicación</string>
     <string name="no_description">Sin Descripción</string>
     <string name="registered_for">Registrado para %1$s</string>
+    <string name="german">Alemán</string>
+    <string name="parking_duration_must_be_at_least_15_minutes">La duración del estacionamiento debe ser de al menos 15 minutos.</string>
 </resources>
