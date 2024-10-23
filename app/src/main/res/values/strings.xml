@@ -167,6 +167,8 @@
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
     <string name="chinese">Chinese</string>
+    <string name="french">French</string>
+    <string name="german">German</string>
     <string name="confirm_language_change">Confirm Language Change</string>
     <string name="are_you_sure_you_want_to_change_the_language">Are you sure you want to change the language?</string>
     <string name="yes">Yes</string>
