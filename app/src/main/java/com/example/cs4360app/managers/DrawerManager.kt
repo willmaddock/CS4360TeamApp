@@ -46,6 +46,10 @@ object DrawerManager : BaseActivity(){
                     context.startActivity(Intent(context, SurveyActivity::class.java))
                     true
                 }
+                R.id.nav_weather -> {
+                    context.startActivity(Intent(context, WeatherActivity::class.java))
+                    true
+                }
                 else -> false
             }
         }

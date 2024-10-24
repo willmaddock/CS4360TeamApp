@@ -222,4 +222,10 @@
     <string name="menu_submit_petition">Submit a Petition</string>
     <string name="menu_submit_review">Submit a Review</string>
     <string name="menu_take_survey">Take a Survey</string>
+    <string name="weather_updates">Weather Updates</string>
+
+    <string name="back_button">Back</string>
+    <string name="parking_lot_title">Select Parking</string>
+    <string name="parking_lot_cost">Cost</string>
+    <string name="parking_lot_rating">Rating</string>
 </resources>

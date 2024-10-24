@@ -101,11 +101,23 @@ dependencies {
     // Google Sign-In
     implementation(libs.play.services.auth)
     implementation(libs.generativeai)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     // Testing dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("com.github.Gurupreet:FontAwesomeCompose:1.0.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.33.1-alpha")
 }
 
 // Apply the Google services Gradle plugin
