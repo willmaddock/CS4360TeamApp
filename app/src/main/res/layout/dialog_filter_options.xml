@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/cost_select_this_filter_to_show_parking_lots_within_a_certain_price_range"
-        android:textColor="@color/orange"
+        android:textColor="@color/teal_200"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="12dp" />
 
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/availability_select_this_filter_to_show_parking_lots_that_are_at_least_a_certain_percentage_full"
-        android:textColor="@color/orange"
+        android:textColor="@color/teal_200"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="12dp" />
 
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/proximity_select_this_filter_to_show_parking_lots_that_are_within_a_certain_distance_from_your_location"
-        android:textColor="@color/orange"
+        android:textColor="@color/teal_200"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="12dp" />
 
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/rating_select_this_filter_to_show_parking_lots_based_on_their_ratings"
-        android:textColor="@color/orange"
+        android:textColor="@color/teal_200"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="12dp" />
 
@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/address_select_this_filter_to_show_parking_lots_with_their_respective_addresses"
-        android:textColor="@color/orange"
+        android:textColor="@color/teal_200"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="12dp" />
 

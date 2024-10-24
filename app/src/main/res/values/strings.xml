@@ -78,7 +78,6 @@
     <!-- %1$s can be replaced with the amount -->
     <string name="event_title">Event Title</string>
     <string name="event_details_go_here">Event Details go here.</string>
-    <string name="register_for_event">Register for Event</string>
     <string name="zoom_in">Zoom In</string>
     <string name="zoom_out">Zoom Out</string>
     <string name="info_icon_desc">Info icon to explain marker colors</string>
@@ -192,10 +191,9 @@
     <string name="system_update">System Update</string>
     <string name="a_system_update_is_available">A system update is available.</string>
     <string name="unknown_notification_clicked">Unknown notification clicked.</string>
-    <string name="no_title">No Title</string>
-    <string name="no_date">No Date</string>
-    <string name="no_location">No Location</string>
-    <string name="no_description">No Description</string>
-    <string name="registered_for">Registered for %1$s</string>
     <string name="parking_duration_must_be_at_least_15_minutes">Parking duration must be at least 15 minutes.</string>
+    <string name="error_fetching_data">Error fetching event data. Please try again later.</string>
+    <string name="no_venue_id_provided">No venue ID provided</string>
+    <string name="team_event_alert">Team Event Alert</string>
+    <string name="upcoming_team_events">Upcoming Team Events</string>
 </resources>

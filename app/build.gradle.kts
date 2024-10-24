@@ -7,13 +7,13 @@ plugins {
 
 android {
     namespace = "com.example.cs4360app"
-    compileSdk = 34
+    compileSdk = 34 // Updated to the latest version (34)
 
     defaultConfig {
         applicationId = "com.example.cs4360app"
-        minSdk = 25
+        minSdk = 25 // Maintain the minimum SDK version
         //noinspection OldTargetApi
-        targetSdk = 34
+        targetSdk = 34 // Updated to the latest version (34)
         versionCode = 1
         versionName = "1.0"
 
@@ -101,6 +101,10 @@ dependencies {
     // Google Sign-In
     implementation(libs.play.services.auth)
     implementation(libs.generativeai)
+
+    // Retrofit for networking and Gson for JSON parsing
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     // Testing dependencies
     testImplementation(libs.junit)
