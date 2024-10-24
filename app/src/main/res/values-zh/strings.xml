@@ -78,7 +78,6 @@
     <!-- %1$s 可以替换为金额 -->
     <string name="event_title">活动标题</string>
     <string name="event_details_go_here">活动详情在此。</string>
-    <string name="register_for_event">注册活动</string>
     <string name="zoom_in">放大</string>
     <string name="zoom_out">缩小</string>
     <string name="info_icon_desc">说明标记颜色的信息图标</string>
@@ -191,16 +190,10 @@
     <string name="system_update">系统更新</string>
     <string name="a_system_update_is_available">系统更新可用。</string>
     <string name="unknown_notification_clicked">未知通知被点击。</string>
-    <string name="no_title">无标题</string>
-    <string name="no_date">无日期</string>
-    <string name="no_location">无地点</string>
-    <string name="no_description">无描述</string>
-    <string name="registered_for">已注册 %1$s</string>
     <string name="german">德语</string>
     <string name="parking_duration_must_be_at_least_15_minutes">停车时长必须至少为15分钟。</string>
-    <string name="event_location_go_here">活动地点将在这里显示。</string>
-    <string name="event_date_go_here">活动日期将在这里显示。</string>
     <string name="error_fetching_data">获取事件数据时出错。请稍后再试。</string>
-    <string name="no_events_found">未找到活动</string>
     <string name="no_venue_id_provided">未提供场馆 ID</string>
+    <string name="team_event_alert">团队活动提醒</string>
+    <string name="upcoming_team_events">即将到来的团队活动</string>
 </resources>

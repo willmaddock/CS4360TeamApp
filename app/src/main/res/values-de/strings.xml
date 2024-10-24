@@ -78,7 +78,6 @@
     <!-- %1$s can be replaced with the amount -->
     <string name="event_title">Veranstaltungstitel</string>
     <string name="event_details_go_here">Veranstaltungsdetails hier einfügen.</string>
-    <string name="register_for_event">Für Veranstaltung anmelden</string>
     <string name="zoom_in">Vergrößern</string>
     <string name="zoom_out">Verkleinern</string>
     <string name="info_icon_desc">Info-Symbol zur Erklärung der Markierungsfarben</string>
@@ -192,15 +191,9 @@
     <string name="system_update">Systemaktualisierung</string>
     <string name="a_system_update_is_available">Eine Systemaktualisierung ist verfügbar.</string>
     <string name="unknown_notification_clicked">Unbekannte Benachrichtigung angeklickt.</string>
-    <string name="no_title">Kein Titel</string>
-    <string name="no_date">Kein Datum</string>
-    <string name="no_location">Kein Ort</string>
-    <string name="no_description">Keine Beschreibung</string>
-    <string name="registered_for">Registriert für %1$s</string>
     <string name="parking_duration_must_be_at_least_15_minutes">Die Parkdauer muss mindestens 15 Minuten betragen.</string>
-    <string name="event_location_go_here">Der Veranstaltungsort wird hier angezeigt.</string>
-    <string name="event_date_go_here">Das Veranstaltungsdatum wird hier angezeigt.</string>
     <string name="error_fetching_data">Fehler beim Abrufen der Veranstaltungsdaten. Bitte versuchen Sie es später erneut.</string>
-    <string name="no_events_found">Keine Veranstaltungen gefunden</string>
     <string name="no_venue_id_provided">Keine Veranstaltungs-ID angegeben</string>
+    <string name="team_event_alert">Team-Event-Benachrichtigung</string>
+    <string name="upcoming_team_events">Bevorstehende Team-Events</string>
 </resources>

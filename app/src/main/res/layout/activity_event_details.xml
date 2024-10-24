@@ -10,7 +10,6 @@
     tools:ignore="Overdraw">
 
     <TextView
-        android:id="@+id/eventTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/event_title"

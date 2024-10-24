@@ -78,7 +78,6 @@
     <!-- %1$s puede ser reemplazado con la cantidad -->
     <string name="event_title">Título del Evento</string>
     <string name="event_details_go_here">Detalles del Evento aquí.</string>
-    <string name="register_for_event">Registrarse para el Evento</string>
     <string name="zoom_in">Acercar</string>
     <string name="zoom_out">Alejar</string>
     <string name="info_icon_desc">Icono de información para explicar los colores de los marcadores</string>
@@ -191,16 +190,10 @@
     <string name="system_update">Actualización del Sistema</string>
     <string name="a_system_update_is_available">Hay una actualización del sistema disponible.</string>
     <string name="unknown_notification_clicked">Notificación desconocida clicada.</string>
-    <string name="no_title">Sin Título</string>
-    <string name="no_date">Sin Fecha</string>
-    <string name="no_location">Sin Ubicación</string>
-    <string name="no_description">Sin Descripción</string>
-    <string name="registered_for">Registrado para %1$s</string>
     <string name="german">Alemán</string>
     <string name="parking_duration_must_be_at_least_15_minutes">La duración del estacionamiento debe ser de al menos 15 minutos.</string>
-    <string name="event_location_go_here">La ubicación del evento irá aquí.</string>
-    <string name="event_date_go_here">La fecha del evento irá aquí.</string>
     <string name="error_fetching_data">Error al obtener los datos del evento. Por favor, inténtelo de nuevo más tarde.</string>
-    <string name="no_events_found">No se encontraron eventos.</string>
     <string name="no_venue_id_provided">No se proporcionó ningún ID de lugar</string>
+    <string name="team_event_alert">Alerta de Evento del Equipo</string>
+    <string name="upcoming_team_events">Próximos Eventos del Equipo</string>
 </resources>
