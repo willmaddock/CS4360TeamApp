@@ -198,4 +198,9 @@
     <string name="no_description">No Description</string>
     <string name="registered_for">Registered for %1$s</string>
     <string name="parking_duration_must_be_at_least_15_minutes">Parking duration must be at least 15 minutes.</string>
+    <string name="event_location_go_here">Event location will go here.</string>
+    <string name="event_date_go_here">Event date will go here.</string>
+    <string name="error_fetching_data">Error fetching event data. Please try again later.</string>
+    <string name="no_events_found">No events found</string>
+    <string name="no_venue_id_provided">No venue ID provided</string>
 </resources>

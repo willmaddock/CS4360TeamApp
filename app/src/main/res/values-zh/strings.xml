@@ -198,4 +198,9 @@
     <string name="registered_for">已注册 %1$s</string>
     <string name="german">德语</string>
     <string name="parking_duration_must_be_at_least_15_minutes">停车时长必须至少为15分钟。</string>
+    <string name="event_location_go_here">活动地点将在这里显示。</string>
+    <string name="event_date_go_here">活动日期将在这里显示。</string>
+    <string name="error_fetching_data">获取事件数据时出错。请稍后再试。</string>
+    <string name="no_events_found">未找到活动</string>
+    <string name="no_venue_id_provided">未提供场馆 ID</string>
 </resources>

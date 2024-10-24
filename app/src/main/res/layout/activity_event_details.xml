@@ -9,31 +9,22 @@
     android:layout_marginBottom="8dp"
     tools:ignore="Overdraw">
 
-<TextView
-android:id="@+id/eventTitle"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="@string/event_title"
-android:textSize="24sp"
-android:textStyle="bold"
-android:textColor="@android:color/white"
-    android:layout_marginBottom="4dp" /> <!-- Spacing between title and details -->
+    <TextView
+        android:id="@+id/eventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/event_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="4dp" />
 
-<TextView
-android:id="@+id/eventDetails"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="@string/event_details_go_here"
-android:textSize="16sp"
-android:textColor="@android:color/white"
-    android:layout_marginTop="8dp" />
-
-<Button
-android:id="@+id/registerButton"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="@string/register_for_event"
-android:layout_marginTop="16dp"
-android:backgroundTint="@color/teal_200"
-    android:textColor="@android:color/white" /> <!-- Ensures button text visibility -->
-    </LinearLayout>
+    <TextView
+        android:id="@+id/eventDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/event_details_go_here"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp" />
+</LinearLayout>

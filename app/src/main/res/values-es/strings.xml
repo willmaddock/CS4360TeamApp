@@ -198,4 +198,9 @@
     <string name="registered_for">Registrado para %1$s</string>
     <string name="german">Alemán</string>
     <string name="parking_duration_must_be_at_least_15_minutes">La duración del estacionamiento debe ser de al menos 15 minutos.</string>
+    <string name="event_location_go_here">La ubicación del evento irá aquí.</string>
+    <string name="event_date_go_here">La fecha del evento irá aquí.</string>
+    <string name="error_fetching_data">Error al obtener los datos del evento. Por favor, inténtelo de nuevo más tarde.</string>
+    <string name="no_events_found">No se encontraron eventos.</string>
+    <string name="no_venue_id_provided">No se proporcionó ningún ID de lugar</string>
 </resources>

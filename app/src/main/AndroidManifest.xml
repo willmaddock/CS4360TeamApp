@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.cs4360app">
 
     <!-- Permissions -->
@@ -15,119 +16,123 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CS4360App"> <!-- Default Theme -->
+        android:theme="@style/Theme.CS4360App"
+    android:enableOnBackInvokedCallback="true"
+        tools:targetApi="tiramisu">
 
-        <!-- API Key for Google Maps -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+    <!-- API Key for Google Maps -->
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="@string/google_maps_key" />
 
-        <!-- Facebook App ID -->
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+    <!-- Splash Activity as Launcher -->
+    <activity
+        android:name=".activities.SplashActivity"
+        android:exported="true"
+        android:theme="@style/Theme.AMP.SplashScreen"> <!-- Splash Screen Theme -->
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-        <!-- Splash Activity as Launcher -->
-        <activity
-            android:name=".activities.SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AMP.SplashScreen"> <!-- Splash Screen Theme -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <!-- Other Activities -->
+    <activity
+        android:name=".activities.MapsActivity"
+        android:exported="true"
+        android:label="@string/title_activity_maps"
+        android:theme="@style/Theme.CS4360App" />
 
-        <!-- Other Activities -->
-        <activity
-            android:name=".activities.MapsActivity"
-            android:exported="true"
-            android:label="@string/title_activity_maps"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.PayParkingMeterActivity"
+        android:exported="true"
+        android:label="@string/pay_parking_meter"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.PayParkingMeterActivity"
-            android:exported="true"
-            android:label="@string/pay_parking_meter"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.SurveyActivity"
+        android:exported="false"
+        android:label="@string/survey_title"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.SurveyActivity"
-            android:exported="false"
-            android:label="@string/survey_title"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.SubmitReviewActivity"
+        android:exported="false"
+        android:label="@string/submit_review"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.SubmitReviewActivity"
-            android:exported="false"
-            android:label="@string/submit_review"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.PetitionActivity"
+        android:exported="true"
+        android:label="@string/petition_title"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.PetitionActivity"
-            android:exported="true"
-            android:label="@string/petition_title"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.SelectParkingLotActivity"
+        android:exported="true"
+        android:label="@string/select_parking_lot_title"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.SelectParkingLotActivity"
-            android:exported="true"
-            android:label="@string/select_parking_lot_title"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.NotificationsActivity"
+        android:exported="true"
+        android:label="@string/notifications_title"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.NotificationsActivity"
-            android:exported="true"
-            android:label="@string/notifications_title"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.ParkingDetailsActivity"
+        android:exported="true"
+        android:label="@string/parking_lot_details"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.ParkingDetailsActivity"
-            android:exported="true"
-            android:label="@string/parking_lot_details"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.EventDetailsActivity"
+        android:exported="true"
+        android:label="Event Details"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.EventDetailsActivity"
-            android:exported="true"
-            android:label="Event Details"
-            android:theme="@style/Theme.CS4360App" />
+    <!-- Timer Activity -->
+    <activity
+        android:name=".activities.TimerActivity"
+        android:exported="true"
+        android:label="Parking Timer"
+        android:theme="@style/Theme.CS4360App" />
 
-        <!-- Timer Activity -->
-        <activity
-            android:name=".activities.TimerActivity"
-            android:exported="true"
-            android:label="Parking Timer"
-            android:theme="@style/Theme.CS4360App" />
+    <!-- Chat Activity -->
+    <activity
+        android:name=".activities.ChatActivity"
+        android:exported="true"
+        android:label="Chat"
+        android:theme="@style/Theme.CS4360App" />
 
-        <!-- Chat Activity -->
-        <activity
-            android:name=".activities.ChatActivity"
-            android:exported="true"
-            android:label="Chat"
-            android:theme="@style/Theme.CS4360App" />
+    <!-- New ParkingBudgetSimulatorActivity -->
+    <activity
+        android:name=".activities.ParkingBudgetSimulatorActivity"
+        android:exported="true"
+        android:label="Parking Budget Simulator"
+        android:theme="@style/Theme.CS4360App" />
 
-        <!-- New ParkingBudgetSimulatorActivity -->
-        <activity
-            android:name=".activities.ParkingBudgetSimulatorActivity"
-            android:exported="true"
-            android:label="Parking Budget Simulator"
-            android:theme="@style/Theme.CS4360App" />
+    <!-- New ParkingCostActivity -->
+    <activity
+        android:name=".activities.ParkingCostActivity"
+        android:exported="true"
+        android:label="Parking Cost"
+        android:theme="@style/Theme.CS4360App" />
 
-        <!-- New ParkingCostActivity -->
-        <activity
-            android:name=".activities.ParkingCostActivity"
-            android:exported="true"
-            android:label="Parking Cost"
-            android:theme="@style/Theme.CS4360App" />
+    <activity
+        android:name=".activities.SettingsActivity"
+        android:exported="true"
+        android:label="Settings"
+        android:theme="@style/Theme.CS4360App" />
 
-        <activity
-            android:name=".activities.SettingsActivity"
-            android:exported="true"
-            android:label="Settings"
-            android:theme="@style/Theme.CS4360App" />
+    <!-- Firebase Cloud Messaging Service -->
+    <service
+        android:name=".services.YourFirebaseMessagingService"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+    </service>
 
-        <!-- Firebase Cloud Messaging Service -->
-
-    </application>
-</manifest>
+</application>
+    </manifest>
