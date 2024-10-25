@@ -82,8 +82,6 @@
     <string name="zoom_out">Alejar</string>
     <string name="info_icon_desc">Icono de información para explicar los colores de los marcadores</string>
     <string name="open_drawer">Abrir Menú de Navegación</string>
-    <string name="parking_details">Detalles del Estacionamiento</string>
-    <string name="here_you_will_see_details_about_the_selected_parking_spot">Aquí verás detalles sobre el espacio de estacionamiento seleccionado.</string>
     <string name="describe_your_petition">Describe tu petición</string>
     <string name="suggest_a_grace_period_optional">Sugerir un período de gracia (opcional)</string>
     <string name="click_on_a_parking_lot_to_pay_for_parking">Haz clic en un estacionamiento para pagar.</string>
@@ -184,11 +182,7 @@
     <string name="please_select_a_budget_type">Por favor, selecciona un tipo de presupuesto.</string>
     <string name="don_t_forget_to_check_your_parking_time">¡No olvides revisar tu tiempo de estacionamiento!</string>
     <string name="new_events_available_in_your_area">Nuevos eventos disponibles en tu área.</string>
-    <string name="the_app_has_been_updated_to_version_1_1">La aplicación ha sido actualizada a la versión 1.1.</string>
-    <string name="parking_reminder">Recordatorio de Estacionamiento</string>
     <string name="event_alert">Alerta de Evento</string>
-    <string name="system_update">Actualización del Sistema</string>
-    <string name="a_system_update_is_available">Hay una actualización del sistema disponible.</string>
     <string name="unknown_notification_clicked">Notificación desconocida clicada.</string>
     <string name="german">Alemán</string>
     <string name="parking_duration_must_be_at_least_15_minutes">La duración del estacionamiento debe ser de al menos 15 minutos.</string>
@@ -196,4 +190,5 @@
     <string name="no_venue_id_provided">No se proporcionó ningún ID de lugar</string>
     <string name="team_event_alert">Alerta de Evento del Equipo</string>
     <string name="upcoming_team_events">Próximos Eventos del Equipo</string>
+    <string name="ms_parking_arena_access">Acceso al Estacionamiento y Arena de MSU</string> <!-- Spanish -->
 </resources>

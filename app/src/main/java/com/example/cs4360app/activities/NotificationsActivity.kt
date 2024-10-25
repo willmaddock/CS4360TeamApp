@@ -31,10 +31,9 @@ class NotificationsActivity : AppCompatActivity() {
         notificationsRecyclerView.layoutManager = LinearLayoutManager(this)
 
         val notifications = listOf(
-            Notification(getString(R.string.parking_reminder), getString(R.string.don_t_forget_to_check_your_parking_time)),
+            Notification(getString(R.string.ms_parking_arena_access), getString(R.string.don_t_forget_to_check_your_parking_time)),
             Notification(getString(R.string.event_alert), getString(R.string.new_events_available_in_your_area)),
-            Notification(getString(R.string.system_update), getString(R.string.the_app_has_been_updated_to_version_1_1)),
-            Notification(getString(R.string.team_event_alert), getString(R.string.upcoming_team_events)) // New team events notification
+            Notification(getString(R.string.team_event_alert), getString(R.string.upcoming_team_events)) // Updated notification list
         )
 
         notificationsAdapter = NotificationsAdapter(notifications) { notification ->
@@ -45,23 +44,20 @@ class NotificationsActivity : AppCompatActivity() {
     }
 
     private fun handleNotificationClick(notification: Notification) {
-        val venueId = getSavedVenueId() // Retrieve saved venue ID from preferences or database
+        val venueId = getSavedVenueId()
 
         when (notification.title) {
-            getString(R.string.parking_reminder) -> {
+            getString(R.string.ms_parking_arena_access) -> {
                 startActivity(Intent(this, ParkingDetailsActivity::class.java))
             }
             getString(R.string.event_alert) -> {
                 val intent = Intent(this, EventDetailsActivity::class.java)
                 intent.putExtra("EVENT_TITLE", notification.title)
-                intent.putExtra("VENUE_ID", venueId) // Use the dynamic venue ID
+                intent.putExtra("VENUE_ID", venueId)
                 startActivity(intent)
             }
             getString(R.string.team_event_alert) -> {
-                fetchTeamEvents() // Fetch events for the selected teams
-            }
-            getString(R.string.system_update) -> {
-                showToast(getString(R.string.a_system_update_is_available))
+                fetchTeamEvents()
             }
             else -> {
                 showToast(getString(R.string.unknown_notification_clicked))
@@ -69,8 +65,9 @@ class NotificationsActivity : AppCompatActivity() {
         }
     }
 
+    @Suppress("SameReturnValue")
     private fun getSavedVenueId(): String {
-        return "KovZpZAFaJeA" // Use the correct venue ID for Ball Arena
+        return "KovZpZAFaJeA"
     }
 
     private fun fetchTeamEvents() {
@@ -103,14 +100,14 @@ class NotificationsActivity : AppCompatActivity() {
     }
 
     private fun parseEvents(response: String?): String {
-        response?.let {
-            val jsonObject = JSONObject(it)
+        response?.let { responseData ->
+            val jsonObject = JSONObject(responseData)
             val eventsArray = jsonObject.optJSONObject("_embedded")?.optJSONArray("events")
             val events = StringBuilder()
 
-            eventsArray?.let {
-                for (i in 0 until it.length()) {
-                    val event = it.getJSONObject(i)
+            eventsArray?.let { array ->
+                for (i in 0 until array.length()) {
+                    val event = array.getJSONObject(i)
                     val eventName = event.optString("name", "Unnamed Event")
                     val eventDate = event.optJSONObject("dates")?.optJSONObject("start")?.optString("localDate", "Unknown Date")
                     events.append("Event: $eventName on $eventDate\n")

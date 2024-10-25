@@ -1,4 +1,4 @@
-package com.example.cs4360app.model
+package com.example.cs4360app.models
 
 data class EventResponse(
     val events: List<Event>

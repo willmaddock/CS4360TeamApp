@@ -82,8 +82,6 @@
     <string name="zoom_out">Verkleinern</string>
     <string name="info_icon_desc">Info-Symbol zur Erklärung der Markierungsfarben</string>
     <string name="open_drawer">Navigationsleiste öffnen</string>
-    <string name="parking_details">Parkplatzdetails</string>
-    <string name="here_you_will_see_details_about_the_selected_parking_spot">Hier sehen Sie Details zum ausgewählten Parkplatz.</string>
     <string name="describe_your_petition">Beschreiben Sie Ihre Petition</string>
     <string name="suggest_a_grace_period_optional">Schlagen Sie eine Karenzzeit vor (optional)</string>
     <string name="click_on_a_parking_lot_to_pay_for_parking">Klicken Sie auf einen Parkplatz, um für das Parken zu bezahlen.</string>
@@ -185,15 +183,12 @@
     <string name="please_select_a_budget_type">Bitte wählen Sie einen Budgettyp aus.</string>
     <string name="don_t_forget_to_check_your_parking_time">Vergessen Sie nicht, Ihre Parkzeit zu überprüfen!</string>
     <string name="new_events_available_in_your_area">Neue Veranstaltungen in Ihrer Umgebung verfügbar.</string>
-    <string name="the_app_has_been_updated_to_version_1_1">Die App wurde auf Version 1.1 aktualisiert.</string>
-    <string name="parking_reminder">Park-Erinnerung</string>
     <string name="event_alert">Veranstaltungsalarm</string>
-    <string name="system_update">Systemaktualisierung</string>
-    <string name="a_system_update_is_available">Eine Systemaktualisierung ist verfügbar.</string>
     <string name="unknown_notification_clicked">Unbekannte Benachrichtigung angeklickt.</string>
     <string name="parking_duration_must_be_at_least_15_minutes">Die Parkdauer muss mindestens 15 Minuten betragen.</string>
     <string name="error_fetching_data">Fehler beim Abrufen der Veranstaltungsdaten. Bitte versuchen Sie es später erneut.</string>
     <string name="no_venue_id_provided">Keine Veranstaltungs-ID angegeben</string>
     <string name="team_event_alert">Team-Event-Benachrichtigung</string>
     <string name="upcoming_team_events">Bevorstehende Team-Events</string>
+    <string name="ms_parking_arena_access">Zugang zu Parkplätzen und Arena von MSU</string> <!-- German -->
 </resources>

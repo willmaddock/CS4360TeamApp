@@ -1,6 +1,8 @@
+@file:Suppress("unused")
+
 package com.example.cs4360app.api
 
-import com.example.cs4360app.model.EventResponse
+import com.example.cs4360app.models.EventResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -82,8 +82,6 @@
     <string name="zoom_out">缩小</string>
     <string name="info_icon_desc">说明标记颜色的信息图标</string>
     <string name="open_drawer">打开导航抽屉</string>
-    <string name="parking_details">停车详情</string>
-    <string name="here_you_will_see_details_about_the_selected_parking_spot">您将在此查看所选停车位的详情。</string>
     <string name="describe_your_petition">描述您的请愿</string>
     <string name="suggest_a_grace_period_optional">建议宽限期（可选）</string>
     <string name="click_on_a_parking_lot_to_pay_for_parking">点击停车场进行支付。</string>
@@ -184,11 +182,7 @@
     <string name="please_select_a_budget_type">请选择预算类型。</string>
     <string name="don_t_forget_to_check_your_parking_time">别忘了检查你的停车时间！</string>
     <string name="new_events_available_in_your_area">您所在区域有新活动。</string>
-    <string name="the_app_has_been_updated_to_version_1_1">应用程序已更新至1.1版本。</string>
-    <string name="parking_reminder">停车提醒</string>
     <string name="event_alert">事件提醒</string>
-    <string name="system_update">系统更新</string>
-    <string name="a_system_update_is_available">系统更新可用。</string>
     <string name="unknown_notification_clicked">未知通知被点击。</string>
     <string name="german">德语</string>
     <string name="parking_duration_must_be_at_least_15_minutes">停车时长必须至少为15分钟。</string>
@@ -196,4 +190,5 @@
     <string name="no_venue_id_provided">未提供场馆 ID</string>
     <string name="team_event_alert">团队活动提醒</string>
     <string name="upcoming_team_events">即将到来的团队活动</string>
+    <string name="ms_parking_arena_access">MSU停车和场馆通行</string> <!-- Chinese -->
 </resources>
