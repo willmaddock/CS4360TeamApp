@@ -45,6 +45,10 @@ object DrawerManager {
                     context.startActivity(Intent(context, SettingsActivity::class.java))
                     true
                 }
+                R.id.nav_weather -> {
+                    context.startActivity(Intent(context, WeatherActivity::class.java))
+                    true
+                }
                 else -> false
             }
         }
@@ -65,6 +69,7 @@ object DrawerManager {
         menu.findItem(R.id.nav_notifications).isVisible = true
         menu.findItem(R.id.nav_take_survey).isVisible = true
         menu.findItem(R.id.nav_settings).isVisible = true
+        menu.findItem(R.id.nav_weather).isVisible = true
     }
 
     // Check if the timer is active or expired

@@ -191,4 +191,5 @@
     <string name="team_event_alert">Alerta de Evento del Equipo</string>
     <string name="upcoming_team_events">Próximos Eventos del Equipo</string>
     <string name="ms_parking_arena_access">Acceso al Estacionamiento y Arena de MSU</string> <!-- Spanish -->
+    <string name="weather_updates">Actualizaciones del clima</string>
 </resources>

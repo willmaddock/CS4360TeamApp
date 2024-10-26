@@ -191,4 +191,5 @@
     <string name="team_event_alert">团队活动提醒</string>
     <string name="upcoming_team_events">即将到来的团队活动</string>
     <string name="ms_parking_arena_access">MSU停车和场馆通行</string> <!-- Chinese -->
+    <string name="weather_updates">天气更新</string>
 </resources>
