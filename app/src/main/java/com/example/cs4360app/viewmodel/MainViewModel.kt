@@ -20,7 +20,7 @@ enum class STATE {
     FAILED
 }
 
-class MainViewModel @SuppressLint("StaticFieldLeak") constructor(private val context: Context) : ViewModel() {
+class MainViewModel @SuppressLint("StaticFieldLeak") constructor(context: Context) : ViewModel() {
     var state by mutableStateOf(STATE.LOADING)
     var weatherResponse: WeatherResult by mutableStateOf(WeatherResult())
     var forecastResponse: ForecastResult by mutableStateOf(ForecastResult())

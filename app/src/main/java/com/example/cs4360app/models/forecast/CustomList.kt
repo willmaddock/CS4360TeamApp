@@ -2,7 +2,6 @@ package com.example.cs4360app.models.forecast
 
 import com.example.cs4360app.models.weather.Clouds
 import com.example.cs4360app.models.weather.Main
-import com.example.cs4360app.models.weather.Snow
 import com.example.cs4360app.models.weather.Sys
 import com.example.cs4360app.models.weather.Weather
 import com.example.cs4360app.models.weather.Wind

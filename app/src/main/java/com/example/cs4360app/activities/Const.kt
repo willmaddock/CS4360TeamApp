@@ -3,6 +3,7 @@ package com.example.cs4360app.activities
 import android.content.Context
 import com.example.cs4360app.R
 
+@Suppress("ConstPropertyName")
 class Const {
     companion object {
         val permissions = arrayOf(
@@ -14,7 +15,6 @@ class Const {
             return context.getString(R.string.open_weather_map)
         }
 
-        const val colorBg1 = 0xff08203e
         const val colorBg2 = 0x4dff4dff
         const val colorBg3 = 0x00cc00
         const val cardColor = 0xFF333639

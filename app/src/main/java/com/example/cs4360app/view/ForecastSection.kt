@@ -52,7 +52,7 @@ fun ForecastSection(forecastResponse: ForecastResult) {
                             }
 
                             item.dt?.let { dateTime ->
-                                time = timestampToHumanDate(dateTime.toLong(), "EEE hh:mm a") ?: NA
+                                time = timestampToHumanDate(dateTime.toLong(), "EEE hh:mm a")
                             }
 
                             ForecastTitle(temp = temp, image = icon, time = time)

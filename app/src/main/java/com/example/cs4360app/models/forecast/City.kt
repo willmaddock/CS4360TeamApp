@@ -1,9 +1,6 @@
 package com.example.cs4360app.models.forecast
 
-import com.example.cs4360app.models.weather.Clouds
 import com.example.cs4360app.models.weather.Coord
-import com.example.cs4360app.models.weather.Snow
-import com.example.cs4360app.models.weather.Wind
 import com.google.gson.annotations.SerializedName
 
 data class City(

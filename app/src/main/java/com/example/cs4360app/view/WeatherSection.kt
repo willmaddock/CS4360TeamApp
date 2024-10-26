@@ -44,17 +44,17 @@ fun WeatherSection(weatherResponse: WeatherResult) {
         temp = NA
     }
 
-    var wind = ""
+    var wind: String
     weatherResponse.wind.let {
         wind = if (it == null) LOADING else "Wind: ${it.speed} mph"
     }
 
-    var clouds = ""
+    var clouds: String
     weatherResponse.clouds.let {
         clouds = if (it == null) LOADING else "Clouds: ${it.all}%"
     }
 
-    var snow = ""
+    var snow: String
     weatherResponse.snow.let {
         snow = if (it?.d1h == null) NA else "Snow: ${it.d1h} mm"
     }

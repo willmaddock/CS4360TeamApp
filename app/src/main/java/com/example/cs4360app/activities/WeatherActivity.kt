@@ -11,7 +11,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -20,7 +24,13 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -32,7 +42,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import com.example.cs4360app.R
 import com.example.cs4360app.activities.Const.Companion.colorBg2
 import com.example.cs4360app.activities.Const.Companion.colorBg3
 import com.example.cs4360app.activities.Const.Companion.permissions
@@ -43,8 +52,14 @@ import com.example.cs4360app.viewmodel.MainViewModel
 import com.example.cs4360app.viewmodel.MainViewModelFactory
 import com.example.cs4360app.viewmodel.STATE
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 
+@Suppress("DEPRECATION")
 class WeatherActivity : AppCompatActivity() {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
@@ -58,12 +73,12 @@ class WeatherActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        locationCallback?.let { fusedLocationProviderClient.removeLocationUpdates(it) }
+        locationCallback.let { fusedLocationProviderClient.removeLocationUpdates(it) }
     }
 
     @SuppressLint("MissingPermission")
     private fun startLocationUpdate() {
-        locationCallback?.let {
+        locationCallback.let {
             val locationRequest = LocationRequest.Builder(
                 Priority.PRIORITY_HIGH_ACCURACY, 100
             )
@@ -213,6 +228,6 @@ class WeatherActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        mainViewModel = ViewModelProvider(this, MainViewModelFactory(this)).get(MainViewModel::class.java)
+        mainViewModel = ViewModelProvider(this, MainViewModelFactory(this))[MainViewModel::class.java]
     }
 }
