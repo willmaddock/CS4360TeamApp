@@ -33,6 +33,11 @@
         tools:ignore="HardcodedText" /> <!-- Only for logged-in users -->
 
     <item
+        android:id="@+id/nav_weather"
+        android:title="@string/weather_updates"
+        tools:ignore="HardcodedText" />
+
+    <item
         android:id="@+id/nav_notifications"
         android:icon="@drawable/ic_notifications"
         android:title="@string/Notifications"

@@ -21,9 +21,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-
-        // Include the API key from gradle.properties for Google Maps
-        buildConfigField("String", "MAPS_API_KEY", "\"${project.findProperty("MAPS_API_KEY") ?: ""}\"")
     }
 
     buildTypes {
@@ -110,6 +107,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.coil.compose)
+    implementation(libs.fontawesomecompose)
+    implementation(libs.accompanist.systemuicontroller)
 }
 
 // Apply the Google services Gradle plugin
