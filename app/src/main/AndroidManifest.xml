@@ -112,11 +112,11 @@
             android:label="Parking Budget Simulator"
             android:theme="@style/Theme.CS4360App" />
 
-        <!-- New ParkingCostActivity -->
+        <!-- New TeamInfoActivity -->
         <activity
-            android:name=".activities.ParkingCostActivity"
+            android:name=".activities.TeamInfoActivity"
             android:exported="true"
-            android:label="Parking Cost"
+            android:label="AMP Team &amp; License"
             android:theme="@style/Theme.CS4360App" />
 
         <activity
@@ -129,6 +129,13 @@
         <activity
             android:name=".activities.WeatherActivity"
             android:exported="false" /> <!-- Default Theme -->
+
+        <!-- New ParkingCostActivity -->
+        <activity
+            android:name=".activities.ParkingCostActivity"
+            android:exported="true"
+            android:label="Parking Cost"
+            android:theme="@style/Theme.CS4360App" />
 
         <!-- Firebase Cloud Messaging Service -->
         <service

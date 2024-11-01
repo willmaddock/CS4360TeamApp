@@ -192,4 +192,15 @@
     <string name="upcoming_team_events">即将到来的团队活动</string>
     <string name="ms_parking_arena_access">MSU停车和场馆通行</string> <!-- Chinese -->
     <string name="weather_updates">天气更新</string>
+
+    <string name="amp_team_license">AMP团队与许可</string>
+    <string name="amp_project_team_amp_license">AMP项目团队与许可</string>
+    <string name="vision_statement">愿景声明</string>
+    <string name="our_vision_is_to_transform_the_parking_experience_for_students_staff_faculty_and_visitors_at_msu_denver_through_an_intuitive_efficient_and_comprehensive_mobile_solution_auraria_mobile_parking_amp_will_empower_users_to_seamlessly_navigate_and_manage_parking_on_the_auraria_campus_with_ease.">我们的愿景是通过直观、高效、全面的移动解决方案，改变学生、教职员工和访客在MSU丹佛的停车体验。Auraria移动停车（AMP）将使用户能够轻松导航和管理Auraria校园的停车场。</string>
+    <string name="team_members">团队成员</string>
+    <string name="team_members_details" tools:ignore="TypographyDashes">该项目是由MSU丹佛的高年级学生创建的，作为CS-4360-002课程在2024年秋季学期的提案。\n\nMichael Bates – 项目经理，负责协调团队并确保项目截止日期的达成。\n\nWilliam Maddock – 主要开发人员，监督技术开发和实施。\n\nAaron Nkouka – 基于功能的开发(FDD)，专注于关键功能的实施。\n\nSeth Jones – 基于功能的开发(FDD)，协助开发特定的应用程序功能。\n\nMilagros Hernandez-Vasquez – 基于功能的开发(FDD)，致力于应用程序的增强。\n\nSayizana Worku – 基于功能的开发(FDD)，支持功能的创建和完善。</string>
+    <string name="license">许可</string>
+    <string name="this_project_is_licensed_under_the_creative_commons_attribution_noncommercial_sharealike_4_0_international_license_cc_by_nc_sa_4_0">该项目根据Creative Commons署名-非商业性-相同方式共享4.0国际许可证(CC BY-NC-SA 4.0)获得许可。</string>
+    <string name="_2024_amp_team_https_creativecommons_org_licenses_by_nc_sa_4_0">© 2024 AMP团队 - [https://creativecommons.org/licenses/by-nc-sa/4.0/]</string>
+    <string name="acknowledge">确认</string>
 </resources>

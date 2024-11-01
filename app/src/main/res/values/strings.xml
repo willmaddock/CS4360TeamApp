@@ -192,4 +192,14 @@
     <string name="upcoming_team_events">Upcoming Team Events</string>
     <string name="ms_parking_arena_access">MSU Parking and Arena Access</string>
     <string name="weather_updates">Weather Updates</string>
+
+    <string name="amp_team_license">AMP Team &amp; License</string>
+    <string name="amp_project_team_amp_license">AMP Project Team &amp; License</string>
+    <string name="vision_statement">Vision Statement</string>
+    <string name="our_vision_is_to_transform_the_parking_experience_for_students_staff_faculty_and_visitors_at_msu_denver_through_an_intuitive_efficient_and_comprehensive_mobile_solution_auraria_mobile_parking_amp_will_empower_users_to_seamlessly_navigate_and_manage_parking_on_the_auraria_campus_with_ease.">Our vision is to transform the parking experience for students, staff, faculty, and visitors at MSU Denver through an intuitive, efficient, and comprehensive mobile solution. Auraria Mobile Parking (AMP) will empower users to seamlessly navigate and manage parking on the Auraria Campus with ease. </string>
+    <string name="team_members">Team Members</string>
+    <string name="team_members_details" tools:ignore="TypographyDashes">This project was created by seniors at MSU Denver as part of a proposal for CS-4360-002 during the Fall 2024 semester.\n\nMichael Bates – Project Manager, responsible for coordinating the team and ensuring project deadlines are met.\n\nWilliam Maddock – Lead Developer, overseeing technical development and implementation.\n\nAaron Nkouka – Feature-Driven Development (FDD), focused on key feature implementations.\n\nSeth Jones – Feature-Driven Development (FDD), assisting in developing specific app features.\n\nMilagros Hernandez-Vasquez – Feature-Driven Development (FDD), working on app enhancements.\n\nSayizana Worku – Feature-Driven Development (FDD), supporting feature creation and refinement.</string>
+    <string name="license">License</string>
+    <string name="this_project_is_licensed_under_the_creative_commons_attribution_noncommercial_sharealike_4_0_international_license_cc_by_nc_sa_4_0">This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).</string>
+    <string name="_2024_amp_team_https_creativecommons_org_licenses_by_nc_sa_4_0" tools:ignore="MissingTranslation">© 2024 Equipo AMP - [https://creativecommons.org/licenses/by-nc-sa/4.0/]</string>    <string name="acknowledge">Acknowledge</string>
 </resources>

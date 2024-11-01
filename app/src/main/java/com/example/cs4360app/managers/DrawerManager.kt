@@ -40,13 +40,16 @@ object DrawerManager {
                     context.startActivity(Intent(context, SurveyActivity::class.java))
                     true
                 }
-
                 R.id.nav_settings -> {
                     context.startActivity(Intent(context, SettingsActivity::class.java))
                     true
                 }
                 R.id.nav_weather -> {
                     context.startActivity(Intent(context, WeatherActivity::class.java))
+                    true
+                }
+                R.id.nav_team_license -> {
+                    context.startActivity(Intent(context, TeamInfoActivity::class.java))
                     true
                 }
                 else -> false
@@ -63,13 +66,14 @@ object DrawerManager {
         // Menu options visibility based on conditions
         menu.findItem(R.id.nav_parking_budget_simulator).isVisible = true // Always visible
         menu.findItem(R.id.nav_timer).isVisible = isTimerActive // Only show active timer
+        menu.findItem(R.id.nav_take_survey).isVisible = true
         menu.findItem(R.id.nav_chat).isVisible = true
         menu.findItem(R.id.nav_submit_petition).isVisible = true
         menu.findItem(R.id.nav_submit_review).isVisible = true
-        menu.findItem(R.id.nav_notifications).isVisible = true
-        menu.findItem(R.id.nav_take_survey).isVisible = true
-        menu.findItem(R.id.nav_settings).isVisible = true
         menu.findItem(R.id.nav_weather).isVisible = true
+        menu.findItem(R.id.nav_notifications).isVisible = true
+        menu.findItem(R.id.nav_settings).isVisible = true
+        menu.findItem(R.id.nav_team_license).isVisible = true
     }
 
     // Check if the timer is active or expired

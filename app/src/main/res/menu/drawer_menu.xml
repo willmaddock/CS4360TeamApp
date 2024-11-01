@@ -48,4 +48,10 @@
         android:id="@+id/nav_settings"
         android:title="@string/settings" /> <!-- Accessible for all users -->
 
+    <!-- New Menu Item for AMP Project Team & License -->
+    <item
+        android:id="@+id/nav_team_license"
+        android:title="@string/amp_team_license"
+        tools:ignore="HardcodedText" /> <!-- Accessible for all users -->
+
 </menu>
