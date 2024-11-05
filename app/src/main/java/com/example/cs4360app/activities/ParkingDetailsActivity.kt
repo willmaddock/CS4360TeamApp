@@ -26,15 +26,24 @@ class ParkingDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     // Parking lots with their coordinates
     private val parkingLotCoordinates = mapOf(
-        "Dogwood Parking Lot" to LatLng(39.745947, -105.004724),
-        "Tivoli Parking Lot" to LatLng(39.745602, -105.002839),
-        "Cherry Parking Lot" to LatLng(39.746238, -105.001713),
-        "Spruce Parking Lot" to LatLng(39.746874, -105.003241),
-        "Fir Parking Lot" to LatLng(39.747397, -105.002982),
-        "Nutmeg Lot" to LatLng(39.748142, -105.003728),
-        "Boulder Creek" to LatLng(39.748861, -105.004211),
-        "Elm Parking Lot" to LatLng(39.749276, -105.005032),
-        "7th Street Garage" to LatLng(39.749789, -105.005523)
+        "Dogwood Parking Lot" to LatLng(39.74396, -105.00869),
+        "Tivoli Parking Lot" to LatLng(39.7459, -105.00609),
+        "Cherry Parking Lot" to LatLng(39.74378, -105.01021),
+        "Spruce Parking Lot" to LatLng(39.74407, -105.00842),
+        "Fir Parking Lot" to LatLng(39.74083, -105.00909),
+        "Nutmeg Lot" to LatLng(39.74227, -105.00056),
+        "Boulder Creek" to LatLng(39.740945, -105.003022),
+        "Elm Parking Lot" to LatLng(39.74255, -105.0106),
+        "7th Street Garage" to LatLng(39.74312, -105.00587),
+        "5th Street Garage" to LatLng(39.744167, -105.009444),
+        "Holly Lot" to LatLng(39.744722, -105.007222),
+        "Juniper Lot" to LatLng(39.740833, -105.005833),
+        "Maple Lot" to LatLng(39.743333, -105.008333),
+        "Oak Lot" to LatLng(39.740556, -105.007222),
+        "Aspen Lot" to LatLng(39.742222, -105.006944),
+        "Walnut Lot" to LatLng(39.743888, -105.008333),
+        "Beech Lot" to LatLng(39.740833, -105.005833),
+        "Birch Lot" to LatLng(39.740000, -105.006000)
     )
 
     // Map to hold proximity distances
