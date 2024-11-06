@@ -5,7 +5,7 @@ The CS4360 Team App is designed to provide real-time parking availability, event
 
 ## App Architecture
 
-The app follows a **client-server architecture**. The mobile app is the client that interacts with various external services and APIs to retrieve and display real-time data such as parking availability, event tickets, weather conditions, and traffic alerts.
+The app follows a client-server architecture, where the mobile app serves as the client, interacting with various external services and APIs to retrieve and display real-time data such as parking availability, event tickets, and weather conditions.
 
 ### Key Components:
 - **Client (Mobile App):**
@@ -21,16 +21,16 @@ The app follows a **client-server architecture**. The mobile app is the client t
 
 ## Data Models
 
-### 1. **Parking Spot Model:**
+### 1. **Parking Lot Model:**
 - **Attributes:**
-    - `id`: Unique identifier for the parking spot.
-    - `location`: Geographical coordinates of the spot.
+    - `id`: Unique identifier for the parking lots and garages.
+    - `location`: Geographical coordinates of the parking lots and garages.
     - `status`: Availability status (e.g., "Available", "Occupied").
     - `cost`: Cost of parking at the spot.
     - `event_id`: Reference to an event for special pricing or availability.
 
 - **Functions:**
-    - Fetch available parking spots using real-time location data.
+    - Fetch available parking spots using historical data and AI simulations to predict real-time availability.
     - Filter parking spots by cost, availability, and proximity to the event.
 
 ### 2. **Event Model:**
@@ -43,8 +43,8 @@ The app follows a **client-server architecture**. The mobile app is the client t
 
 - **Functions:**
     - Display events available near the user.
-    - Link events to relevant parking spots.
-    - Provide purchasing options via the integrated Ticketmaster API.
+    - Link events to relevant parking spots in parking lots or parking garages.
+    - Provide purchasing options via the integrated Ticketmaster API (optional).
 
 ### 3. **Weather Model:**
 - **Attributes:**
@@ -57,25 +57,17 @@ The app follows a **client-server architecture**. The mobile app is the client t
     - Display relevant weather alerts (e.g., severe weather warnings) to help users plan their parking accordingly.
 
 ### 4. **User Model:**
+
 - **Attributes:**
-    - `user_id`: Unique identifier for each user.
-    - `email`: User’s email address.
-    - `preferred_language`: Language preferences for the app interface.
-    - `saved_parking_spots`: A list of parking spots saved by the user.
-    - `ticket_history`: History of the user’s purchased event tickets.
+  - `preferred_language`: Specifies the language preference for the app interface.
 
 - **Functions:**
-    - User authentication and session management via Firebase Authentication.
-    - Store user preferences, such as language settings and favorite parking spots.
-
-## Role Permissions
-
-The app has several roles with varying access levels:
-
-- **Admin:** Can manage user accounts, including adding new users and modifying their roles.
-- **Logistics Manager:** Can approve or deny parking spot requests for users, monitor system health, and review usage statistics.
-- **Shipping Agent:** Can request access to restricted parking spots and view event-related parking details.
-- **General User:** Can view real-time parking availability, browse event tickets, and access weather updates.
+  - View the cost of parking at various lots or garages.
+  - Check the availability of parking spaces at selected lots or garages.
+  - View detailed information about parking lots or garages, including addresses and ratings.
+  - Apply proximity filters to search for parking options near the user's current location.
+  - View upcoming Denver Nuggets events.
+  - Modify the language preference for the app interface.
 
 ## Key External Integrations
 
