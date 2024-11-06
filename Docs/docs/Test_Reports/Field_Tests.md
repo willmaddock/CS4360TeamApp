@@ -1,7 +1,7 @@
 # Field Testing Report
 
 ## Overview
-Field testing for the CS4360 Android app will be in progress on November 7, 2024. The results of these tests will be reviewed and integrated into the project once they are available, by the end of the day on November 7.
+Field testing for the CS4360 Android app will be in progress on November 7, 2024. The results of these tests will be reviewed and integrated into the project once they are available, by the end of the day on November 12.
 
 ## Testing Objectives
 - To validate the accuracy of proximity-based parking lot searches.
