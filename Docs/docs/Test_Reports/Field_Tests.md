@@ -10,7 +10,7 @@ Field testing for the CS4360 Android app will be in progress on November 7, 2024
 
 ## Expected Timeline
 - **November 7, 2024:** Field testing in progress.
-- **November 7, 2024 (end of day):** Wait for and evaluate test results.
+- **November 12, 2024 (end of day):** Wait for and evaluate test results.
 
 ## Next Steps
 - Review the results from the field tests.
