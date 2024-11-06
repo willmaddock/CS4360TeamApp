@@ -15,6 +15,7 @@ This project is developed by the CS4360 team to demonstrate [brief description o
 - [Project Structure](#project-structure)
 - [API Reference](#api-reference)
 - [Contributing](#contributing)
+- [Contents](Docs/Contents.md)  <!-- Link to Docs/Contents.md -->
 
 ## Setup Instructions
 For detailed setup instructions, see **[CS4360 Team App Setup Instructions](Docs/docs/CS4360_Setup_Instructions.md)**.
