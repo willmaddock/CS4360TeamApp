@@ -1,114 +1,100 @@
 # CS4360 Team App - Technical Documentation
 
 ## Overview
-The CS4360 Team App is designed to provide real-time parking availability, event planning, ticketing, weather and traffic integration, and multi-language support. This section covers the architecture, system design, and key components involved in the app's development.
+The CS4360 Team App is a comprehensive mobile solution providing real-time parking availability, event planning, ticketing, weather and traffic integration, and multi-language support. This documentation covers the app's architecture, system design, and key components in its development.
 
 ## App Architecture
 
-The app follows a client-server architecture, where the mobile app serves as the client, interacting with various external services and APIs to retrieve and display real-time data such as parking availability, event tickets, and weather conditions.
+The app uses a client-server model, where the mobile app acts as the client, interacting with various external services and APIs to display real-time data, including parking availability, event tickets, and weather conditions.
 
 ### Key Components:
 - **Client (Mobile App):**
-    - Developed in **Android Studio** using Java/Kotlin.
-    - Integrated with **Firebase** for user authentication and data storage.
-    - Uses various external APIs such as **Google Maps**, **Ticketmaster**, **OpenWeatherMap**, and custom predictive models for parking availability.
+  - Built in **Android Studio** using Java/Kotlin.
+  - Integrated with **Firebase** for user authentication and data storage.
+  - Utilizes APIs like **Google Maps**, **Ticketmaster**, **OpenWeatherMap**, and custom predictive models for parking availability.
 
 - **Backend Services:**
-    - **Firebase:** Used for user authentication, real-time database storage, and cloud functions.
-    - **Google Maps API:** Provides location data for parking availability and directions.
-    - **OpenWeatherMap API:** Supplies weather data for weather-related alerts.
-    - **Ticketmaster API:** Allows users to view and purchase event tickets.
+  - **Firebase:** Manages user authentication, real-time database storage, and cloud functions.
+  - **Google Maps API:** Provides location data and directions for parking.
+  - **OpenWeatherMap API:** Supplies weather data for user alerts.
+  - **Ticketmaster API:** Displays event tickets and supports purchasing.
 
 ## Data Models
 
-### 1. **Parking Lot Model:**
+### 1. **Parking Lot Model**
 - **Attributes:**
-    - `id`: Unique identifier for the parking lots and garages.
-    - `location`: Geographical coordinates of the parking lots and garages.
-    - `status`: Availability status (e.g., "Available", "Occupied").
-    - `cost`: Cost of parking at the spot.
-    - `event_id`: Reference to an event for special pricing or availability.
+  - `id`: Unique identifier for each parking lot or garage.
+  - `location`: Coordinates of the parking location.
+  - `status`: Availability status (e.g., "Available", "Occupied").
+  - `cost`: Parking cost.
+  - `event_id`: Event reference for special pricing or availability.
 
 - **Functions:**
-    - Fetch available parking spots using historical data and AI simulations to predict real-time availability.
-    - Filter parking spots by cost, availability, and proximity to the event.
+  - Predict real-time parking availability using historical data and AI.
+  - Filter parking options by cost, availability, and proximity to events.
 
-### 2. **Event Model:**
+### 2. **Event Model**
 - **Attributes:**
-    - `event_id`: Unique identifier for the event.
-    - `name`: Name of the event.
-    - `location`: Location where the event is taking place (can be mapped using Google Maps API).
-    - `date_time`: Date and time of the event.
-    - `ticket_price`: Price of the tickets for the event.
+  - `event_id`: Unique event identifier.
+  - `name`: Event name.
+  - `location`: Event location, mapped with Google Maps API.
+  - `date_time`: Event date and time.
+  - `ticket_price`: Event ticket price.
 
 - **Functions:**
-    - Display events available near the user.
-    - Link events to relevant parking spots in parking lots or parking garages.
-    - Provide purchasing options via the integrated Ticketmaster API (optional).
+  - Display nearby events.
+  - Link events to relevant parking spots.
+  - Integrate Ticketmaster API for purchasing tickets.
 
-### 3. **Weather Model:**
+### 3. **Weather Model**
 - **Attributes:**
-    - `location`: Location associated with the weather data.
-    - `temperature`: Current temperature at the location.
-    - `condition`: Weather condition (e.g., "Rain", "Snow").
+  - `location`: Location for the weather data.
+  - `temperature`: Current temperature.
+  - `condition`: Weather condition (e.g., "Rain", "Snow").
 
 - **Functions:**
-    - Fetch real-time weather updates from the OpenWeatherMap API.
-    - Display relevant weather alerts (e.g., severe weather warnings) to help users plan their parking accordingly.
+  - Retrieve real-time weather data from OpenWeatherMap API.
+  - Display weather alerts to guide user parking plans.
 
-### 4. **User Model:**
+### 4. **User Model**
 
 - **Attributes:**
-  - `preferred_language`: Specifies the language preference for the app interface.
+  - `preferred_language`: User's language preference.
 
 - **Functions:**
-  - View the cost of parking at various lots or garages.
-  - Check the availability of parking spaces at selected lots or garages.
-  - View detailed information about parking lots or garages, including addresses and ratings.
-  - Apply proximity filters to search for parking options near the user's current location.
-  - View upcoming Denver Nuggets events.
-  - Modify the language preference for the app interface.
+  - View costs and availability for various parking lots.
+  - Get event details and set proximity filters for parking searches.
+  - View Denver Nuggets events and modify language settings.
 
 ## Key External Integrations
 
-1. **Google Maps API:**
-    - Provides real-time location data for parking spots and event venues.
-    - Displays directions and real-time traffic updates to users.
-
-2. **Ticketmaster API:**
-    - Allows the app to display and sell tickets for local events.
-    - Supports integration for users to purchase tickets directly within the app.
-
-3. **OpenWeatherMap API:**
-    - Supplies up-to-date weather forecasts.
-    - Enables weather-related alerts and integration into the app's event and parking planning tools.
-
-4. **Firebase:**
-    - Handles user authentication, data storage, and real-time updates.
-    - Supports user account management and data persistence.
+1. **Google Maps API:** For real-time location tracking, parking maps, and directions.
+2. **Ticketmaster API:** Displays local event tickets and allows in-app purchases.
+3. **OpenWeatherMap API:** Provides weather forecasts and alerts.
+4. **Firebase:** Manages authentication, data storage, and notifications.
 
 ## Data Flow
 
-1. The user opens the app and the **location** is determined using **Google Maps** API.
-2. The app queries the **parking model** to retrieve available spots near the user’s location.
-3. The app checks for any events in the area by querying the **event model**.
-4. It integrates the **OpenWeatherMap API** to display real-time weather information.
-5. The app allows users to filter parking spots by availability, price, and event-related costs.
-6. For event tickets, the app interacts with the **Ticketmaster API** to fetch available tickets for local events and displays them for purchase.
+1. The app determines the user's **location** using **Google Maps** API.
+2. Queries the **Parking Lot Model** for available spots near the user.
+3. Checks for events in the area via the **Event Model**.
+4. Fetches weather updates using the **OpenWeatherMap API**.
+5. Filters parking spots by availability, cost, and event-based pricing.
+6. Integrates **Ticketmaster API** for viewing and purchasing event tickets.
 
 ## Key Technologies
 
-- **Android Studio**: Main development environment for building the app.
-- **Java/Kotlin**: Primary programming languages for Android development.
-- **Firebase**: Used for real-time data storage, authentication, and notifications.
-- **Google Maps API**: For real-time location tracking and parking spot mapping.
-- **OpenWeatherMap API**: To fetch weather data for better parking and event planning.
-- **Ticketmaster API**: To integrate ticket purchasing and event management functionalities.
+- **Android Studio**: Development environment.
+- **Java/Kotlin**: Programming languages.
+- **Firebase**: Real-time data and notifications.
+- **Google Maps API**: Location tracking and mapping.
+- **OpenWeatherMap API**: Weather data.
+- **Ticketmaster API**: Ticket purchasing and event management.
 
 ## System Design
 
-The system is designed for scalability with a focus on real-time updates. Firebase ensures seamless synchronization of user data across devices, while the integration with external APIs provides the necessary data to ensure the app’s core features function correctly.
+The app is designed for scalability and real-time updates. Firebase ensures seamless data synchronization, while external APIs support core app functionalities.
 
 ### Future Improvements:
-- **Improved AI Models** for better parking availability predictions.
-- **Additional APIs** for local events or specific campus data integration.
+- **Enhanced AI Models** for better parking availability predictions.
+- **Additional APIs** for local events and campus-specific data.
