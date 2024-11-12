@@ -16,6 +16,12 @@
         android:id="@+id/nav_take_survey"
         android:title="@string/take_a_survey" /> <!-- Accessible for all users -->
 
+    <!-- New "Garages & Lots" Item -->
+    <item
+        android:id="@+id/nav_garages_and_lots"
+        android:title="@string/garages_and_lots"
+        tools:ignore="HardcodedText" />
+
     <!-- Menu items for logged-in users -->
     <item
         android:id="@+id/nav_chat"

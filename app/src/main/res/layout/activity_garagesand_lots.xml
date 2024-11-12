@@ -1,0 +1,47 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title_garages_and_lots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Garages and Lots"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+
+    <!-- Garages Section -->
+    <TextView
+        android:id="@+id/subtitle_garages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Garages"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Expandable ListView for Garages -->
+    <ExpandableListView
+        android:id="@+id/expandable_list_garages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Parking Lots Section -->
+    <TextView
+        android:id="@+id/subtitle_parking_lots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Parking Lots"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Expandable ListView for Parking Lots -->
+    <ExpandableListView
+        android:id="@+id/expandable_list_parking_lots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

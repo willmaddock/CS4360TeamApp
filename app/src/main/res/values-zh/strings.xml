@@ -202,4 +202,5 @@
     <string name="license">许可</string>
     <string name="this_project_is_licensed_under_the_creative_commons_attribution_noncommercial_sharealike_4_0_international_license_cc_by_nc_sa_4_0">该项目根据Creative Commons署名-非商业性-相同方式共享4.0国际许可证(CC BY-NC-SA 4.0)获得许可。</string>
     <string name="_2024_amp_team_https_creativecommons_org_licenses_by_nc_sa_4_0">© 2024 AMP团队 - [https://creativecommons.org/licenses/by-nc-sa/4.0/]</string>    <string name="acknowledge">确认</string>
+    <string name="garages_and_lots">车库和停车场</string>
 </resources>

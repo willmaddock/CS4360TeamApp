@@ -24,5 +24,6 @@
         <item name="android:textSize">17sp</item> <!-- Adjust size as needed -->
     </style>
 
+    <string name="garages_and_lots">Garages and Lots</string>
     <!-- Custom style for NavigationView -->
 </resources>

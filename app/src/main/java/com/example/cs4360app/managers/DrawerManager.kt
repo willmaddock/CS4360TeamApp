@@ -52,6 +52,10 @@ object DrawerManager {
                     context.startActivity(Intent(context, TeamInfoActivity::class.java))
                     true
                 }
+                R.id.nav_garages_and_lots -> {
+                    context.startActivity(Intent(context, GaragesandLotsActivity::class.java))
+                    true
+                }
                 else -> false
             }
         }

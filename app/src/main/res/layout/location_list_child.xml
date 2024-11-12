@@ -1,0 +1,34 @@
+<!-- res/layout/location_list_child.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Banner Image -->
+    <ImageView
+        android:id="@+id/banner_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true" />
+
+    <!-- Cost Before 5pm -->
+    <TextView
+        android:id="@+id/cost_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cost before 5pm: $8.00"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Recommendations -->
+    <TextView
+        android:id="@+id/recommendations_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recommendations: ..."
+        android:textSize="16sp"
+        android:layout_marginTop="4dp" />
+</LinearLayout>
