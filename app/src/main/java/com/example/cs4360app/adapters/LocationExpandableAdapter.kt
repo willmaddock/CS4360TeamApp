@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.cs4360app.R
 import com.example.cs4360app.activities.LocationData
+import androidx.core.text.HtmlCompat
+
 
 class LocationExpandableAdapter(
     private val context: Context,
@@ -74,15 +76,18 @@ class LocationExpandableAdapter(
         // Accessing the data for the specific location
         val location = locationData[groupPosition]
 
-        // Set banner image, cost, and recommendations
+        // Set banner image, cost, address, and recommendations
         val bannerImage: ImageView = view!!.findViewById(R.id.banner_image)
         val costText: TextView = view.findViewById(R.id.cost_text)
+        val addressText: TextView = view.findViewById(R.id.address_text)
         val recommendationsText: TextView = view.findViewById(R.id.recommendations_text)
 
         bannerImage.setImageResource(location.imageResourceId)
-        costText.text = "Cost before 5pm: ${location.costBefore5pm}"
-        recommendationsText.text = "Recommendations: ${location.recommendations}"
+        costText.text = HtmlCompat.fromHtml("<b>Cost before 5pm:</b> ${location.costBefore5pm}", HtmlCompat.FROM_HTML_MODE_LEGACY)
+        addressText.text = HtmlCompat.fromHtml("<b>Address:</b> ${location.address}", HtmlCompat.FROM_HTML_MODE_LEGACY)
+        recommendationsText.text = HtmlCompat.fromHtml("<b>Recommendations:</b> ${location.recommendations}", HtmlCompat.FROM_HTML_MODE_LEGACY)
 
         return view
     }
+
 }
