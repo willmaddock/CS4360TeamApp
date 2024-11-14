@@ -6,8 +6,12 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.cs4360app.R
@@ -70,6 +74,31 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         DrawerManager.setupDrawer(this, navigationView)  // Managing drawer setup via DrawerManager
         findViewById<Button>(R.id.filter_button).setOnClickListener {
             FilterManager.showFilterDialog(this, mMap)  // Handling filters using FilterManager
+        }
+
+        val mapTypeSpinner: Spinner = findViewById(R.id.map_type_spinner)
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.map_types,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            mapTypeSpinner.adapter = adapter
+        }
+
+        mapTypeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                when (position) {
+                    0 -> mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+                    1 -> mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+                    2 -> mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
+                    3 -> mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Do nothing
+            }
         }
     }
 

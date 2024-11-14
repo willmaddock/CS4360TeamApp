@@ -56,16 +56,31 @@
                 tools:ignore="ButtonStyle" />
 
             <!-- Filter Button -->
+
             <Button
                 android:id="@+id/filter_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorAccent"
                 android:text="@string/filter"
                 android:textSize="12sp"
-                android:backgroundTint="@color/colorAccent"
                 tools:ignore="ButtonStyle" />
+
+            <Spinner
+                android:id="@+id/map_type_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@color/colorAccent"
+                android:entries="@array/map_types"
+                android:text="Choose Map Type:"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </LinearLayout>
 
@@ -92,6 +107,7 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="603dp"
             tools:ignore="ContentDescription,MissingConstraints" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
