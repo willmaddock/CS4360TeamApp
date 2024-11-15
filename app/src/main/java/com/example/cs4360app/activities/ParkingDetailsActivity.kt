@@ -26,24 +26,24 @@ class ParkingDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     // Parking lots with their coordinates
     private val parkingLotCoordinates = mapOf(
-        "Dogwood Parking Lot" to LatLng(39.74396, -105.00869),
-        "Tivoli Parking Lot" to LatLng(39.7459, -105.00609),
-        "Cherry Parking Lot" to LatLng(39.74378, -105.01021),
-        "Spruce Parking Lot" to LatLng(39.74407, -105.00842),
-        "Fir Parking Lot" to LatLng(39.74083, -105.00909),
-        "Nutmeg Lot" to LatLng(39.74227, -105.00056),
-        "Boulder Creek" to LatLng(39.740945, -105.003022),
-        "Elm Parking Lot" to LatLng(39.74255, -105.0106),
-        "7th Street Garage" to LatLng(39.74312, -105.00587),
-        "5th Street Garage" to LatLng(39.744167, -105.009444),
-        "Holly Lot" to LatLng(39.744722, -105.007222),
-        "Juniper Lot" to LatLng(39.740833, -105.005833),
-        "Maple Lot" to LatLng(39.743333, -105.008333),
-        "Oak Lot" to LatLng(39.740556, -105.007222),
-        "Aspen Lot" to LatLng(39.742222, -105.006944),
-        "Walnut Lot" to LatLng(39.743888, -105.008333),
-        "Beech Lot" to LatLng(39.740833, -105.005833),
-        "Birch Lot" to LatLng(39.740000, -105.006000)
+        "Dogwood Parking Lot" to LatLng(39.744562552494635, -105.0083253825282),
+        "Tivoli Parking Lot" to LatLng(39.74641815233135, -105.0061195427284),
+        "Cherry Parking Lot" to LatLng(39.74411512001208, -105.00958392912607),
+        "Spruce Parking Lot" to LatLng(39.74461804779121, -105.00698112842873),
+        "Fir Parking Lot" to LatLng(39.74119220167536, -105.0087527236546),
+        "Nutmeg Lot" to LatLng(39.74226310246321, -105.00090275359969),
+        "Boulder Creek" to LatLng(39.74118605149313, -105.00285485547928),
+        "Elm Parking Lot" to LatLng(39.742554638969565, -105.00940650343364),
+        "7th Street Garage" to LatLng(39.7434473946466, -105.00752457926319),
+        "5th Street Garage" to LatLng(39.74301082876547, -105.01033151701921),
+        "Holly Lot" to LatLng(39.74220914411681, -105.00579575657247),
+        "Juniper Lot" to LatLng(39.74077187408226, -105.00622955600369),
+        "Maple Lot" to LatLng(39.74191482504014, -105.00057102460512),
+        "Oak Lot" to LatLng(39.74239064023424, -105.0012472414017),
+        "Aspen Lot" to LatLng(39.742527121045995, -105.01097830588711),
+        "Walnut Lot" to LatLng(39.74245354173831, -105.01186504301093),
+        "Beech Lot" to LatLng(39.74101837825164, -105.01001395345327),
+        "Birch Lot" to LatLng(39.74101837825164, -105.01001395345327)
     )
 
     // Map to hold proximity distances

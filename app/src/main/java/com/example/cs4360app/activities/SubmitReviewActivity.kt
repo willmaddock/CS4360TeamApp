@@ -59,22 +59,22 @@ class SubmitReviewActivity : AppCompatActivity() {
         parkingLots = listOf(
             ParkingLot("1", "Dogwood Parking Lot", 8.00, 4.5f, MSUDCampusLocation.DOGWOOD_PARKING_LOT, true, 90, 100, "7th St & Walnut Auraria Denver, CO 80204"),
             ParkingLot("2", "Tivoli Parking Garage", 8.00, 4.0f, MSUDCampusLocation.TIVOLI_PARKING_GARAGE, true, 30, 200, "901 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("3", "Cherry Parking Lot", 8.00, 3.5f, MSUDCampusLocation.CHERRY_PARKING_LOT, true, 75, 150, "605 Walnut St Auraria Denver, CO 80204"),
+            ParkingLot("3", "Cherry Parking Lot", 6.50, 3.5f, MSUDCampusLocation.CHERRY_PARKING_LOT, true, 75, 150, "605 Walnut St Auraria Denver, CO 80204"),
             ParkingLot("4", "Spruce Parking Lot", 8.00, 3.0f, MSUDCampusLocation.SPRUCE_PARKING_LOT, true, 50, 300, "800 Walnut St Auraria Denver, CO 80204"),
-            ParkingLot("5", "Fir Parking Lot", 8.00, 2.5f, MSUDCampusLocation.FIR_PARKING_LOT, true, 10, 400, "555 Curtis St Auraria Denver, CO 80204"),
+            ParkingLot("5", "Fir Parking Lot", 6.50, 2.5f, MSUDCampusLocation.FIR_PARKING_LOT, true, 10, 400, "555 Curtis St Auraria Denver, CO 80204"),
             ParkingLot("6", "Nutmeg Lot", 8.00, 4.0f, MSUDCampusLocation.NUTMEG_LOT, true, 70, 250, "1155 St Francis Way Northwestern Denver, CO 80204"),
-            ParkingLot("7", "Boulder Creek", 8.00, 3.8f, MSUDCampusLocation.BOULDER_CREEK, true, 40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
-            ParkingLot("8", "Elm Parking Lot", 8.00, 3.9f, MSUDCampusLocation.ELM_PARKING_LOT, true, 55, 180, "1301 5th St Auraria Denver, CO 80204"),
+            ParkingLot("7", "Boulder Creek", 2.00, 3.8f, MSUDCampusLocation.BOULDER_CREEK, true, 40, 120, "900 10th St Plaza Auraria Denver, CO 80204"),
+            ParkingLot("8", "Elm Parking Lot", 6.50, 3.9f, MSUDCampusLocation.ELM_PARKING_LOT, true, 55, 180, "1301 5th St Auraria Denver, CO 80204"),
             ParkingLot("9", "7th Street Garage", 8.00, 4.1f, MSUDCampusLocation.SEVENTH_LOT, true, 65, 220, "777 Lawrence Way Auraria Denver, CO 80204"),
-            ParkingLot("10", "5th Street Garage", 8.00, 4.1f, MSUDCampusLocation.FIFTH_STREET_GARAGE, true, 65, 220, "5th St Garage Auraria Denver, CO 80204"),
+            ParkingLot("10", "5th Street Garage", 6.50, 4.1f, MSUDCampusLocation.FIFTH_STREET_GARAGE, true, 65, 220, "5th St Garage Auraria Denver, CO 80204"),
             ParkingLot("11", "Holly Lot", 8.00, 3.9f, MSUDCampusLocation.HOLLY_LOT, true, 70, 180, "Holly Lot Auraria Denver, CO 80204"),
-            ParkingLot("12", "Juniper Lot", 8.00, 3.8f, MSUDCampusLocation.JUNIPER_LOT, true, 75, 150, "Juniper Lot Auraria Denver, CO 80204"),
+            ParkingLot("12", "Juniper Lot", 6.50, 3.8f, MSUDCampusLocation.JUNIPER_LOT, true, 75, 150, "Juniper Lot Auraria Denver, CO 80204"),
             ParkingLot("13", "Maple Lot", 8.00, 3.7f, MSUDCampusLocation.MAPLE_LOT, true, 80, 140, "Maple Lot Auraria Denver, CO 80204"),
             ParkingLot("14", "Oak Lot", 8.00, 3.6f, MSUDCampusLocation.OAK_LOT, true, 60, 130, "Oak Lot Auraria Denver, CO 80204"),
-            ParkingLot("15", "Aspen Lot", 8.00, 4.0f, MSUDCampusLocation.ASPEN_LOT, true, 85, 240, "Aspen Lot Auraria Denver, CO 80204"),
-            ParkingLot("16", "Walnut Lot", 8.00, 4.2f, MSUDCampusLocation.WALNUT_LOT, true, 40, 160, "Walnut Lot Auraria Denver, CO 80204"),
-            ParkingLot("17", "Beech Lot", 8.00, 3.5f, MSUDCampusLocation.BEECH_LOT, true, 50, 190, "Beech Lot Auraria Denver, CO 80204"),
-            ParkingLot("18", "Birch Lot", 8.00, 3.6f, MSUDCampusLocation.BIRCH_LOT, true, 55, 170, "Birch Lot Auraria Denver, CO 80204")
+            ParkingLot("15", "Aspen Lot", 5.00, 4.0f, MSUDCampusLocation.ASPEN_LOT, true, 85, 240, "Aspen Lot Auraria Denver, CO 80204"),
+            ParkingLot("16", "Walnut Lot", 5.00, 4.2f, MSUDCampusLocation.WALNUT_LOT, true, 40, 160, "Walnut Lot Auraria Denver, CO 80204"),
+            ParkingLot("17", "Beech Lot", 5.00, 3.5f, MSUDCampusLocation.BEECH_LOT, true, 50, 190, "Beech Lot Auraria Denver, CO 80204"),
+            ParkingLot("18", "Birch Lot", 5.00, 3.6f, MSUDCampusLocation.BIRCH_LOT, true, 55, 170, "Birch Lot Auraria Denver, CO 80204")
         )
 
         // Setup parking lot spinner
