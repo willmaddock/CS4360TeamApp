@@ -31,6 +31,7 @@ As AMP continues its journey, its potential to evolve into a global parking mana
 - [Contributing](#contributing)
 - [License](#license)
 - [AMP’s Vision](#amps-vision-transforming-the-parking-experience-beyond-msu-denver)
+- [Contents](Docs/Contents.md)
 
 ## Setup Instructions
 For detailed setup instructions, see **[CS4360 Team App Setup Instructions](Docs/docs/CS4360_Setup_Instructions.md)**.
