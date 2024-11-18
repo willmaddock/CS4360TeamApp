@@ -14,7 +14,8 @@
         android:text="Garages and Lots"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textColor="@android:color/white" />
 
     <!-- Garages Section -->
     <TextView
@@ -23,13 +24,14 @@
         android:layout_height="wrap_content"
         android:text="Garages"
         android:textSize="20sp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white" />
 
     <!-- Expandable ListView for Garages -->
     <ExpandableListView
         android:id="@+id/expandable_list_garages"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <!-- Parking Lots Section -->
     <TextView
@@ -38,11 +40,12 @@
         android:layout_height="wrap_content"
         android:text="Parking Lots"
         android:textSize="20sp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white" />
 
     <!-- Expandable ListView for Parking Lots -->
     <ExpandableListView
         android:id="@+id/expandable_list_parking_lots"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>

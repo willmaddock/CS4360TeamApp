@@ -42,6 +42,7 @@
                 android:layout_weight="1"
                 android:text="@string/zoom_in"
                 android:textSize="12sp"
+                android:layout_gravity="center"
                 tools:ignore="ButtonStyle" />
 
             <!-- Zoom Out Button -->
@@ -53,20 +54,22 @@
                 android:layout_marginStart="8dp"
                 android:text="@string/zoom_out"
                 android:textSize="12sp"
+                android:layout_gravity="center"
                 tools:ignore="ButtonStyle" />
 
             <!-- Filter Button -->
-
             <Button
                 android:id="@+id/filter_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_weight="1"
+                android:layout_marginStart="8dp"
                 android:backgroundTint="@color/colorAccent"
                 android:text="@string/filter"
                 android:textSize="12sp"
+                android:layout_gravity="center"
                 tools:ignore="ButtonStyle" />
+
 
             <Spinner
                 android:id="@+id/map_type_spinner"

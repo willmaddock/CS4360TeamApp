@@ -12,5 +12,6 @@
         android:layout_height="wrap_content"
         android:text="Location Name"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@android:color/white" />
 </LinearLayout>
