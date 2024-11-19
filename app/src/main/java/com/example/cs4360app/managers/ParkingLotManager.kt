@@ -114,8 +114,8 @@ object ParkingLotManager {
             MSUDCampusLocation.OAK_LOT -> LatLng(39.74239064023424, -105.0012472414017)
             MSUDCampusLocation.ASPEN_LOT -> LatLng(39.742527121045995, -105.01097830588711)
             MSUDCampusLocation.WALNUT_LOT -> LatLng(39.74245354173831, -105.01186504301093)
-            MSUDCampusLocation.BEECH_LOT -> LatLng(39.74101837825164, -105.01001395345327)
-            MSUDCampusLocation.BIRCH_LOT -> LatLng(39.74101837825164, -105.01001395345327)
+            MSUDCampusLocation.BEECH_LOT -> LatLng(39.740998809333234, -105.01002975687958)
+            MSUDCampusLocation.BIRCH_LOT -> LatLng(39.74014093316553, -105.00923851541998)
             else -> null
         }
     }
