@@ -1,4 +1,4 @@
-# CS4360 Team App
+# Auraria Mobile Parking (AMP)
 
 ## Overview
 This project is developed by the CS4360 team at MSU Denver. It demonstrates a mobile app designed to optimize parking experiences for users by offering features such as real-time parking availability, cost-effective planning tools, and integration with multiple APIs for a seamless user experience.
